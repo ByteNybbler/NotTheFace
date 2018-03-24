@@ -18,16 +18,14 @@ public class UIMenuInput : MonoBehaviour, IPlayable
 
     private void Start()
     {
-        timerChangeItemOnKeyHold = new Timer(secondsBetweenItemChangeOnKeyHold, false, false);
+        timerChangeItemOnKeyHold = new Timer(secondsBetweenItemChangeOnKeyHold,
+            null, false, false);
         ServiceLocator.GetInputManager().AddSubscriber(this);
     }
 
     private void FixedUpdate()
     {
-        while (timerChangeItemOnKeyHold.TimeUp(Time.deltaTime))
-        {
-            // Timer finished.
-        }
+        timerChangeItemOnKeyHold.Tick(Time.deltaTime);
     }
 
     public void SetMenu(UIMenu menu)

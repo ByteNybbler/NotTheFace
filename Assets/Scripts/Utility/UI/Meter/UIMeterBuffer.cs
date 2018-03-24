@@ -14,13 +14,13 @@ using UnityEngine;
 public class UIMeterBuffer : MonoBehaviour
 {
     [SerializeField]
+    TimeScale timeScale;
+    [SerializeField]
     [Tooltip("The UIMeter to track.")]
     UIMeter meterMain;
     [SerializeField]
     [Tooltip("The UIMeter to use as the buffer.")]
     UIMeter meterBuffer;
-    [SerializeField]
-    TimeScale ts;
     [SerializeField]
     [Tooltip("Whether the buffered meter shrinks towards the right or the left.")]
     bool shrinkToLeft;
@@ -43,14 +43,13 @@ public class UIMeterBuffer : MonoBehaviour
     private void Start()
     {
         meterMain.PercentChanged += UIMeter_OnPercentChanged;
-        timerHesitate = new Timer(secondsToHesitate, false, false);
+        timerHesitate = new Timer(secondsToHesitate, TimerCallback, false, false);
         UpdateBufferMeter();
     }
 
     // Updates the appearance of the buffer meter.
     private void UpdateBufferMeter()
     {
-        //Debug.Log(name + " UpdateBufferMeter");
         meterBuffer.SetLeftAnchor(bufferLower);
         meterBuffer.SetPercent(bufferUpper);
     }
@@ -119,17 +118,18 @@ public class UIMeterBuffer : MonoBehaviour
         UpdateBufferMeter();
     }
 
+    private void TimerCallback(float secondsOverflow)
+    {
+        timerFinished = true;
+    }
+
     private void FixedUpdate()
     {
-        float dt = ts.DeltaTime();
-        while (timerHesitate.TimeUp(dt))
-        {
-            timerFinished = true;
-        }
+        timerHesitate.Tick(timeScale.DeltaTime());
         if (timerFinished)
         {
             // Shrink the buffer.
-            float stepSize = dt * shrinkSpeed;
+            float stepSize = timeScale.DeltaTime() * shrinkSpeed;
             if (shrinkToLeft)
             {
                 bufferUpper = UtilMath.Approach(bufferUpper, bufferLower, stepSize);

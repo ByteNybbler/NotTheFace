@@ -3,6 +3,12 @@
 
 public class Timer
 {
+    // Invoked every time the timer finishes a loop.
+    // The parameter is how many seconds the timer ran past the target time.
+    // Use this parameter in the callback to account for the extra time.
+    public delegate void FinishedHandler(float secondsOverflow);
+    FinishedHandler finishedCallback;
+
     // How many seconds it takes for the timer to run out of time.
     float secondsTarget;
     // The current number of seconds passed in this period.
@@ -14,41 +20,48 @@ public class Timer
     bool loop;
 
     // Constructor.
-    public Timer(float seconds, bool running = true, bool loop = true)
+    public Timer(float seconds, FinishedHandler finishedCallback = null,
+        bool running = true, bool loop = true)
     {
         this.secondsTarget = seconds;
+        this.finishedCallback = finishedCallback;
         this.running = running;
         this.loop = loop;
     }
 
-    // Check if the time has run out, and if not, increment the time passed by deltaTime.
-    public bool TimeUp(float deltaTime)
+    // Increase the time passed for this timer by the given amount.
+    public void Tick(float deltaTime)
     {
-        // If the timer isn't running, always return false.
+        // If the timer isn't running, this method does nothing.
         if (!running)
         {
-            return false;
+            return;
         }
-        // If the timer is finished...
-        if (secondsCurrent >= secondsTarget)
+        // Increase the time passed.
+        secondsCurrent += deltaTime;
+        // Check if the timer has finished (i.e. reached its target time).
+        // Timers with a very short target time may finish multiple times per
+        // update step, so we need to use a while loop to account for multiple
+        // timer completions per update step.
+        while (secondsCurrent >= secondsTarget)
         {
-            // Behave differently based on whether the timer loops or not.
-            if (loop)
+            // Decrement the time passed to prepare for another loop of this block.
+            // The result of this operation is also used to get how many seconds
+            // the timer ran past its target time.
+            secondsCurrent -= secondsTarget;
+            // Invoke the timer finished callback.
+            // Pass the "seconds overflow" value we just calculated as well.
+            if (finishedCallback != null)
             {
-                // Short looping timers may fire multiple times per update step.
-                secondsCurrent -= secondsTarget;
+                finishedCallback(secondsCurrent);
             }
-            else
+            // If the timer doesn't loop, just stop the timer altogether.
+            if (!loop)
             {
-                // If the timer doesn't loop, stop the timer altogether.
                 secondsCurrent = 0.0f;
                 running = false;
             }
-            return true;
         }
-        // The timer isn't finished, so increment the time.
-        secondsCurrent += deltaTime;
-        return false;
     }
 
     // Change the target time on the timer.

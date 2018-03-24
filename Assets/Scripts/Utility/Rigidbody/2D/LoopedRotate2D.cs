@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoopedRotate : MonoBehaviour
+public class LoopedRotate2D : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("Reference to the Mover2D component.")]
