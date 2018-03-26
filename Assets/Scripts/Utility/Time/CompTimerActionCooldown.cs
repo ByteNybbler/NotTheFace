@@ -36,7 +36,7 @@ public class CompTimerActionCooldown
     }
 
     // Returns true if the composite timer is running.
-    // Returns false if the timer is on standby and ready to fire.
+    // Returns false if the timer is on standby and ready to start.
     public bool IsRunning()
     {
         return timerAction.IsRunning() || timerCooldown.IsRunning();

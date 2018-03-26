@@ -7,30 +7,51 @@ using UnityEngine;
 
 public class HealthToMeter : MonoBehaviour
 {
+    [SerializeField]
     [Tooltip("The health component to interface with.")]
-    public Health health;
+    Health health;
+    [SerializeField]
     [Tooltip("The meter component to interface with.")]
-    public UIMeter meter;
+    UIMeter meter;
 
     private void UpdateMeter(float currentValue, float maxValue)
     {
         meter.SetProportion(currentValue, maxValue);
     }
 
-    private void Start()
+    public void SetHealth(Health health)
     {
-        //UpdateMeter(health.GetCurrentHealth(), health.GetMaxHealth());
+        UnsubscribeFromHealth();
+        this.health = health;
+        SubscribeToHealth();
+    }
+
+    private void SubscribeToHealth()
+    {
+        if (health != null)
+        {
+            health.CurrentHealthChanged += Health_CurrentHealthChanged;
+            health.MaxHealthChanged += Health_MaxHealthChanged;
+        }
+    }
+
+    private void UnsubscribeFromHealth()
+    {
+        if (health != null)
+        {
+            health.CurrentHealthChanged -= Health_CurrentHealthChanged;
+            health.MaxHealthChanged -= Health_MaxHealthChanged;
+        }
     }
 
     private void OnEnable()
     {
-        health.CurrentHealthChanged += Health_CurrentHealthChanged;
-        health.MaxHealthChanged += Health_MaxHealthChanged;
+        SubscribeToHealth();
     }
+
     private void OnDisable()
     {
-        health.CurrentHealthChanged -= Health_CurrentHealthChanged;
-        health.MaxHealthChanged -= Health_MaxHealthChanged;
+        UnsubscribeFromHealth();
     }
 
     private void Health_CurrentHealthChanged(int newHealthCurrent)

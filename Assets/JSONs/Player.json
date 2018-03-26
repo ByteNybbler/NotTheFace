@@ -1,4 +1,4 @@
 {
-	"seconds of tongue" : 0.2;
-	"seconds of tongue cooldown" : 0.8f;
+	"seconds of tongue" : 0.2,
+	"seconds of tongue cooldown" : 0.6
 }

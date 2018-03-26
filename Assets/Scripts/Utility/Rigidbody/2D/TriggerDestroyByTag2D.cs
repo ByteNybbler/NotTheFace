@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerDestroyByTag : MonoBehaviour
+public class TriggerDestroyByTag2D : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("Collection of tags that will destroy this GameObject.")]
