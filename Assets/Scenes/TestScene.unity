@@ -1180,6 +1180,7 @@ GameObject:
   - component: {fileID: 1777724624}
   - component: {fileID: 1777724623}
   - component: {fileID: 1777724622}
+  - component: {fileID: 1777724629}
   - component: {fileID: 1777724627}
   - component: {fileID: 1777724626}
   - component: {fileID: 1777724628}
@@ -1264,6 +1265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ba97f2b07e2e5438e650f75568281b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mover: {fileID: 1777724629}
   type: 0
   axis: 1
   value: -1
@@ -1278,6 +1280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8e4fe5ae9f14f46a641fb0fba365b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mover: {fileID: 1777724629}
   followThis: {fileID: 341930182}
   offset: {x: 0, y: 0, z: -10}
 --- !u!114 &1777724628
@@ -1291,6 +1294,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ba97f2b07e2e5438e650f75568281b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mover: {fileID: 1777724629}
   type: 1
   axis: 1
   value: -1
+--- !u!114 &1777724629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1777724621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c17595ac46d89a45a4de142533885a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidbody: {fileID: 0}

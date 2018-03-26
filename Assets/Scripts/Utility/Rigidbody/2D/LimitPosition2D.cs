@@ -1,11 +1,20 @@
 ﻿// Author(s): Paul Calande
 // Limits the position of a GameObject by defining a minimum or maximum bound along a given axis.
+//
+// -=-=-=-=-=-=- !!! IMPORTANT !!! -=-=-=-=-=-=-
+//
+// Make sure to set this script's FixedUpdate call to be past the default time in the
+// Script Execution Order Settings! It should also be before the time of the mover script.
+//
+// Edit -> Project Settings -> Script Execution Order
+//
+// -=-=-=-=-=-=- !!! IMPORTANT !!! -=-=-=-=-=-=-
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LimitPosition : MonoBehaviour
+public class LimitPosition2D : MonoBehaviour
 {
     public enum LimitType
     {
@@ -15,10 +24,11 @@ public class LimitPosition : MonoBehaviour
     public enum LimitAxis
     {
         X,
-        Y,
-        Z
+        Y
     }
 
+    [SerializeField]
+    Mover2D mover;
     [SerializeField]
     [Tooltip("Whether the limit is a minimum or maximum.")]
     LimitType type;
@@ -36,10 +46,8 @@ public class LimitPosition : MonoBehaviour
             case LimitAxis.X:
                 return transform.position.x;
             case LimitAxis.Y:
-                return transform.position.y;
-            case LimitAxis.Z:
             default:
-                return transform.position.z;
+                return transform.position.y;
         }
     }
 
@@ -54,11 +62,8 @@ public class LimitPosition : MonoBehaviour
             case LimitAxis.Y:
                 newPos.y = value;
                 break;
-            case LimitAxis.Z:
-                newPos.z = value;
-                break;
         }
-        transform.position = newPos;
+        mover.TeleportPosition(newPos);
     }
 
     private bool BeyondLimit()
@@ -80,7 +85,7 @@ public class LimitPosition : MonoBehaviour
         return false;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (BeyondLimit())
         {

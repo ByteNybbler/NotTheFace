@@ -41,7 +41,7 @@ public class Mover2D : MonoBehaviour
         differenceRotation += degrees;
     }
 
-    public void TeleportPosition(Vector2 newPos)
+    public void TeleportPosition(Vector3 newPos)
     {
         if (myRigidbody == null)
         {
