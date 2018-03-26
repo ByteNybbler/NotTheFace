@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff942f2f73f9b0428c4ad4b7b0070d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxConcurrentRooms: 4
+  maxConcurrentRooms: 5
   initialRoomCount: 3
   roomBoss:
     prefab: {fileID: 1706505935863868, guid: 35cfa4286c5ea5547a8fef353ece1a22, type: 2}
