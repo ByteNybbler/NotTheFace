@@ -13,7 +13,23 @@ public abstract class InputDistributed : MonoBehaviour, IPlayable
 
     protected void Start()
     {
-        distributor.AddSubscriber(this);
+        SubscribeToDistributor();
+    }
+
+    public void SubscribeToDistributor()
+    {
+        if (distributor != null)
+        {
+            distributor.AddSubscriber(this);
+        }
+    }
+
+    public void UnsubscribeFromDistributor()
+    {
+        if (distributor != null)
+        {
+            distributor.RemoveSubscriber(this);
+        }
     }
 
     public abstract void ReceiveInput(InputReader inputReader);

@@ -5,11 +5,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeRegionOscillate : MonoBehaviour
+public class TimeRegionOscillate2D : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("The time region to oscillate the time factor of.")]
-    TimeRegion timeRegion;
+    TimeRegion2D timeRegion;
     [SerializeField]
     TimeScale timeScale;
     [SerializeField]
@@ -29,6 +29,6 @@ public class TimeRegionOscillate : MonoBehaviour
     private void FixedUpdate()
     {
         float difference = osc.SampleDelta(timeScale.DeltaTime());
-        timeRegion.SetTimeFactor(timeRegion.GetTimeFactor() + difference);
+        timeRegion.SetFactor(timeRegion.GetFactor() + difference);
     }
 }

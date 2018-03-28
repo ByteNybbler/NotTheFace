@@ -1,5 +1,6 @@
 ﻿// Author(s): Paul Calande
 // Component that modifies a Rigidbody's velocity based on an acceleration value and grounded state.
+// When the Rigidbody is on the ground, it will decelerate.
 
 using System.Collections;
 using System.Collections.Generic;

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class IndexedList<T>
+public class IndexedList<T> : IIndexedList<T>
 {
     // The "list" of elements.
     Dictionary<int, T> list = new Dictionary<int, T>();

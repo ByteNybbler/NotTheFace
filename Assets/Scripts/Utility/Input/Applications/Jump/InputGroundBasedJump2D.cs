@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class InputGroundBasedJump2D : InputDistributed
 {
+    // Invoked when the player jumps successfully.
+    public delegate void JumpedHandler();
+    public event JumpedHandler Jumped;
+
     [SerializeField]
     [Tooltip("The component to use for jumping.")]
     GroundBasedJumper2D groundBasedJumper;
@@ -16,7 +20,18 @@ public class InputGroundBasedJump2D : InputDistributed
         if (inputReader.GetKeyDown(KeyCode.Space))
         {
             // Try to jump.
-            groundBasedJumper.TryJump();
+            if (groundBasedJumper.TryJump())
+            {
+                OnJumped();
+            }
+        }
+    }
+
+    private void OnJumped()
+    {
+        if (Jumped != null)
+        {
+            Jumped();
         }
     }
 }
