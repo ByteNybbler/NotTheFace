@@ -7,53 +7,84 @@ using UnityEngine;
 
 public class GroundChecker2D : MonoBehaviour
 {
+    // Invoked when the object lands on the ground.
+    public delegate void GroundLandedHandler();
+    public event GroundLandedHandler GroundLanded;
+    // Invoked when the object leaves the ground.
+    public delegate void GroundLeftHandler();
+    public event GroundLeftHandler GroundLeft;
+
     [SerializeField]
     [Tooltip("Reference to the Rigidbody to check the grounding of.")]
     Rigidbody2D rb;
     [SerializeField]
-    [Tooltip("The maximum slope height the Rigidbody can be on to be considered grounded.")]
-    float maxSlopeHeight = 60.0f;
+    [Tooltip("The maximum slope angle the Rigidbody can be on to be considered grounded.")]
+    float maxSlopeAngle = 60.0f;
 
     // Whether the GameObject is on the ground.
     bool isGrounded = false;
-    // Whether the script component still needs to check whether the GameObject is on the
-    // ground during this particular fixed timestep. Set back to true every fixed timestep.
-    bool needsToCheck = true;
     // The contact filter for checking the ground.
     ContactFilter2D filterGround = new ContactFilter2D();
     ContactPoint2D[] contactGround = new ContactPoint2D[4];
 
+    float upAngle = 90.0f;
+
     private void Start()
     {
-        SetMaxSlopeHeight(maxSlopeHeight);
+        SetMaxSlopeAngle(maxSlopeAngle);
     }
 
-    public void SetMaxSlopeHeight(float maxSlopeHeight)
+    public void SetMaxSlopeAngle(float maxSlopeAngle)
     {
-        this.maxSlopeHeight = maxSlopeHeight;
-        filterGround.SetNormalAngle(90.0f - maxSlopeHeight, 90.0f + maxSlopeHeight);
+        this.maxSlopeAngle = maxSlopeAngle;
+        filterGround.SetNormalAngle(upAngle - maxSlopeAngle, upAngle + maxSlopeAngle);
     }
 
+    // Recalculates whether the object is on the ground or not.
+    private void CalculateGrounded()
+    {
+        int contactCount = rb.GetContacts(filterGround, contactGround);
+        isGrounded = (contactCount != 0);
+    }
+
+    // Returns true if the object is on the ground. Returns false otherwise.
     public bool IsOnGround()
     {
-        if (needsToCheck)
-        {
-            needsToCheck = false;
-            int contactCount = rb.GetContacts(filterGround, contactGround);
-            if (contactCount != 0)
-            {
-                isGrounded = true;
-            }
-            else
-            {
-                isGrounded = false;
-            }
-        }
         return isGrounded;
     }
 
     private void FixedUpdate()
     {
-        needsToCheck = true;
+        bool oldGrounded = isGrounded;
+        CalculateGrounded();
+        if (oldGrounded != isGrounded)
+        {
+            if (isGrounded)
+            {
+                // The object just landed on the ground.
+                OnGroundLanded();
+            }
+            else
+            {
+                // The object just became airborne.
+                OnGroundLeft();
+            }
+        }
+    }
+
+    private void OnGroundLanded()
+    {
+        if (GroundLanded != null)
+        {
+            GroundLanded();
+        }
+    }
+
+    private void OnGroundLeft()
+    {
+        if (GroundLeft != null)
+        {
+            GroundLeft();
+        }
     }
 }

@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 341930185}
-  maxSlopeHeight: 60
+  maxSlopeAngle: 60
 --- !u!114 &341930192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distributor: {fileID: 341930195}
   tongue: {fileID: 341930198}
+  groundChecker: {fileID: 341930191}
 --- !u!114 &341930200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +435,8 @@ GameObject:
   m_Component:
   - component: {fileID: 436084321}
   - component: {fileID: 436084322}
+  - component: {fileID: 436084324}
+  - component: {fileID: 436084323}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -498,6 +501,34 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &436084323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436084320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c17595ac46d89a45a4de142533885a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidbody: {fileID: 0}
+--- !u!114 &436084324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436084320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bb59780829c20478246b8f0f1db6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mover: {fileID: 436084323}
+  rb: {fileID: 341930185}
+  directions: 0
+  radius: 64
+  inverted: 0
 --- !u!1 &473222391
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,7 +967,7 @@ GameObject:
   - component: {fileID: 1193882073}
   m_Layer: 0
   m_Name: Tongue
-  m_TagString: Untagged
+  m_TagString: Tongue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

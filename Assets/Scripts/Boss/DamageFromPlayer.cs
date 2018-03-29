@@ -17,5 +17,13 @@ public class DamageFromPlayer : MonoBehaviour
         {
             health.Damage(20);
         }
+        if (collision.CompareTag("Player"))
+        {
+            PlayerInput pi = collision.GetComponent<PlayerInput>();
+            if (pi.IsHeadbutting())
+            {
+                health.Damage(40);
+            }
+        }
     }
 }

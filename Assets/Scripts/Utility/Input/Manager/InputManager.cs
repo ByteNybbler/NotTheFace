@@ -59,7 +59,8 @@ public class InputManager : MonoBehaviour
 
     private void SendInputToSubscribers()
     {
-        foreach (IPlayable sub in subscribers)
+        HashSet<IPlayable> iterateSubscribers = new HashSet<IPlayable>(subscribers);
+        foreach (IPlayable sub in iterateSubscribers)
         {
             sub.ReceiveInput(inputReader);
         }

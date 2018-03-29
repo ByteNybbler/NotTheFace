@@ -11,7 +11,7 @@ public abstract class InputDistributed : MonoBehaviour, IPlayable
     [Tooltip("Reference to the InputDistributor to subscribe to.")]
     protected InputDistributor distributor;
 
-    protected void Start()
+    protected virtual void Start()
     {
         SubscribeToDistributor();
     }
