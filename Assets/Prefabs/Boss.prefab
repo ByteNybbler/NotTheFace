@@ -41,6 +41,9 @@ GameObject:
   - component: {fileID: 61078221050007096}
   - component: {fileID: 114023937819720990}
   - component: {fileID: 114996845202006752}
+  - component: {fileID: 114192841746015552}
+  - component: {fileID: 114668306174125866}
+  - component: {fileID: 114285835685244466}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -170,6 +173,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 114023937819720990}
+--- !u!114 &114192841746015552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc14310824c6e8b47bdf049e463da9a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114285835685244466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec8061c1df7c42468518ae649839847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114668306174125866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4b0c4eaf2adc944ad0e9a76ec47a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScale: {fileID: 114285835685244466}
+  hierarchySpriteColor: {fileID: 114192841746015552}
+  colorChanged: {r: 1, g: 0, b: 0, a: 1}
+  secondsToColor: 0.1
 --- !u!114 &114996845202006752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBoss: {fileID: 114023937819720990}
+  damageColor: {fileID: 114668306174125866}
 --- !u!212 &212360757083118724
 SpriteRenderer:
   m_ObjectHideFlags: 1

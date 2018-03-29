@@ -38,7 +38,7 @@ public class PlayerInput : InputDistributed
 
     private void HeadbuttEnter()
     {
-        if (!headbutting)
+        if (!headbutting && !groundChecker.IsOnGround())
         {
             headbutting = true;
             distributor.UnsubscribeFromInputManager();

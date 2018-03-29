@@ -7,44 +7,26 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    /*
-    public class Data
-    {
-        public class Refs
-        {
-            [Tooltip("The room that the boss inhabits.")]
-            Room room;
-
-            public Refs(Room room)
-            {
-                this.room = room;
-            }
-        }
-        Refs refs;
-
-        public Data(Refs refs)
-        {
-            this.refs = refs;
-        }
-    }
-    Data data;
-
-    public void SetData(Data data)
-    {
-        this.data = data;
-    }
-    */
-
     public delegate void DiedHandler();
     public event DiedHandler Died;
 
     [SerializeField]
     [Tooltip("The health of the boss.")]
     Health healthBoss;
+    [SerializeField]
+    [Tooltip("Damage color component.")]
+    HierarchySpriteColorTimed damageColor;
 
     private void Start()
     {
         healthBoss.Died += OnDied;
+        healthBoss.Damaged += Health_Damaged;
+    }
+
+    // Callback function for the boss taking damage.
+    private void Health_Damaged(int damage)
+    {
+        damageColor.ColorStart();
     }
 
     private void OnDied()
