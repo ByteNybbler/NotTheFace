@@ -138,6 +138,8 @@ GameObject:
   - component: {fileID: 341930197}
   - component: {fileID: 341930200}
   - component: {fileID: 341930183}
+  - component: {fileID: 341930202}
+  - component: {fileID: 341930201}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -381,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distributor: {fileID: 341930195}
   tongue: {fileID: 341930198}
-  groundChecker: {fileID: 341930191}
+  headbutt: {fileID: 341930202}
 --- !u!114 &341930200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +397,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filePlayer: {fileID: 4900000, guid: 910c234b4fdd91f439c718ff127d7794, type: 3}
   playerTongue: {fileID: 341930198}
+  damageTongue: {fileID: 977067981}
+  damageHeadbutt: {fileID: 341930201}
+  gba: {fileID: 341930192}
+  gbj: {fileID: 341930189}
+--- !u!114 &341930201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341930182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259b014b0b8549542aeddba92cbf6d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &341930202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341930182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1fb3a68b69b6f469c43318e951a565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distributor: {fileID: 341930195}
+  groundChecker: {fileID: 341930191}
+  damage: {fileID: 341930201}
 --- !u!1 &436084320
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,10 +586,11 @@ GameObject:
   m_Component:
   - component: {fileID: 977067979}
   - component: {fileID: 977067980}
-  - component: {fileID: 977067981}
   - component: {fileID: 977067982}
+  - component: {fileID: 977067983}
+  - component: {fileID: 977067981}
   m_Layer: 0
-  m_Name: TongueSprite
+  m_Name: TongueHitbox
   m_TagString: Tongue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -621,7 +653,38 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!61 &977067981
+--- !u!114 &977067981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 977067978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259b014b0b8549542aeddba92cbf6d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &977067982
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 977067978}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &977067983
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -646,26 +709,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01}
   m_EdgeRadius: 0
---- !u!50 &977067982
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 977067978}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1109608331
 GameObject:
   m_ObjectHideFlags: 0

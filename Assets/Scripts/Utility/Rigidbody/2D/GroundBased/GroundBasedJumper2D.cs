@@ -19,4 +19,9 @@ public class GroundBasedJumper2D : MonoBehaviour
     {
         return groundBasedJump.TryJump(jumpVelocity * percent);
     }
+
+    public void SetJumpVelocity(float val)
+    {
+        jumpVelocity = val;
+    }
 }

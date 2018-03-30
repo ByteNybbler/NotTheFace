@@ -12,17 +12,8 @@ public class PlayerInput : InputDistributed
     [Tooltip("Reference to the tongue component.")]
     PlayerTongue tongue;
     [SerializeField]
-    [Tooltip("Used to check when the player hits the ground to stop headbutts.")]
-    GroundChecker2D groundChecker;
-
-    // Whether the player is currently in a headbutt.
-    bool headbutting = false;
-
-    protected override void Start()
-    {
-        base.Start();
-        groundChecker.GroundLanded += HeadbuttExit;
-    }
+    [Tooltip("Used to make the player headbutt.")]
+    PlayerHeadbutt headbutt;
 
     public override void ReceiveInput(InputReader inputReader)
     {
@@ -32,30 +23,7 @@ public class PlayerInput : InputDistributed
         }
         if (inputReader.GetKeyDown(KeyCode.Q))
         {
-            HeadbuttEnter();
+            headbutt.HeadbuttEnter();
         }
-    }
-
-    private void HeadbuttEnter()
-    {
-        if (!headbutting && !groundChecker.IsOnGround())
-        {
-            headbutting = true;
-            distributor.UnsubscribeFromInputManager();
-        }
-    }
-
-    private void HeadbuttExit()
-    {
-        if (headbutting)
-        {
-            headbutting = false;
-            distributor.SubscribeToInputManager();
-        }
-    }
-
-    public bool IsHeadbutting()
-    {
-        return headbutting;
     }
 }

@@ -15,14 +15,15 @@ public class DamageFromPlayer : MonoBehaviour
     {
         if (collision.CompareTag("Tongue"))
         {
-            health.Damage(20);
+            int damage = collision.GetComponent<Damage>().Get();
+            health.Damage(damage);
         }
         if (collision.CompareTag("Player"))
         {
-            PlayerInput pi = collision.GetComponent<PlayerInput>();
-            if (pi.IsHeadbutting())
+            PlayerHeadbutt ph = collision.GetComponent<PlayerHeadbutt>();
+            if (ph.IsHeadbutting())
             {
-                health.Damage(40);
+                health.Damage(ph.GetDamage());
             }
         }
     }

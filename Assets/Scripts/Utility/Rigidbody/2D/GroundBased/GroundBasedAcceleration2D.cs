@@ -55,4 +55,14 @@ public class GroundBasedAcceleration2D : MonoBehaviour
     {
         accumulatedHorizontalAcceleration += amount;
     }
+
+    public void SetGroundDeceleration(float val)
+    {
+        groundDeceleration = val;
+    }
+
+    public void SetMaxHorizontalSpeed(float val)
+    {
+        maxHorizontalSpeed = val;
+    }
 }
