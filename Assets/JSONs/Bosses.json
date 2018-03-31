@@ -1,0 +1,9 @@
+{
+	"bosses" :
+	[
+		{
+			"identifier" : "Horror",
+			"health" : 100
+		}
+	]
+}

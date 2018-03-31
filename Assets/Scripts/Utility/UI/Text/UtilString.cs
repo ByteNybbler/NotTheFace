@@ -31,4 +31,21 @@ public class UtilString : MonoBehaviour
         }
         return result;
     }
+
+    // Connects a number of strings with the given connector.
+    public static string Connect(string connector, params string[] strings)
+    {
+        int count = strings.Length;
+        string result = "";
+        for (int i = 0; i < count; ++i)
+        {
+            result += strings[i];
+            // Do not place a connector at the end of the last string.
+            if (i != count - 1)
+            {
+                result += connector;
+            }
+        }
+        return result;
+    }
 }

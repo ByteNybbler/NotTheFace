@@ -24,6 +24,8 @@ public class Room : MonoBehaviour
     RoomDoor doorEntry;
     [SerializeField]
     RoomDoor doorExit;
+    [SerializeField]
+    ItemPool itemPool;
 
     public Status GetStatus()
     {
@@ -52,6 +54,16 @@ public class Room : MonoBehaviour
         status = Status.Finished;
         OpenExit();
         OnRoomFinished();
+    }
+
+    public void SetItemPool(ItemPool val)
+    {
+        itemPool = val;
+    }
+
+    public ItemPool GetItemPool()
+    {
+        return itemPool;
     }
 
     private void OnRoomStarted()

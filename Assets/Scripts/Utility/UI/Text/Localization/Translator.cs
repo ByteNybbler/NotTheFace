@@ -100,4 +100,11 @@ public class Translator : MonoBehaviour
             return errorStr;
         }
     }
+
+    // Translates a string using the key created by combining the translation key pieces.
+    // Each piece is connected with an underscore.
+    public string Translate(params string[] translationKeyPieces)
+    {
+        return Translate(UtilString.Connect("_", translationKeyPieces));
+    }
 }

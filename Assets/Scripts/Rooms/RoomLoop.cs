@@ -17,6 +17,9 @@ public class RoomLoop : MonoBehaviour
     }
 
     [SerializeField]
+    [Tooltip("The item pool for the rooms to use.")]
+    ItemPool itemPool;
+    [SerializeField]
     [Tooltip("How many rooms can exist in the loop before old rooms start getting destroyed.")]
     int maxConcurrentRooms;
     [SerializeField]
@@ -69,6 +72,7 @@ public class RoomLoop : MonoBehaviour
         GameObject obj = Instantiate(room.prefab, transform.position, Quaternion.identity);
         Room rm = obj.GetComponent<Room>();
         rm.RoomStarted += Iterate;
+        rm.SetItemPool(itemPool);
 
         rooms.Add(roomNumber, rm);
         ++roomNumber;

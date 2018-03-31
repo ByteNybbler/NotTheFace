@@ -17,8 +17,12 @@ public class UpgradeItemGroup : MonoBehaviour
     [Tooltip("An array of spawn points to use for upgrade items.")]
     GameObject[] spawnPoints;
 
+    // The item pool to fetch items from.
+    ItemPool itemPool;
+
     private void Start()
     {
+        itemPool = room.GetItemPool();
         if (room.GetStatus() == Room.Status.Active)
         {
             SpawnItems();
@@ -29,14 +33,33 @@ public class UpgradeItemGroup : MonoBehaviour
         }
     }
 
+    private void SpawnItem(Transform parent, ItemPool.Item itemPoolItem)
+    {
+        GameObject obj = Instantiate(prefabUpgradeItem, parent);
+        obj.transform.localPosition = Vector3.zero;
+        UpgradeItem item = obj.GetComponent<UpgradeItem>();
+        item.Collected += itemPoolItem.OnCollected;
+        item.Collected += DestroyItems;
+        item.SetSprite(itemPoolItem.identifier);
+    }
+
     private void SpawnItems()
     {
-        foreach (GameObject spawnPoint in spawnPoints)
+        int itemPoolCount = itemPool.Count();
+        if (itemPoolCount == 0)
         {
-            GameObject obj = Instantiate(prefabUpgradeItem, spawnPoint.transform);
-            obj.transform.localPosition = Vector3.zero;
-            UpgradeItem item = obj.GetComponent<UpgradeItem>();
-            item.Collected += DestroyItems;
+            DestroyItems();
+            return;
+        }
+        int spawnCount = spawnPoints.Length;
+        if (spawnCount > itemPoolCount)
+        {
+            spawnCount = itemPoolCount;
+        }
+        List<ItemPool.Item> items = itemPool.FetchRandomUniqueItems(spawnCount);
+        for (int i = 0; i < spawnCount; ++i)
+        {
+            SpawnItem(spawnPoints[i].transform, items[i]);
         }
     }
 

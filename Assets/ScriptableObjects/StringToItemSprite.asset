@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b87e611c99cf9f40ad1544f586b75e0, type: 3}
+  m_Name: StringToItemSprite
+  m_EditorClassIdentifier: 
+  array:
+    array:
+    - key: SpikedHat
+      value: {fileID: 21300000, guid: 4d141892dc178bc408f11d04a4ecd75d, type: 3}
+    - key: HotSauce
+      value: {fileID: 21300000, guid: e25293c272e5713478d2c88a7aa7f31e, type: 3}

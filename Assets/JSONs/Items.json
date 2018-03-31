@@ -1,0 +1,31 @@
+{
+	"seconds to display item text" : 3.0,
+	"items" :
+	[
+		{
+			"identifier" : "SpikedHat",
+			"headbutt damage bonus" : 10
+		},
+		{
+			"identifier" : "HotSauce",
+			"tongue damage bonus" : 10
+		},
+		{
+			"identifier" : "Sword",
+			"tongue damage bonus" : 15
+		},
+		{
+			"identifier" : "Lollipop",
+			"tongue damage bonus" : 5
+		},
+		{
+			"identifier" : "SafetyGoggles",
+			"health bonus" : 50
+		},
+		{
+			"identifier" : "Helmet",
+			"health bonus" : 20,
+			"headbutt damage bonus" : 5
+		}
+	]
+}
