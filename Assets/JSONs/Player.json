@@ -4,6 +4,7 @@
 	"seconds of tongue cooldown" : 0.6,
 	"tongue damage" : 10,
 	"headbutt damage" : 20,
+	"horizontal acceleration" : 40.0,
 	"ground deceleration" : 32.0,
 	"max horizontal speed" : 16.0,
 	"jump velocity" : 20.0

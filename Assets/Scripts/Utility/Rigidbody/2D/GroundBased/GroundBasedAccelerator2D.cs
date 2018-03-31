@@ -21,4 +21,9 @@ public class GroundBasedAccelerator2D : MonoBehaviour
     {
         gba.ApplyHorizontalAcceleration(acceleration * percent);
     }
+
+    public void SetAcceleration(float val)
+    {
+        acceleration = val;
+    }
 }

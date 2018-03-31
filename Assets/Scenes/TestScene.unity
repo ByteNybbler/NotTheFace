@@ -444,7 +444,8 @@ MonoBehaviour:
   playerTongue: {fileID: 341930198}
   damageTongue: {fileID: 977067981}
   damageHeadbutt: {fileID: 341930201}
-  gba: {fileID: 341930192}
+  gban: {fileID: 341930192}
+  gbao: {fileID: 341930193}
   gbj: {fileID: 341930189}
   health: {fileID: 341930203}
 --- !u!114 &341930201

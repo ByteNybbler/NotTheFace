@@ -16,7 +16,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     Damage damageHeadbutt;
     [SerializeField]
-    GroundBasedAcceleration2D gba;
+    GroundBasedAcceleration2D gban;
+    [SerializeField]
+    GroundBasedAccelerator2D gbao;
     [SerializeField]
     GroundBasedJumper2D gbj;
     [SerializeField]
@@ -35,8 +37,9 @@ public class Player : MonoBehaviour
             jsonP.Get("seconds of tongue cooldown", 1.0f)));
         AddTongueDamage(jsonP.Get("tongue damage", 10));
         AddHeadbuttDamage(jsonP.Get("headbutt damage", 20));
-        gba.SetGroundDeceleration(jsonP.Get("ground deceleration", 32.0f));
-        gba.SetMaxHorizontalSpeed(jsonP.Get("max horizontal speed", 16.0f));
+        gbao.SetAcceleration(jsonP.Get("horizontal acceleration", 40.0f));
+        gban.SetGroundDeceleration(jsonP.Get("ground deceleration", 32.0f));
+        gban.SetMaxHorizontalSpeed(jsonP.Get("max horizontal speed", 16.0f));
         gbj.SetJumpVelocity(jsonP.Get("jump velocity", 20.0f));
         InitializeHealth(jsonP.Get("health", 100));
     }
