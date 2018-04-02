@@ -23,7 +23,10 @@ public class PlayerInput : InputDistributed
         }
         if (inputReader.GetKeyDown(KeyCode.Q))
         {
-            headbutt.HeadbuttEnter();
+            if (!tongue.IsTongueRunning())
+            {
+                headbutt.HeadbuttEnter();
+            }
         }
     }
 }

@@ -62,4 +62,9 @@ public class PlayerTongue : MonoBehaviour
             tongue.SetActive(true);
         }
     }
+
+    public bool IsTongueRunning()
+    {
+        return timerTongue.IsActionRunning();
+    }
 }

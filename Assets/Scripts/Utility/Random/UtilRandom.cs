@@ -13,6 +13,19 @@ public static class UtilRandom
         return collection[Random.Range(0, collection.Count)];
     }
 
+    // Returns the given number of random unique elements from the given collection.
+    // In this case, "unique" refers having a unique index in the given collection.
+    public static List<T> GetRandomElementsUnique<T>(IList<T> collection, int count)
+    {
+        List<int> indices = UniqueIntegersShuffled(count, 0, collection.Count);
+        List<T> result = new List<T>(count);
+        foreach (int i in indices)
+        {
+            result.Add(collection[i]);
+        }
+        return result;
+    }
+
     // Randomly shuffles the given collection in place.
     public static void Shuffle<T>(IList<T> collection)
     {

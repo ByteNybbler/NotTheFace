@@ -33,14 +33,14 @@ public class UpgradeItemGroup : MonoBehaviour
         }
     }
 
-    private void SpawnItem(Transform parent, ItemPool.Item itemPoolItem)
+    private void SpawnItem(Transform parent, NamedEvent itemPoolItem)
     {
         GameObject obj = Instantiate(prefabUpgradeItem, parent);
         obj.transform.localPosition = Vector3.zero;
         UpgradeItem item = obj.GetComponent<UpgradeItem>();
-        item.Collected += itemPoolItem.OnCollected;
+        item.Collected += itemPoolItem.OnInvoked;
         item.Collected += DestroyItems;
-        item.SetSprite(itemPoolItem.identifier);
+        item.SetSprite(itemPoolItem.GetName());
     }
 
     private void SpawnItems()
@@ -56,7 +56,7 @@ public class UpgradeItemGroup : MonoBehaviour
         {
             spawnCount = itemPoolCount;
         }
-        List<ItemPool.Item> items = itemPool.FetchRandomUniqueItems(spawnCount);
+        List<NamedEvent> items = itemPool.GetRandomItemsUnique(spawnCount);
         for (int i = 0; i < spawnCount; ++i)
         {
             SpawnItem(spawnPoints[i].transform, items[i]);

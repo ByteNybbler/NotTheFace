@@ -8,27 +8,6 @@ using UnityEngine.UI;
 
 public class ItemPool : MonoBehaviour
 {
-    // Class representing an item.
-    public class Item
-    {
-        // Invoked when the item is collected.
-        public delegate void CollectedHandler();
-        public event CollectedHandler Collected;
-
-        // The sprite of the item.
-        public Sprite sprite;
-        // The identifier string of the item.
-        public string identifier;
-
-        public void OnCollected()
-        {
-            if (Collected != null)
-            {
-                Collected();
-            }
-        }
-    }
-
     [SerializeField]
     TimeScale timeScale;
     [SerializeField]
@@ -47,7 +26,7 @@ public class ItemPool : MonoBehaviour
     Translator translator;
 
     // The items that are still in the pool.
-    List<Item> pool = new List<Item>();
+    List<NamedEvent> pool = new List<NamedEvent>();
 
     private void Awake()
     {
@@ -58,33 +37,21 @@ public class ItemPool : MonoBehaviour
         float timerItemSeconds = jsonReader.Get("seconds to display item text", 3.0f);
         timerItemText = new Timer(timerItemSeconds, ItemTextVanish, false, false);
 
+        JSONNamedEventReader itemReader = new JSONNamedEventReader("identifier");
+        itemReader.AddCallbackInt("health bonus", player.AddMaxHealth);
+        itemReader.AddCallbackInt("tongue damage bonus", player.AddTongueDamage);
+        itemReader.AddCallbackInt("headbutt damage bonus", player.AddHeadbuttDamage);
+
         JSONArrayReader itemsReader = jsonReader.Get<JSONArrayReader>("items");
-        JSONNodeReader itemReader;
-        while (itemsReader.GetNextNode(out itemReader))
+        JSONNodeReader itemNodeReader;
+        while (itemsReader.GetNextNode(out itemNodeReader))
         {
-            Item item = new Item();
-            item.identifier = itemReader.Get("identifier", "ERROR");
+            NamedEvent item = itemReader.Read(itemNodeReader);
 
-            item.Collected += () => Collect(item);
-            item.Collected += () => ItemTextAppear(item.identifier);
-
-            MakeItemCallback<int>(item, itemReader, "health bonus", player.AddMaxHealth);
-            MakeItemCallback<int>(item, itemReader, "tongue damage bonus", player.AddTongueDamage);
-            MakeItemCallback<int>(item, itemReader, "headbutt damage bonus", player.AddHeadbuttDamage);
+            item.AddCallback(() => Remove(item));
+            item.AddCallback(() => ItemTextAppear(item.GetName()));
 
             pool.Add(item);
-        }
-    }
-
-    // The type T is the type of the value of the JSON node being read.
-    private delegate void ItemCallback<T>(T value);
-    private void MakeItemCallback<T>(Item item, JSONNodeReader itemReader, string keyName,
-        ItemCallback<T> action)
-    {
-        T value;
-        if (itemReader.TryGet(keyName, out value))
-        {
-            item.Collected += () => action(value);
         }
     }
 
@@ -107,7 +74,7 @@ public class ItemPool : MonoBehaviour
         textItemName.text = translator.Translate("Item", identifier, "Name");
     }
 
-    private void Collect(Item item)
+    private void Remove(NamedEvent item)
     {
         pool.Remove(item);
     }
@@ -119,15 +86,9 @@ public class ItemPool : MonoBehaviour
 
     // Returns a collection of items from the pool without removing them.
     // Each item returned will be different
-    public List<Item> FetchRandomUniqueItems(int count)
+    public List<NamedEvent> GetRandomItemsUnique(int count)
     {
-        List<int> ints = UtilRandom.UniqueIntegersShuffled(count, 0, pool.Count);
-        List<Item> result = new List<Item>(count);
-        foreach (int i in ints)
-        {
-            result.Add(pool[i]);
-        }
-        return result;
+        return UtilRandom.GetRandomElementsUnique(pool, count);
     }
 
     private void FixedUpdate()
