@@ -18,6 +18,9 @@ public class GroundChecker2D : MonoBehaviour
     [Tooltip("Reference to the Rigidbody to check the grounding of.")]
     Rigidbody2D rb;
     [SerializeField]
+    [Tooltip("Reference to the component for tracking the object's upwards direction.")]
+    UpDirection2D upDirection;
+    [SerializeField]
     [Tooltip("The maximum slope angle the Rigidbody can be on to be considered grounded.")]
     float maxSlopeAngle = 60.0f;
 
@@ -27,17 +30,29 @@ public class GroundChecker2D : MonoBehaviour
     ContactFilter2D filterGround = new ContactFilter2D();
     ContactPoint2D[] contactGround = new ContactPoint2D[4];
 
-    float upAngle = 90.0f;
-
     private void Start()
     {
+        upDirection.UpAngleChanged += UpdateNormals;
         SetMaxSlopeAngle(maxSlopeAngle);
+    }
+
+    // Gets the angle that corresponds to the current up direction.
+    private float GetUpAngle()
+    {
+        return upDirection.GetUpAngle();
+    }
+
+    // Update the normal angles for the contact filter.
+    private void UpdateNormals()
+    {
+        float upAngle = GetUpAngle();
+        filterGround.SetNormalAngle(upAngle - maxSlopeAngle, upAngle + maxSlopeAngle);
     }
 
     public void SetMaxSlopeAngle(float maxSlopeAngle)
     {
         this.maxSlopeAngle = maxSlopeAngle;
-        filterGround.SetNormalAngle(upAngle - maxSlopeAngle, upAngle + maxSlopeAngle);
+        UpdateNormals();
     }
 
     // Recalculates whether the object is on the ground or not.

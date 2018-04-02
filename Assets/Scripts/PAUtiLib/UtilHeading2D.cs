@@ -1,6 +1,6 @@
 ﻿// Author(s): Paul Calande
 // Utility functions for working with vectors and angles, as well as aiming at targets.
-
+//
 // The following page is a good source for aiming stuff.
 // https://www.gamasutra.com/blogs/KainShin/20090515/83954/Predictive_Aim_Mathematics_for_AI_Targeting.php
 

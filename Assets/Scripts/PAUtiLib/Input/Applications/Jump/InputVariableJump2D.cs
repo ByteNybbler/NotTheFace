@@ -18,7 +18,13 @@ public class InputVariableJump2D : InputDistributed
     [Tooltip("Reference to the player's Rigidbody.")]
     Rigidbody2D rb;
     [SerializeField]
-    [Tooltip("What to multiply the vertical velocity by for variable jumping.")]
+    [Tooltip("The direction along which velocity will be removed.")]
+    UpDirection2D upDirection;
+    [SerializeField]
+    [Tooltip("Reference to the player's gravity component.")]
+    Gravity2D gravity;
+    [SerializeField]
+    [Tooltip("What the vertical velocity is multiplied by when the variable jump occurs.")]
     float variableJumpDampFactor = 0.5f;
 
     // Whether variable jumping has occurred yet.
@@ -29,21 +35,19 @@ public class InputVariableJump2D : InputDistributed
 
     public override void ReceiveInput(InputReader inputReader)
     {
-        Vector2 velocity = rb.velocity;
-
         if (inputReader.GetKeyUp(KeyCode.Space))
         {
             if (!variableJumped)
             {
+                Vector2 velocity = upDirection.SpaceEnter(rb.velocity);
                 if (velocity.y > 0.0f)
                 {
                     velocity.y *= variableJumpDampFactor;
+                    rb.velocity = upDirection.SpaceExit(velocity);
                     variableJumped = true;
                 }
             }
         }
-
-        rb.velocity = velocity;
     }
 
     // Calling this method makes it possible to trigger variable jumping again.
@@ -56,7 +60,7 @@ public class InputVariableJump2D : InputDistributed
     private void FixedUpdate()
     {
         // Do not allow variable jumping in zero gravity.
-        if (rb.gravityScale == 0.0f)
+        if (gravity.GetScale() == 0.0f)
         {
             variableJumped = true;
         }

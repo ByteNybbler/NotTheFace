@@ -8,12 +8,12 @@ using UnityEngine;
 public class GravityFactors2D : HasIndexedFactors
 {
     [SerializeField]
-    [Tooltip("Reference to the Rigidbody to change the gravity of.")]
-    Rigidbody2D rb;
+    [Tooltip("Reference to the gravity to modify the scale of.")]
+    Gravity2D gravity;
 
     private void SetGravityScale(float newScale)
     {
-        rb.gravityScale = newScale;
+        gravity.SetScale(newScale);
     }
 
     private void Start()

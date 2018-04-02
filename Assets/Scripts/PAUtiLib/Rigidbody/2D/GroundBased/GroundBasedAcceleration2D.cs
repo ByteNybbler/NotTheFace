@@ -17,6 +17,9 @@ public class GroundBasedAcceleration2D : MonoBehaviour
     [Tooltip("Component for detecting whether the Rigidbody is grounded or not.")]
     GroundChecker2D groundChecker;
     [SerializeField]
+    [Tooltip("The up direction to apply acceleration perpendicular to.")]
+    UpDirection2D upDirection;
+    [SerializeField]
     [Tooltip("How quickly the Rigidbody decelerates when on the ground.")]
     float groundDeceleration;
     [SerializeField]
@@ -28,7 +31,7 @@ public class GroundBasedAcceleration2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 velocity = rb.velocity;
+        Vector2 velocity = upDirection.SpaceEnter(rb.velocity);
         float dt = timeScale.DeltaTime();
 
         // Decelerate if the Rigidbody is grounded and not accelerating.
@@ -47,7 +50,7 @@ public class GroundBasedAcceleration2D : MonoBehaviour
             velocity.x = Mathf.Sign(velocity.x) * maxHorizontalSpeed;
         }
 
-        rb.velocity = velocity;
+        rb.velocity = upDirection.SpaceExit(velocity);
     }
 
     // Add positive or negative acceleration to be applied to the Rigidbody.

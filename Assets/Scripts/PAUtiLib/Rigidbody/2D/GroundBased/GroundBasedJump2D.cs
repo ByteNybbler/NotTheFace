@@ -13,6 +13,9 @@ public class GroundBasedJump2D : MonoBehaviour
     [SerializeField]
     [Tooltip("Reference to the GroundChecker to use.")]
     GroundChecker2D groundChecker;
+    [SerializeField]
+    [Tooltip("The direction along which to apply the jump force.")]
+    UpDirection2D upDirection;
 
     // Makes sure the Rigidbody can't jump repeatedly within consecutive frames.
     // This prevents the jump force from getting too large.
@@ -27,9 +30,11 @@ public class GroundBasedJump2D : MonoBehaviour
         if (groundChecker.IsOnGround() && jumpCooldown == 0)
         {
             StartJumpCooldown();
-            Vector2 velocity = rb.velocity;
+
+            Vector2 velocity = upDirection.SpaceEnter(rb.velocity);
             velocity.y += jumpVelocity;
-            rb.velocity = velocity;
+            rb.velocity = upDirection.SpaceExit(velocity);
+
             return true;
         }
         return false;

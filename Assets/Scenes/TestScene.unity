@@ -233,6 +233,8 @@ GameObject:
   - component: {fileID: 341930202}
   - component: {fileID: 341930203}
   - component: {fileID: 341930201}
+  - component: {fileID: 341930204}
+  - component: {fileID: 341930205}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -282,7 +284,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -301,6 +303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distributor: {fileID: 341930195}
   rb: {fileID: 341930185}
+  upDirection: {fileID: 341930204}
+  gravity: {fileID: 341930205}
   variableJumpDampFactor: 0.5
 --- !u!58 &341930187
 CircleCollider2D:
@@ -356,6 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 341930185}
   groundChecker: {fileID: 341930191}
+  upDirection: {fileID: 341930204}
 --- !u!114 &341930191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 341930185}
+  upDirection: {fileID: 341930204}
   maxSlopeAngle: 60
 --- !u!114 &341930192
 MonoBehaviour:
@@ -383,6 +389,7 @@ MonoBehaviour:
   timeScale: {fileID: 1411044439}
   rb: {fileID: 341930185}
   groundChecker: {fileID: 341930191}
+  upDirection: {fileID: 341930204}
   groundDeceleration: 32
   maxHorizontalSpeed: 16
 --- !u!114 &341930193
@@ -534,6 +541,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 0
   healthCurrent: 0
+--- !u!114 &341930204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341930182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad75de19dbdcf549afcc19c5e6b979a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upAngle: 90
+--- !u!114 &341930205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341930182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e538b5b5c0bffd4eb56de3d9ba4aa1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScale: {fileID: 1411044439}
+  rb: {fileID: 341930185}
+  upDirection: {fileID: 341930204}
+  acceleration: 39.2
+  gravityScale: 1
 --- !u!1 &436084320
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mover: {fileID: 436084323}
   rb: {fileID: 341930185}
+  upDirection: {fileID: 341930204}
   directions: 0
   radius: 64
   inverted: 0
@@ -1236,6 +1272,7 @@ GameObject:
   - component: {fileID: 1777724627}
   - component: {fileID: 1777724626}
   - component: {fileID: 1777724628}
+  - component: {fileID: 1777724630}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1362,3 +1399,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+--- !u!114 &1777724630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1777724621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29dac99e7862ed649b64b340abbb678a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScale: {fileID: 1411044439}
+  upDirection: {fileID: 341930204}
+  rotationSpeed: 360

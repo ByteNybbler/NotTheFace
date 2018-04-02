@@ -15,10 +15,14 @@ public class RigidbodyVelocityRotation2D : MonoBehaviour
     }
 
     [SerializeField]
+    [Tooltip("The mover that will perform the rotation.")]
     Mover2D mover;
     [SerializeField]
     [Tooltip("The Rigidbody to read the velocity of.")]
     Rigidbody2D rb;
+    [SerializeField]
+    [Tooltip("The up direction to use as a directional reference.")]
+    UpDirection2D upDirection;
     [SerializeField]
     [Tooltip("The directions along which to rotate the Rigidbody.")]
     Directions directions = Directions.Horizontal;
@@ -29,6 +33,9 @@ public class RigidbodyVelocityRotation2D : MonoBehaviour
     [Tooltip("Whether the rotation direction is inverted (switched) or not.")]
     bool inverted = false;
 
+    // The rigidbody velocity after being transformed to the up direction space.
+    Vector2 velocityTransformed;
+
     private void Rotate(float linearVelocity)
     {
         float angularVelocity = UtilCircle.AngularVelocityDegrees(linearVelocity, radius)
@@ -38,16 +45,17 @@ public class RigidbodyVelocityRotation2D : MonoBehaviour
 
     private void RotateHorizontal()
     {
-        Rotate(rb.velocity.x);
+        Rotate(velocityTransformed.x);
     }
 
     private void RotateVertical()
     {
-        Rotate(rb.velocity.y);
+        Rotate(velocityTransformed.y);
     }
 
     private void FixedUpdate()
     {
+        velocityTransformed = upDirection.SpaceEnter(rb.velocity);
         switch (directions)
         {
             case Directions.Horizontal:

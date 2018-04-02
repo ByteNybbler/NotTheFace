@@ -53,4 +53,17 @@ public class UtilMath
         }
         return current;
     }
+
+    // Like the Approach function, but rotates current along the shortest path to target.
+    public static float ApproachAngleDegrees(float current, float target, float stepSize)
+    {
+        current = UtilCircle.AngleDegreesToUnsignedRange(current);
+        target = UtilCircle.AngleDegreesToUnsignedRange(target);
+        if (UtilCircle.AngleDegreesToUnsignedRange(Mathf.Abs(current - target)) < stepSize)
+        {
+            return target;
+        }
+        current += stepSize * UtilCircle.SignShortestRotationDegrees(current, target);
+        return current;
+    }
 }
