@@ -1,15 +1,12 @@
 ﻿// Author(s): Paul Calande
-// Item pool.
+// Item pool script for Not the Face.
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ItemPool : MonoBehaviour
 {
-    [SerializeField]
-    TimeScale timeScale;
     [SerializeField]
     [Tooltip("The items JSON.")]
     TextAsset fileItems;
@@ -17,25 +14,15 @@ public class ItemPool : MonoBehaviour
     [Tooltip("Reference to the player.")]
     Player player;
     [SerializeField]
-    [Tooltip("The item name text.")]
-    Text textItemName;
-
-    // The timer that determines when the item-related text will exit the screen.
-    Timer timerItemText;
-    // The translator for translating the item text.
-    Translator translator;
+    [Tooltip("The item text.")]
+    ItemText itemText;
 
     // The items that are still in the pool.
     ClaimableElements<NamedEvent> pool = new ClaimableElements<NamedEvent>();
 
     private void Awake()
     {
-        ItemTextVanish();
-
         JSONNodeReader jsonReader = new JSONNodeReader(fileItems);
-
-        float timerItemSeconds = jsonReader.Get("seconds to display item text", 3.0f);
-        timerItemText = new Timer(timerItemSeconds, ItemTextVanish, false, false);
 
         JSONNamedEventReader itemReader = new JSONNamedEventReader("identifier");
         itemReader.AddCallbackInt("health bonus", player.AddMaxHealth);
@@ -47,16 +34,14 @@ public class ItemPool : MonoBehaviour
         while (itemsReader.GetNextNode(out itemNodeReader))
         {
             NamedEvent item = itemReader.Read(itemNodeReader);
-
             item.AddCallback(() => Claim(item));
-            item.AddCallback(() => ItemTextAppear(item.GetName()));
-
             pool.AddUnclaimed(item);
         }
     }
 
     private void Claim(NamedEvent item)
     {
+        itemText.Appear(item.GetName());
         pool.Claim(item);
     }
 
@@ -70,29 +55,5 @@ public class ItemPool : MonoBehaviour
     public List<NamedEvent> GetRandomItemsUnique(int count)
     {
         return pool.GetRandomElementsUniqueUnclaimed(count);
-    }
-
-    private void Start()
-    {
-        translator = ServiceLocator.GetTranslator();
-    }
-
-    private void ItemTextVanish(float secondsOverflow = 0.0f)
-    {
-        textItemName.gameObject.SetActive(false);
-    }
-
-    private void ItemTextAppear(string identifier)
-    {
-        textItemName.gameObject.SetActive(true);
-        timerItemText.Reset();
-        timerItemText.Start();
-
-        textItemName.text = translator.Translate("Item", identifier, "Name");
-    }
-
-    private void FixedUpdate()
-    {
-        timerItemText.Tick(timeScale.DeltaTime());
     }
 }
