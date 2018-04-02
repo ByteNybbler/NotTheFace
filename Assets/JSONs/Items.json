@@ -26,6 +26,12 @@
 			"identifier" : "Helmet",
 			"health bonus" : 20,
 			"headbutt damage bonus" : 5
-		}
+		},
+		{
+			"identifier": "Moustache",
+			"tongue damage bonus" : 5
+		}, 
+		
+		
 	]
 }
