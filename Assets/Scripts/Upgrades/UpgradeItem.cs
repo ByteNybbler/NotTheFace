@@ -1,5 +1,5 @@
 ﻿// Author(s): Paul Calande
-// Upgrade item.
+// Upgrade item script for Not the Face.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +20,14 @@ public class UpgradeItem : MonoBehaviour
     [SerializeField]
     [Tooltip("Text for the item name. For testing purposes.")]
     Text textItemName;
+    [SerializeField]
+    [Tooltip("DamageFromPlayer component that triggers the item getting picked up.")]
+    DamageFromPlayer dfp;
+
+    private void Start()
+    {
+        dfp.Damaged += (int damage) => OnCollected();
+    }
 
     public void SetSprite(string spriteName)
     {
@@ -40,14 +48,6 @@ public class UpgradeItem : MonoBehaviour
         if (Collected != null)
         {
             Collected();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Tongue"))
-        {
-            OnCollected();
         }
     }
 }

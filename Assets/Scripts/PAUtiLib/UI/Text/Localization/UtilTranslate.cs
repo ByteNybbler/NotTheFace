@@ -1,5 +1,5 @@
 ﻿// Author(s): Paul Calande
-// Translates based on common translation keys.
+// Functions for translating based on common translation keys.
 
 using System.Collections;
 using System.Collections.Generic;
