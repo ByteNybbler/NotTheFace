@@ -54,18 +54,15 @@ public class Player : MonoBehaviour
     {
         health.AddMaxHealth(amount);
         health.Heal(amount);
-        //Debug.Log("Max health: " + health.GetMaxHealth() + " (+" + amount + ")");
     }
 
     public void AddTongueDamage(int amount)
     {
         damageTongue.Add(amount);
-        //Debug.Log("Tongue damage: " + damageTongue.Get() + " (+" + amount + ")");
     }
 
     public void AddHeadbuttDamage(int amount)
     {
         damageHeadbutt.Add(amount);
-        //Debug.Log("Headbutt damage: " + damageHeadbutt.Get() + " (+" + amount + ")");
     }
 }

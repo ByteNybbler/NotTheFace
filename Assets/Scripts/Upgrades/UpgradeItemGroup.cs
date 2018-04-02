@@ -45,7 +45,7 @@ public class UpgradeItemGroup : MonoBehaviour
 
     private void SpawnItems()
     {
-        int itemPoolCount = itemPool.Count();
+        int itemPoolCount = itemPool.GetUnclaimedCount();
         if (itemPoolCount == 0)
         {
             DestroyItems();

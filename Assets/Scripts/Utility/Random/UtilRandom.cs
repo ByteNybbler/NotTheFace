@@ -14,7 +14,7 @@ public static class UtilRandom
     }
 
     // Returns the given number of random unique elements from the given collection.
-    // In this case, "unique" refers having a unique index in the given collection.
+    // In this case, "unique" refers to having a unique index in the given collection.
     public static List<T> GetRandomElementsUnique<T>(IList<T> collection, int count)
     {
         List<int> indices = UniqueIntegersShuffled(count, 0, collection.Count);

@@ -26,7 +26,7 @@ public class ItemPool : MonoBehaviour
     Translator translator;
 
     // The items that are still in the pool.
-    List<NamedEvent> pool = new List<NamedEvent>();
+    ClaimableElements<NamedEvent> pool = new ClaimableElements<NamedEvent>();
 
     private void Awake()
     {
@@ -48,11 +48,28 @@ public class ItemPool : MonoBehaviour
         {
             NamedEvent item = itemReader.Read(itemNodeReader);
 
-            item.AddCallback(() => Remove(item));
+            item.AddCallback(() => Claim(item));
             item.AddCallback(() => ItemTextAppear(item.GetName()));
 
-            pool.Add(item);
+            pool.AddUnclaimed(item);
         }
+    }
+
+    private void Claim(NamedEvent item)
+    {
+        pool.Claim(item);
+    }
+
+    public int GetUnclaimedCount()
+    {
+        return pool.GetUnclaimedCount();
+    }
+
+    // Returns a collection of items from the pool without removing them.
+    // The index of each item returned will be different.
+    public List<NamedEvent> GetRandomItemsUnique(int count)
+    {
+        return pool.GetRandomElementsUniqueUnclaimed(count);
     }
 
     private void Start()
@@ -72,23 +89,6 @@ public class ItemPool : MonoBehaviour
         timerItemText.Start();
 
         textItemName.text = translator.Translate("Item", identifier, "Name");
-    }
-
-    private void Remove(NamedEvent item)
-    {
-        pool.Remove(item);
-    }
-
-    public int Count()
-    {
-        return pool.Count;
-    }
-
-    // Returns a collection of items from the pool without removing them.
-    // Each item returned will be different
-    public List<NamedEvent> GetRandomItemsUnique(int count)
-    {
-        return UtilRandom.GetRandomElementsUnique(pool, count);
     }
 
     private void FixedUpdate()
