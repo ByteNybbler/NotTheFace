@@ -4,6 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeItem : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class UpgradeItem : MonoBehaviour
     [SerializeField]
     [Tooltip("Possible sprites.")]
     SOKVStringToSprite sprites;
+    [SerializeField]
+    [Tooltip("Text for the item name. For testing purposes.")]
+    Text textItemName;
 
     public void SetSprite(string spriteName)
     {
@@ -24,6 +28,11 @@ public class UpgradeItem : MonoBehaviour
         {
             render.sprite = sprite;
         }
+    }
+
+    public void SetItemName(string itemName)
+    {
+        textItemName.text = itemName;
     }
 
     private void OnCollected()

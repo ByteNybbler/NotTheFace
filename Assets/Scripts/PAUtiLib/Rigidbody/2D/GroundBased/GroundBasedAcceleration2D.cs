@@ -64,8 +64,23 @@ public class GroundBasedAcceleration2D : MonoBehaviour
         groundDeceleration = val;
     }
 
+    public float GetGroundDeceleration()
+    {
+        return groundDeceleration;
+    }
+
     public void SetMaxHorizontalSpeed(float val)
     {
         maxHorizontalSpeed = val;
+    }
+
+    public float GetMaxHorizontalSpeed()
+    {
+        return maxHorizontalSpeed;
+    }
+
+    public void AddMaxHorizontalSpeed(float val)
+    {
+        maxHorizontalSpeed += val;
     }
 }

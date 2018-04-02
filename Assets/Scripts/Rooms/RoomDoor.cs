@@ -8,21 +8,26 @@ using UnityEngine;
 public class RoomDoor : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Reference to the door GameObject.")]
+    GameObject door;
+    [SerializeField]
     [Tooltip("Whether the door is currently open.")]
     bool isOpen;
 
+    /*
     private void Awake()
     {
-        gameObject.SetActive(!isOpen);
+        door.SetActive(!isOpen);
     }
+    */
 
     public void Open()
     {
-        gameObject.SetActive(false);
+        door.SetActive(false);
     }
 
     public void Close()
     {
-        gameObject.SetActive(true);
+        door.SetActive(true);
     }
 }

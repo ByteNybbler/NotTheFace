@@ -20,6 +20,9 @@ public class RoomLoop : MonoBehaviour
     [Tooltip("The item pool for the rooms to use.")]
     ItemPool itemPool;
     [SerializeField]
+    [Tooltip("The prefab to use for the door.")]
+    GameObject prefabDoor;
+    [SerializeField]
     [Tooltip("How many rooms can exist in the loop before old rooms start getting destroyed.")]
     int maxConcurrentRooms;
     [SerializeField]
@@ -38,6 +41,8 @@ public class RoomLoop : MonoBehaviour
     RoomSpawnData[] roomOrder;
     // A collection of all the rooms that currently exist.
     Dictionary<int, Room> rooms = new Dictionary<int, Room>();
+    // The latest door that was created.
+    RoomDoor latestDoor = null;
 
     private void Awake()
     {
@@ -56,9 +61,29 @@ public class RoomLoop : MonoBehaviour
         roomNumberPlayer = 0;
     }
 
+    private float GetHalfRoomWidth(RoomSpawnData room)
+    {
+        return room.width * 0.01f * 0.5f;
+    }
+
+    private Vector3 GetHalfRoomWidthVector(RoomSpawnData room)
+    {
+        return new Vector3(GetHalfRoomWidth(room), 0.0f, 0.0f);
+    }
+
     private void MoveForwardByHalfRoomWidth(RoomSpawnData room)
     {
-        transform.position += new Vector3(room.width * 0.01f * 0.5f, 0.0f, 0.0f);
+        transform.position += GetHalfRoomWidthVector(room);
+    }
+
+    private void CreateDoor(RoomSpawnData room, Transform doorParent, int sign = 1)
+    {
+        GameObject door = Instantiate(prefabDoor, doorParent);
+        door.transform.position = transform.position + GetHalfRoomWidthVector(room) * sign;
+        Vector3 newScale = door.transform.localScale;
+        newScale.x *= -1.0f * UtilMath.Sign(roomNumber % roomOrder.Length == 1) * sign;
+        door.transform.localScale = newScale;
+        latestDoor = door.GetComponent<RoomDoor>();
     }
 
     private void CreateRoom(RoomSpawnData room)
@@ -68,11 +93,21 @@ public class RoomLoop : MonoBehaviour
             RoomSpawnData previousRoom = roomOrder[(roomNumber - 1) % roomOrder.Length];
             MoveForwardByHalfRoomWidth(previousRoom);
         }
+
         MoveForwardByHalfRoomWidth(room);
         GameObject obj = Instantiate(room.prefab, transform.position, Quaternion.identity);
         Room rm = obj.GetComponent<Room>();
         rm.RoomStarted += Iterate;
         rm.SetItemPool(itemPool);
+
+        // If the latest door is null, this is the very first room in the game.
+        if (latestDoor == null)
+        {
+            CreateDoor(room, obj.transform, -1);
+        }
+        rm.SetDoorEntry(latestDoor);
+        CreateDoor(room, obj.transform);
+        rm.SetDoorExit(latestDoor);
 
         rooms.Add(roomNumber, rm);
         ++roomNumber;

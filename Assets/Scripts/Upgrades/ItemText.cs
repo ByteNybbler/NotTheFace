@@ -17,8 +17,6 @@ public class ItemText : MonoBehaviour
     [Tooltip("The item name text.")]
     Text textItemName;
 
-    // The translator for translating the item text.
-    Translator translator;
     // The timer that determines when the item-related text will exit the screen.
     Timer timerItemText;
 
@@ -33,7 +31,6 @@ public class ItemText : MonoBehaviour
     private void Start()
     {
         Disappear();
-        translator = ServiceLocator.GetTranslator();
     }
 
     public void Appear(string identifier)
@@ -42,7 +39,7 @@ public class ItemText : MonoBehaviour
         timerItemText.Reset();
         timerItemText.Start();
 
-        textItemName.text = translator.Translate("Item", identifier, "Name");
+        textItemName.text = UtilTranslate.ItemName(identifier);
     }
 
     private void Disappear(float secondsOverflow = 0.0f)

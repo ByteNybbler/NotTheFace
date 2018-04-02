@@ -9,5 +9,12 @@
 	"Item_Sword_Name" : "Sword",
 	"Item_Lollipop_Name" : "Lollipop",
 	"Item_SafetyGoggles_Name" : "Safety Goggles",
-	"Item_Helmet_Name" : "Helmet"
+	"Item_Helmet_Name" : "Helmet",
+	"Item_TopHat_Name" : "Top Hat",
+	"Item_Moustache_Name" : "Moustache",
+	"Item_LaserPointer_Name" : "Laser Gun",
+	"Item_BabyLimbs_Name" : "Baby Arms and Legs",
+	"Item_Beanie_Name" : "Beanie",
+	"Item_JetPack_Name" : "Jet Pack",
+	"Item_Wheels_Name" : "Wheels"
 }

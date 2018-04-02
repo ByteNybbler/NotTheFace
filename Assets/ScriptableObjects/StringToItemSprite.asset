@@ -13,7 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   array:
     array:
-    - key: SpikedHat
-      value: {fileID: 21300000, guid: 4d141892dc178bc408f11d04a4ecd75d, type: 3}
-    - key: HotSauce
-      value: {fileID: 21300000, guid: e25293c272e5713478d2c88a7aa7f31e, type: 3}
+    - key: BabyLimbs
+      value: {fileID: 21300000, guid: 7f0877d515134854f95a6a54f8e291a8, type: 3}
+    - key: BubbleShield
+      value: {fileID: 21300000, guid: d28a2e06a74b1b74489563bc7716304d, type: 3}
+    - key: LaserPointer
+      value: {fileID: 21300000, guid: 214c835b8586c544bba7bc5007222c79, type: 3}
+    - key: Beanie
+      value: {fileID: 21300000, guid: 559b1fac09e281b4cb6f9e58dfcad77e, type: 3}

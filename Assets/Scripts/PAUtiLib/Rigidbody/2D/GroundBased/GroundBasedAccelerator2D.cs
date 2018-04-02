@@ -26,4 +26,14 @@ public class GroundBasedAccelerator2D : MonoBehaviour
     {
         acceleration = val;
     }
+
+    public float GetAcceleration()
+    {
+        return acceleration;
+    }
+
+    public void AddAcceleration(float val)
+    {
+        acceleration += val;
+    }
 }

@@ -34,12 +34,18 @@ public class Room : MonoBehaviour
 
     public void LockEntrance()
     {
-        doorEntry.Close();
+        if (doorEntry != null)
+        {
+            doorEntry.Close();
+        }
     }
 
     public void OpenExit()
     {
-        doorExit.Open();
+        if (doorExit != null)
+        {
+            doorExit.Open();
+        }
     }
 
     public void StartRoom()
@@ -64,6 +70,16 @@ public class Room : MonoBehaviour
     public ItemPool GetItemPool()
     {
         return itemPool;
+    }
+
+    public void SetDoorEntry(RoomDoor door)
+    {
+        doorEntry = door;
+    }
+
+    public void SetDoorExit(RoomDoor door)
+    {
+        doorExit = door;
     }
 
     private void OnRoomStarted()

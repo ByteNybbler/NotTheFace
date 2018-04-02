@@ -40,7 +40,9 @@ public class UpgradeItemGroup : MonoBehaviour
         UpgradeItem item = obj.GetComponent<UpgradeItem>();
         item.Collected += itemPoolItem.OnInvoked;
         item.Collected += DestroyItems;
-        item.SetSprite(itemPoolItem.GetName());
+        string itemName = itemPoolItem.GetName();
+        item.SetSprite(itemName);
+        item.SetItemName(UtilTranslate.ItemName(itemName));
     }
 
     private void SpawnItems()

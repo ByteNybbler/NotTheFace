@@ -22,6 +22,8 @@ public class JSONNamedEventReader
     // Node name mapped to callback function.
     Dictionary<string, EventCallback<int>> nameToCallbackInt
         = new Dictionary<string, EventCallback<int>>();
+    Dictionary<string, EventCallback<float>> nameToCallbackFloat
+        = new Dictionary<string, EventCallback<float>>();
 
     // Constructor.
     public JSONNamedEventReader(string nameKey)
@@ -34,6 +36,11 @@ public class JSONNamedEventReader
     {
         nameToCallbackInt[nodeName] = callback;
     }
+    // The callback takes one float parameter.
+    public void AddCallbackFloat(string nodeName, EventCallback<float> callback)
+    {
+        nameToCallbackFloat[nodeName] = callback;
+    }
 
     // Reads from the given node and returns the resulting NamedEvent.
     public NamedEvent Read(JSONNodeReader nodeReader)
@@ -44,6 +51,10 @@ public class JSONNamedEventReader
 
         // Read all callback JSON node data.
         foreach (KeyValuePair<string, EventCallback<int>> pair in nameToCallbackInt)
+        {
+            TryAddCallback(pair.Key, pair.Value);
+        }
+        foreach (KeyValuePair<string, EventCallback<float>> pair in nameToCallbackFloat)
         {
             TryAddCallback(pair.Key, pair.Value);
         }

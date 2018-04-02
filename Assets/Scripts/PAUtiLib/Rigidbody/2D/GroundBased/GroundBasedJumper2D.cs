@@ -24,4 +24,14 @@ public class GroundBasedJumper2D : MonoBehaviour
     {
         jumpVelocity = val;
     }
+
+    public float GetJumpVelocity()
+    {
+        return jumpVelocity;
+    }
+
+    public void AddJumpVelocity(float val)
+    {
+        jumpVelocity += val;
+    }
 }

@@ -28,6 +28,9 @@ public class ItemPool : MonoBehaviour
         itemReader.AddCallbackInt("health bonus", player.AddMaxHealth);
         itemReader.AddCallbackInt("tongue damage bonus", player.AddTongueDamage);
         itemReader.AddCallbackInt("headbutt damage bonus", player.AddHeadbuttDamage);
+        itemReader.AddCallbackFloat("jump velocity bonus", player.AddJumpVelocity);
+        itemReader.AddCallbackFloat("horizontal acceleration bonus", player.AddHorizontalAcceleration);
+        itemReader.AddCallbackFloat("max horizontal speed bonus", player.AddMaxHorizontalSpeed);
 
         JSONArrayReader itemsReader = jsonReader.Get<JSONArrayReader>("items");
         JSONNodeReader itemNodeReader;

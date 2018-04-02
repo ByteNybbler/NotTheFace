@@ -28,10 +28,33 @@
 			"headbutt damage bonus" : 5
 		},
 		{
-			"identifier": "Moustache",
+			"identifier" : "TopHat",
+			"tongue damage bonus" : 5
+		},
+		{
+			"identifier" : "Moustache",
 			"tongue damage bonus" : 5
 		}, 
-		
-		
+		{
+			"identifier" : "LaserPointer",
+			"laser damage" : 20
+		},
+		{
+			"identifier" : "BabyLimbs",
+			"contact damage per second bonus" : 1
+		},
+		{
+			"identifier" : "Beanie",
+			"jump velocity bonus" : 3.0
+		},
+		{
+			"identifier" : "JetPack",
+			"jump velocity bonus" : 3.0
+		},
+		{
+			"identifier" : "Wheels",
+			"horizontal acceleration bonus" : 10.0,
+			"max horizontal speed bonus" : 5.0
+		}
 	]
 }

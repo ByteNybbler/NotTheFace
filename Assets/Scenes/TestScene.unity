@@ -500,7 +500,7 @@ MonoBehaviour:
   damageTongue: {fileID: 977067981}
   damageHeadbutt: {fileID: 341930201}
   gban: {fileID: 341930192}
-  gbao: {fileID: 341930193}
+  gbar: {fileID: 341930193}
   gbj: {fileID: 341930189}
   gravity: {fileID: 341930205}
   health: {fileID: 341930203}
@@ -596,7 +596,7 @@ Transform:
   m_GameObject: {fileID: 436084320}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 341930184}
   m_RootOrder: 0
@@ -635,8 +635,8 @@ SpriteRenderer:
   m_SortingLayerID: 470961499
   m_SortingLayer: 1
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: e25293c272e5713478d2c88a7aa7f31e, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.08965516, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fb6910fbd00e037489e0a5a968ad3040, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -715,6 +715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPool: {fileID: 248976309}
+  prefabDoor: {fileID: 1309205331681118, guid: 57cee19d1aa68664f9146251d26aee37, type: 2}
   maxConcurrentRooms: 5
   initialRoomCount: 3
   roomBoss:
