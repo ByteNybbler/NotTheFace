@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     GroundBasedJumper2D gbj;
     [SerializeField]
+    Gravity2D gravity;
+    [SerializeField]
     Health health;
 
     private void Awake()
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour
         gban.SetGroundDeceleration(jsonP.Get("ground deceleration", 32.0f));
         gban.SetMaxHorizontalSpeed(jsonP.Get("max horizontal speed", 16.0f));
         gbj.SetJumpVelocity(jsonP.Get("jump velocity", 20.0f));
+        gravity.SetAcceleration(jsonP.Get("gravity", 39.2f));
         InitializeHealth(jsonP.Get("health", 100));
     }
 

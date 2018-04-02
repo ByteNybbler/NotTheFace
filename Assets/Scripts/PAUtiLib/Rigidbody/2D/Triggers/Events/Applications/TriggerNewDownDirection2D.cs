@@ -15,4 +15,9 @@ public class TriggerNewDownDirection2D : MonoBehaviour
     {
         return downDirectionDegrees;
     }
+
+    public void SetDownDirectionDegrees(float degrees)
+    {
+        downDirectionDegrees = degrees;
+    }
 }

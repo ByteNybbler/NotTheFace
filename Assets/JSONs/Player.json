@@ -7,5 +7,6 @@
 	"horizontal acceleration" : 40.0,
 	"ground deceleration" : 32.0,
 	"max horizontal speed" : 16.0,
-	"jump velocity" : 20.0
+	"jump velocity" : 20.0,
+	"gravity" : 39.2
 }

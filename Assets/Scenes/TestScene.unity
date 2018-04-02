@@ -502,6 +502,7 @@ MonoBehaviour:
   gban: {fileID: 341930192}
   gbao: {fileID: 341930193}
   gbj: {fileID: 341930189}
+  gravity: {fileID: 341930205}
   health: {fileID: 341930203}
 --- !u!114 &341930201
 MonoBehaviour:
