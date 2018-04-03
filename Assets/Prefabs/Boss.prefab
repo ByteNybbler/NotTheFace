@@ -20,8 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4898588664359686}
   - component: {fileID: 61374937323464620}
-  - component: {fileID: 114052951053530540}
-  - component: {fileID: 114110101638032382}
+  - component: {fileID: 114224283753305566}
+  - component: {fileID: 114786158550618882}
+  - component: {fileID: 114905746743925618}
+  - component: {fileID: 114538684021632656}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -162,30 +164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 100
   healthCurrent: 100
---- !u!114 &114052951053530540
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1115368872708376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 289d2a1a40d0a17499d553a3b8d91638, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114110101638032382
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1115368872708376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 848dc7b46e22ae244a8bedd0fef97074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 114023937819720990}
-  dfp: {fileID: 114052951053530540}
 --- !u!114 &114192841746015552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -197,6 +175,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc14310824c6e8b47bdf049e463da9a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114224283753305566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115368872708376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2631801e5097b25449442464a5e9032e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - Tongue
+  - Headbutt
+  inverted: 0
+  triggerEnter: {fileID: 114905746743925618}
+  triggerExit: {fileID: 0}
 --- !u!114 &114285835685244466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,6 +203,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec8061c1df7c42468518ae649839847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114538684021632656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115368872708376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e39c33b4f74cc4b89d1d0aeb8dd55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 114023937819720990}
+  damageEvent: {fileID: 114786158550618882}
 --- !u!114 &114668306174125866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,6 +231,29 @@ MonoBehaviour:
   hierarchySpriteColor: {fileID: 114192841746015552}
   colorChanged: {r: 1, g: 0, b: 0, a: 1}
   secondsToColor: 0.1
+--- !u!114 &114786158550618882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115368872708376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630b3e7ae619f9c439997dc0906a3b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerEvent: {fileID: 114905746743925618}
+--- !u!114 &114905746743925618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115368872708376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0bb3d0119ab6f438bfcef41a888186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114996845202006752
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -40,7 +40,9 @@ GameObject:
   - component: {fileID: 50456374858126408}
   - component: {fileID: 61045000376894128}
   - component: {fileID: 114358464762685268}
-  - component: {fileID: 114150543036983974}
+  - component: {fileID: 114287447117414870}
+  - component: {fileID: 114807794434025112}
+  - component: {fileID: 114830279573323072}
   m_Layer: 0
   m_Name: UpgradeItem
   m_TagString: Untagged
@@ -203,17 +205,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114150543036983974
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1555074881566852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 289d2a1a40d0a17499d553a3b8d91638, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114192715778913030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,6 +217,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+--- !u!114 &114287447117414870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555074881566852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630b3e7ae619f9c439997dc0906a3b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerEvent: {fileID: 114830279573323072}
 --- !u!114 &114358464762685268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,7 +243,7 @@ MonoBehaviour:
   render: {fileID: 212049308358425312}
   sprites: {fileID: 11400000, guid: c7c3461214f117d40b1cee08a582f472, type: 2}
   textItemName: {fileID: 114748204696640576}
-  dfp: {fileID: 114150543036983974}
+  damageEvent: {fileID: 114287447117414870}
 --- !u!114 &114382200187477302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,6 +298,34 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Item Name
+--- !u!114 &114807794434025112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555074881566852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2631801e5097b25449442464a5e9032e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - Tongue
+  - Headbutt
+  inverted: 0
+  triggerEnter: {fileID: 114830279573323072}
+  triggerExit: {fileID: 0}
+--- !u!114 &114830279573323072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555074881566852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0bb3d0119ab6f438bfcef41a888186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114831339779706674
 MonoBehaviour:
   m_ObjectHideFlags: 1

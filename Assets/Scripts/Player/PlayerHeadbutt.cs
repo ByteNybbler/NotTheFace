@@ -14,8 +14,8 @@ public class PlayerHeadbutt : MonoBehaviour
     [Tooltip("Used to check when the player hits the ground to stop headbutts.")]
     GroundChecker2D groundChecker;
     [SerializeField]
-    [Tooltip("The headbutt's Damage component.")]
-    Damage damage;
+    [Tooltip("The GameObject to activate when headbutting.")]
+    GameObject headbutt;
 
     // Whether the player is currently in a headbutt.
     bool headbutting = false;
@@ -23,6 +23,7 @@ public class PlayerHeadbutt : MonoBehaviour
     private void Start()
     {
         groundChecker.GroundLanded += HeadbuttExit;
+        headbutt.SetActive(false);
     }
 
     public void HeadbuttEnter()
@@ -31,6 +32,7 @@ public class PlayerHeadbutt : MonoBehaviour
         {
             headbutting = true;
             distributor.UnsubscribeFromInputManager();
+            headbutt.SetActive(true);
         }
     }
 
@@ -40,16 +42,12 @@ public class PlayerHeadbutt : MonoBehaviour
         {
             headbutting = false;
             distributor.SubscribeToInputManager();
+            headbutt.SetActive(false);
         }
     }
 
     public bool IsHeadbutting()
     {
         return headbutting;
-    }
-
-    public int GetDamage()
-    {
-        return damage.Get();
     }
 }

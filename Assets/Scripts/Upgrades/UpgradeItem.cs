@@ -21,12 +21,12 @@ public class UpgradeItem : MonoBehaviour
     [Tooltip("Text for the item name. For testing purposes.")]
     Text textItemName;
     [SerializeField]
-    [Tooltip("DamageFromPlayer component that triggers the item getting picked up.")]
-    DamageFromPlayer dfp;
+    [Tooltip("Damage component that triggers the item getting picked up.")]
+    TriggerEventDamage2D damageEvent;
 
     private void Start()
     {
-        dfp.Damaged += (int damage) => OnCollected();
+        damageEvent.Damaged += (int damage) => OnCollected();
     }
 
     public void SetSprite(string spriteName)
