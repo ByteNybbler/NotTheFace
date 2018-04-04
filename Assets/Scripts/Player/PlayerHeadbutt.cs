@@ -16,6 +16,12 @@ public class PlayerHeadbutt : MonoBehaviour
     [SerializeField]
     [Tooltip("The GameObject to activate when headbutting.")]
     GameObject headbutt;
+    [SerializeField]
+    [Tooltip("The component that rolls the head like a wheel.")]
+    RigidbodyVelocityWheel2D rbWheel;
+    [SerializeField]
+    [Tooltip("The component that adjusts the head's heading based on its velocity.")]
+    RigidbodyVelocityHeading2D rbHeading;
 
     // Whether the player is currently in a headbutt.
     bool headbutting = false;
@@ -33,6 +39,8 @@ public class PlayerHeadbutt : MonoBehaviour
             headbutting = true;
             distributor.UnsubscribeFromInputManager();
             headbutt.SetActive(true);
+            rbWheel.enabled = false;
+            rbHeading.enabled = true;
         }
     }
 
@@ -43,6 +51,8 @@ public class PlayerHeadbutt : MonoBehaviour
             headbutting = false;
             distributor.SubscribeToInputManager();
             headbutt.SetActive(false);
+            rbWheel.enabled = true;
+            rbHeading.enabled = false;
         }
     }
 

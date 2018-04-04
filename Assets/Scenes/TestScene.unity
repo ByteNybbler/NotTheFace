@@ -264,7 +264,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 436084321}
+  - {fileID: 528562222}
   - {fileID: 1193882073}
   - {fileID: 630685121}
   m_Father: {fileID: 0}
@@ -518,6 +518,8 @@ MonoBehaviour:
   distributor: {fileID: 341930195}
   groundChecker: {fileID: 341930191}
   headbutt: {fileID: 630685118}
+  rbWheel: {fileID: 528562224}
+  rbHeading: {fileID: 528562225}
 --- !u!114 &341930203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,10 +570,8 @@ GameObject:
   m_Component:
   - component: {fileID: 436084321}
   - component: {fileID: 436084322}
-  - component: {fileID: 436084324}
-  - component: {fileID: 436084323}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: HeadSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -587,7 +587,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 341930184}
+  m_Father: {fileID: 528562222}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &436084322
@@ -634,35 +634,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &436084323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 436084320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c17595ac46d89a45a4de142533885a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myRigidbody: {fileID: 0}
---- !u!114 &436084324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 436084320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47bb59780829c20478246b8f0f1db6c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mover: {fileID: 436084323}
-  rb: {fileID: 341930185}
-  upDirection: {fileID: 341930204}
-  directions: 0
-  radius: 64
-  inverted: 0
 --- !u!1 &473222391
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +684,83 @@ MonoBehaviour:
   roomUpgrade:
     prefab: {fileID: 1697019114177188, guid: 5c6a8d2f8690f924794956188653f6e8, type: 2}
     width: 1200
+--- !u!1 &528562221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 528562222}
+  - component: {fileID: 528562223}
+  - component: {fileID: 528562224}
+  - component: {fileID: 528562225}
+  m_Layer: 0
+  m_Name: Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &528562222
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 528562221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 436084321}
+  m_Father: {fileID: 341930184}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &528562223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 528562221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c17595ac46d89a45a4de142533885a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidbody: {fileID: 0}
+--- !u!114 &528562224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 528562221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bb59780829c20478246b8f0f1db6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mover: {fileID: 528562223}
+  rb: {fileID: 341930185}
+  upDirection: {fileID: 341930204}
+  directions: 0
+  radius: 64
+  inverted: 0
+--- !u!114 &528562225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 528562221}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010ff68df559ef4c840660d30121922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScale: {fileID: 1411044439}
+  mover: {fileID: 528562223}
+  rb: {fileID: 341930185}
+  degreeChangePerSecond: 720
+  offsetDegrees: 180
 --- !u!1 &630685118
 GameObject:
   m_ObjectHideFlags: 0

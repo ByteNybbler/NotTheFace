@@ -57,7 +57,7 @@ public class Mover2D : MonoBehaviour
     {
         if (myRigidbody == null)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, differenceRotation);
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, newRotation);
         }
         else
         {

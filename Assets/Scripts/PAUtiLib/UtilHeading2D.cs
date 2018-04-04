@@ -26,6 +26,12 @@ public class UtilHeading2D : MonoBehaviour
         return HeadingVectorFromRadians(angleDegrees * Mathf.Deg2Rad);
     }
 
+    // Returns the direction (in signed degrees) given by the heading vector.
+    public static float DegreesFromHeadingVector(Vector2 heading)
+    {
+        return -Vector2.SignedAngle(heading, Vector2.right);
+    }
+
     // Gets the predicted position of a particle with a given start position and velocity after
     // a given number of seconds. Does not take potential collisions or external forces into account.
     public static Vector2 PredictedPosition(Vector2 startPos, Vector2 velocity, float seconds)

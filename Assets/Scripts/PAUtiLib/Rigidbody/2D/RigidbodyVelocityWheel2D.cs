@@ -1,11 +1,13 @@
 ﻿// Author(s): Paul Calande
-// Rotates an object based on a Rigidbody's velocity.
+// Spins an object like a wheel based on a Rigidbody's velocity.
+// Useful for creating ball or ball-like objects that roll along
+// the ground in a convincing way.
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RigidbodyVelocityRotation2D : MonoBehaviour
+public class RigidbodyVelocityWheel2D : MonoBehaviour
 {
     enum Directions
     {
