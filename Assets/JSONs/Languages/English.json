@@ -1,10 +1,11 @@
 {
-	"Play" : "Play",
-	"Settings" : "Settings",
-	"Quit" : "Quit"
+	"Option_Play" : "Play",
+	"Option_Settings" : "Settings",
+	"Option_Quit" : "Quit",
 	
 	"Boss_Horror_Name" : "Horror",
-	"Item_SpikedHat_Name" : "Spiked Hat",
+	
+	"Item_SpikedHelmet_Name" : "Spiked Helmet",
 	"Item_HotSauce_Name" : "Hot Sauce",
 	"Item_Sword_Name" : "Sword",
 	"Item_Lollipop_Name" : "Lollipop",
@@ -16,5 +17,8 @@
 	"Item_BabyLimbs_Name" : "Baby Arms and Legs",
 	"Item_Beanie_Name" : "Beanie",
 	"Item_JetPack_Name" : "Jet Pack",
-	"Item_Wheels_Name" : "Wheels"
+	"Item_Wheels_Name" : "Wheels",
+	"Item_Lipstick_Name" : "Lipstick",
+	"Item_Egg_Name" : "Egg?",
+	"Item_Soap_Name" : "Soap"
 }

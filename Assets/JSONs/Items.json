@@ -3,7 +3,7 @@
 	"items" :
 	[
 		{
-			"identifier" : "SpikedHat",
+			"identifier" : "SpikedHelmet",
 			"headbutt damage bonus" : 10
 		},
 		{
@@ -55,6 +55,22 @@
 			"identifier" : "Wheels",
 			"horizontal acceleration bonus" : 10.0,
 			"max horizontal speed bonus" : 5.0
+		},
+		{
+			"identifier" : "Lipstick",
+			"poison tongue" :
+			{
+				"damage per second" : 1,
+				"number of seconds" : 10.0
+			}
+		},
+		{
+			"identifier" : "Egg",
+			"damaged explosion damage bonus" : 5
+		},
+		{
+			"identifier" : "Soap",
+			"press down for shield" : true
 		}
 	]
 }

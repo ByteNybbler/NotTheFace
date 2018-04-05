@@ -21,3 +21,19 @@ MonoBehaviour:
       value: {fileID: 21300000, guid: 214c835b8586c544bba7bc5007222c79, type: 3}
     - key: Beanie
       value: {fileID: 21300000, guid: 559b1fac09e281b4cb6f9e58dfcad77e, type: 3}
+    - key: Egg
+      value: {fileID: 21300000, guid: a6f28430b172f124bba45a722baf0382, type: 3}
+    - key: JetPack
+      value: {fileID: 21300000, guid: 0b25b6e783bfe2548b02d0e28ca6c3e2, type: 3}
+    - key: LipStick
+      value: {fileID: 21300000, guid: 3cfa514675c25664d8ffef51a10a45ed, type: 3}
+    - key: Moustache
+      value: {fileID: 21300000, guid: f6f228ef62b9be448bde93d12f5ce8b2, type: 3}
+    - key: Sword
+      value: {fileID: 21300000, guid: 09f8b4363203280459d47eeabe705f54, type: 3}
+    - key: TopHat
+      value: {fileID: 21300000, guid: bb154f28ffaec094e9cab09ab63c20c7, type: 3}
+    - key: Wheels
+      value: {fileID: 21300000, guid: 20b7fd245d1a3604a9b975a4b5f0e778, type: 3}
+    - key: SpikedHelmet
+      value: {fileID: 21300000, guid: 6c1301dc4e2b42a4cbcb5bb15ffe7fae, type: 3}
