@@ -18,6 +18,9 @@ public class FollowGameObject2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        mover.TeleportPosition(followThis.transform.position + offset);
+        if (followThis != null)
+        {
+            mover.TeleportPosition(followThis.transform.position + offset);
+        }
     }
 }

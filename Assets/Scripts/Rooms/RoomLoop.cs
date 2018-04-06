@@ -26,6 +26,9 @@ public class RoomLoop : MonoBehaviour
     [Tooltip("The prefab to use for the door.")]
     GameObject prefabDoor;
     [SerializeField]
+    [Tooltip("Reference to the player's health, for assigning to health bars.")]
+    Health playerHealth;
+    [SerializeField]
     [Tooltip("How many rooms can exist in the loop before old rooms start getting destroyed.")]
     int maxConcurrentRooms;
     [SerializeField]
@@ -105,6 +108,7 @@ public class RoomLoop : MonoBehaviour
         rm.RoomStarted += Iterate;
         rm.SetItemPool(itemPool);
         rm.SetBossPool(bossPool);
+        rm.SetPlayerHealth(playerHealth);
 
         // If the latest door is null, this is the very first room in the game.
         if (latestDoor == null)

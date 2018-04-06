@@ -33,6 +33,9 @@ public class Room : MonoBehaviour
     [Tooltip("Reference to the boss pool.")]
     BossPool bossPool;
     [SerializeField]
+    [Tooltip("Reference to the player health meter, if one exists in this room.")]
+    HealthToMeter playerHealth;
+    [SerializeField]
     [Tooltip("The bottom left edge of the room.")]
     Transform bottomLeft;
     [SerializeField]
@@ -116,6 +119,14 @@ public class Room : MonoBehaviour
     public void SetLoopNumber(int val)
     {
         loopNumber = val;
+    }
+
+    public void SetPlayerHealth(Health health)
+    {
+        if (playerHealth != null)
+        {
+            playerHealth.SetHealth(health);
+        }
     }
 
     public Vector3 GetRandomFloorPosition()

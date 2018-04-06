@@ -899,6 +899,7 @@ MonoBehaviour:
   doorExit: {fileID: 0}
   itemPool: {fileID: 0}
   bossPool: {fileID: 0}
+  playerHealth: {fileID: 114215408281424714}
   bottomLeft: {fileID: 4308179795254280}
   bottomRight: {fileID: 4605644399147772}
 --- !u!114 &114595675066494778
