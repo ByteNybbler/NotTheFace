@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 341930208}
   - component: {fileID: 341930209}
   - component: {fileID: 341930210}
+  - component: {fileID: 341930206}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -578,6 +579,19 @@ MonoBehaviour:
   upDirection: {fileID: 341930204}
   acceleration: 39.2
   gravityScale: 1
+--- !u!114 &341930206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341930182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bcf26033ce73348ab72280fce0b491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 341930203}
+  disableForTime: {fileID: 341930209}
 --- !u!114 &341930208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1779,7 +1793,6 @@ GameObject:
   - component: {fileID: 1985689718}
   - component: {fileID: 1985689719}
   - component: {fileID: 1985689717}
-  - component: {fileID: 1985689722}
   m_Layer: 0
   m_Name: DamageHitbox
   m_TagString: Untagged
@@ -1897,16 +1910,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1985689722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1985689714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6879359b3e1ca534c85e9cf94e31ee31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerEvent: {fileID: 1985689718}
-  disableForTime: {fileID: 341930209}
