@@ -58,6 +58,9 @@ public class Boss : MonoBehaviour
     [SerializeField]
     [Tooltip("Prefab to use for floor spikes.")]
     GameObject prefabFloorSpike;
+    [SerializeField]
+    [Tooltip("Prefab to use for projectiles.")]
+    GameObject prefabProjectile;
 
     // Timer for how long the boss waits between attacks.
     Timer timerCooldown;
@@ -122,5 +125,18 @@ public class Boss : MonoBehaviour
         }
         b.SetAttackTime(d.secondsOfIdling + d.secondsOfLowering + d.secondsOfRising
             + d.secondsOfWarning);
+    }
+
+    // Fire a projectile.
+    public static void FireProjectile(Boss b, Velocity2D.Data d, int damage,
+        float spawnHeight, float seconds)
+    {
+        Room room = b.refs.room;
+        GameObject obj = Instantiate(b.prefabProjectile, room.transform);
+        obj.transform.position = new Vector3(b.transform.position.x,
+            room.GetFloorYPosition() + spawnHeight, 0.0f);
+        obj.GetComponent<Velocity2D>().SetData(d);
+        obj.GetComponent<Damage>().Add(damage);
+        b.SetAttackTime(seconds);
     }
 }

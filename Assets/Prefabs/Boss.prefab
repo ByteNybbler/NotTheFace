@@ -348,6 +348,8 @@ MonoBehaviour:
   health: {fileID: 114023937819720990}
   prefabFloorSpike: {fileID: 1270621328887568, guid: 3e6611687326a644c803c79a665b32ce,
     type: 2}
+  prefabProjectile: {fileID: 1303175292761204, guid: e5a2a11ad84f8944c9e9182c760f88ae,
+    type: 2}
 --- !u!212 &212075607109229470
 SpriteRenderer:
   m_ObjectHideFlags: 1

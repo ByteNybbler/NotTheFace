@@ -29,11 +29,11 @@ public class Velocity2D : MonoBehaviour
     [System.Serializable]
     public class Refs
     {
-        public TimeScale ts;
+        public TimeScale timeScale;
 
-        public Refs(TimeScale ts)
+        public Refs(TimeScale timeScale)
         {
-            this.ts = ts;
+            this.timeScale = timeScale;
         }
     }
     [SerializeField]
@@ -47,10 +47,14 @@ public class Velocity2D : MonoBehaviour
     {
         data = val;
     }
+    public void SetRefs(Refs val)
+    {
+        refs = val;
+    }
 
     private void FixedUpdate()
     {
-        mover.OffsetPosition(data.velocity * refs.ts.DeltaTime());
+        mover.OffsetPosition(data.velocity * refs.timeScale.DeltaTime());
     }
 
     public void SetVelocity(Vector2 val)

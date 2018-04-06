@@ -30,23 +30,32 @@ public class BossPool : MonoBehaviour
             while (attacksReader.GetNextNode(out attackNodeReader))
             {
                 string identifier = attackNodeReader.Get("identifier", "ERROR");
-                switch (identifier)
+                if (identifier == "FloorSpikes")
                 {
-                    case "FloorSpikes":
-                        int count = attackNodeReader.Get("count", 3);
-                        string appearance = attackNodeReader.Get("appearance", "ERROR");
-                        GameObject spikeWarning;
-                        spikeWarnings.TryGetValue(appearance, out spikeWarning);
-                        FloorSpike.Data d = new FloorSpike.Data(
-                            attackNodeReader.Get("damage", 20),
-                            spikeWarning,
-                            attackNodeReader.Get("seconds of warning", 1.0f),
-                            attackNodeReader.Get("seconds of rising", 0.2f),
-                            attackNodeReader.Get("seconds to idle", 3.0f),
-                            attackNodeReader.Get("seconds to lower", 0.5f),
-                            attackNodeReader.Get("height to rise", 1.0f));
-                        attacks.Add(x => Boss.FloorSpikes(x, d, count));
-                        break;
+                    int count = attackNodeReader.Get("count", 3);
+                    string appearance = attackNodeReader.Get("appearance", "ERROR");
+                    GameObject spikeWarning;
+                    spikeWarnings.TryGetValue(appearance, out spikeWarning);
+                    FloorSpike.Data d = new FloorSpike.Data(
+                        attackNodeReader.Get("damage", 20),
+                        spikeWarning,
+                        attackNodeReader.Get("seconds of warning", 1.0f),
+                        attackNodeReader.Get("seconds of rising", 0.2f),
+                        attackNodeReader.Get("seconds to idle", 3.0f),
+                        attackNodeReader.Get("seconds to lower", 0.5f),
+                        attackNodeReader.Get("height to rise", 1.0f));
+                    attacks.Add(x => Boss.FloorSpikes(x, d, count));
+                }
+                else if (identifier == "HorizontalProjectile")
+                {
+                    int damage = attackNodeReader.Get("damage", 20);
+                    float speed = attackNodeReader.Get("speed", 8.0f);
+                    float spawnHeight = attackNodeReader.Get("spawn height", 1.0f);
+                    float seconds = attackNodeReader.Get("seconds to wait after attack",
+                        1.0f);
+                    Velocity2D.Data d = new Velocity2D.Data(new Vector2(-speed, 0.0f));
+                    attacks.Add(x => Boss.FireProjectile(x, d, damage, spawnHeight,
+                        seconds));
                 }
             }
 

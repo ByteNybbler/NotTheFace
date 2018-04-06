@@ -9,7 +9,7 @@
 			"attacks" :
 			[
 				{
-					"identifier" : "HorizontalGrowingMelee",
+					"identifier" : "HorizontalMeleeGrowing",
 					"appearance" : "Tentacle",
 					"damage" : 20,
 					"seconds to grow" 0.3,
@@ -32,7 +32,9 @@
 					"identifier" : "HorizontalProjectile",
 					"appearance" : "Orb",
 					"damage" : 20,
-					"speed" : 8
+					"speed" : 8.0,
+					"spawn height" : 1.0,
+					"seconds to wait after attack" : 2.0
 				}
 			]
 		}

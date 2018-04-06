@@ -135,6 +135,11 @@ public class Room : MonoBehaviour
             UtilRandom.PositionBetweenTwoPoints(bottomLeft.position, bottomRight.position);
     }
 
+    public float GetFloorYPosition()
+    {
+        return bottomLeft.position.y;
+    }
+
     private void OnRoomStarted()
     {
         if (RoomStarted != null)
