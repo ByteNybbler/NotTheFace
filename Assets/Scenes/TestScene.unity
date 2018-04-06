@@ -234,10 +234,10 @@ GameObject:
   - component: {fileID: 341930203}
   - component: {fileID: 341930204}
   - component: {fileID: 341930205}
-  - component: {fileID: 341930207}
-  - component: {fileID: 341930206}
   - component: {fileID: 341930201}
   - component: {fileID: 341930208}
+  - component: {fileID: 341930209}
+  - component: {fileID: 341930210}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -509,6 +509,7 @@ MonoBehaviour:
   gbj: {fileID: 341930189}
   gravity: {fileID: 341930205}
   health: {fileID: 341930203}
+  invincibilityFrames: {fileID: 341930209}
 --- !u!114 &341930201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,34 +578,6 @@ MonoBehaviour:
   upDirection: {fileID: 341930204}
   acceleration: 39.2
   gravityScale: 1
---- !u!114 &341930206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 341930182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd4b0c4eaf2adc944ad0e9a76ec47a27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeScale: {fileID: 1411044439}
-  hierarchySpriteColor: {fileID: 341930201}
-  colorChanged: {r: 1, g: 0, b: 0, a: 1}
-  secondsToColor: 0.1
---- !u!114 &341930207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 341930182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f2c4de426d90b4d97cdc7675300fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 341930203}
-  damageColor: {fileID: 341930206}
 --- !u!114 &341930208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,6 +590,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 341930203}
+--- !u!114 &341930209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341930182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd48a8b164cbcc4aaa309a33aa3cff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScale: {fileID: 1411044439}
+  toDisable: {fileID: 1985689714}
+  secondsToDisable: 3
+--- !u!114 &341930210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341930182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fded831d6a87e2498c94b168486b050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchySpriteColor: {fileID: 341930201}
+  disableForTime: {fileID: 341930209}
+  colorDisabled: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &436084320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,11 +1774,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1985689715}
   - component: {fileID: 1985689720}
-  - component: {fileID: 1985689716}
-  - component: {fileID: 1985689719}
-  - component: {fileID: 1985689718}
-  - component: {fileID: 1985689717}
   - component: {fileID: 1985689721}
+  - component: {fileID: 1985689716}
+  - component: {fileID: 1985689718}
+  - component: {fileID: 1985689719}
+  - component: {fileID: 1985689717}
+  - component: {fileID: 1985689722}
   m_Layer: 0
   m_Name: DamageHitbox
   m_TagString: Untagged
@@ -1895,3 +1897,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1985689722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1985689714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6879359b3e1ca534c85e9cf94e31ee31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerEvent: {fileID: 1985689718}
+  disableForTime: {fileID: 341930209}

@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     Gravity2D gravity;
     [SerializeField]
     Health health;
+    [SerializeField]
+    DisableForTime invincibilityFrames;
 
     private void Awake()
     {
@@ -45,6 +47,8 @@ public class Player : MonoBehaviour
         gbj.SetJumpVelocity(jsonP.Get("jump velocity", 20.0f));
         gravity.SetAcceleration(jsonP.Get("gravity", 39.2f));
         InitializeHealth(jsonP.Get("health", 100));
+        invincibilityFrames.SetSecondsToDisable(jsonP.Get(
+            "seconds of invincibility when damaged", 1.0f));
     }
 
     private void InitializeHealth(int amount)
