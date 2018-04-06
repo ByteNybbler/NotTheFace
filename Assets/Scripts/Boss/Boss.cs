@@ -115,7 +115,9 @@ public class Boss : MonoBehaviour
         for (int i = 0; i < count; ++i)
         {
             GameObject obj = Instantiate(b.prefabFloorSpike, room.transform);
-            obj.transform.position = room.GetRandomFloorPosition();
+            float colliderHeight = obj.GetComponent<BoxCollider2D>().bounds.size.y;
+            obj.transform.position = room.GetRandomFloorPosition() +
+                Vector3.down * colliderHeight * 0.5f;
             obj.GetComponent<FloorSpike>().SetData(d);
         }
         b.SetAttackTime(d.secondsOfIdling + d.secondsOfLowering + d.secondsOfRising

@@ -26,7 +26,7 @@
 					"seconds to rise" : 0.2,
 					"seconds to idle" : 2.0,
 					"seconds to lower" : 0.5,
-					"height to rise" : 2.0
+					"height to rise" : 2.56
 				},
 				{
 					"identifier" : "HorizontalProjectile",
