@@ -36,7 +36,7 @@ public class RigidbodyVelocityHeading2D : MonoBehaviour
 
     private void UpdateCurrentDegreesHeading()
     {
-        mover.TeleportRotation(UtilMath.ApproachAngleDegrees(mover.GetRotation(),
+        mover.TeleportRotation(UtilApproach.AngleDegrees(mover.GetRotation(),
             targetDegrees, degreeChangePerSecond * timeScale.DeltaTime()));
     }
 

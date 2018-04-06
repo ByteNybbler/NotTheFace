@@ -1,5 +1,5 @@
 ﻿// Author(s): Paul Calande
-// Updates a collider based on a sprite's dimensions.
+// Updates a box collider's size based on a sprite's dimensions.
 
 using System.Collections;
 using System.Collections.Generic;

@@ -64,6 +64,8 @@ GameObject:
   - component: {fileID: 114285835685244466}
   - component: {fileID: 114832333786180708}
   - component: {fileID: 114367915931909294}
+  - component: {fileID: 114310718595075718}
+  - component: {fileID: 114210526614502568}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -181,6 +183,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc14310824c6e8b47bdf049e463da9a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114210526614502568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb8cb6f7fe4bed4e9bebdcf2a388689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 114023937819720990}
 --- !u!114 &114224283753305566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,6 +223,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec8061c1df7c42468518ae649839847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114310718595075718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f2c4de426d90b4d97cdc7675300fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 114023937819720990}
+  damageColor: {fileID: 114668306174125866}
 --- !u!114 &114367915931909294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,8 +337,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df87826d37604f489f73e26f36dfcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBoss: {fileID: 114023937819720990}
-  damageColor: {fileID: 114668306174125866}
+  data:
+    identifier: 
+    baseHealth: 0
+    healthBonusPerArena: 0
+    secondsOfCooldownBetweenAttacks: 0
+  refs:
+    room: {fileID: 0}
+  timeScale: {fileID: 114285835685244466}
+  health: {fileID: 114023937819720990}
+  prefabFloorSpike: {fileID: 1270621328887568, guid: 3e6611687326a644c803c79a665b32ce,
+    type: 2}
 --- !u!212 &212075607109229470
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -343,8 +379,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1484806757
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 505ec521fc2dfc44387d3eff078f726e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

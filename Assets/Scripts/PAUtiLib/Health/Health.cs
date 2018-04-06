@@ -140,6 +140,11 @@ public class Health : MonoBehaviour
     {
         healthMax = amount;
     }
+    public void ForceSetBothHealths(int amount)
+    {
+        healthMax = amount;
+        healthCurrent = amount;
+    }
 
     // Event invocations.
     private void OnDied()

@@ -37,7 +37,7 @@ public class GroundBasedAcceleration2D : MonoBehaviour
         // Decelerate if the Rigidbody is grounded and not accelerating.
         if (groundChecker.IsOnGround() && accumulatedHorizontalAcceleration == 0.0f)
         {
-            velocity.x = UtilMath.Approach(velocity.x, 0.0f, groundDeceleration * dt);
+            velocity.x = UtilApproach.Float(velocity.x, 0.0f, groundDeceleration * dt);
         }
 
         // Accelerate the Rigidbody based on applied forces.

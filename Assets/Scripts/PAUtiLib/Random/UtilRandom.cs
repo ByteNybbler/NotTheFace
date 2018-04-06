@@ -77,4 +77,10 @@ public static class UtilRandom
         Shuffle(result);
         return result;
     }
+
+    // Returns a random position between two points.
+    public static Vector3 PositionBetweenTwoPoints(Vector3 point1, Vector3 point2)
+    {
+        return Vector3.Lerp(point1, point2, Random.Range(0.0f, 1.0f));
+    }
 }

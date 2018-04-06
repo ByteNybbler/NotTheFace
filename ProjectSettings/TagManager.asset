@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tongue
   - Headbutt
+  - Hazard
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Boss
+    uniqueID: 2810160539
+    locked: 0
   - name: Player
     uniqueID: 470961499
+    locked: 0
+  - name: Hazard
+    uniqueID: 3104388825
+    locked: 0
+  - name: Walls
+    uniqueID: 2425310959
     locked: 0

@@ -30,40 +30,4 @@ public class UtilMath
         }
         else return -1;
     }
-
-    // Moves a current number closer to the target number by a single given step size.
-    // Returns the result of this operation.
-    // Will not move the result past the target.
-    // That is, on the final step, the returned value will be equal to the target.
-    // If the step size is negative, the result will move away from the target rather
-    // than towards it.
-    public static float Approach(float current, float target, float stepSize)
-    {
-        if (Mathf.Abs(current - target) < stepSize)
-        {
-            return target;
-        }
-        if (current < target)
-        {
-            current += stepSize;
-        }
-        else
-        {
-            current -= stepSize;
-        }
-        return current;
-    }
-
-    // Like the Approach function, but rotates current along the shortest path to target.
-    public static float ApproachAngleDegrees(float current, float target, float stepSize)
-    {
-        current = UtilCircle.AngleDegreesToUnsignedRange(current);
-        target = UtilCircle.AngleDegreesToUnsignedRange(target);
-        if (UtilCircle.AngleDegreesToUnsignedRange(Mathf.Abs(current - target)) < stepSize)
-        {
-            return target;
-        }
-        current += stepSize * UtilCircle.SignShortestRotationDegrees(current, target);
-        return current;
-    }
 }

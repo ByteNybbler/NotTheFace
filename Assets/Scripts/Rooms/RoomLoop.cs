@@ -20,6 +20,9 @@ public class RoomLoop : MonoBehaviour
     [Tooltip("The item pool for the rooms to use.")]
     ItemPool itemPool;
     [SerializeField]
+    [Tooltip("The boss pool for the rooms to use.")]
+    BossPool bossPool;
+    [SerializeField]
     [Tooltip("The prefab to use for the door.")]
     GameObject prefabDoor;
     [SerializeField]
@@ -43,6 +46,8 @@ public class RoomLoop : MonoBehaviour
     Dictionary<int, Room> rooms = new Dictionary<int, Room>();
     // The latest door that was created.
     RoomDoor latestDoor = null;
+    // How many times the full room cycle has been completed.
+    int loopNumber = 0;
 
     private void Awake()
     {
@@ -99,6 +104,7 @@ public class RoomLoop : MonoBehaviour
         Room rm = obj.GetComponent<Room>();
         rm.RoomStarted += Iterate;
         rm.SetItemPool(itemPool);
+        rm.SetBossPool(bossPool);
 
         // If the latest door is null, this is the very first room in the game.
         if (latestDoor == null)
@@ -108,9 +114,12 @@ public class RoomLoop : MonoBehaviour
         rm.SetDoorEntry(latestDoor);
         CreateDoor(room, obj.transform);
         rm.SetDoorExit(latestDoor);
+        rm.SetLoopNumber(loopNumber);
 
         rooms.Add(roomNumber, rm);
+
         ++roomNumber;
+        loopNumber = roomNumber / 2;
     }
 
     private void DestroyRoom(Room room)

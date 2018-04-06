@@ -3,8 +3,38 @@
 	[
 		{
 			"identifier" : "Horror",
-			"base health" : 100,
-			"health bonus per room" : 100
+			"base health" : 250,
+			"health bonus per arena" : 100,
+			"seconds of cooldown between attacks" : 0.5,
+			"attacks" :
+			[
+				{
+					"identifier" : "HorizontalGrowingMelee",
+					"appearance" : "Tentacle",
+					"damage" : 20,
+					"seconds to grow" 0.3,
+					"seconds to idle" : 1.5,
+					"seconds to shrink" : 0.6,
+					"floor slow factor" : 0.5
+				},
+				{
+					"identifier" : "FloorSpikes",
+					"appearance" : "Tentacle",
+					"damage" : 20,
+					"count" : 3,
+					"seconds of warning" : 1.0,
+					"seconds to rise" : 0.2,
+					"seconds to idle" : 2.0,
+					"seconds to lower" : 0.5,
+					"height to rise" : 2.0
+				},
+				{
+					"identifier" : "HorizontalProjectile",
+					"appearance" : "Orb",
+					"damage" : 20,
+					"speed" : 8
+				}
+			]
 		}
 	]
 }

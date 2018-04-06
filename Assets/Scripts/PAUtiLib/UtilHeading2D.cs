@@ -8,7 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UtilHeading2D : MonoBehaviour
+public static class UtilHeading2D
 {
     // Returns a unit vector pointing in the direction given by the radians.
     public static Vector2 HeadingVectorFromRadians(float angleRadians)
@@ -29,20 +29,13 @@ public class UtilHeading2D : MonoBehaviour
     // Returns the direction (in signed degrees) given by the heading vector.
     public static float DegreesFromHeadingVector(Vector2 heading)
     {
-        return -Vector2.SignedAngle(heading, Vector2.right);
-    }
-
-    // Gets the predicted position of a particle with a given start position and velocity after
-    // a given number of seconds. Does not take potential collisions or external forces into account.
-    public static Vector2 PredictedPosition(Vector2 startPos, Vector2 velocity, float seconds)
-    {
-        return startPos + velocity * seconds;
+        return Vector2.SignedAngle(Vector2.right, heading);
     }
 
     // Returns the signed angle (-180 to 180 degrees) from the start point to the end point.
     public static float SignedAngleToPoint(Vector2 startPosition, Vector2 endPosition)
     {
-        return Vector2.SignedAngle(Vector2.right, endPosition - startPosition);
+        return DegreesFromHeadingVector(endPosition - startPosition);
     }
 
     /*

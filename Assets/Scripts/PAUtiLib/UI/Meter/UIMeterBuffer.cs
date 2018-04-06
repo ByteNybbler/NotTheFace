@@ -132,11 +132,11 @@ public class UIMeterBuffer : MonoBehaviour
             float stepSize = timeScale.DeltaTime() * shrinkSpeed;
             if (shrinkToLeft)
             {
-                bufferUpper = UtilMath.Approach(bufferUpper, bufferLower, stepSize);
+                bufferUpper = UtilApproach.Float(bufferUpper, bufferLower, stepSize);
             }
             else
             {
-                bufferLower = UtilMath.Approach(bufferLower, bufferUpper, stepSize);
+                bufferLower = UtilApproach.Float(bufferLower, bufferUpper, stepSize);
             }
             UpdateBufferMeter();
 
