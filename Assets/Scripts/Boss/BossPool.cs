@@ -66,8 +66,8 @@ public class BossPool : MonoBehaviour
 
             Boss.Data boss = new Boss.Data(
                 bossNodeReader.Get("identifier", "ERROR"),
-                bossNodeReader.Get("base health", 100),
-                bossNodeReader.Get("bonus health per arena", 100),
+                bossNodeReader.Get("base health", 1),
+                bossNodeReader.Get("bonus health per arena", 1),
                 bossNodeReader.Get("seconds of cooldown between attacks", 2.0f),
                 attacks);
 

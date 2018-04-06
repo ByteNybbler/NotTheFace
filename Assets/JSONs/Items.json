@@ -23,7 +23,7 @@
 			"health bonus" : 50
 		},
 		{
-			"identifier" : "Helmet",
+			"identifier" : "BicycleHelmet",
 			"health bonus" : 20,
 			"headbutt damage bonus" : 5
 		},
@@ -71,6 +71,10 @@
 		{
 			"identifier" : "Soap",
 			"press down for shield" : true
+		},
+		{
+			"identifier" : "Detonator",
+			"headbutt explosion damage bonus" : 10
 		}
 	]
 }

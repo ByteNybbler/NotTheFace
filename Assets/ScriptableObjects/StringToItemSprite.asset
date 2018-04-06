@@ -15,7 +15,7 @@ MonoBehaviour:
     array:
     - key: BabyLimbs
       value: {fileID: 21300000, guid: 7f0877d515134854f95a6a54f8e291a8, type: 3}
-    - key: BubbleShield
+    - key: Soap
       value: {fileID: 21300000, guid: d28a2e06a74b1b74489563bc7716304d, type: 3}
     - key: LaserPointer
       value: {fileID: 21300000, guid: 214c835b8586c544bba7bc5007222c79, type: 3}
@@ -25,7 +25,7 @@ MonoBehaviour:
       value: {fileID: 21300000, guid: a6f28430b172f124bba45a722baf0382, type: 3}
     - key: JetPack
       value: {fileID: 21300000, guid: 0b25b6e783bfe2548b02d0e28ca6c3e2, type: 3}
-    - key: LipStick
+    - key: Lipstick
       value: {fileID: 21300000, guid: 3cfa514675c25664d8ffef51a10a45ed, type: 3}
     - key: Moustache
       value: {fileID: 21300000, guid: f6f228ef62b9be448bde93d12f5ce8b2, type: 3}
@@ -37,3 +37,11 @@ MonoBehaviour:
       value: {fileID: 21300000, guid: 20b7fd245d1a3604a9b975a4b5f0e778, type: 3}
     - key: SpikedHelmet
       value: {fileID: 21300000, guid: 6c1301dc4e2b42a4cbcb5bb15ffe7fae, type: 3}
+    - key: HotSauce
+      value: {fileID: 21300000, guid: 987b8b99767b9614dafc01e804b499e8, type: 3}
+    - key: Lollipop
+      value: {fileID: 21300000, guid: b5b13fe87ea8ccf48beb97c51cae1fcc, type: 3}
+    - key: Detonator
+      value: {fileID: 21300000, guid: 4431de94cc52c98489267102d8b0892b, type: 3}
+    - key: SafetyGoggles
+      value: {fileID: 21300000, guid: f23ca28ed0a612b4388436809be330ee, type: 3}

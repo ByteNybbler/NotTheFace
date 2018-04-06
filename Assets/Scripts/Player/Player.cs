@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     Health health;
     [SerializeField]
     DisableForTime invincibilityFrames;
+    [SerializeField]
+    ActivationDictionary powerupVisuals;
 
     private void Awake()
     {
@@ -49,6 +51,11 @@ public class Player : MonoBehaviour
         InitializeHealth(jsonP.Get("health", 100));
         invincibilityFrames.SetSecondsToDisable(jsonP.Get(
             "seconds of invincibility when damaged", 1.0f));
+    }
+
+    public void AddItemVisualEffect(string identifier)
+    {
+        powerupVisuals.TrySetActive(identifier, true);
     }
 
     private void InitializeHealth(int amount)

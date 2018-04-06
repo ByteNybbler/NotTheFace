@@ -57,6 +57,9 @@ TagManager:
   - name: Powerups
     uniqueID: 3071226803
     locked: 0
+  - name: PlayerFrontLimbs
+    uniqueID: 1032536731
+    locked: 0
   - name: Hazard
     uniqueID: 3104388825
     locked: 0

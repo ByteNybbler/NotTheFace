@@ -44,7 +44,9 @@ public class ItemPool : MonoBehaviour
 
     private void Claim(NamedEvent item)
     {
-        itemText.Appear(item.GetName());
+        string identifier = item.GetName();
+        itemText.Appear(identifier);
+        player.AddItemVisualEffect(identifier);
         pool.Claim(item);
     }
 

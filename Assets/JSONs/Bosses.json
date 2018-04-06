@@ -3,8 +3,8 @@
 	[
 		{
 			"identifier" : "Horror",
-			"base health" : 250,
-			"health bonus per arena" : 100,
+			"abase health" : 250,
+			"ahealth bonus per arena" : 100,
 			"seconds of cooldown between attacks" : 0.5,
 			"attacks" :
 			[
