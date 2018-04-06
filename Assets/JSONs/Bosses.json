@@ -3,7 +3,8 @@
 	[
 		{
 			"identifier" : "Horror",
-			"health" : 100
+			"base health" : 100,
+			"health bonus per room" : 100
 		}
 	]
 }

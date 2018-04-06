@@ -12,18 +12,18 @@ using UnityEngine;
 public class RestoreOriginalSpriteOnDisable : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("The renderer to change the sprite of.")]
-    SpriteRenderer render;
+    [Tooltip("Accessor to the renderer to change the sprite of.")]
+    SpriteAccessor accessor;
 
     Sprite defaultSprite;
 
     private void Start()
     {
-        defaultSprite = render.sprite;
+        defaultSprite = accessor.GetSprite();
     }
 
     private void OnDisable()
     {
-        render.sprite = defaultSprite;
+        accessor.SetSprite(defaultSprite);
     }
 }

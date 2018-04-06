@@ -12,8 +12,8 @@ public class UpgradeItem : MonoBehaviour
     public event CollectedHandler Collected;
 
     [SerializeField]
-    [Tooltip("The item's sprite renderer.")]
-    SpriteRenderer render;
+    [Tooltip("Accessor to the item's SpriteRenderer.")]
+    SpriteAccessor accessor;
     [SerializeField]
     [Tooltip("Possible sprites.")]
     SOKVStringToSprite sprites;
@@ -34,7 +34,7 @@ public class UpgradeItem : MonoBehaviour
         Sprite sprite;
         if (sprites.TryGetValue(spriteName, out sprite))
         {
-            render.sprite = sprite;
+            accessor.SetSprite(sprite);
         }
     }
 

@@ -59,6 +59,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4373413490956792}
   - component: {fileID: 212049308358425312}
+  - component: {fileID: 114544825534947606}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -137,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1555074881566852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5318866, y: 0.78185904, z: -0.047883302}
+  m_LocalPosition: {x: -7.074025, y: -1.0547416, z: -0.047883302}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4304242532985410}
@@ -240,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56452296a758714d8d621efad2065a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 212049308358425312}
+  accessor: {fileID: 114544825534947606}
   sprites: {fileID: 11400000, guid: c7c3461214f117d40b1cee08a582f472, type: 2}
   textItemName: {fileID: 114748204696640576}
   damageEvent: {fileID: 114287447117414870}
@@ -265,6 +266,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114544825534947606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620968508752436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3721c96b19733e346998f3d26c44d0b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  render: {fileID: 212049308358425312}
 --- !u!114 &114748204696640576
 MonoBehaviour:
   m_ObjectHideFlags: 1
