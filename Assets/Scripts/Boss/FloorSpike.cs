@@ -24,12 +24,14 @@ public class FloorSpike : MonoBehaviour
         public float secondsOfLowering;
         [Tooltip("The actual height in units the object should rise up.")]
         public float heightToRise;
+        [Tooltip("The random variance in how high the spikes will rise.")]
+        public float heightToRiseVariance;
 
         public Data(int damage,
             GameObject prefabWarning,
             float secondsOfWarning, float secondsOfRising,
             float secondsOfIdling, float secondsOfLowering,
-            float heightToRise)
+            float heightToRise, float heightToRiseVariance)
         {
             this.damage = damage;
             this.prefabWarning = prefabWarning;
@@ -38,6 +40,7 @@ public class FloorSpike : MonoBehaviour
             this.secondsOfIdling = secondsOfIdling;
             this.secondsOfLowering = secondsOfLowering;
             this.heightToRise = heightToRise;
+            this.heightToRiseVariance = heightToRiseVariance;
         }
     }
     [SerializeField]
@@ -61,6 +64,9 @@ public class FloorSpike : MonoBehaviour
     [Tooltip("How high above the object's origin the warning should appear.")]
     float warningHeight;
 
+    // How high the spike will rise up.
+    float heightToRise;
+
     State state = State.Warning;
     Vector2 velocity;
     Vector2 target;
@@ -82,13 +88,14 @@ public class FloorSpike : MonoBehaviour
             Quaternion.identity);
         warning.GetComponent<TimeToDestroy>().Set(data.secondsOfWarning);
         damage.Add(data.damage);
+        heightToRise = UtilRandom.RangeWithCenter(data.heightToRise, data.heightToRiseVariance);
     }
 
     private void WarningFinish(float secondsOverflow)
     {
         state = State.Rise;
         Vector3 currentPosition = mover.GetPosition();
-        target = currentPosition + Vector3.up * data.heightToRise;
+        target = currentPosition + Vector3.up * heightToRise;
         velocity = UtilPredict.ConstantVelocity(currentPosition,
             target, data.secondsOfRising);
     }

@@ -83,4 +83,11 @@ public static class UtilRandom
     {
         return Vector3.Lerp(point1, point2, Random.Range(0.0f, 1.0f));
     }
+
+    // Returns a random value from the range centered at the given value with the
+    // given radius.
+    public static float RangeWithCenter(float center, float radius)
+    {
+        return center + Random.Range(-radius, radius);
+    }
 }

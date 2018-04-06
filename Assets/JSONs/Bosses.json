@@ -21,12 +21,13 @@
 					"identifier" : "FloorSpikes",
 					"appearance" : "Tentacle",
 					"damage" : 20,
-					"count" : 3,
+					"count" : 5,
 					"seconds of warning" : 1.0,
 					"seconds to rise" : 0.2,
 					"seconds to idle" : 2.0,
 					"seconds to lower" : 0.5,
-					"height to rise" : 2.56
+					"height to rise" : 2.2,
+					"height to rise variance" : 0.36
 				},
 				{
 					"identifier" : "HorizontalProjectile",

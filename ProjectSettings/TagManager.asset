@@ -54,6 +54,9 @@ TagManager:
   - name: Player
     uniqueID: 470961499
     locked: 0
+  - name: Powerups
+    uniqueID: 3071226803
+    locked: 0
   - name: Hazard
     uniqueID: 3104388825
     locked: 0

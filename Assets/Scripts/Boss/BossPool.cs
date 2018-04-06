@@ -43,7 +43,8 @@ public class BossPool : MonoBehaviour
                         attackNodeReader.Get("seconds of rising", 0.2f),
                         attackNodeReader.Get("seconds to idle", 3.0f),
                         attackNodeReader.Get("seconds to lower", 0.5f),
-                        attackNodeReader.Get("height to rise", 1.0f));
+                        attackNodeReader.Get("height to rise", 1.0f),
+                        attackNodeReader.Get("height to rise variance", 0.0f));
                     attacks.Add(x => Boss.FloorSpikes(x, d, count));
                 }
                 else if (identifier == "HorizontalProjectile")
