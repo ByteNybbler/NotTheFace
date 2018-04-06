@@ -7,7 +7,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObject/SOKVStringToRuntimeAnimatorController",
     order = 10000)]
-public class SOKVStringToAnimatorController : ScriptableObject
+public class SOKVStringToRuntimeAnimatorController : ScriptableObject
 {
     [System.Serializable]
     public class Pair : KeyValueArrayPair<string, RuntimeAnimatorController> { }

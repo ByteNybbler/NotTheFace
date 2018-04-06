@@ -112,16 +112,19 @@ public class Boss : MonoBehaviour
     }
 
     // Summon spikes from the floor.
-    public static void FloorSpikes(Boss b, FloorSpike.Data d, int count)
+    public static void FloorSpikes(Boss b, FloorSpike.Data d, int count,
+        RuntimeAnimatorController animator)
     {
         Room room = b.refs.room;
         for (int i = 0; i < count; ++i)
         {
             GameObject obj = Instantiate(b.prefabFloorSpike, room.transform);
-            float colliderHeight = obj.GetComponent<BoxCollider2D>().bounds.size.y;
+            FloorSpike fs = obj.GetComponent<FloorSpike>();
+            fs.SetData(d);
+            fs.SetAnimatorController(animator);
+            float colliderHeight = fs.GetHitboxHeight();
             obj.transform.position = room.GetRandomFloorPosition() +
                 Vector3.down * colliderHeight * 0.5f;
-            obj.GetComponent<FloorSpike>().SetData(d);
         }
         b.SetAttackTime(d.secondsOfIdling + d.secondsOfLowering + d.secondsOfRising
             + d.secondsOfWarning);

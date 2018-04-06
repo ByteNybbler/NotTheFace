@@ -30,7 +30,7 @@
 					"height to rise variance" : 0.36
 				},
 				{
-					"identifier" : "HorizontalProjectile",
+					"identifier" : "Orb",
 					"appearance" : "Orb",
 					"damage" : 20,
 					"speed" : 8.0,

@@ -61,6 +61,10 @@ public class FloorSpike : MonoBehaviour
     [SerializeField]
     Damage damage;
     [SerializeField]
+    Animator animator;
+    [SerializeField]
+    BoxCollider2D hitbox;
+    [SerializeField]
     [Tooltip("How high above the object's origin the warning should appear.")]
     float warningHeight;
 
@@ -76,6 +80,16 @@ public class FloorSpike : MonoBehaviour
     public void SetData(Data val)
     {
         data = val;
+    }
+
+    public void SetAnimatorController(RuntimeAnimatorController rac)
+    {
+        animator.runtimeAnimatorController = rac;
+    }
+
+    public float GetHitboxHeight()
+    {
+        return hitbox.bounds.size.y;
     }
 
     private void Start()
