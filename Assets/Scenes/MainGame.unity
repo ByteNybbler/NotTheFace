@@ -2571,7 +2571,7 @@ MonoBehaviour:
       value: {fileID: 2124869445}
     - key: SpikedHelmet
       value: {fileID: 841513510}
-    - key: Beanie
+    - key: PropellerHat
       value: {fileID: 634798467}
     - key: BabyLimbs
       value: {fileID: 1801273755}

@@ -19,7 +19,7 @@ MonoBehaviour:
       value: {fileID: 21300000, guid: d28a2e06a74b1b74489563bc7716304d, type: 3}
     - key: LaserPointer
       value: {fileID: 21300000, guid: 214c835b8586c544bba7bc5007222c79, type: 3}
-    - key: Beanie
+    - key: PropellerHat
       value: {fileID: 21300000, guid: 559b1fac09e281b4cb6f9e58dfcad77e, type: 3}
     - key: Egg
       value: {fileID: 21300000, guid: a6f28430b172f124bba45a722baf0382, type: 3}

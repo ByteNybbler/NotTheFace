@@ -44,7 +44,7 @@
 			"contact damage per second bonus" : 1
 		},
 		{
-			"identifier" : "Beanie",
+			"identifier" : "PropellerHat",
 			"jump velocity bonus" : 3.0
 		},
 		{

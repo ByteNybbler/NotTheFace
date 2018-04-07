@@ -36,7 +36,7 @@ public static class UtilApproach
     {
         current = UtilCircle.AngleDegreesToUnsignedRange(current);
         target = UtilCircle.AngleDegreesToUnsignedRange(target);
-        if (UtilCircle.AngleDegreesToUnsignedRange(Mathf.Abs(current - target)) < stepSize)
+        if (UtilCircle.GetSmallerConnectingAngleDegrees(current, target) < stepSize)
         {
             return target;
         }
