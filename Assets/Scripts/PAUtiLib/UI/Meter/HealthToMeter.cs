@@ -24,6 +24,7 @@ public class HealthToMeter : MonoBehaviour
         UnsubscribeFromHealth();
         this.health = health;
         SubscribeToHealth();
+        UpdateMeter(health.GetCurrentHealth(), health.GetMaxHealth());
     }
 
     private void SubscribeToHealth()

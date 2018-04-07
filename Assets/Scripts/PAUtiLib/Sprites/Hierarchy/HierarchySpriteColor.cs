@@ -7,15 +7,9 @@ using UnityEngine;
 
 public class HierarchySpriteColor : MonoBehaviour
 {
-    SpriteAccessor[] accessors;
-
-    private void Awake()
-    {
-        accessors = GetComponentsInChildren<SpriteAccessor>();
-    }
-
     public void SetColor(Color col)
     {
+        SpriteAccessor[] accessors = GetComponentsInChildren<SpriteAccessor>();
         foreach (SpriteAccessor accessor in accessors)
         {
             accessor.SetColor(col);
