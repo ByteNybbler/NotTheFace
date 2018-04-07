@@ -8,6 +8,7 @@ TagManager:
   - Headbutt
   - Hazard
   - Wall
+  - ContactDamage
   layers:
   - Default
   - TransparentFX
