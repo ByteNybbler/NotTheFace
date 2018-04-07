@@ -43,5 +43,7 @@ MonoBehaviour:
       value: {fileID: 21300000, guid: b5b13fe87ea8ccf48beb97c51cae1fcc, type: 3}
     - key: Detonator
       value: {fileID: 21300000, guid: 4431de94cc52c98489267102d8b0892b, type: 3}
+    - key: BicycleHelmet
+      value: {fileID: 21300000, guid: 151c150f5cc0e3346a2fc7c3a60e5745, type: 3}
     - key: SafetyGoggles
       value: {fileID: 21300000, guid: f23ca28ed0a612b4388436809be330ee, type: 3}
