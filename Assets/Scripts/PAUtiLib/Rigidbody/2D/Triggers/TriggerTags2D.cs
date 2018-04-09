@@ -21,7 +21,7 @@ public class TriggerTags2D : MonoBehaviour
     TriggerEvent2D triggerExit;
 
     // Returns true if the given collision's tag satisfies the conditions.
-    private bool IsTagFine(Collider2D collision)
+    private bool IsTagValid(Collider2D collision)
     {
         bool result = inverted;
         foreach (string tagName in tags)
@@ -35,6 +35,12 @@ public class TriggerTags2D : MonoBehaviour
         return result;
     }
 
+    // Returns true if the given collision can be accepted by the trigger at this time.
+    private bool IsValid(Collider2D collision)
+    {
+        return IsTagValid(collision) && isActiveAndEnabled;
+    }
+
     private void InvokeEvent(TriggerEvent2D e, Collider2D collision)
     {
         if (e != null)
@@ -43,19 +49,21 @@ public class TriggerTags2D : MonoBehaviour
         }
     }
 
+    private void TryInvokeEvent(TriggerEvent2D e, Collider2D collision)
+    {
+        if (IsValid(collision))
+        {
+            InvokeEvent(e, collision);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (IsTagFine(collision))
-        {
-            InvokeEvent(triggerEnter, collision);
-        }
+        TryInvokeEvent(triggerEnter, collision);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (IsTagFine(collision))
-        {
-            InvokeEvent(triggerExit, collision);
-        }
+        TryInvokeEvent(triggerExit, collision);
     }
 }
