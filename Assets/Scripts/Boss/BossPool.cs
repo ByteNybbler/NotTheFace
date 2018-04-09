@@ -51,6 +51,21 @@ public class BossPool : MonoBehaviour
                         attackNodeReader.Get("height to rise variance", 0.0f));
                     attacks.Add(x => Boss.FloorSpikes(x, d, count, rac));
                 }
+                else if (identifier == "Orb")
+                {
+                    int damage = attackNodeReader.Get("damage", 20);
+                    float speed = attackNodeReader.Get("speed", 8.0f);
+                    float spawnHeight = attackNodeReader.Get("spawn height", 1.0f);
+                    float seconds = attackNodeReader.Get("seconds to wait after attack",
+                        1.0f);
+                    Velocity2D.Data d = new Velocity2D.Data(new Vector2(-speed, 0.0f));
+                    attacks.Add(x => Boss.FireProjectile(x, d, damage, spawnHeight,
+                        seconds));
+                }
+                else if (identifier == "HorizontalMeleeGrowing")
+                {
+                    // TO DO
+                }
                 else if (identifier == "HorizontalProjectile")
                 {
                     int damage = attackNodeReader.Get("damage", 20);
