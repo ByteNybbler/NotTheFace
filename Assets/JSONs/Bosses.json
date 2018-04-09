@@ -31,7 +31,6 @@
 				},
 				{
 					"identifier" : "Orb",
-					"appearance" : "Orb",
 					"damage" : 20,
 					"speed" : 8.0,
 					"spawn height" : 1.0,

@@ -110,6 +110,12 @@ public class RoomLoop : MonoBehaviour
         rm.SetBossPool(bossPool);
         rm.SetPlayerHealth(playerHealth);
 
+        // When upgrade rooms start, they should heal the player.
+        if (roomNumber % roomOrder.Length == 0)
+        {
+            rm.RoomStarted += playerHealth.FullHeal;
+        }
+
         // If the latest door is null, this is the very first room in the game.
         if (latestDoor == null)
         {
