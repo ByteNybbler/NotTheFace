@@ -130,7 +130,7 @@ public class FloorSpike : MonoBehaviour
         if (velocity != Vector2.zero)
         {
             mover.TeleportPosition(
-                UtilApproach.Position2(mover.GetPosition(), target, velocity * dt));
+                UtilApproach.Vector2D(mover.GetPosition(), target, velocity * dt));
             if (mover.GetPosition() == target)
             {
                 // The object has reached its destination.

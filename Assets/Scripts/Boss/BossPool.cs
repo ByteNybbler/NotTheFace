@@ -15,6 +15,8 @@ public class BossPool : MonoBehaviour
     SOKVStringToGameObject spikeWarnings;
     [SerializeField]
     SOKVStringToRuntimeAnimatorController spikeAnimators;
+    [SerializeField]
+    SOKVStringToRuntimeAnimatorController orbAnimators;
 
     // The pool of bosses.
     List<Boss.Data> pool = new List<Boss.Data>();
@@ -35,11 +37,12 @@ public class BossPool : MonoBehaviour
                 string appearance = attackNodeReader.Get("appearance", "ERROR");
                 if (identifier == "FloorSpikes")
                 {
-                    int count = attackNodeReader.Get("count", 3);
-                    GameObject spikeWarning;
-                    spikeWarnings.TryGetValue(appearance, out spikeWarning);
                     RuntimeAnimatorController rac;
                     spikeAnimators.TryGetValue(appearance, out rac);
+                    GameObject spikeWarning;
+                    spikeWarnings.TryGetValue(appearance, out spikeWarning);
+
+                    int count = attackNodeReader.Get("count", 3);
                     FloorSpike.Data d = new FloorSpike.Data(
                         attackNodeReader.Get("damage", 20),
                         spikeWarning,
@@ -53,14 +56,20 @@ public class BossPool : MonoBehaviour
                 }
                 else if (identifier == "Orb")
                 {
-                    int damage = attackNodeReader.Get("damage", 20);
-                    float speed = attackNodeReader.Get("speed", 8.0f);
-                    float spawnHeight = attackNodeReader.Get("spawn height", 1.0f);
-                    float seconds = attackNodeReader.Get("seconds to wait after attack",
-                        1.0f);
-                    Velocity2D.Data d = new Velocity2D.Data(new Vector2(-speed, 0.0f));
-                    attacks.Add(x => Boss.FireProjectile(x, d, damage, spawnHeight,
-                        seconds));
+                    RuntimeAnimatorController rac;
+                    orbAnimators.TryGetValue(appearance, out rac);
+
+                    BossOrb.Data d = new BossOrb.Data(
+                        attackNodeReader.Get("damage", 20),
+                        attackNodeReader.Get("seconds to idle", 3.0f),
+                        attackNodeReader.Get("seconds to idle variance", 2.0f),
+                        attackNodeReader.Get("seconds to move to center", 0.2f),
+                        attackNodeReader.Get("seconds to move to bottom", 0.8f),
+                        attackNodeReader.Get("horizontal speed", 8.0f));
+
+                    string positionName = attackNodeReader.Get("position", "ERROR");
+
+                    attacks.Add(x => Boss.SpawnOrb(x, d, positionName, rac));
                 }
                 else if (identifier == "HorizontalMeleeGrowing")
                 {

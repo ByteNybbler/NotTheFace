@@ -56,8 +56,17 @@ public class Boss : MonoBehaviour
     Health health;
 
     [SerializeField]
+    [Tooltip("String identifiers mapped to Transforms.")]
+    DictionaryTransform transforms;
+
+    [SerializeField]
     [Tooltip("Prefab to use for floor spikes.")]
     GameObject prefabFloorSpike;
+
+    [SerializeField]
+    [Tooltip("Prefab to use for orbs.")]
+    GameObject prefabOrb;
+
     [SerializeField]
     [Tooltip("Prefab to use for projectiles.")]
     GameObject prefabProjectile;
@@ -128,6 +137,25 @@ public class Boss : MonoBehaviour
         }
         b.SetAttackTime(d.secondsOfIdling + d.secondsOfLowering + d.secondsOfRising
             + d.secondsOfWarning);
+    }
+
+    public static void SpawnOrb(Boss b, BossOrb.Data d, string positionName,
+        //string centerName, string bottomName,
+        RuntimeAnimatorController animator)
+    {
+        Transform spawnLocation, center, bottom;
+        b.transforms.TryGetValue(positionName, out spawnLocation);
+        //b.transforms.TryGetValue(centerName, out center);
+        //b.transforms.TryGetValue(bottomName, out bottom);
+        b.transforms.TryGetValue("CenterTop", out center);
+        b.transforms.TryGetValue("CenterBottom", out bottom);
+        GameObject obj = Instantiate(b.prefabOrb, spawnLocation);
+        obj.transform.localPosition = Vector3.zero;
+        BossOrb orb = obj.GetComponent<BossOrb>();
+        orb.SetData(d);
+        orb.SetCenterAndBottom(center.position, bottom.position);
+        orb.SetAnimatorController(animator);
+        orb.IdleFinished += () => b.SetAttackTime(0.5f);
     }
 
     // Fire a projectile.

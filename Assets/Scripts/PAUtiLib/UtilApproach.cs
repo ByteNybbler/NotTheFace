@@ -44,9 +44,9 @@ public static class UtilApproach
         return current;
     }
 
-    // Approaches the 2D position with the given velocity.
+    // Approaches the Vector2 (potentially a 2D position) with the given velocity.
     // If the velocity isn't pointing from current to target, this might miss the target.
-    public static Vector2 Position2(Vector2 current, Vector2 target, Vector2 velocity)
+    public static Vector2 Vector2D(Vector2 current, Vector2 target, Vector2 velocity)
     {
         if (Mathf.Abs((current - target).sqrMagnitude) < velocity.sqrMagnitude)
         {
@@ -58,8 +58,8 @@ public static class UtilApproach
     // This speed-based overload is more accurate than the velocity-based overload.
     // This is because the vector pointing towards the target is calculated each iteration.
     // However, this is more computationally expensive than the velocity overload.
-    public static Vector2 Position2(Vector2 current, Vector2 target, float stepSize)
+    public static Vector2 Vector2D(Vector2 current, Vector2 target, float stepSize)
     {
-        return Position2(current, target, (target - current).normalized * stepSize);
+        return Vector2D(current, target, (target - current).normalized * stepSize);
     }
 }

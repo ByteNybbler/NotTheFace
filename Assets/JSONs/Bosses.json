@@ -31,12 +31,25 @@
 				},
 				{
 					"identifier" : "Orb",
+					"appearance" : "Large",
 					"position" : "LeftHand",
-					"size" : "Large",
+					"seconds to idle" : 3.0,
+					"seconds to idle variance" : 2.0,
+					"seconds to move to center" : 0.2,
+					"seconds to move to bottom" : 0.8,
 					"damage" : 20,
-					"speed" : 8.0,
-					"spawn height" : 1.0,
-					"seconds to wait after attack" : 2.0
+					"horizontal speed" : 8.0
+				}
+				{
+					"identifier" : "Orb",
+					"appearance" : "Small",
+					"position" : "RightHand",
+					"seconds to idle" : 3.0,
+					"seconds to idle variance" : 2.0,
+					"seconds to move to center" : 0.2,
+					"seconds to move to bottom" : 0.8,
+					"damage" : 20,
+					"horizontal speed" : 8.0
 				}
 			]
 		}

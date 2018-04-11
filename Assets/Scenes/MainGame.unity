@@ -2397,6 +2397,7 @@ MonoBehaviour:
   fileBosses: {fileID: 4900000, guid: 1362624a830941146ad1e321ca3b8fec, type: 3}
   spikeWarnings: {fileID: 11400000, guid: bd411dff1a41e2249984c94c702c63e7, type: 2}
   spikeAnimators: {fileID: 11400000, guid: 3c290c25d3b0b5c4d9192ed3f9752c9c, type: 2}
+  orbAnimators: {fileID: 11400000, guid: e37c822ebddbfbf41b5871a8076a534a, type: 2}
 --- !u!1 &1136081313
 GameObject:
   m_ObjectHideFlags: 0

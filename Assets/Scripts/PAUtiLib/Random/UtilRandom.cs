@@ -90,4 +90,16 @@ public static class UtilRandom
     {
         return center + Random.Range(-radius, radius);
     }
+
+    // Randomly returns either true or false based on the given chance.
+    public static bool Bool(float chanceOfTrue = 0.5f)
+    {
+        return Random.Range(0.0f, 1.0f) <= chanceOfTrue;
+    }
+
+    // Randomly returns either 1 or -1 based on the given chance.
+    public static int Sign(float chanceOfPositive = 0.5f)
+    {
+        return UtilMath.Sign(Bool(chanceOfPositive));
+    }
 }
