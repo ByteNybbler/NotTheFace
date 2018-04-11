@@ -17,11 +17,15 @@ public class PlayerInput : InputDistributed
 
     public override void ReceiveInput(InputReader inputReader)
     {
-        if (inputReader.GetKeyDown(KeyCode.L))
-        {
-            tongue.Fire();
-        }
         if (inputReader.GetKeyDown(KeyCode.J))
+        {
+            tongue.Fire(false);
+        }
+        if (inputReader.GetKeyDown(KeyCode.K))
+        {
+            tongue.Fire(true);
+        }
+        if (inputReader.GetKeyDown(KeyCode.L))
         {
             if (!tongue.IsTongueRunning())
             {

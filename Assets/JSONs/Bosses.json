@@ -31,6 +31,8 @@
 				},
 				{
 					"identifier" : "Orb",
+					"position" : "LeftHand",
+					"size" : "Large",
 					"damage" : 20,
 					"speed" : 8.0,
 					"spawn height" : 1.0,

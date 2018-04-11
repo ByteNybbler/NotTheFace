@@ -52,12 +52,13 @@ public class PlayerTongue : MonoBehaviour
         timerTongue.Tick(timeScale.DeltaTime());
     }
 
-    public void Fire()
+    public void Fire(bool right)
     {
         if (timerTongue.TryStart())
         {
             Vector3 scale = tongue.transform.localScale;
-            scale.x = storeNonzeroAxes.GetSignHorizontal();
+            //scale.x = storeNonzeroAxes.GetSignHorizontal();
+            scale.x = UtilMath.Sign(right);
             tongue.transform.localScale = scale;
             tongue.SetActive(true);
         }
