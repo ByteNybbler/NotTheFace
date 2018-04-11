@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4210702281687752}
   - component: {fileID: 212293861561737222}
+  - component: {fileID: 114514156074404206}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -44,6 +45,7 @@ GameObject:
   - component: {fileID: 114014177566357606}
   - component: {fileID: 114079114996753418}
   - component: {fileID: 95912001339655854}
+  - component: {fileID: 114498963372278142}
   m_Layer: 0
   m_Name: Orb
   m_TagString: Hazard
@@ -215,6 +217,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+--- !u!114 &114498963372278142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1888923763632584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b530bc453e9695c458a439d8db83362a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accessor: {fileID: 114514156074404206}
+  collide: {fileID: 61166391648627488}
+--- !u!114 &114514156074404206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134730089774490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3721c96b19733e346998f3d26c44d0b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  render: {fileID: 212293861561737222}
 --- !u!212 &212293861561737222
 SpriteRenderer:
   m_ObjectHideFlags: 1
