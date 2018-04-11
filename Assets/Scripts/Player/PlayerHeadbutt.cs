@@ -14,6 +14,9 @@ public class PlayerHeadbutt : MonoBehaviour
     [Tooltip("Used to check when the player hits the ground to stop headbutts.")]
     GroundChecker2D groundChecker;
     [SerializeField]
+    [Tooltip("Used for checking the Rigidbody's velocity.")]
+    RigidbodyVelocityInUpSpace2D vius;
+    [SerializeField]
     [Tooltip("The GameObject to activate when headbutting.")]
     GameObject headbutt;
     [SerializeField]
@@ -22,6 +25,9 @@ public class PlayerHeadbutt : MonoBehaviour
     [SerializeField]
     [Tooltip("The GameObject that adjusts the head's heading based on its velocity.")]
     GameObject rbHeading;
+
+    // The minimum horizontal speed required to headbutt.
+    float requiredHorizontalSpeed;
 
     // Whether the player is currently in a headbutt.
     bool headbutting = false;
@@ -32,9 +38,19 @@ public class PlayerHeadbutt : MonoBehaviour
         headbutt.SetActive(false);
     }
 
+    private bool HasEnoughHorizontalSpeed()
+    {
+        return Mathf.Abs(vius.GetVelocityX()) >= requiredHorizontalSpeed;
+    }
+
+    private bool ReadyToHeadbutt()
+    {
+        return !groundChecker.IsOnGround() && HasEnoughHorizontalSpeed();
+    }
+
     public void HeadbuttEnter()
     {
-        if (!headbutting && !groundChecker.IsOnGround())
+        if (!headbutting && ReadyToHeadbutt())
         {
             headbutting = true;
             distributor.UnsubscribeFromInputManager();
@@ -59,5 +75,10 @@ public class PlayerHeadbutt : MonoBehaviour
     public bool IsHeadbutting()
     {
         return headbutting;
+    }
+
+    public void SetRequiredHorizontalSpeed(float val)
+    {
+        requiredHorizontalSpeed = val;
     }
 }

@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 341930209}
   - component: {fileID: 341930210}
   - component: {fileID: 341930206}
+  - component: {fileID: 341930207}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -836,6 +837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filePlayer: {fileID: 4900000, guid: 910c234b4fdd91f439c718ff127d7794, type: 3}
   playerTongue: {fileID: 341930198}
+  playerHeadbutt: {fileID: 341930202}
   damageTongue: {fileID: 977067981}
   damageHeadbutt: {fileID: 630685119}
   gban: {fileID: 341930192}
@@ -869,6 +871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distributor: {fileID: 341930195}
   groundChecker: {fileID: 341930191}
+  vius: {fileID: 341930207}
   headbutt: {fileID: 630685118}
   rbWheel: {fileID: 146966094}
   rbHeading: {fileID: 166203842}
@@ -926,6 +929,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 341930203}
   disableForTime: {fileID: 341930209}
+--- !u!114 &341930207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341930182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb6731230596a34ca3f8743c0b55aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 341930185}
+  upDirection: {fileID: 341930204}
 --- !u!114 &341930208
 MonoBehaviour:
   m_ObjectHideFlags: 0
