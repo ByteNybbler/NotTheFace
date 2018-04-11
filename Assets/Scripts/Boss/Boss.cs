@@ -9,6 +9,65 @@ public class Boss : MonoBehaviour
 {
     public delegate void AttackHandler(Boss b);
 
+    public class AttackGroup
+    {
+        // How many seconds of cooldown occur between each attack.
+        float secondsOfCooldown;
+        // Variance in the seconds of cooldown between each attack.
+        float secondsOfCooldownVariance;
+        // Collection of attacks in this attack group.
+        List<AttackHandler> attacks = new List<AttackHandler>();
+        // Timer for how long the boss waits between attacks.
+        Timer timerCooldown;
+        // The boss that this attack group belongs to.
+        Boss boss;
+
+        public AttackGroup(float secondsOfCooldown,
+            float secondsOfCooldownVariance)
+        {
+            this.secondsOfCooldown = secondsOfCooldown;
+            this.secondsOfCooldownVariance = secondsOfCooldownVariance;
+
+            timerCooldown = new Timer(1.0f, CooldownFinished, false, false);
+        }
+
+        public void AddAttack(AttackHandler attack)
+        {
+            attacks.Add(attack);
+        }
+
+        public void SetBoss(Boss boss)
+        {
+            this.boss = boss;
+        }
+
+        public void Tick(float deltaTime)
+        {
+            timerCooldown.Tick(deltaTime);
+        }
+
+        public void StartCooldown()
+        {
+            timerCooldown.SetTargetTime(UtilRandom.RangeWithCenter(secondsOfCooldown,
+                secondsOfCooldownVariance));
+            timerCooldown.Start();
+        }
+
+        private AttackHandler GetRandomAttack()
+        {
+            return UtilRandom.GetRandomElement(attacks);
+        }
+
+        // Callback function invoked when the cooldown timer is finished.
+        private void CooldownFinished(float secondsOverflow)
+        {
+            // Choose a random attack.
+            AttackHandler attack = UtilRandom.GetRandomElement(attacks);
+            // Execute the attack.
+            attack(boss);
+        }
+    }
+
     [System.Serializable]
     public class Data
     {
@@ -18,20 +77,16 @@ public class Boss : MonoBehaviour
         public int baseHealth;
         [Tooltip("How much health the boss gains per arena.")]
         public int healthBonusPerArena;
-        [Tooltip("How many seconds of cooldown occur between each attack.")]
-        public float secondsOfCooldownBetweenAttacks;
-        [Tooltip("Collection of attacks that the boss uses.")]
-        public List<AttackHandler> attacks;
+        [Tooltip("Collections of attacks that the boss uses.")]
+        public List<AttackGroup> attackGroups;
 
         public Data(string identifier, int baseHealth, int healthBonusPerArena,
-            float secondsOfCooldownBetweenAttacks,
-            List<AttackHandler> attacks)
+            List<AttackGroup> attackGroups)
         {
             this.identifier = identifier;
             this.baseHealth = baseHealth;
             this.healthBonusPerArena = healthBonusPerArena;
-            this.secondsOfCooldownBetweenAttacks = secondsOfCooldownBetweenAttacks;
-            this.attacks = attacks;
+            this.attackGroups = attackGroups;
         }
     }
     [SerializeField]
@@ -72,9 +127,9 @@ public class Boss : MonoBehaviour
     GameObject prefabProjectile;
 
     // Timer for how long the boss waits between attacks.
-    Timer timerCooldown;
+    //Timer timerCooldown;
     // Timer for some actual boss attacks.
-    Timer timerAttacking;
+    //Timer timerAttacking;
     // Collection of attacks that the boss uses.
     //List<AttackHandler> attacks = new List<AttackHandler>();
 
@@ -91,37 +146,36 @@ public class Boss : MonoBehaviour
     {
         health.ForceSetBothHealths(data.baseHealth +
             data.healthBonusPerArena * refs.room.GetLoopNumber());
-        timerCooldown = new Timer(data.secondsOfCooldownBetweenAttacks,
-            CooldownFinished, false, false);
-        timerAttacking = new Timer(1.0f, x => timerCooldown.Start(), false, false);
-        timerCooldown.Start();
-    }
 
-    // Callback function invoked when the cooldown timer is finished.
-    private void CooldownFinished(float secondsOverflow)
-    {
-        // Choose a random attack.
-        AttackHandler attack = UtilRandom.GetRandomElement(data.attacks);
-        // Execute the attack.
-        // The "this" is necessary because the functions are static.
-        attack(this);
+        //timerAttacking = new Timer(1.0f, x => timerCooldown.Start(), false, false);
+        //timerCooldown.Start();
+
+        foreach (AttackGroup attackGroup in data.attackGroups)
+        {
+            attackGroup.SetBoss(this);
+            attackGroup.StartCooldown();
+        }
     }
 
     private void FixedUpdate()
     {
         float dt = timeScale.DeltaTime();
-        timerCooldown.Tick(dt);
-        timerAttacking.Tick(dt);
+        foreach (AttackGroup attackGroup in data.attackGroups)
+        {
+            attackGroup.Tick(dt);
+        }
     }
 
+    /*
     private void SetAttackTime(float seconds)
     {
         timerAttacking.SetTargetTime(seconds);
         timerAttacking.Start();
     }
+    */
 
     // Summon spikes from the floor.
-    public static void FloorSpikes(Boss b, FloorSpike.Data d, int count,
+    public static void FloorSpikes(Boss b, AttackGroup a, FloorSpike.Data d, int count,
         RuntimeAnimatorController animator)
     {
         Room room = b.refs.room;
@@ -135,11 +189,14 @@ public class Boss : MonoBehaviour
             obj.transform.position = room.GetRandomFloorPosition() +
                 Vector3.down * colliderHeight * 0.5f;
         }
+        a.StartCooldown();
+        /*
         b.SetAttackTime(d.secondsOfIdling + d.secondsOfLowering + d.secondsOfRising
             + d.secondsOfWarning);
+            */
     }
 
-    public static void SpawnOrb(Boss b, BossOrb.Data d, string positionName,
+    public static void SpawnOrb(Boss b, AttackGroup a, BossOrb.Data d, string positionName,
         //string centerName, string bottomName,
         RuntimeAnimatorController animator)
     {
@@ -155,12 +212,13 @@ public class Boss : MonoBehaviour
         orb.SetData(d);
         orb.SetCenterAndBottom(center.position, bottom.position);
         orb.SetAnimatorController(animator);
-        orb.IdleFinished += () => b.SetAttackTime(0.5f);
+        orb.IdleFinished += a.StartCooldown;
     }
 
     // Fire a projectile.
-    public static void FireProjectile(Boss b, Velocity2D.Data d, int damage,
-        float spawnHeight, float seconds)
+    /*
+    public static void FireProjectile(Boss b, AttackGroup a, Velocity2D.Data d, int damage,
+        float spawnHeight)
     {
         Room room = b.refs.room;
         GameObject obj = Instantiate(b.prefabProjectile, room.transform);
@@ -168,6 +226,7 @@ public class Boss : MonoBehaviour
             room.GetFloorYPosition() + spawnHeight, 0.0f);
         obj.GetComponent<Velocity2D>().SetData(d);
         obj.GetComponent<Damage>().Add(damage);
-        b.SetAttackTime(seconds);
+        a.StartCooldown();
     }
+    */
 }

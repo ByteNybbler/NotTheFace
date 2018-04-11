@@ -5,51 +5,62 @@
 			"identifier" : "Horror",
 			"base health" : 250,
 			"health bonus per arena" : 100,
-			"seconds of cooldown between attacks" : 0.5,
-			"attacks" :
+			"attack groups" :
 			[
 				{
-					"identifier" : "HorizontalMeleeGrowing",
-					"appearance" : "Tentacle",
-					"damage" : 20,
-					"seconds to grow" 0.3,
-					"seconds to idle" : 1.5,
-					"seconds to shrink" : 0.6,
-					"floor slow factor" : 0.5
+					"seconds of cooldown" : 2.0,
+					"seconds of cooldown variance" : 0.5,
+					"attacks" :
+					[
+						{
+							"identifier" : "FloorSpikes",
+							"appearance" : "Tentacle",
+							"damage" : 20,
+							"count" : 2,
+							"seconds of warning" : 1.0,
+							"seconds to rise" : 0.2,
+							"seconds to idle" : 2.0,
+							"seconds to lower" : 0.5,
+							"height to rise" : 2.2,
+							"height to rise variance" : 0.36
+						}
+					]
 				},
 				{
-					"identifier" : "FloorSpikes",
-					"appearance" : "Tentacle",
-					"damage" : 20,
-					"count" : 5,
-					"seconds of warning" : 1.0,
-					"seconds to rise" : 0.2,
-					"seconds to idle" : 2.0,
-					"seconds to lower" : 0.5,
-					"height to rise" : 2.2,
-					"height to rise variance" : 0.36
+					"seconds of cooldown" : 2.0,
+					"seconds of cooldown variance" : 0.5,
+					"attacks" :
+					[
+						{
+							"identifier" : "Orb",
+							"appearance" : "Large",
+							"position" : "LeftHand",
+							"seconds to idle" : 3.0,
+							"seconds to idle variance" : 2.0,
+							"seconds to move to center" : 0.2,
+							"seconds to move to bottom" : 0.8,
+							"damage" : 20,
+							"horizontal speed" : 8.0
+						}
+					]
 				},
 				{
-					"identifier" : "Orb",
-					"appearance" : "Large",
-					"position" : "LeftHand",
-					"seconds to idle" : 3.0,
-					"seconds to idle variance" : 2.0,
-					"seconds to move to center" : 0.2,
-					"seconds to move to bottom" : 0.8,
-					"damage" : 20,
-					"horizontal speed" : 8.0
-				}
-				{
-					"identifier" : "Orb",
-					"appearance" : "Small",
-					"position" : "RightHand",
-					"seconds to idle" : 3.0,
-					"seconds to idle variance" : 2.0,
-					"seconds to move to center" : 0.2,
-					"seconds to move to bottom" : 0.8,
-					"damage" : 20,
-					"horizontal speed" : 8.0
+					"seconds of cooldown" : 2.0,
+					"seconds of cooldown variance" : 0.5,
+					"attacks" :
+					[
+						{
+							"identifier" : "Orb",
+							"appearance" : "Small",
+							"position" : "RightHand",
+							"seconds to idle" : 3.0,
+							"seconds to idle variance" : 2.0,
+							"seconds to move to center" : 0.2,
+							"seconds to move to bottom" : 0.8,
+							"damage" : 20,
+							"horizontal speed" : 8.0
+						}
+					]
 				}
 			]
 		}

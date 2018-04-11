@@ -49,17 +49,18 @@ public class Timer
             // The result of this operation is also used to get how many seconds
             // the timer ran past its target time.
             secondsCurrent -= secondsTarget;
-            // Invoke the timer finished callback.
-            // Pass the "seconds overflow" value we just calculated as well.
-            if (finishedCallback != null)
-            {
-                finishedCallback(secondsCurrent);
-            }
+            float secondsOverflow = secondsCurrent;
             // If the timer doesn't loop, just stop the timer altogether.
             if (!loop)
             {
                 secondsCurrent = 0.0f;
                 running = false;
+            }
+            // Invoke the timer finished callback.
+            // Pass the "seconds overflow" value we just calculated as well.
+            if (finishedCallback != null)
+            {
+                finishedCallback(secondsOverflow);
             }
         }
     }
