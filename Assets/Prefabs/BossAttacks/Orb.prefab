@@ -339,8 +339,10 @@ MonoBehaviour:
       ts: {fileID: 114020526319071984}
     xMagnitude: 0
     xSpeed: 0
+    xStartingHalfTurns: 0
     yMagnitude: 1
     ySpeed: 8
+    yStartingHalfTurns: 1
   mover: {fileID: 114224190783271182}
 --- !u!114 &114856673042066162
 MonoBehaviour:

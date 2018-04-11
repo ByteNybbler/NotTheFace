@@ -15,18 +15,17 @@ public class Oscillator
     float speed;
     // The function to use to generate the waveform.
     WaveformFunction waveform;
-
-    // The current progress of the oscillation in time.
-    float progress = 0.0f;
-
-    static float TWO_PI = Mathf.PI * 2;
+    // The current progress of the oscillation in time, in radians.
+    float progress;
 
     // Constructor.
-    public Oscillator(float magnitude, float speed, WaveformFunction waveform)
+    public Oscillator(float magnitude, float speed, WaveformFunction waveform,
+        float startingHalfTurns = 0.0f)
     {
         this.magnitude = magnitude;
         this.speed = speed;
         this.waveform = waveform;
+        progress = startingHalfTurns * Mathf.PI;
     }
 
     // Makes the oscillator progress through time by a given amount
@@ -34,13 +33,13 @@ public class Oscillator
     public float SampleAmplitude(float deltaTime)
     {
         progress += deltaTime * speed;
-        while (progress > TWO_PI)
+        while (progress > UtilCircle.TWO_PI)
         {
-            progress -= TWO_PI;
+            progress -= UtilCircle.TWO_PI;
         }
         while (progress < 0.0f)
         {
-            progress += TWO_PI;
+            progress += UtilCircle.TWO_PI;
         }
         return magnitude * waveform(progress);
     }
