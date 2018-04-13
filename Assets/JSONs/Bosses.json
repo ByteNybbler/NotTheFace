@@ -4,7 +4,7 @@
 		{
 			"identifier" : "Horror",
 			"base health" : 250,
-			"health bonus per arena" : 100,
+			"health bonus per arena" : 150,
 			"attack groups" :
 			[
 				{

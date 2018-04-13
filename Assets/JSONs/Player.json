@@ -4,7 +4,7 @@
 	"seconds of tongue cooldown" : 0.6,
 	"seconds of invincibility when damaged" : 1.0,
 	"tongue damage" : 10,
-	"headbutt damage" : 20,
+	"headbutt damage" : 30,
 	"headbutt required horizontal speed" : 8.0,
 	"horizontal acceleration" : 40.0,
 	"ground deceleration" : 32.0,

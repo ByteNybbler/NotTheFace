@@ -4,7 +4,7 @@
 	[
 		{
 			"identifier" : "SpikedHelmet",
-			"headbutt damage bonus" : 10
+			"headbutt damage bonus" : 20
 		},
 		{
 			"identifier" : "HotSauce",
@@ -12,7 +12,7 @@
 		},
 		{
 			"identifier" : "Sword",
-			"tongue damage bonus" : 15
+			"tongue damage bonus" : 10
 		},
 		{
 			"identifier" : "Lollipop",
@@ -20,12 +20,12 @@
 		},
 		{
 			"identifier" : "SafetyGoggles",
-			"health bonus" : 50
+			"health bonus" : 100
 		},
 		{
 			"identifier" : "BicycleHelmet",
-			"health bonus" : 20,
-			"headbutt damage bonus" : 5
+			"health bonus" : 50,
+			"headbutt damage bonus" : 10
 		},
 		{
 			"identifier" : "TopHat",
@@ -37,7 +37,7 @@
 		}, 
 		{
 			"identifier" : "LaserPointer",
-			"laser damage" : 20
+			"laser damage" : 10
 		},
 		{
 			"identifier" : "BabyLimbs",
@@ -60,7 +60,7 @@
 			"identifier" : "Lipstick",
 			"poison tongue" :
 			{
-				"damage per second" : 1,
+				"damage per second" : 2,
 				"number of seconds" : 10.0
 			}
 		},
@@ -74,7 +74,7 @@
 		},
 		{
 			"identifier" : "Detonator",
-			"headbutt explosion damage bonus" : 10
+			"headbutt explosion damage bonus" : 15
 		}
 	]
 }
