@@ -25,19 +25,26 @@ public class OscillatePosition2D : MonoBehaviour
         public float xMagnitude;
         [Tooltip("The speed of the x oscillation.")]
         public float xSpeed;
+        [Tooltip("The initial half turns value of the x oscillation.")]
+        public float xStartingHalfTurns;
         [Tooltip("The size of the y oscillation.")]
         public float yMagnitude;
         [Tooltip("The speed of the y oscillation.")]
         public float ySpeed;
+        [Tooltip("The initial half turns value of the y oscillation.")]
+        public float yStartingHalfTurns;
 
         public Data(Refs refs, float xMagnitude, float xSpeed,
-            float yMagnitude, float ySpeed)
+            float yMagnitude, float ySpeed,
+            float xStartingHalfTurns = 0.0f, float yStartingHalfTurns = 0.0f)
         {
             this.refs = refs;
             this.xMagnitude = xMagnitude;
             this.xSpeed = xSpeed;
             this.yMagnitude = yMagnitude;
             this.ySpeed = ySpeed;
+            this.xStartingHalfTurns = xStartingHalfTurns;
+            this.yStartingHalfTurns = yStartingHalfTurns;
         }
 
         public Data DeepCopy()
@@ -62,8 +69,8 @@ public class OscillatePosition2D : MonoBehaviour
 
     private void Start()
     {
-        oscX = new Oscillator(data.xMagnitude, data.xSpeed, Mathf.Sin);
-        oscY = new Oscillator(data.yMagnitude, data.ySpeed, Mathf.Sin);
+        oscX = new Oscillator(data.xMagnitude, data.xSpeed, Mathf.Sin, data.xStartingHalfTurns);
+        oscY = new Oscillator(data.yMagnitude, data.ySpeed, Mathf.Sin, data.yStartingHalfTurns);
     }
 
     private void FixedUpdate()

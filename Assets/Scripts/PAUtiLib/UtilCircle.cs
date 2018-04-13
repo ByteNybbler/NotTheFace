@@ -5,8 +5,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UtilCircle
+public static class UtilCircle
 {
+    public static float TWO_PI = Mathf.PI * 2;
+
     // Returns a wheel's linear velocity based on its angular velocity and radius.
     public static float LinearVelocityFromRadians(float angularVelocityRadians, float radius)
     {
