@@ -22,7 +22,6 @@ public class PlayerLaser : MonoBehaviour
     public void Fire(bool right)
     {
         laser.gameObject.SetActive(true);
-        //laser.SetDirection(new Vector2(UtilMath.Sign(right), 0.0f));
         //Debug.Log("PlayerLaser laser global scale: " + laser.transform.lossyScale);
     }
 

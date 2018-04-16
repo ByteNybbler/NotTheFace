@@ -17,6 +17,11 @@ public class UtilTranslate
         return GetTranslator().Translate("Item", itemIdentifier, "Name");
     }
 
+    public static string ItemDescription(string itemIdentifier)
+    {
+        return GetTranslator().Translate("Item", itemIdentifier, "Description");
+    }
+
     public static string BossName(string bossIdentifier)
     {
         return GetTranslator().Translate("Boss", bossIdentifier, "Name");

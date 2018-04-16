@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   array:
     array:
-    - key: BabyLimbs
+    - key: BabyArms
       value: {fileID: 21300000, guid: 7f0877d515134854f95a6a54f8e291a8, type: 3}
     - key: Soap
       value: {fileID: 21300000, guid: d28a2e06a74b1b74489563bc7716304d, type: 3}
@@ -47,3 +47,5 @@ MonoBehaviour:
       value: {fileID: 21300000, guid: 151c150f5cc0e3346a2fc7c3a60e5745, type: 3}
     - key: SafetyGoggles
       value: {fileID: 21300000, guid: f23ca28ed0a612b4388436809be330ee, type: 3}
+    - key: BabyLegs
+      value: {fileID: 21300000, guid: d94f1d2f74ded3f42af1f6ef91ad7061, type: 3}

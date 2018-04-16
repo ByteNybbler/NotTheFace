@@ -40,7 +40,11 @@
 			"laser damage bonus" : 10
 		},
 		{
-			"identifier" : "BabyLimbs",
+			"identifier" : "BabyArms",
+			"contact damage per second bonus" : 1
+		},
+		{
+			"identifier" : "BabyLegs",
 			"contact damage per second bonus" : 1
 		},
 		{

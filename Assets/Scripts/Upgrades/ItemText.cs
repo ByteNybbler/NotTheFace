@@ -16,6 +16,9 @@ public class ItemText : MonoBehaviour
     [SerializeField]
     [Tooltip("The item name text.")]
     Text textItemName;
+    [SerializeField]
+    [Tooltip("The item description text.")]
+    Text textItemDescription;
 
     // The timer that determines when the item-related text will exit the screen.
     Timer timerItemText;
@@ -40,6 +43,7 @@ public class ItemText : MonoBehaviour
         timerItemText.Start();
 
         textItemName.text = UtilTranslate.ItemName(identifier);
+        textItemDescription.text = UtilTranslate.ItemDescription(identifier);
     }
 
     private void Disappear(float secondsOverflow = 0.0f)
