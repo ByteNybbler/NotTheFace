@@ -26,13 +26,24 @@ public class PlayerTongue : MonoBehaviour
     [SerializeField]
     TimeScale timeScale;
     [SerializeField]
-    [Tooltip("Reference to the tongue GameObject.")]
+    [Tooltip("Reference to the tongue parent object.")]
     GameObject tongue;
     [SerializeField]
     [Tooltip("Reference to the player's component for axis storage.")]
     InputStoreNonzeroAxes storeNonzeroAxes;
+    [SerializeField]
+    [Tooltip("The animator to run for the lick animation.")]
+    Animator animator;
+    [SerializeField]
+    [Tooltip("Rotates the head to face the licking direction.")]
+    RotateGraduallyToAngle2D tongueHeadRotator;
+    [SerializeField]
+    [Tooltip("Reference to the parent object of the non-tongue rotators.")]
+    GameObject normalRotators;
 
     CompTimerActionCooldown timerTongue;
+
+    int hashLick = Animator.StringToHash("Lick");
 
     private void Start()
     {
@@ -45,6 +56,7 @@ public class PlayerTongue : MonoBehaviour
     private void TongueFinished(float secondsOverflow)
     {
         tongue.SetActive(false);
+        normalRotators.SetActive(true);
     }
 
     private void FixedUpdate()
@@ -57,10 +69,12 @@ public class PlayerTongue : MonoBehaviour
         if (timerTongue.TryStart())
         {
             Vector3 scale = tongue.transform.localScale;
-            //scale.x = storeNonzeroAxes.GetSignHorizontal();
             scale.x = UtilMath.Sign(right);
             tongue.transform.localScale = scale;
             tongue.SetActive(true);
+            animator.SetTrigger(hashLick);
+            tongueHeadRotator.SetAngle(UtilHeading2D.DegreesFromBoolean(right));
+            normalRotators.SetActive(false);
         }
     }
 
