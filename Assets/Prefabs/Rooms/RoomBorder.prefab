@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4851969864876594}
   - component: {fileID: 114332141581441656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RoomBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4589164614273282}
   - component: {fileID: 212581997193203448}
   - component: {fileID: 61532709222894706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4439854672747510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorHeight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4432443241427844}
   - component: {fileID: 212693808012202360}
   - component: {fileID: 61458075224955566}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4152367183106768}
   - component: {fileID: 50241141851120700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WallAndDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1309205331681118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.086197, y: -16.33645, z: 0}
+  m_LocalPosition: {x: -26.640625, y: -10.097222, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4439854672747510}
@@ -276,7 +276,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1869656337
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5340603647681334fbe9a93032c498fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -320,7 +320,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1869656337
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2c4c9fea321b80f4bbc8ace98bcc273f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

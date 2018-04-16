@@ -37,7 +37,7 @@
 		}, 
 		{
 			"identifier" : "LaserPointer",
-			"laser damage" : 10
+			"laser damage bonus" : 10
 		},
 		{
 			"identifier" : "BabyLimbs",

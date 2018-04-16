@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4308179795254280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorLeftEdge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4605644399147772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorRightEdge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4708639589171398}
   - component: {fileID: 212555205543504588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 212752068852088466}
   - component: {fileID: 61784926753947112}
   - component: {fileID: 50808076763024712}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorHitbox
   m_TagString: Wall
   m_Icon: {fileID: 0}

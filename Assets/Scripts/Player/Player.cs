@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     Damage damageHeadbutt;
     [SerializeField]
+    Damage damageLaser;
+    [SerializeField]
     GroundBasedAcceleration2D gban;
     [SerializeField]
     GroundBasedAccelerator2D gbar;
@@ -97,5 +99,10 @@ public class Player : MonoBehaviour
     public void AddMaxHorizontalSpeed(float amount)
     {
         gban.AddMaxHorizontalSpeed(amount);
+    }
+
+    public void AddLaserDamage(int amount)
+    {
+        damageLaser.Add(amount);
     }
 }

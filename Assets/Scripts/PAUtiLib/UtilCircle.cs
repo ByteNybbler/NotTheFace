@@ -7,7 +7,7 @@ using UnityEngine;
 
 public static class UtilCircle
 {
-    public static float TWO_PI = Mathf.PI * 2;
+    public const float TWO_PI = Mathf.PI * 2;
 
     // Returns a wheel's linear velocity based on its angular velocity and radius.
     public static float LinearVelocityFromRadians(float angularVelocityRadians, float radius)
@@ -118,5 +118,18 @@ public static class UtilCircle
     public static int SignShortestRotationDegrees(float start, float end)
     {
         return UtilMath.Sign(IsShortestRotationPositiveDegrees(start, end));
+    }
+
+    // Mirrors an angle across the y-axis of a circle and returns the degree
+    // measure of the corresponding angle.
+    public static float MirrorAngleHorizontal(float degrees)
+    {
+        return 180.0f - degrees;
+    }
+
+    // Mirrors an angle across the x-axis of a circle.
+    public static float MirrorAngleVertical(float degrees)
+    {
+        return -degrees;
     }
 }

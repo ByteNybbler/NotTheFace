@@ -32,6 +32,27 @@ public static class UtilHeading2D
         return Vector2.SignedAngle(Vector2.right, heading);
     }
 
+    // Gets a quantity of degrees based on a boolean value.
+    public static float DegreesFromBoolean(bool boolean,
+        float degreesTrue = 0.0f, float degreesFalse = 180.0f)
+    {
+        if (boolean)
+        {
+            return degreesTrue;
+        }
+        else
+        {
+            return degreesFalse;
+        }
+    }
+
+    // Gets a heading vector based on a boolean value.
+    public static Vector2 HeadingVectorFromBoolean(bool boolean,
+        float degreesTrue = 0.0f, float degreesFalse = 180.0f)
+    {
+        return HeadingVectorFromDegrees(DegreesFromBoolean(boolean, degreesTrue, degreesFalse));
+    }
+
     // Returns the signed angle (-180 to 180 degrees) from the start point to the end point.
     public static float SignedAngleToPoint(Vector2 startPosition, Vector2 endPosition)
     {

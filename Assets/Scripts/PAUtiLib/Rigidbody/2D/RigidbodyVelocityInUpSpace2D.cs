@@ -14,6 +14,7 @@ public class RigidbodyVelocityInUpSpace2D : MonoBehaviour
     [Tooltip("The up direction.")]
     UpDirection2D upDirection;
 
+    // Retrieves the rigidbody's velocity relative to up space.
     public Vector2 GetVelocity()
     {
         return upDirection.SpaceEnter(rb.velocity);
@@ -27,5 +28,11 @@ public class RigidbodyVelocityInUpSpace2D : MonoBehaviour
     public float GetVelocityY()
     {
         return GetVelocity().y;
+    }
+
+    // Sets the rigidbody's velocity relative to up space.
+    public void SetVelocity(Vector2 velocity)
+    {
+        rb.velocity = upDirection.SpaceExit(velocity);
     }
 }

@@ -431,6 +431,7 @@ MonoBehaviour:
   tags:
   - Tongue
   - Headbutt
+  - PlayerLaser
   inverted: 0
   triggerEnter: {fileID: 114905746743925618}
   triggerExit: {fileID: 0}
@@ -596,7 +597,6 @@ MonoBehaviour:
     identifier: 
     baseHealth: 0
     healthBonusPerArena: 0
-    secondsOfCooldownBetweenAttacks: 0
   refs:
     room: {fileID: 0}
   timeScale: {fileID: 114285835685244466}

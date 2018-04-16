@@ -107,7 +107,7 @@ public class BossPool : MonoBehaviour
             Boss.Data boss = new Boss.Data(
                 bossNodeReader.Get("identifier", "ERROR"),
                 bossNodeReader.Get("base health", 1),
-                bossNodeReader.Get("bonus health per arena", 1),
+                bossNodeReader.Get("health bonus per arena", 1),
                 attackGroups);
 
             pool.Add(boss);

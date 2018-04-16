@@ -181,7 +181,7 @@ public class Boss : MonoBehaviour
         Room room = b.refs.room;
         for (int i = 0; i < count; ++i)
         {
-            GameObject obj = Instantiate(b.prefabFloorSpike, room.transform);
+            GameObject obj = Instantiate(b.prefabFloorSpike, b.transform);
             FloorSpike fs = obj.GetComponent<FloorSpike>();
             fs.SetData(d);
             fs.SetAnimatorController(animator);
