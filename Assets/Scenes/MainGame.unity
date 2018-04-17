@@ -3500,7 +3500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c853a1fc668b114f8f6b5793467560e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 341930182}
   translator: {fileID: 1527272238}
   inputManager: {fileID: 1527272237}
   audioController: {fileID: 1527272236}

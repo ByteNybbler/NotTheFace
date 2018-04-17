@@ -21,6 +21,23 @@ public class BossPool : MonoBehaviour
     // The pool of bosses.
     List<Boss.Data> pool = new List<Boss.Data>();
 
+    // Read data for a floor spike.
+    private FloorSpike.Data ReadFloorSpike(JSONNodeReader attackNodeReader, string appearance)
+    {
+        GameObject spikeWarning;
+        spikeWarnings.TryGetValue(appearance, out spikeWarning);
+
+        return new FloorSpike.Data(
+            attackNodeReader.Get("damage", 20),
+            spikeWarning,
+            attackNodeReader.Get("seconds of warning", 1.0f),
+            attackNodeReader.Get("seconds of rising", 0.2f),
+            attackNodeReader.Get("seconds to idle", 3.0f),
+            attackNodeReader.Get("seconds to lower", 0.5f),
+            attackNodeReader.Get("height to rise", 1.0f),
+            attackNodeReader.Get("height to rise variance", 0.0f));
+    }
+
     private void Awake()
     {
         JSONNodeReader jsonReader = new JSONNodeReader(fileBosses);
@@ -47,22 +64,25 @@ public class BossPool : MonoBehaviour
                     string appearance = attackNodeReader.Get("appearance", "ERROR");
                     if (identifier == "FloorSpikes")
                     {
+                        int count = attackNodeReader.Get("count", 3);
+
                         RuntimeAnimatorController rac;
                         spikeAnimators.TryGetValue(appearance, out rac);
-                        GameObject spikeWarning;
-                        spikeWarnings.TryGetValue(appearance, out spikeWarning);
 
-                        int count = attackNodeReader.Get("count", 3);
-                        FloorSpike.Data d = new FloorSpike.Data(
-                            attackNodeReader.Get("damage", 20),
-                            spikeWarning,
-                            attackNodeReader.Get("seconds of warning", 1.0f),
-                            attackNodeReader.Get("seconds of rising", 0.2f),
-                            attackNodeReader.Get("seconds to idle", 3.0f),
-                            attackNodeReader.Get("seconds to lower", 0.5f),
-                            attackNodeReader.Get("height to rise", 1.0f),
-                            attackNodeReader.Get("height to rise variance", 0.0f));
-                        attackGroup.AddAttack(x => Boss.FloorSpikes(x, attackGroup, d, count, rac));
+                        FloorSpike.Data d = ReadFloorSpike(attackNodeReader, appearance);
+
+                        attackGroup.AddAttack(x => Boss.FloorSpikes(x,
+                            attackGroup, d, rac, count));
+                    }
+                    else if (identifier == "FloorSpikeTargetPlayer")
+                    {
+                        RuntimeAnimatorController rac;
+                        spikeAnimators.TryGetValue(appearance, out rac);
+
+                        FloorSpike.Data d = ReadFloorSpike(attackNodeReader, appearance);
+
+                        attackGroup.AddAttack(x => Boss.FloorSpikeTargetPlayer(x,
+                            attackGroup, d, rac));
                     }
                     else if (identifier == "Orb")
                     {

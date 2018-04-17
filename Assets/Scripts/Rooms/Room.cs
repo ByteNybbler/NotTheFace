@@ -140,6 +140,16 @@ public class Room : MonoBehaviour
         return bottomLeft.position.y;
     }
 
+    public float GetFloorLeftXPosition()
+    {
+        return bottomLeft.position.x;
+    }
+
+    public float GetRandomFloorXPosition()
+    {
+        return GetRandomFloorPosition().x;
+    }
+
     private void OnRoomStarted()
     {
         if (RoomStarted != null)

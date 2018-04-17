@@ -49,7 +49,11 @@ public class BossOrb : MonoBehaviour
     [Tooltip("The orb's damage component.")]
     Damage damage;
     [SerializeField]
+    [Tooltip("The orb's animator.")]
     Animator animator;
+    [SerializeField]
+    [Tooltip("The Transform of the object that the orb targets.")]
+    Transform target;
 
     Timer timerIdle;
 
@@ -71,6 +75,11 @@ public class BossOrb : MonoBehaviour
     public void SetAnimatorController(RuntimeAnimatorController rac)
     {
         animator.runtimeAnimatorController = rac;
+    }
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
     }
 
     private void Start()
@@ -97,7 +106,8 @@ public class BossOrb : MonoBehaviour
         oscillator.enabled = true;
 
         // Set the orb's velocity.
-        int signDirection = UtilRandom.Sign();
+        //int signDirection = UtilRandom.Sign();
+        float signDirection = Mathf.Sign(target.position.x - transform.position.x);
         Vector2 vel = new Vector2(signDirection * data.horizontalSpeed, 0.0f);
         velocity.SetVelocity(vel);
     }

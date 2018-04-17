@@ -105,6 +105,8 @@ public class Boss : MonoBehaviour
     [SerializeField]
     Refs refs;
 
+    GameObject player;
+
     [SerializeField]
     TimeScale timeScale;
     [SerializeField]
@@ -147,14 +149,13 @@ public class Boss : MonoBehaviour
         health.ForceSetBothHealths(data.baseHealth +
             data.healthBonusPerArena * refs.room.GetLoopNumber());
 
-        //timerAttacking = new Timer(1.0f, x => timerCooldown.Start(), false, false);
-        //timerCooldown.Start();
-
         foreach (AttackGroup attackGroup in data.attackGroups)
         {
             attackGroup.SetBoss(this);
             attackGroup.StartCooldown();
         }
+
+        player = ServiceLocator.GetPlayer();
     }
 
     private void FixedUpdate()
@@ -166,21 +167,29 @@ public class Boss : MonoBehaviour
         }
     }
 
-    /*
-    private void SetAttackTime(float seconds)
+    // Summon one floor spike at the given worldspace x position.
+    public static void FloorSpike(Boss b, FloorSpike.Data d,
+        RuntimeAnimatorController animator, float xPosition)
     {
-        timerAttacking.SetTargetTime(seconds);
-        timerAttacking.Start();
+        Room room = b.refs.room;
+        GameObject obj = Instantiate(b.prefabFloorSpike, b.transform);
+        FloorSpike fs = obj.GetComponent<FloorSpike>();
+        fs.SetData(d);
+        fs.SetAnimatorController(animator);
+        float colliderHeight = fs.GetHitboxHeight();
+        obj.transform.position = Vector3.right * xPosition
+            + Vector3.down * (-room.GetFloorYPosition() + colliderHeight * 0.5f);
     }
-    */
 
-    // Summon spikes from the floor.
-    public static void FloorSpikes(Boss b, AttackGroup a, FloorSpike.Data d, int count,
-        RuntimeAnimatorController animator)
+    // Summon multiple floor spikes.
+    public static void FloorSpikes(Boss b, AttackGroup a, FloorSpike.Data d,
+        RuntimeAnimatorController animator, int count)
     {
         Room room = b.refs.room;
         for (int i = 0; i < count; ++i)
         {
+            FloorSpike(b, d, animator, room.GetRandomFloorXPosition());
+            /*
             GameObject obj = Instantiate(b.prefabFloorSpike, b.transform);
             FloorSpike fs = obj.GetComponent<FloorSpike>();
             fs.SetData(d);
@@ -188,12 +197,16 @@ public class Boss : MonoBehaviour
             float colliderHeight = fs.GetHitboxHeight();
             obj.transform.position = room.GetRandomFloorPosition() +
                 Vector3.down * colliderHeight * 0.5f;
+                */
         }
         a.StartCooldown();
-        /*
-        b.SetAttackTime(d.secondsOfIdling + d.secondsOfLowering + d.secondsOfRising
-            + d.secondsOfWarning);
-            */
+    }
+
+    public static void FloorSpikeTargetPlayer(Boss b, AttackGroup a, FloorSpike.Data d,
+    RuntimeAnimatorController animator)
+    {
+        FloorSpike(b, d, animator, b.player.transform.position.x);
+        a.StartCooldown();
     }
 
     public static void SpawnOrb(Boss b, AttackGroup a, BossOrb.Data d, string positionName,
@@ -213,6 +226,7 @@ public class Boss : MonoBehaviour
         orb.SetCenterAndBottom(center.position, bottom.position);
         orb.SetAnimatorController(animator);
         orb.IdleFinished += a.StartCooldown;
+        orb.SetTarget(b.player.transform);
     }
 
     // Fire a projectile.

@@ -27,6 +27,24 @@
 					]
 				},
 				{
+					"seconds of cooldown" : 4.0,
+					"seconds of cooldown variance" : 1.0,
+					"attacks" :
+					[
+						{
+							"identifier" : "FloorSpikeTargetPlayer",
+							"appearance" : "Tentacle",
+							"damage" : 20,
+							"seconds of warning" : 1.0,
+							"seconds to rise" : 0.1,
+							"seconds to idle" : 2.0,
+							"seconds to lower" : 0.5,
+							"height to rise" : 2.2,
+							"height to rise variance" : 0.36
+						}
+					]
+				},
+				{
 					"seconds of cooldown" : 2.0,
 					"seconds of cooldown variance" : 0.5,
 					"attacks" :
