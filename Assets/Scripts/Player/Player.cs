@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     Damage damageLaser;
     [SerializeField]
-    Damage damagePerSecondOfContact;
+    MonoPeriodicInt damagePerSecondOfContact;
     [SerializeField]
     GroundBasedAcceleration2D gban;
     [SerializeField]
@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
         InitializeHealth(jsonP.Get("health", 100));
         invincibilityFrames.SetSecondsToDisable(jsonP.Get(
             "seconds of invincibility when damaged", 1.0f));
+        damagePerSecondOfContact.SetSeconds(1.0f);
     }
 
     public void AddItemVisualEffect(string identifier)
@@ -110,6 +111,6 @@ public class Player : MonoBehaviour
 
     public void AddContactDamagePerSecond(int amount)
     {
-        damagePerSecondOfContact.Add(amount);
+        damagePerSecondOfContact.AddVar(amount);
     }
 }

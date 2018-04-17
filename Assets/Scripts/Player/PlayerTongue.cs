@@ -43,7 +43,7 @@ public class PlayerTongue : MonoBehaviour
 
     CompTimerActionCooldown timerTongue;
 
-    int hashLick = Animator.StringToHash("Lick");
+    static int hashLick = Animator.StringToHash("Lick");
 
     private void Start()
     {

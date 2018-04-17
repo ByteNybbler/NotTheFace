@@ -41,11 +41,11 @@
 		},
 		{
 			"identifier" : "BabyArms",
-			"contact damage per second bonus" : 1
+			"contact damage per second bonus" : 5
 		},
 		{
 			"identifier" : "BabyLegs",
-			"contact damage per second bonus" : 1
+			"contact damage per second bonus" : 5
 		},
 		{
 			"identifier" : "PropellerHat",

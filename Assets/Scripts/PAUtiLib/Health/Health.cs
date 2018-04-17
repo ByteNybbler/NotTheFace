@@ -1,6 +1,5 @@
 ﻿// Author(s): Paul Calande
 // Health script.
-// Arguments for these methods are intended to only ever be positive.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -42,7 +41,11 @@ public class Health : MonoBehaviour
 
     public void Damage(int amount)
     {
-        if (!IsDead() && amount != 0)
+        if (amount < 0)
+        {
+            Heal(-amount);
+        }
+        else if (!IsDead() && amount != 0)
         {
             amount = Mathf.Min(amount, healthCurrent);
             healthCurrent -= amount;
@@ -57,7 +60,11 @@ public class Health : MonoBehaviour
 
     public void Heal(int amount)
     {
-        if (!IsHealthFull() && amount != 0)
+        if (amount < 0)
+        {
+            Damage(-amount);
+        }
+        else if (!IsHealthFull() && amount != 0)
         {
             amount = Mathf.Min(amount, healthMax - healthCurrent);
             healthCurrent += amount;

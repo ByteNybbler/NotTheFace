@@ -7,7 +7,7 @@ public class Timer
     // The parameter is how many seconds the timer ran past the target time.
     // Use this parameter in the callback to account for the extra time.
     public delegate void FinishedHandler(float secondsOverflow);
-    FinishedHandler finishedCallback;
+    FinishedHandler Finished;
 
     // How many seconds it takes for the timer to run out of time.
     float secondsTarget;
@@ -24,7 +24,7 @@ public class Timer
         bool running = true, bool loop = true)
     {
         this.secondsTarget = seconds;
-        this.finishedCallback = finishedCallback;
+        this.Finished = finishedCallback;
         this.running = running;
         this.loop = loop;
     }
@@ -58,9 +58,9 @@ public class Timer
             }
             // Invoke the timer finished callback.
             // Pass the "seconds overflow" value we just calculated as well.
-            if (finishedCallback != null)
+            if (Finished != null)
             {
-                finishedCallback(secondsOverflow);
+                Finished(secondsOverflow);
             }
         }
     }
