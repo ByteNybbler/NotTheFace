@@ -25,6 +25,9 @@ public class PlayerHeadbutt : MonoBehaviour
     [SerializeField]
     [Tooltip("The GameObject that adjusts the head's heading based on its velocity.")]
     GameObject rbHeading;
+    [SerializeField]
+    [Tooltip("Detonator explosion that appears when the headbutt state ends.")]
+    Instantiator instantiatorDetonator;
 
     // The minimum horizontal speed required to headbutt.
     float requiredHorizontalSpeed;
@@ -69,6 +72,8 @@ public class PlayerHeadbutt : MonoBehaviour
             headbutt.SetActive(false);
             rbWheel.SetActive(true);
             rbHeading.SetActive(false);
+
+            instantiatorDetonator.Instantiate();
         }
     }
 
