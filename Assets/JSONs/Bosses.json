@@ -16,7 +16,7 @@
 							"identifier" : "FloorSpikes",
 							"appearance" : "Tentacle",
 							"damage" : 20,
-							"count" : 3,
+							"count" : 2,
 							"seconds of warning" : 1.0,
 							"seconds to rise" : 0.1,
 							"seconds to idle" : 2.0,
@@ -57,7 +57,7 @@
 							"seconds to idle variance" : 2.0,
 							"seconds to move to center" : 0.2,
 							"seconds to move to bottom" : 0.8,
-							"damage" : 30,
+							"damage" : 20,
 							"horizontal speed" : 8.0
 						}
 					]
@@ -75,7 +75,7 @@
 							"seconds to idle variance" : 2.0,
 							"seconds to move to center" : 0.2,
 							"seconds to move to bottom" : 0.8,
-							"damage" : 20,
+							"damage" : 15,
 							"horizontal speed" : 8.0
 						}
 					]
