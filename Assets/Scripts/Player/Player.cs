@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     PlayerHeadbutt playerHeadbutt;
     [SerializeField]
+    PlayerDuck playerDuck;
+    [SerializeField]
     Damage damageTongue;
     [SerializeField]
     Damage damageHeadbutt;
@@ -126,5 +128,10 @@ public class Player : MonoBehaviour
     public void AddHeadbuttExplosionDamage(int amount)
     {
         damageHeadbuttExplosion.Add(amount);
+    }
+
+    public void SetHasSoap(bool hasSoap)
+    {
+        playerDuck.SetHasSoap(hasSoap);
     }
 }

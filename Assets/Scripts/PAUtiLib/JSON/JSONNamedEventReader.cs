@@ -24,6 +24,8 @@ public class JSONNamedEventReader
         = new Dictionary<string, EventCallback<int>>();
     Dictionary<string, EventCallback<float>> nameToCallbackFloat
         = new Dictionary<string, EventCallback<float>>();
+    Dictionary<string, EventCallback<bool>> nameToCallbackBool
+        = new Dictionary<string, EventCallback<bool>>();
 
     // Constructor.
     public JSONNamedEventReader(string nameKey)
@@ -41,6 +43,11 @@ public class JSONNamedEventReader
     {
         nameToCallbackFloat[nodeName] = callback;
     }
+    // The callback takes one boolean parameter.
+    public void AddCallbackBool(string nodeName, EventCallback<bool> callback)
+    {
+        nameToCallbackBool[nodeName] = callback;
+    }
 
     // Reads from the given node and returns the resulting NamedEvent.
     public NamedEvent Read(JSONNodeReader nodeReader)
@@ -55,6 +62,10 @@ public class JSONNamedEventReader
             TryAddCallback(pair.Key, pair.Value);
         }
         foreach (KeyValuePair<string, EventCallback<float>> pair in nameToCallbackFloat)
+        {
+            TryAddCallback(pair.Key, pair.Value);
+        }
+        foreach (KeyValuePair<string, EventCallback<bool>> pair in nameToCallbackBool)
         {
             TryAddCallback(pair.Key, pair.Value);
         }

@@ -15,24 +15,38 @@ public class PlayerInput : InputDistributed
     [Tooltip("Used to make the player headbutt.")]
     PlayerHeadbutt headbutt;
     [SerializeField]
+    [Tooltip("Used to make the player duck.")]
+    PlayerDuck duck;
+    [SerializeField]
     [Tooltip("Used to make the player fire a laser (if applicable).")]
     PlayerLaser laser;
 
     public override void ReceiveInput(InputReader inputReader)
     {
-        if (inputReader.GetKeyDown(KeyCode.J))
+        if (inputReader.GetKeyDown(KeyCode.S))
         {
-            DoTongueStuff(false);
+            duck.SetDucking(true);
         }
-        if (inputReader.GetKeyDown(KeyCode.K))
+        if (inputReader.GetKeyUp(KeyCode.S))
         {
-            DoTongueStuff(true);
+            duck.SetDucking(false);
         }
-        if (inputReader.GetKeyDown(KeyCode.L))
+        if (!duck.GetDucking())
         {
-            if (!tongue.IsTongueRunning())
+            if (inputReader.GetKeyDown(KeyCode.J))
             {
-                headbutt.HeadbuttEnter();
+                DoTongueStuff(false);
+            }
+            if (inputReader.GetKeyDown(KeyCode.K))
+            {
+                DoTongueStuff(true);
+            }
+            if (inputReader.GetKeyDown(KeyCode.L))
+            {
+                if (!tongue.IsTongueRunning())
+                {
+                    headbutt.HeadbuttEnter();
+                }
             }
         }
     }

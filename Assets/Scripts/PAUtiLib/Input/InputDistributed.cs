@@ -32,5 +32,17 @@ public abstract class InputDistributed : MonoBehaviour, IPlayable
         }
     }
 
+    public void SetSubscribedToDistributor(bool subscribe)
+    {
+        if (subscribe)
+        {
+            SubscribeToDistributor();
+        }
+        else
+        {
+            UnsubscribeFromDistributor();
+        }
+    }
+
     public abstract void ReceiveInput(InputReader inputReader);
 }

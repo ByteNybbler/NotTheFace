@@ -59,7 +59,8 @@ public class InputDistributor : MonoBehaviour, IPlayable
 
     public void ReceiveInput(InputReader inputReader)
     {
-        foreach (IPlayable subscriber in subscribers)
+        HashSet<IPlayable> toIterate = new HashSet<IPlayable>(subscribers);
+        foreach (IPlayable subscriber in toIterate)
         {
             subscriber.ReceiveInput(inputReader);
         }

@@ -35,6 +35,7 @@ public class ItemPool : MonoBehaviour
         itemReader.AddCallbackFloat("jump velocity bonus", player.AddJumpVelocity);
         itemReader.AddCallbackFloat("horizontal acceleration bonus", player.AddHorizontalAcceleration);
         itemReader.AddCallbackFloat("max horizontal speed bonus", player.AddMaxHorizontalSpeed);
+        itemReader.AddCallbackBool("press down for shield", player.SetHasSoap);
 
         JSONArrayReader itemsReader = jsonReader.Get<JSONArrayReader>("items");
         JSONNodeReader itemNodeReader;
