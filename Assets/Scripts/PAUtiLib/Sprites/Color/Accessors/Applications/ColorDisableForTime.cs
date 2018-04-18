@@ -1,16 +1,15 @@
 ﻿// Author(s): Paul Calande
-// Changes hierarchy sprite color when DisableForTime either enables or disables
-// its GameObject.
+// Changes a color when DisableForTime either enables or disables its GameObject.
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HierarchySpriteColorDisableForTime : MonoBehaviour
+public class ColorDisableForTime : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("The component to use to color the sprite.")]
-    HierarchySpriteColor hierarchySpriteColor;
+    [Tooltip("The component to use to modify the color.")]
+    ColorAccessor accessor;
     [SerializeField]
     [Tooltip("The enabler/disabler to subscribe to.")]
     DisableForTime disableForTime;
@@ -39,6 +38,6 @@ public class HierarchySpriteColorDisableForTime : MonoBehaviour
 
     private void SetColor(Color color)
     {
-        hierarchySpriteColor.SetColor(color);
+        accessor.SetColor(color);
     }
 }

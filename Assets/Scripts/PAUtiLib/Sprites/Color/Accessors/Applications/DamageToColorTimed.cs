@@ -6,14 +6,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageToHierarchySpriteColorTimed : MonoBehaviour
+public class DamageToColorTimed : MonoBehaviour
 {
     [Tooltip("Health component that activates the color change when damaged.")]
     [SerializeField]
     Health health;
     [SerializeField]
     [Tooltip("Damage color component that is activated when damage is taken.")]
-    HierarchySpriteColorTimed damageColor;
+    ColorTimed damageColor;
 
     private void Start()
     {
