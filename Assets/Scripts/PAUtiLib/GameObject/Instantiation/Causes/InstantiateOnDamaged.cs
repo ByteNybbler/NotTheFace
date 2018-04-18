@@ -11,8 +11,8 @@ public class InstantiateOnDamaged : MonoBehaviour
     [Tooltip("The health component to subscribe to.")]
     Health health;
     [SerializeField]
-    [Tooltip("The GameObject to instantiate when taking damage.")]
-    GameObject toInstantiate;
+    [Tooltip("The instantiator to use when taking damage.")]
+    Instantiator instantiator;
 
     private void Start()
     {
@@ -21,7 +21,6 @@ public class InstantiateOnDamaged : MonoBehaviour
 
     private void Health_Damaged(int damage)
     {
-        GameObject obj = Instantiate(toInstantiate, transform);
-        obj.transform.position = transform.position;
+        instantiator.Instantiate();
     }
 }

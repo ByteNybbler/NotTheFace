@@ -20,6 +20,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     Damage damageLaser;
     [SerializeField]
+    InstantiatedDamage damageEggExplosion;
+    [SerializeField]
+    InstantiatedDamage damageHeadbuttExplosion;
+    [SerializeField]
     MonoPeriodicInt damagePerSecondOfContact;
     [SerializeField]
     GroundBasedAcceleration2D gban;
@@ -112,5 +116,15 @@ public class Player : MonoBehaviour
     public void AddContactDamagePerSecond(int amount)
     {
         damagePerSecondOfContact.AddVar(amount);
+    }
+
+    public void AddEggExplosionDamage(int amount)
+    {
+        damageEggExplosion.Add(amount);
+    }
+
+    public void AddHeadbuttExplosionDamage(int amount)
+    {
+        damageHeadbuttExplosion.Add(amount);
     }
 }

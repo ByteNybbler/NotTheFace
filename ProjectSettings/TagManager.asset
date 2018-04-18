@@ -10,6 +10,8 @@ TagManager:
   - Wall
   - ContactDamage
   - PlayerLaser
+  - PlayerExplosion
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -61,6 +63,9 @@ TagManager:
     locked: 0
   - name: PlayerFrontLimbs
     uniqueID: 1032536731
+    locked: 0
+  - name: PlayerExplosion
+    uniqueID: 3068919389
     locked: 0
   - name: Hazard
     uniqueID: 3104388825

@@ -30,6 +30,8 @@ public class ItemPool : MonoBehaviour
         itemReader.AddCallbackInt("headbutt damage bonus", player.AddHeadbuttDamage);
         itemReader.AddCallbackInt("laser damage bonus", player.AddLaserDamage);
         itemReader.AddCallbackInt("contact damage per second bonus", player.AddContactDamagePerSecond);
+        itemReader.AddCallbackInt("damaged explosion damage bonus", player.AddEggExplosionDamage);
+        itemReader.AddCallbackInt("headbutt explosion damage bonus", player.AddHeadbuttExplosionDamage);
         itemReader.AddCallbackFloat("jump velocity bonus", player.AddJumpVelocity);
         itemReader.AddCallbackFloat("horizontal acceleration bonus", player.AddHorizontalAcceleration);
         itemReader.AddCallbackFloat("max horizontal speed bonus", player.AddMaxHorizontalSpeed);

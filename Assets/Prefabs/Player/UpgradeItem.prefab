@@ -380,8 +380,10 @@ MonoBehaviour:
       ts: {fileID: 114831339779706674}
     xMagnitude: 0
     xSpeed: 0
+    xStartingHalfTurns: 0
     yMagnitude: 0.1
     ySpeed: 6
+    yStartingHalfTurns: 0
   mover: {fileID: 114192715778913030}
 --- !u!212 &212049308358425312
 SpriteRenderer:

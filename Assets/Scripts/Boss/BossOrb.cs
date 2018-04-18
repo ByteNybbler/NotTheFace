@@ -106,8 +106,8 @@ public class BossOrb : MonoBehaviour
         oscillator.enabled = true;
 
         // Set the orb's velocity.
-        //int signDirection = UtilRandom.Sign();
-        float signDirection = Mathf.Sign(target.position.x - transform.position.x);
+        float targetX = target ? target.position.x : 0.0f;
+        float signDirection = Mathf.Sign(targetX - transform.position.x);
         Vector2 vel = new Vector2(signDirection * data.horizontalSpeed, 0.0f);
         velocity.SetVelocity(vel);
     }

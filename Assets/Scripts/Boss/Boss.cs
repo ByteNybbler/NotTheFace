@@ -177,8 +177,8 @@ public class Boss : MonoBehaviour
         fs.SetData(d);
         fs.SetAnimatorController(animator);
         float colliderHeight = fs.GetHitboxHeight();
-        obj.transform.position = Vector3.right * xPosition
-            + Vector3.down * (-room.GetFloorYPosition() + colliderHeight * 0.5f);
+        obj.transform.position = new Vector2(xPosition,
+            room.GetFloorYPosition() - colliderHeight * 0.5f);
     }
 
     // Summon multiple floor spikes.
@@ -205,7 +205,10 @@ public class Boss : MonoBehaviour
     public static void FloorSpikeTargetPlayer(Boss b, AttackGroup a, FloorSpike.Data d,
     RuntimeAnimatorController animator)
     {
-        FloorSpike(b, d, animator, b.player.transform.position.x);
+        if (b.player != null)
+        {
+            FloorSpike(b, d, animator, b.player.transform.position.x);
+        }
         a.StartCooldown();
     }
 
@@ -226,7 +229,7 @@ public class Boss : MonoBehaviour
         orb.SetCenterAndBottom(center.position, bottom.position);
         orb.SetAnimatorController(animator);
         orb.IdleFinished += a.StartCooldown;
-        orb.SetTarget(b.player.transform);
+        orb.SetTarget(b.player ? b.player.transform : b.transform);
     }
 
     // Fire a projectile.

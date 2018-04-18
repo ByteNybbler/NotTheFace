@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    [Tooltip("How much damage the object does.")]
     [SerializeField]
+    [Tooltip("How much damage the object does.")]
     int damage = 0;
 
     public int Get()
