@@ -62,6 +62,7 @@
 		},
 		{
 			"identifier" : "Lipstick",
+			"BLACKLIST" : true,
 			"poison tongue" :
 			{
 				"damage per second" : 2,

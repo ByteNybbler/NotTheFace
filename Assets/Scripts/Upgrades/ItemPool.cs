@@ -41,9 +41,13 @@ public class ItemPool : MonoBehaviour
         JSONNodeReader itemNodeReader;
         while (itemsReader.GetNextNode(out itemNodeReader))
         {
-            NamedEvent item = itemReader.Read(itemNodeReader);
-            item.AddCallback(() => Claim(item));
-            pool.AddUnclaimed(item);
+            bool blacklist = itemNodeReader.Get("BLACKLIST", false);
+            if (!blacklist)
+            {
+                NamedEvent item = itemReader.Read(itemNodeReader);
+                item.AddCallback(() => Claim(item));
+                pool.AddUnclaimed(item);
+            }
         }
     }
 
