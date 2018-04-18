@@ -45,7 +45,7 @@
 					]
 				},
 				{
-					"seconds of cooldown" : 2.0,
+					"seconds of cooldown" : 3.0,
 					"seconds of cooldown variance" : 0.5,
 					"attacks" :
 					[
@@ -53,7 +53,7 @@
 							"identifier" : "Orb",
 							"appearance" : "Large",
 							"position" : "LeftHand",
-							"seconds to idle" : 3.0,
+							"seconds to idle" : 3.5,
 							"seconds to idle variance" : 2.0,
 							"seconds to move to center" : 0.2,
 							"seconds to move to bottom" : 0.8,
