@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class InputDistributed : MonoBehaviour, IPlayable
+public abstract class InputDistributed : MonoBehaviour, IControllable
 {
     [SerializeField]
     [Tooltip("Reference to the InputDistributor to subscribe to.")]

@@ -1,5 +1,6 @@
 ﻿// Author(s): Paul Calande
-// A script for reading Rigidbody velocity while taking the up direction into account.
+// A script for reading and writing Rigidbody velocity
+// while taking the up direction into account.
 
 using System.Collections;
 using System.Collections.Generic;

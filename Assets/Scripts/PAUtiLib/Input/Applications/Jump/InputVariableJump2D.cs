@@ -15,11 +15,8 @@ using UnityEngine;
 public class InputVariableJump2D : InputDistributed
 {
     [SerializeField]
-    [Tooltip("Reference to the player's Rigidbody.")]
-    Rigidbody2D rb;
-    [SerializeField]
-    [Tooltip("The direction along which velocity will be removed.")]
-    UpDirection2D upDirection;
+    [Tooltip("Tracks the direction along which velocity will be removed.")]
+    RigidbodyVelocityInUpSpace2D vius;
     [SerializeField]
     [Tooltip("Reference to the player's gravity component.")]
     Gravity2D gravity;
@@ -39,11 +36,12 @@ public class InputVariableJump2D : InputDistributed
         {
             if (!variableJumped)
             {
-                Vector2 velocity = upDirection.SpaceEnter(rb.velocity);
+                Vector2 velocity = vius.GetVelocity();
                 if (velocity.y > 0.0f)
                 {
                     velocity.y *= variableJumpDampFactor;
-                    rb.velocity = upDirection.SpaceExit(velocity);
+                    vius.SetVelocity(velocity);
+                    // Variable jump executed successfully.
                     variableJumped = true;
                 }
             }

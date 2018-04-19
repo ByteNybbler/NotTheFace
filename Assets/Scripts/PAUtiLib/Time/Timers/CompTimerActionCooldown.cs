@@ -29,10 +29,8 @@ public class CompTimerActionCooldown
         Timer.FinishedHandler cooldownFinishedCallback = null)
     {
         this.actionFinishedCallback = actionFinishedCallback;
-        timerAction = new global::Timer(secondsAction, TimerActionCallback,
-            false, false);
-        timerCooldown = new global::Timer(secondsCooldown, cooldownFinishedCallback,
-            false, false);
+        timerAction = new Timer(secondsAction, TimerActionCallback, false);
+        timerCooldown = new Timer(secondsCooldown, cooldownFinishedCallback, false);
     }
 
     // Returns true if the composite timer is running.

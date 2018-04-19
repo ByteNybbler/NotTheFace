@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6895868f12827894ab342f065940ca5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  value: {r: 1, g: 1, b: 1, a: 0.39215687}
 --- !u!114 &114420314890130808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,7 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 114393144398571796}
   lerper: {fileID: 114420314890130808}
-  secondsToFade: 0.5
 --- !u!114 &114808594709276532
 MonoBehaviour:
   m_ObjectHideFlags: 1

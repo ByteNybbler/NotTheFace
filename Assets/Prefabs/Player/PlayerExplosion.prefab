@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScale: {fileID: 114660441519316870}
+  toDestroy: {fileID: 1513047404427568}
   secondsBeforeDestroying: 1
 --- !u!114 &114620973727603194
 MonoBehaviour:

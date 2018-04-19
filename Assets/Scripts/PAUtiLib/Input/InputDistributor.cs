@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputDistributor : MonoBehaviour, IPlayable
+public class InputDistributor : MonoBehaviour, IControllable
 {
     [SerializeField]
     [Tooltip("Whether to subscribe to the Service Locator's Input Manager immediately.")]
@@ -13,7 +13,7 @@ public class InputDistributor : MonoBehaviour, IPlayable
 
     // Reference to the InputManager to use.
     InputManager im;
-    HashSet<IPlayable> subscribers = new HashSet<IPlayable>();
+    HashSet<IControllable> subscribers = new HashSet<IControllable>();
 
     private void Start()
     {
@@ -47,20 +47,20 @@ public class InputDistributor : MonoBehaviour, IPlayable
         im.RemoveSubscriber(this);
     }
 
-    public void AddSubscriber(IPlayable subscriber)
+    public void AddSubscriber(IControllable subscriber)
     {
         subscribers.Add(subscriber);
     }
 
-    public void RemoveSubscriber(IPlayable subscriber)
+    public void RemoveSubscriber(IControllable subscriber)
     {
         subscribers.Remove(subscriber);
     }
 
     public void ReceiveInput(InputReader inputReader)
     {
-        HashSet<IPlayable> toIterate = new HashSet<IPlayable>(subscribers);
-        foreach (IPlayable subscriber in toIterate)
+        HashSet<IControllable> toIterate = new HashSet<IControllable>(subscribers);
+        foreach (IControllable subscriber in toIterate)
         {
             subscriber.ReceiveInput(inputReader);
         }

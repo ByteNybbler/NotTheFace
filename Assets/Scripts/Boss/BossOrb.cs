@@ -91,7 +91,8 @@ public class BossOrb : MonoBehaviour
         damage.Add(data.damage);
 
         timerIdle = new Timer(UtilRandom.RangeWithCenter(data.secondsToIdle,
-            data.secondsToIdleVariance), TimerIdleFinish, true, false);
+            data.secondsToIdleVariance), TimerIdleFinish, false);
+        timerIdle.Start();
     }
 
     private void TimerIdleFinish(float secondsOverflow)

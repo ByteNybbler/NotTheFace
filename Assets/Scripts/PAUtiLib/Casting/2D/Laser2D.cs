@@ -72,7 +72,6 @@ public class Laser2D : MonoBehaviour
 
     private void OnEnable()
     {
-        //Debug.Log("Laser2D OnEnable");
         UpdateScale();
     }
 

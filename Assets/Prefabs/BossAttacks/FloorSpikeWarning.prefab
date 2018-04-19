@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4402627113655568}
-  - component: {fileID: 114906458597172090}
+  - component: {fileID: 114799551984136144}
   - component: {fileID: 114893715448479540}
   - component: {fileID: 212111432037550592}
   m_Layer: 0
@@ -42,6 +42,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114799551984136144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144926724789398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0595ec4fcc5def419e86b9decf03af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScale: {fileID: 114893715448479540}
+  toDestroy: {fileID: 1144926724789398}
+  secondsBeforeDestroying: 0
 --- !u!114 &114893715448479540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,18 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec8061c1df7c42468518ae649839847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114906458597172090
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1144926724789398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9beee8638ecc44abb8de329961e4bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeScale: {fileID: 114893715448479540}
 --- !u!212 &212111432037550592
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -97,7 +99,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1190578471
-  m_SortingLayer: 3
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5e2d14f4253ae2b48aa5a1d129f733be, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}

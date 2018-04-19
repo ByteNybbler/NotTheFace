@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     Health health;
     [SerializeField]
-    DisableForTime invincibilityFrames;
+    ActivationForTime invincibilityFrames;
     [SerializeField]
     ActivationDictionary powerupVisuals;
 
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         gbj.SetJumpVelocity(jsonP.Get("jump velocity", 20.0f));
         gravity.SetAcceleration(jsonP.Get("gravity", 39.2f));
         InitializeHealth(jsonP.Get("health", 100));
-        invincibilityFrames.SetSecondsToDisable(jsonP.Get(
+        invincibilityFrames.SetSecondsToChange(jsonP.Get(
             "seconds of invincibility when damaged", 1.0f));
         damagePerSecondOfContact.SetSeconds(1.0f);
     }

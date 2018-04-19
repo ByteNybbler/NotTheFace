@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
 {
     InputWriter inputWriter;
     InputReader inputReader;
-    HashSet<IPlayable> subscribers = new HashSet<IPlayable>();
+    HashSet<IControllable> subscribers = new HashSet<IControllable>();
 
     private void Awake()
     {
@@ -30,22 +30,22 @@ public class InputManager : MonoBehaviour
         inputWriter.Clear();
     }
 
-    public void AddSubscriber(IPlayable subscriber)
+    public void AddSubscriber(IControllable subscriber)
     {
         subscribers.Add(subscriber);
     }
 
-    public void RemoveSubscriber(IPlayable subscriber)
+    public void RemoveSubscriber(IControllable subscriber)
     {
         subscribers.Remove(subscriber);
     }
 
-    public bool HasSubscriber(IPlayable subscriber)
+    public bool HasSubscriber(IControllable subscriber)
     {
         return subscribers.Contains(subscriber);
     }
 
-    public void ToggleSubscriber(IPlayable subscriber)
+    public void ToggleSubscriber(IControllable subscriber)
     {
         if (HasSubscriber(subscriber))
         {
@@ -59,8 +59,8 @@ public class InputManager : MonoBehaviour
 
     private void SendInputToSubscribers()
     {
-        HashSet<IPlayable> iterateSubscribers = new HashSet<IPlayable>(subscribers);
-        foreach (IPlayable sub in iterateSubscribers)
+        HashSet<IControllable> iterateSubscribers = new HashSet<IControllable>(subscribers);
+        foreach (IControllable sub in iterateSubscribers)
         {
             sub.ReceiveInput(inputReader);
         }

@@ -22,6 +22,7 @@ public class PeriodicVarTimers<T>
     public void Add(PeriodicVar<T> var)
     {
         Timer timer = new Timer(var.GetSeconds(), (t) => TimerFinished(t, var.GetVar()));
+        timer.Start();
         timers.Add(var, timer);
     }
 
@@ -32,7 +33,9 @@ public class PeriodicVarTimers<T>
 
     public void Tick(float deltaTime)
     {
-        foreach (KeyValuePair<PeriodicVar<T>, Timer> pair in timers)
+        Dictionary<PeriodicVar<T>, Timer> iterate =
+            new Dictionary<PeriodicVar<T>, Timer>(timers);
+        foreach (KeyValuePair<PeriodicVar<T>, Timer> pair in iterate)
         {
             pair.Value.Tick(deltaTime);
         }

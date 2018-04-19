@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIMenuInput : MonoBehaviour, IPlayable
+public class UIMenuInput : MonoBehaviour, IControllable
 {
     [SerializeField]
     [Tooltip("The number of seconds between each option change when holding a button down.")]
@@ -19,7 +19,7 @@ public class UIMenuInput : MonoBehaviour, IPlayable
     private void Start()
     {
         timerChangeItemOnKeyHold = new Timer(secondsBetweenItemChangeOnKeyHold,
-            null, false, false);
+            null, false);
         ServiceLocator.GetInputManager().AddSubscriber(this);
     }
 

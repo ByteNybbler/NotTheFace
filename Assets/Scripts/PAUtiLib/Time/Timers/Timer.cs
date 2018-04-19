@@ -14,18 +14,16 @@ public class Timer
     // The current number of seconds passed in this period.
     float secondsCurrent = 0.0f;
     // Whether the timer is currently running.
-    bool running;
+    bool running = false;
     // Whether the timer should run on a loop.
     // A looping timer will start over each time it reaches the target time.
     bool loop;
 
     // Constructor.
-    public Timer(float seconds, FinishedHandler finishedCallback = null,
-        bool running = true, bool loop = true)
+    public Timer(float seconds, FinishedHandler finishedCallback = null, bool loop = true)
     {
         this.secondsTarget = seconds;
         this.Finished = finishedCallback;
-        this.running = running;
         this.loop = loop;
     }
 

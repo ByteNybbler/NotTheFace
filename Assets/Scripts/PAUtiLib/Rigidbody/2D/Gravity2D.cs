@@ -11,11 +11,8 @@ public class Gravity2D : MonoBehaviour
     [SerializeField]
     TimeScale timeScale;
     [SerializeField]
-    [Tooltip("The rigidbody to apply a force of gravity to.")]
-    Rigidbody2D rb;
-    [SerializeField]
     [Tooltip("Gravity will be applied in the direction opposite the upwards direction.")]
-    UpDirection2D upDirection;
+    RigidbodyVelocityInUpSpace2D vius;
     [SerializeField]
     [Tooltip("How much acceleration is applied via the gravity.")]
     float acceleration = 39.2f;
@@ -25,10 +22,9 @@ public class Gravity2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 velocity = rb.velocity;
-        velocity += upDirection.GetDownVector() * acceleration * gravityScale
-            * timeScale.DeltaTime();
-        rb.velocity = velocity;
+        Vector2 velocity = vius.GetVelocity();
+        velocity.y -= acceleration * gravityScale * timeScale.DeltaTime();
+        vius.SetVelocity(velocity);
     }
 
     public void SetAcceleration(float value)

@@ -28,7 +28,7 @@ public class Boss : MonoBehaviour
             this.secondsOfCooldown = secondsOfCooldown;
             this.secondsOfCooldownVariance = secondsOfCooldownVariance;
 
-            timerCooldown = new Timer(1.0f, CooldownFinished, false, false);
+            timerCooldown = new Timer(1.0f, CooldownFinished, false);
         }
 
         public void AddAttack(AttackHandler attack)

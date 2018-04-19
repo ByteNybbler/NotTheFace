@@ -28,7 +28,7 @@ public class ItemText : MonoBehaviour
         JSONNodeReader jsonReader = new JSONNodeReader(fileItems);
 
         float timerItemSeconds = jsonReader.Get("seconds to display item text", 3.0f);
-        timerItemText = new Timer(timerItemSeconds, Disappear, false, false);
+        timerItemText = new Timer(timerItemSeconds, Disappear, false);
     }
 
     private void Start()

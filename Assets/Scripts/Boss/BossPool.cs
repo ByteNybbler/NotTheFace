@@ -115,10 +115,6 @@ public class BossPool : MonoBehaviour
                             seconds));
                     }
                     */
-                    else if (identifier == "HorizontalMeleeGrowing")
-                    {
-                        // TO DO
-                    }
                 }
 
                 attackGroups.Add(attackGroup);

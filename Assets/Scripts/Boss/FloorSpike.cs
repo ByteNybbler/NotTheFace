@@ -94,12 +94,12 @@ public class FloorSpike : MonoBehaviour
 
     private void Start()
     {
-        timerWarning = new Timer(data.secondsOfWarning, WarningFinish, false, false);
-        timerIdle = new Timer(data.secondsOfIdling, IdleFinish, false, false);
+        timerWarning = new Timer(data.secondsOfWarning, WarningFinish, false);
+        timerIdle = new Timer(data.secondsOfIdling, IdleFinish, false);
         timerWarning.Start();
         GameObject warning = Instantiate(data.prefabWarning, transform);
         warning.transform.position = transform.position + Vector3.up * warningHeight;
-        warning.GetComponent<TimeToDestroy>().Set(data.secondsOfWarning);
+        warning.GetComponent<DestroyAfterTime>().SetTargetTime(data.secondsOfWarning);
         damage.Add(data.damage);
         heightToRise = UtilRandom.RangeWithCenter(data.heightToRise, data.heightToRiseVariance);
     }

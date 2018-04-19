@@ -43,7 +43,7 @@ public class UIMeterBuffer : MonoBehaviour
     private void Start()
     {
         meterMain.PercentChanged += UIMeter_OnPercentChanged;
-        timerHesitate = new Timer(secondsToHesitate, TimerCallback, false, false);
+        timerHesitate = new Timer(secondsToHesitate, TimerCallback, false);
         UpdateBufferMeter();
     }
 

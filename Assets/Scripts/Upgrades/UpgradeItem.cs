@@ -34,7 +34,7 @@ public class UpgradeItem : MonoBehaviour
         Sprite sprite;
         if (sprites.TryGetValue(spriteName, out sprite))
         {
-            accessor.SetSprite(sprite);
+            accessor.Set(sprite);
         }
     }
 

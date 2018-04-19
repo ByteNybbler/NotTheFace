@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212075607109229470}
   - component: {fileID: 114693908230852372}
   - component: {fileID: 114024377010901892}
+  - component: {fileID: 114182210929982250}
   m_Layer: 0
   m_Name: MainBody
   m_TagString: Untagged
@@ -338,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3721c96b19733e346998f3d26c44d0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 212075607109229470}
+  value: {fileID: 21300000, guid: 505ec521fc2dfc44387d3eff078f726e, type: 3}
 --- !u!114 &114041937025011224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -350,6 +351,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0bb3d0119ab6f438bfcef41a888186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114182210929982250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1063446041004264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea71423ecb55f1c489cf2267bd91f822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accessor: {fileID: 114024377010901892}
+  render: {fileID: 212075607109229470}
 --- !u!114 &114192841746015552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6895868f12827894ab342f065940ca5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 1, b: 1, a: 1}
+  value: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &114210526614502568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -409,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 114023937819720990}
-  damageColor: {fileID: 114668306174125866}
+  valueChanger: {fileID: 114668306174125866}
 --- !u!114 &114331513787083246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -482,8 +496,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeScale: {fileID: 114285835685244466}
   accessor: {fileID: 114192841746015552}
-  colorChanged: {r: 1, g: 0, b: 0, a: 1}
-  secondsToColor: 0.1
+  valueChanged: {r: 1, g: 0, b: 0, a: 1}
+  secondsToChange: 0.1
 --- !u!114 &114693908230852372
 MonoBehaviour:
   m_ObjectHideFlags: 1
