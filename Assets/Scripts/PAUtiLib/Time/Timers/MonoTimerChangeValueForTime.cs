@@ -64,7 +64,11 @@ public class MonoTimerChangeValueForTime<TValue> : MonoBehaviour
 
     public void SetTargetTime(float seconds)
     {
-        timer.SetTargetTime(seconds);
+        secondsToChange = seconds;
+        if (timer != null)
+        {
+            timer.SetTargetTime(seconds);
+        }
     }
 
     public float GetTargetTime()

@@ -14,7 +14,7 @@ public class DamageToVoidEvent : MonoBehaviour
     [Tooltip("The health component to watch for damage on.")]
     Health health;
 
-    private void Start()
+    private void Awake()
     {
         health.Damaged += Fire;
     }

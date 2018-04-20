@@ -47,13 +47,15 @@ GameObject:
   - component: {fileID: 114020526319071984}
   - component: {fileID: 114091067442434492}
   - component: {fileID: 114014177566357606}
-  - component: {fileID: 114079114996753418}
   - component: {fileID: 114498963372278142}
   - component: {fileID: 114428556790720244}
   - component: {fileID: 114856673042066162}
   - component: {fileID: 114568780401277846}
   - component: {fileID: 114512490416768208}
   - component: {fileID: 114817500633374350}
+  - component: {fileID: 114733208198590690}
+  - component: {fileID: 114015055780263498}
+  - component: {fileID: 114154234693513552}
   m_Layer: 0
   m_Name: Orb
   m_TagString: Hazard
@@ -166,6 +168,17 @@ MonoBehaviour:
   inverted: 0
   triggerEnter: {fileID: 114091067442434492}
   triggerExit: {fileID: 0}
+--- !u!114 &114015055780263498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1888923763632584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936a6d5a3eb610a4a83355b393beb675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114020526319071984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,19 +202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
---- !u!114 &114079114996753418
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1888923763632584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2ee3f2ee851ce4c9754786e86f0c12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerEvent: {fileID: 114091067442434492}
-  destroyThis: {fileID: 1888923763632584}
 --- !u!114 &114091067442434492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,6 +225,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+--- !u!114 &114154234693513552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1888923763632584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8894e970c457345ac42060f2247ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidEvent: {fileID: 114015055780263498}
+  toDestroy: {fileID: 1888923763632584}
 --- !u!114 &114224190783271182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,6 +336,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeScale: {fileID: 114020526319071984}
   mover: {fileID: 114224190783271182}
+--- !u!114 &114733208198590690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1888923763632584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43472753f7c74ee459a266649afb9315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidEvent: {fileID: 114015055780263498}
+  triggerEvent: {fileID: 114091067442434492}
 --- !u!114 &114740991402130276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -406,7 +432,7 @@ SpriteRenderer:
   m_SortingLayerID: -1190578471
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b9e04b818e62e65448cbd5b2c85b0808, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b796f6c1bc48b1a49b038bbf30f43ac3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

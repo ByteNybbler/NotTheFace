@@ -14,7 +14,7 @@ public class MonoTimerToVoidEvent : MonoBehaviour
     [Tooltip("The timer will fire the VoidEvent each time it finishes.")]
     MonoTimer timer;
 
-    private void Start()
+    private void Awake()
     {
         timer.Subscribe(Fire);
     }

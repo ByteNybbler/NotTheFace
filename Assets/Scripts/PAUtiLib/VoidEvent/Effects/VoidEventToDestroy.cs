@@ -14,7 +14,7 @@ public class VoidEventToDestroy : MonoBehaviour
     [Tooltip("The GameObject to destroy.")]
     GameObject toDestroy;
 
-    private void Start()
+    private void Awake()
     {
         voidEvent.Subscribe(Fire);
     }
