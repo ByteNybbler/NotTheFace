@@ -1,13 +1,13 @@
 {
 	"health" : 100,
 	"seconds of tongue" : 0.2,
-	"seconds of tongue cooldown" : 0.6,
+	"seconds of tongue cooldown" : 0.4,
 	"seconds of invincibility when damaged" : 1.0,
 	"tongue damage" : 10,
 	"headbutt damage" : 30,
-	"headbutt required horizontal speed" : 8.0,
+	"headbutt required horizontal speed" : 7.0,
 	"horizontal acceleration" : 40.0,
-	"ground deceleration" : 32.0,
+	"ground deceleration" : 60.0,
 	"max horizontal speed" : 16.0,
 	"jump velocity" : 20.0,
 	"gravity" : 39.2
