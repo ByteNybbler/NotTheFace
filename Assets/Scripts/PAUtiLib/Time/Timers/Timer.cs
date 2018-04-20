@@ -12,6 +12,14 @@ public class Timer : ITimer
     public delegate void FinishedHandler(float secondsOverflow);
     FinishedHandler Finished;
 
+    // Invoked every time the timer starts from a standstill.
+    public delegate void StartedHandler();
+    StartedHandler Started;
+
+    // Invoked every time the timer stops.
+    public delegate void StoppedHandler();
+    StoppedHandler Stopped;
+
     [SerializeField]
     [Tooltip("How many seconds it takes for the timer to run out of time.")]
     float secondsTarget;
@@ -31,12 +39,15 @@ public class Timer : ITimer
 
     // Constructor.
     public Timer(float seconds, FinishedHandler FinishedCallback = null, bool loop = true,
-        bool clearOnRun = false)
+        bool clearOnRun = false, StartedHandler StartedCallback = null,
+        StoppedHandler StoppedCallback = null)
     {
         this.secondsTarget = seconds;
         this.Finished = FinishedCallback;
         this.loop = loop;
         this.clearOnRun = clearOnRun;
+        this.Started = StartedCallback;
+        this.Stopped = StoppedCallback;
     }
 
     // Increase the time passed for this timer by the given amount.
@@ -63,15 +74,12 @@ public class Timer : ITimer
             // If the timer doesn't loop, just stop the timer altogether.
             if (!loop)
             {
-                secondsCurrent = 0.0f;
-                running = false;
+                Clear();
+                Stop();
             }
             // Invoke the timer finished callback.
             // Pass the "seconds overflow" value we just calculated as well.
-            if (Finished != null)
-            {
-                Finished(secondsOverflow);
-            }
+            OnFinished(secondsOverflow);
         }
     }
 
@@ -80,10 +88,14 @@ public class Timer : ITimer
     public bool Run()
     {
         bool result = !running;
-        running = true;
         if (clearOnRun)
         {
             Clear();
+        }
+        if (!running)
+        {
+            running = true;
+            OnStarted();
         }
         return result;
     }
@@ -91,7 +103,11 @@ public class Timer : ITimer
     // Pauses the timer.
     public void Stop()
     {
-        running = false;
+        if (running)
+        {
+            running = false;
+            OnStopped();
+        }
     }
 
     // Resets the timer.
@@ -135,5 +151,41 @@ public class Timer : ITimer
     public void SetFinishedCallback(FinishedHandler Callback)
     {
         Finished = Callback;
+    }
+
+    // Change the timer's started callback function.
+    public void SetStartedCallback(StartedHandler Callback)
+    {
+        Started = Callback;
+    }
+
+    // Change the timer's stopped callback function.
+    public void SetStoppedCallback(StoppedHandler Callback)
+    {
+        Stopped = Callback;
+    }
+
+    private void OnFinished(float secondsOverflow)
+    {
+        if (Finished != null)
+        {
+            Finished(secondsOverflow);
+        }
+    }
+
+    private void OnStarted()
+    {
+        if (Started != null)
+        {
+            Started();
+        }
+    }
+
+    private void OnStopped()
+    {
+        if (Stopped != null)
+        {
+            Stopped();
+        }
     }
 }

@@ -9,6 +9,10 @@ public class MonoTimer : MonoBehaviour
 {
     // Invoked when the timer finishes.
     event Timer.FinishedHandler TimerFinished;
+    // Invoked when the timer starts from a standstill.
+    event Timer.StartedHandler TimerStarted;
+    // Invoked when the timer is stopped.
+    event Timer.StoppedHandler TimerStopped;
 
     [SerializeField]
     [Tooltip("The time scale to use to progress the timer.")]
@@ -17,15 +21,25 @@ public class MonoTimer : MonoBehaviour
     [Tooltip("The timer to use.")]
     Timer timer;
 
-    // Other components can use this to subscribe to the timer.
-    public void Subscribe(Timer.FinishedHandler Callback)
+    // Other components can use these methods to subscribe to timer events.
+    public void SubscribeToFinished(Timer.FinishedHandler Callback)
     {
         TimerFinished += Callback;
+    }
+    public void SubscribeToStarted(Timer.StartedHandler Callback)
+    {
+        TimerStarted += Callback;
+    }
+    public void SubscribeToStopped(Timer.StoppedHandler Callback)
+    {
+        TimerStopped += Callback;
     }
 
     private void Start()
     {
         timer.SetFinishedCallback(OnTimerFinished);
+        timer.SetStartedCallback(OnTimerStarted);
+        timer.SetStoppedCallback(OnTimerStopped);
     }
 
     private void FixedUpdate()
@@ -38,6 +52,22 @@ public class MonoTimer : MonoBehaviour
         if (TimerFinished != null)
         {
             TimerFinished(secondsOverflow);
+        }
+    }
+
+    private void OnTimerStarted()
+    {
+        if (TimerStarted != null)
+        {
+            TimerStarted();
+        }
+    }
+
+    private void OnTimerStopped()
+    {
+        if (TimerStopped != null)
+        {
+            TimerStopped();
         }
     }
 

@@ -1,11 +1,9 @@
 ﻿// Author(s): Paul Calande
 // Invokes a VoidEvent when a MonoTimer finishes.
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MonoTimerToVoidEvent : MonoBehaviour
+public class MonoTimerFinishedToVoidEvent : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("The VoidEvent to fire.")]
@@ -16,9 +14,9 @@ public class MonoTimerToVoidEvent : MonoBehaviour
 
     private void Awake()
     {
-        timer.Subscribe(Fire);
+        timer.SubscribeToFinished(Fire);
     }
-
+    
     private void Fire(float secondsOverflow)
     {
         voidEvent.Fire();
