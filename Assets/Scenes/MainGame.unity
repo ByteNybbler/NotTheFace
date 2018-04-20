@@ -3317,11 +3317,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1308310575}
-  - component: {fileID: 1308310578}
   - component: {fileID: 1308310577}
   - component: {fileID: 1308310576}
   - component: {fileID: 1308310580}
+  - component: {fileID: 1308310581}
   - component: {fileID: 1308310579}
+  - component: {fileID: 1308310578}
   m_Layer: 0
   m_Name: EggExploder
   m_TagString: Untagged
@@ -3377,11 +3378,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308310574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b62f0af2ca7694bb40e7fe0cf98182, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f6af5f574f3e934bbaf4c98a663f5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  voidEvent: {fileID: 1308310581}
   health: {fileID: 341930203}
-  instantiator: {fileID: 1308310577}
 --- !u!114 &1308310579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3390,10 +3391,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308310574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104b5c61c0a7adf468e5ee10c9198a27, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f41a101c296d7a46982290e9a527136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerEvent: {fileID: 1985689718}
+  voidEvent: {fileID: 1308310581}
   instantiator: {fileID: 1308310577}
 --- !u!114 &1308310580
 MonoBehaviour:
@@ -3408,6 +3409,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instantiator: {fileID: 1308310577}
   instantiatedDamage: {fileID: 1308310576}
+--- !u!114 &1308310581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308310574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936a6d5a3eb610a4a83355b393beb675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1374135437
 GameObject:
   m_ObjectHideFlags: 0
