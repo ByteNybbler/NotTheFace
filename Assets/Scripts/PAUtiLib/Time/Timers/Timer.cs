@@ -1,9 +1,6 @@
 ﻿// Author(s): Paul Calande
-// Timer class to be used for simulating periodic time-based behavior.
+// Timer class that can be used to simulate periodic time-based behavior.
 
-using UnityEngine;
-
-[System.Serializable]
 public class Timer : ITimer
 {
     // Invoked every time the timer finishes a loop.
@@ -15,23 +12,19 @@ public class Timer : ITimer
     // Invoked every time the timer starts from a standstill.
     public delegate void StartedHandler();
     StartedHandler Started;
-
+    
     // Invoked every time the timer stops.
     public delegate void StoppedHandler();
     StoppedHandler Stopped;
 
-    [SerializeField]
-    [Tooltip("How many seconds it takes for the timer to run out of time.")]
+    // How many seconds it takes for the timer to run out of time.
     float secondsTarget;
-    [SerializeField]
-    [Tooltip("Whether the timer is currently running.")]
-    bool running = false;
-    [SerializeField]
-    [Tooltip("Whether the timer should run on a loop. " + 
-        "A looping timer will start over each time it reaches the target time.")]
+    // Runner for making the timer start and stop.
+    Runner runner;
+    // Whether the timer should run on a loop.
+    // A looping timer will start over each time it reaches the target time.
     bool loop = true;
-    [SerializeField]
-    [Tooltip("Whether the timer is cleared every time it is run.")]
+    // Whether the timer is cleared every time it is run.
     bool clearOnRun = false;
 
     // The current number of seconds passed in this period.
@@ -48,13 +41,14 @@ public class Timer : ITimer
         this.clearOnRun = clearOnRun;
         this.Started = StartedCallback;
         this.Stopped = StoppedCallback;
+        runner = new Runner(OnStarted, OnStopped);
     }
 
     // Increase the time passed for this timer by the given amount.
     public void Tick(float deltaTime)
     {
         // If the timer isn't running, this method does nothing.
-        if (!running)
+        if (!runner.IsRunning())
         {
             return;
         }
@@ -87,27 +81,17 @@ public class Timer : ITimer
     // Returns true if the timer wasn't running when this method was called.
     public bool Run()
     {
-        bool result = !running;
         if (clearOnRun)
         {
             Clear();
         }
-        if (!running)
-        {
-            running = true;
-            OnStarted();
-        }
-        return result;
+        return runner.Run();
     }
 
     // Pauses the timer.
-    public void Stop()
+    public bool Stop()
     {
-        if (running)
-        {
-            running = false;
-            OnStopped();
-        }
+        return runner.Stop();
     }
 
     // Resets the timer.
@@ -119,7 +103,7 @@ public class Timer : ITimer
     // Returns true if the timer is running.
     public bool IsRunning()
     {
-        return running;
+        return runner.IsRunning();
     }
 
     // Change the target time on the timer.

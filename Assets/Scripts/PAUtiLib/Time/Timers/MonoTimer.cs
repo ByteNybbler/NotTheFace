@@ -18,8 +18,23 @@ public class MonoTimer : MonoBehaviour
     [Tooltip("The time scale to use to progress the timer.")]
     TimeScale timeScale;
     [SerializeField]
-    [Tooltip("The timer to use.")]
+    [Tooltip("The timer's target time.")]
+    float seconds;
+    [SerializeField]
+    [Tooltip("Whether the timer loops.")]
+    bool loop;
+    [SerializeField]
+    [Tooltip("Whether the timer should be cleared every time it is run.")]
+    bool clearOnRun;
+
+    // The timer to use.
     Timer timer;
+
+    private void Awake()
+    {
+        timer = new Timer(seconds, OnTimerFinished, loop, clearOnRun, OnTimerStarted,
+            OnTimerStopped);
+    }
 
     // Other components can use these methods to subscribe to timer events.
     public void SubscribeToFinished(Timer.FinishedHandler Callback)
@@ -33,13 +48,6 @@ public class MonoTimer : MonoBehaviour
     public void SubscribeToStopped(Timer.StoppedHandler Callback)
     {
         TimerStopped += Callback;
-    }
-
-    private void Start()
-    {
-        timer.SetFinishedCallback(OnTimerFinished);
-        timer.SetStartedCallback(OnTimerStarted);
-        timer.SetStoppedCallback(OnTimerStopped);
     }
 
     private void FixedUpdate()
@@ -73,12 +81,16 @@ public class MonoTimer : MonoBehaviour
 
     public void SetTargetTime(float seconds)
     {
-        timer.SetTargetTime(seconds);
+        this.seconds = seconds;
+        if (timer != null)
+        {
+            timer.SetTargetTime(seconds);
+        }
     }
 
     public float GetTargetTime()
     {
-        return timer.GetTargetTime();
+        return seconds;
     }
 
     public float GetCurrentTime()

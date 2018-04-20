@@ -14,7 +14,7 @@ public class InstantiatedDamage : MonoBehaviour
     [Tooltip("The damage value to set for the instantiated object via RootDamage.")]
     int damage = 0;
 
-    private void Start()
+    private void Awake()
     {
         instantiator.Instantiated += Instantiated;
     }

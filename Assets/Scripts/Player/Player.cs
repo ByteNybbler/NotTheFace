@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     Health health;
     [SerializeField]
-    MonoTimerChangeBoolForTime invincibilityFrames;
+    MonoTimer invincibilityFrames;
     [SerializeField]
     ActivationDictionary powerupVisuals;
 

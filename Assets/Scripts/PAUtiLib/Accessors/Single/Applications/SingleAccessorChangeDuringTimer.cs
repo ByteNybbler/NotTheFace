@@ -1,29 +1,39 @@
 ﻿// Author(s): Paul Calande
-// Changes an accessor's value for a certain amount of time before changing it back.
+// Changes an accessor's value based on whether a MonoTimer is running.
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SingleAccessorChangeForTime<TValue, TAccessor, TTimer> : MonoBehaviour
+public class SingleAccessorChangeDuringTimer<TValue, TAccessor> : MonoBehaviour
     where TAccessor : SingleAccessor<TValue>
-    where TTimer : MonoTimerChangeValueForTime<TValue>
 {
     [SerializeField]
     [Tooltip("The component to use to modify the value.")]
     TAccessor accessor;
     [SerializeField]
-    [Tooltip("The timer to use to modify the value.")]
-    TTimer timer;
+    [Tooltip("The new value is assigned while this timer is running.")]
+    MonoTimer timer;
+    [SerializeField]
+    [Tooltip("The new value to assign.")]
+    TValue value;
 
-    private void Start()
+    // The runner that actually changes the value.
+    RunnerChangeValue<TValue> runner;
+
+    private void Awake()
     {
-        timer.Subscribe(accessor.Set);
+        runner = new RunnerChangeValue<TValue>(value, accessor.Set, accessor.Get);
+        timer.SubscribeToStarted(Run);
+        timer.SubscribeToStopped(Stop);
     }
 
-    public void Run()
+    private void Run()
     {
-        timer.Run(accessor.Get());
+        runner.Run();
+    }
+
+    private void Stop()
+    {
+        runner.Stop();
     }
 }
 
