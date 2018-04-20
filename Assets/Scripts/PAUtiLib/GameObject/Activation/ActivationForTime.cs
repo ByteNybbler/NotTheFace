@@ -32,7 +32,7 @@ public class ActivationForTime : MonoBehaviour
         StateChanged += StateChangedCallback;
         StateChangedCallback(GetTargetActive());
     }
-
+    
     public void SetSecondsToChange(float secondsToChange)
     {
         this.secondsToChange = secondsToChange;
@@ -54,7 +54,7 @@ public class ActivationForTime : MonoBehaviour
         {
             SetTargetActive(newActiveState);
             timerChanged.SetTargetTime(secondsToChange);
-            timerChanged.Start();
+            timerChanged.Run();
         }
     }
 

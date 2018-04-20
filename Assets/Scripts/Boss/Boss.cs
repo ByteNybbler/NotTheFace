@@ -50,7 +50,7 @@ public class Boss : MonoBehaviour
         {
             timerCooldown.SetTargetTime(UtilRandom.RangeWithCenter(secondsOfCooldown,
                 secondsOfCooldownVariance));
-            timerCooldown.Start();
+            timerCooldown.Run();
         }
 
         private AttackHandler GetRandomAttack()

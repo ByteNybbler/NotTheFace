@@ -1,5 +1,5 @@
 ﻿// Author(s): Paul Calande
-// Item text for Not the Face.
+// Item text script for Not the Face.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ public class ItemText : MonoBehaviour
         JSONNodeReader jsonReader = new JSONNodeReader(fileItems);
 
         float timerItemSeconds = jsonReader.Get("seconds to display item text", 3.0f);
-        timerItemText = new Timer(timerItemSeconds, Disappear, false);
+        timerItemText = new Timer(timerItemSeconds, Disappear, false, true);
     }
 
     private void Start()
@@ -39,8 +39,7 @@ public class ItemText : MonoBehaviour
     public void Appear(string identifier)
     {
         gameObject.SetActive(true);
-        timerItemText.Reset();
-        timerItemText.Start();
+        timerItemText.Run();
 
         textItemName.text = UtilTranslate.ItemName(identifier);
         textItemDescription.text = UtilTranslate.ItemDescription(identifier);

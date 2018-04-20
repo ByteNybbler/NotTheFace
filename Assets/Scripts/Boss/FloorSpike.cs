@@ -96,10 +96,11 @@ public class FloorSpike : MonoBehaviour
     {
         timerWarning = new Timer(data.secondsOfWarning, WarningFinish, false);
         timerIdle = new Timer(data.secondsOfIdling, IdleFinish, false);
-        timerWarning.Start();
+        timerWarning.Run();
         GameObject warning = Instantiate(data.prefabWarning, transform);
         warning.transform.position = transform.position + Vector3.up * warningHeight;
-        warning.GetComponent<DestroyAfterTime>().SetTargetTime(data.secondsOfWarning);
+        // Set the destroy time for the floor spike warning.
+        warning.GetComponent<MonoTimer>().SetTargetTime(data.secondsOfWarning);
         damage.Add(data.damage);
         heightToRise = UtilRandom.RangeWithCenter(data.heightToRise, data.heightToRiseVariance);
     }
@@ -137,7 +138,7 @@ public class FloorSpike : MonoBehaviour
                 if (state == State.Rise)
                 {
                     state = State.Idle;
-                    timerIdle.Start();
+                    timerIdle.Run();
                 }
                 else if (state == State.Lower)
                 {

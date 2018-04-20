@@ -33,6 +33,11 @@ public class UIMenuInput : MonoBehaviour, IControllable
         this.menu = menu;
     }
 
+    private void RunKeyTimer()
+    {
+        timerChangeItemOnKeyHold.Run();
+    }
+
     public void ReceiveInput(InputReader inputReader)
     {
         float axisH = inputReader.GetAxisHorizontalRaw();
@@ -42,28 +47,28 @@ public class UIMenuInput : MonoBehaviour, IControllable
             if (axisH < 0.0f)
             {
                 menu.PressLeftOnSelection();
-                timerChangeItemOnKeyHold.Start();
+                RunKeyTimer();
             }
             if (axisH > 0.0f)
             {
                 menu.PressRightOnSelection();
-                timerChangeItemOnKeyHold.Start();
+                RunKeyTimer();
             }
             if (axisV < 0.0f)
             {
                 menu.MoveSelection(-1);
-                timerChangeItemOnKeyHold.Start();
+                RunKeyTimer();
             }
             if (axisV > 0.0f)
             {
                 menu.MoveSelection(1);
-                timerChangeItemOnKeyHold.Start();
+                RunKeyTimer();
             }
         }
         if (axisH == 0.0f && axisV == 0.0f)
         {
             timerChangeItemOnKeyHold.Stop();
-            timerChangeItemOnKeyHold.Reset();
+            timerChangeItemOnKeyHold.Clear();
         }
     }
 }

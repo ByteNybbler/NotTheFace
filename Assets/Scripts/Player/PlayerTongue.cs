@@ -66,7 +66,7 @@ public class PlayerTongue : MonoBehaviour
 
     public void Fire(bool right)
     {
-        if (timerTongue.TryStart())
+        if (timerTongue.Run())
         {
             Vector3 scale = tongue.transform.localScale;
             scale.x = UtilMath.Sign(right);

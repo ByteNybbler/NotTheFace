@@ -22,7 +22,7 @@ public class PeriodicVarTimers<T>
     public void Add(PeriodicVar<T> var)
     {
         Timer timer = new Timer(var.GetSeconds(), (t) => TimerFinished(t, var.GetVar()));
-        timer.Start();
+        timer.Run();
         timers.Add(var, timer);
     }
 

@@ -1,7 +1,10 @@
 ﻿// Author(s): Paul Calande
 // Timer class to be used for simulating periodic time-based behavior.
 
-public class Timer
+using UnityEngine;
+
+[System.Serializable]
+public class Timer : ITimer
 {
     // Invoked every time the timer finishes a loop.
     // The parameter is how many seconds the timer ran past the target time.
@@ -9,22 +12,31 @@ public class Timer
     public delegate void FinishedHandler(float secondsOverflow);
     FinishedHandler Finished;
 
-    // How many seconds it takes for the timer to run out of time.
+    [SerializeField]
+    [Tooltip("How many seconds it takes for the timer to run out of time.")]
     float secondsTarget;
+    [SerializeField]
+    [Tooltip("Whether the timer is currently running.")]
+    bool running = false;
+    [SerializeField]
+    [Tooltip("Whether the timer should run on a loop. " + 
+        "A looping timer will start over each time it reaches the target time.")]
+    bool loop = true;
+    [SerializeField]
+    [Tooltip("Whether the timer is cleared every time it is run.")]
+    bool clearOnRun = false;
+
     // The current number of seconds passed in this period.
     float secondsCurrent = 0.0f;
-    // Whether the timer is currently running.
-    bool running = false;
-    // Whether the timer should run on a loop.
-    // A looping timer will start over each time it reaches the target time.
-    bool loop;
 
     // Constructor.
-    public Timer(float seconds, FinishedHandler finishedCallback = null, bool loop = true)
+    public Timer(float seconds, FinishedHandler FinishedCallback = null, bool loop = true,
+        bool clearOnRun = false)
     {
         this.secondsTarget = seconds;
-        this.Finished = finishedCallback;
+        this.Finished = FinishedCallback;
         this.loop = loop;
+        this.clearOnRun = clearOnRun;
     }
 
     // Increase the time passed for this timer by the given amount.
@@ -63,22 +75,53 @@ public class Timer
         }
     }
 
+    // Starts or resumes the timer.
+    // Returns true if the timer wasn't running when this method was called.
+    public bool Run()
+    {
+        bool result = !running;
+        running = true;
+        if (clearOnRun)
+        {
+            Clear();
+        }
+        return result;
+    }
+
+    // Pauses the timer.
+    public void Stop()
+    {
+        running = false;
+    }
+
+    // Resets the timer.
+    public void Clear()
+    {
+        secondsCurrent = 0.0f;
+    }
+
+    // Returns true if the timer is running.
+    public bool IsRunning()
+    {
+        return running;
+    }
+
     // Change the target time on the timer.
     public void SetTargetTime(float seconds)
     {
         secondsTarget = seconds;
     }
 
-    // Get the current time on the timer.
-    public float GetCurrentTime()
-    {
-        return secondsCurrent;
-    }
-
     // Get the target time on the timer.
     public float GetTargetTime()
     {
         return secondsTarget;
+    }
+
+    // Get the current time on the timer.
+    public float GetCurrentTime()
+    {
+        return secondsCurrent;
     }
 
     // Returns how close (in percent) the timer is to reaching the target time.
@@ -88,27 +131,9 @@ public class Timer
         return secondsCurrent / secondsTarget;
     }
 
-    // Start or resume the timer.
-    public void Start()
+    // Change the timer's finished callback function.
+    public void SetFinishedCallback(FinishedHandler Callback)
     {
-        running = true;
-    }
-
-    // Pause the timer.
-    public void Stop()
-    {
-        running = false;
-    }
-
-    // Reset the timer.
-    public void Reset()
-    {
-        secondsCurrent = 0.0f;
-    }
-
-    // Returns true if the timer is running.
-    public bool IsRunning()
-    {
-        return running;
+        Finished = Callback;
     }
 }

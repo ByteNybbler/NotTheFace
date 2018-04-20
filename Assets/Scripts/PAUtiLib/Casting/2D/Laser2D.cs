@@ -9,7 +9,7 @@ public class Laser2D : MonoBehaviour
 {
     // Invoked when the laser prepares to update its scale.
     public delegate void UpdateScaleStartedHandler();
-    public event UpdateScaleStartedHandler UpdateScaleStarted;
+    event UpdateScaleStartedHandler UpdateScaleStarted;
 
     [SerializeField]
     [Tooltip("The SpriteRenderer to read the size of in order to scale properly.")]
@@ -22,6 +22,12 @@ public class Laser2D : MonoBehaviour
     float maxDistance = 10000.0f;
 
     Vector2 direction = Vector2.right;
+
+    public void Subscribe(UpdateScaleStartedHandler Callback)
+    {
+        UpdateScaleStarted += Callback;
+        Callback();
+    }
 
     public void SetDirection(Vector2 direction)
     {

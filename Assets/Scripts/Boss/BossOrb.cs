@@ -92,7 +92,7 @@ public class BossOrb : MonoBehaviour
 
         timerIdle = new Timer(UtilRandom.RangeWithCenter(data.secondsToIdle,
             data.secondsToIdleVariance), TimerIdleFinish, false);
-        timerIdle.Start();
+        timerIdle.Run();
     }
 
     private void TimerIdleFinish(float secondsOverflow)

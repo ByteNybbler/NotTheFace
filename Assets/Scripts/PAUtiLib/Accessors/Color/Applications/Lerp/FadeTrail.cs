@@ -1,5 +1,5 @@
 ﻿// Author(s): Paul Calande
-// Leaves behind a fading trail of the given prefab.
+// Leaves behind a fading trail of the given sprite.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -12,8 +12,11 @@ public class FadeTrail : MonoBehaviour
         + "component at its root.")]
     GameObject prefabTrail;
     [SerializeField]
-    [Tooltip("The SpriteRenderer to use as a reference for making the trail.")]
-    SpriteRenderer render;
+    [Tooltip("The accessor to fetch the sprite from and use for the fade trail.")]
+    SpriteAccessor accessor;
+    [SerializeField]
+    [Tooltip("The transform to use as a reference for positioning and rotating the trail.")]
+    Transform trans;
     [SerializeField]
     [Tooltip("How many seconds one instance of the trail takes to fade.")]
     float secondsToFade;
@@ -21,11 +24,12 @@ public class FadeTrail : MonoBehaviour
     private void FixedUpdate()
     {
         GameObject fader = Instantiate(prefabTrail);
-        fader.transform.position = render.transform.position;
-        fader.transform.rotation = render.transform.rotation;
-        fader.transform.localScale = render.transform.lossyScale;
-        fader.GetComponent<SpriteRenderer>().sprite = render.sprite;
-        ColorAccessorFadeDestroy fade = fader.GetComponent<ColorAccessorFadeDestroy>();
-        fade.Fade(secondsToFade);
+        fader.transform.position = trans.position;
+        fader.transform.rotation = trans.rotation;
+        fader.transform.localScale = trans.lossyScale;
+        fader.GetComponent<SpriteRenderer>().sprite = accessor.Get();
+        ColorAccessorFade fade = fader.GetComponent<ColorAccessorFade>();
+        fade.SetSecondsToFade(secondsToFade);
+        fade.Fade();
     }
 }

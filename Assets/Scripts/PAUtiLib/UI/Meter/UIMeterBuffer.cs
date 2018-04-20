@@ -43,7 +43,7 @@ public class UIMeterBuffer : MonoBehaviour
     private void Start()
     {
         meterMain.PercentChanged += UIMeter_OnPercentChanged;
-        timerHesitate = new Timer(secondsToHesitate, TimerCallback, false);
+        timerHesitate = new Timer(secondsToHesitate, TimerCallback, false, true);
         UpdateBufferMeter();
     }
 
@@ -70,7 +70,7 @@ public class UIMeterBuffer : MonoBehaviour
                 if (IsTimerReady())
                 {
                     bufferUpper = percentOld;
-                    timerHesitate.Start();
+                    timerHesitate.Run();
                 }
             }
             else if (!IsTimerReady())
@@ -78,7 +78,7 @@ public class UIMeterBuffer : MonoBehaviour
                 if (percentNew >= bufferUpper)
                 {
                     timerHesitate.Stop();
-                    timerHesitate.Reset();
+                    //timerHesitate.Clear();
                     bufferLower = 0.0f;
                     bufferUpper = 0.0f;
                 }
@@ -96,7 +96,7 @@ public class UIMeterBuffer : MonoBehaviour
                 if (IsTimerReady())
                 {
                     bufferLower = percentOld;
-                    timerHesitate.Start();
+                    timerHesitate.Run();
                 }
             }
             else if (!IsTimerReady())
@@ -104,7 +104,7 @@ public class UIMeterBuffer : MonoBehaviour
                 if (percentNew <= bufferLower)
                 {
                     timerHesitate.Stop();
-                    timerHesitate.Reset();
+                    //timerHesitate.Clear();
                     bufferLower = 0.0f;
                     bufferUpper = 0.0f;
                 }

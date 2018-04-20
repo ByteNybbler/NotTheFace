@@ -32,6 +32,7 @@ public class SingleAccessor<T> : MonoBehaviour
     {
         this.value = value;
         OnValueSet();
+        //Debug.Log(name + " SingleAccessor Set value: " + value);
     }
 
     public T Get()

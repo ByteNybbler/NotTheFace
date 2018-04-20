@@ -4,5 +4,5 @@
 using UnityEngine;
 
 public class SpriteAccessorChangeForTime : SingleAccessorChangeForTime
-    <Sprite, SpriteAccessor>
+    <Sprite, SpriteAccessor, MonoTimerChangeSpriteForTime>
 { }

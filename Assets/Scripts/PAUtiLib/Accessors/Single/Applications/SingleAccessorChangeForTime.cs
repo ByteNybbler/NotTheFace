@@ -5,6 +5,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class SingleAccessorChangeForTime<TValue, TAccessor, TTimer> : MonoBehaviour
+    where TAccessor : SingleAccessor<TValue>
+    where TTimer : MonoTimerChangeValueForTime<TValue>
+{
+    [SerializeField]
+    [Tooltip("The component to use to modify the value.")]
+    TAccessor accessor;
+    [SerializeField]
+    [Tooltip("The timer to use to modify the value.")]
+    TTimer timer;
+
+    private void Start()
+    {
+        timer.Subscribe(accessor.Set);
+    }
+
+    public void Run()
+    {
+        timer.Run(accessor.Get());
+    }
+}
+
+/*
 public class SingleAccessorChangeForTime<TValue, TAccessor> : MonoBehaviour
     where TAccessor : SingleAccessor<TValue>
 {
@@ -38,8 +61,8 @@ public class SingleAccessorChangeForTime<TValue, TAccessor> : MonoBehaviour
             valuePrevious = accessor.Get();
         }
         accessor.Set(valueChanged);
-        timerChanged.Reset();
-        timerChanged.Start();
+        timerChanged.Clear();
+        timerChanged.Run();
     }
 
     // Stop the timer and revert the color back to normal.
@@ -66,3 +89,4 @@ public class SingleAccessorChangeForTime<TValue, TAccessor> : MonoBehaviour
         timerChanged.Tick(timeScale.DeltaTime());
     }
 }
+*/

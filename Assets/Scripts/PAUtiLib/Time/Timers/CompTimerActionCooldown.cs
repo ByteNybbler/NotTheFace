@@ -20,7 +20,7 @@ public class CompTimerActionCooldown
     private void TimerActionCallback(float secondsOverflow)
     {
         // Action finished. Start the cooldown.
-        timerCooldown.Start();
+        timerCooldown.Run();
         actionFinishedCallback(secondsOverflow);
     }
 
@@ -55,14 +55,14 @@ public class CompTimerActionCooldown
     // Tries to start the action timer, effectively performing the action.
     // Returns true if it starts successfully. Returns false otherwise.
     // It will return false if the composite timer is already running.
-    public bool TryStart()
+    public bool Run()
     {
         // If either timer is running, don't start the action timer.
         if (IsRunning())
         {
             return false;
         }
-        timerAction.Start();
+        timerAction.Run();
         return true;
     }
 

@@ -4,5 +4,5 @@
 using UnityEngine;
 
 public class ColorAccessorChangeForTime : SingleAccessorChangeForTime
-    <Color, ColorAccessor>
+    <Color, ColorAccessor, MonoTimerChangeColorForTime>
 { }

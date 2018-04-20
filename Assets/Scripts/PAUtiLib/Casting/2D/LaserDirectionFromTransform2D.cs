@@ -34,8 +34,8 @@ public class LaserDirectionFromTransform2D : MonoBehaviour
         laser.SetDirection(GetDegrees());
     }
 
-    private void Start()
+    private void Awake()
     {
-        laser.UpdateScaleStarted += UpdateDirection;
+        laser.Subscribe(UpdateDirection);
     }
 }

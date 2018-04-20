@@ -21,7 +21,12 @@ public class RestartSceneOnDied : MonoBehaviour
     private void Start()
     {
         timerRestart = new Timer(secondsToWait, x => UtilScene.ResetScene(), false);
-        health.Died += timerRestart.Start;
+        health.Died += Health_Died;
+    }
+
+    private void Health_Died()
+    {
+        timerRestart.Run();
     }
 
     private void FixedUpdate()

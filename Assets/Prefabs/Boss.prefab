@@ -118,9 +118,12 @@ GameObject:
   - component: {fileID: 114668306174125866}
   - component: {fileID: 114285835685244466}
   - component: {fileID: 114367915931909294}
-  - component: {fileID: 114310718595075718}
   - component: {fileID: 114210526614502568}
   - component: {fileID: 114331513787083246}
+  - component: {fileID: 114709909469735442}
+  - component: {fileID: 114519782794726504}
+  - component: {fileID: 114515538669063984}
+  - component: {fileID: 114907786145592458}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -411,19 +414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec8061c1df7c42468518ae649839847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114310718595075718
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1511203905807964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f2c4de426d90b4d97cdc7675300fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 114023937819720990}
-  valueChanger: {fileID: 114668306174125866}
 --- !u!114 &114331513787083246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -472,6 +462,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 114024377010901892}
   collide: {fileID: 61283800071458628}
+  scale: 1
+--- !u!114 &114515538669063984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f6af5f574f3e934bbaf4c98a663f5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidEvent: {fileID: 114907786145592458}
+  health: {fileID: 114023937819720990}
+--- !u!114 &114519782794726504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec3b7c1fe3fd2942a21e35be9b3abba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidEvent: {fileID: 114907786145592458}
+  changer: {fileID: 114668306174125866}
 --- !u!114 &114593598509655592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -494,10 +511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4b0c4eaf2adc944ad0e9a76ec47a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScale: {fileID: 114285835685244466}
   accessor: {fileID: 114192841746015552}
-  valueChanged: {r: 1, g: 0, b: 0, a: 1}
-  secondsToChange: 0.1
+  timer: {fileID: 114709909469735442}
 --- !u!114 &114693908230852372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -511,6 +526,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 114192841746015552}
   render: {fileID: 212075607109229470}
+--- !u!114 &114709909469735442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f7989de7c8b51439bb580c4a623930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScale: {fileID: 114285835685244466}
+  secondsToChange: 0.1
+  valueDuringTimer: {r: 1, g: 0, b: 0, a: 1}
+  clearOnRun: 1
 --- !u!114 &114758514228173286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -582,6 +612,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 114023937819720990}
   timers: {fileID: 114866097970011066}
+--- !u!114 &114907786145592458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936a6d5a3eb610a4a83355b393beb675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114992128809465342
 MonoBehaviour:
   m_ObjectHideFlags: 1
