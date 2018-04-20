@@ -48,6 +48,7 @@ public class SingleAccessor<T> : MonoBehaviour
         }
     }
 
+    // Called by Animator components.
     private void OnDidApplyAnimationProperties()
     {
         OnValueSet();

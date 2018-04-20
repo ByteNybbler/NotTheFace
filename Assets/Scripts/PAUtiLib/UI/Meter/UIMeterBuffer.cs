@@ -78,7 +78,6 @@ public class UIMeterBuffer : MonoBehaviour
                 if (percentNew >= bufferUpper)
                 {
                     timerHesitate.Stop();
-                    //timerHesitate.Clear();
                     bufferLower = 0.0f;
                     bufferUpper = 0.0f;
                 }
@@ -104,7 +103,6 @@ public class UIMeterBuffer : MonoBehaviour
                 if (percentNew <= bufferLower)
                 {
                     timerHesitate.Stop();
-                    //timerHesitate.Clear();
                     bufferLower = 0.0f;
                     bufferUpper = 0.0f;
                 }
