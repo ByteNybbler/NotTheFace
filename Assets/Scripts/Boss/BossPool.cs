@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class BossPool : MonoBehaviour
 {
+    public delegate void DifficultyIncreasedHandler();
+    event DifficultyIncreasedHandler DifficultyIncreased;
+
     [SerializeField]
     [Tooltip("Boss data.")]
     TextAsset fileBosses;
@@ -27,7 +30,7 @@ public class BossPool : MonoBehaviour
         GameObject spikeWarning;
         spikeWarnings.TryGetValue(appearance, out spikeWarning);
 
-        return new FloorSpike.Data(
+        FloorSpike.Data d = new FloorSpike.Data(
             attackNodeReader.Get("damage", 20),
             spikeWarning,
             attackNodeReader.Get("seconds of warning", 1.0f),
@@ -36,6 +39,11 @@ public class BossPool : MonoBehaviour
             attackNodeReader.Get("seconds to lower", 0.5f),
             attackNodeReader.Get("height to rise", 1.0f),
             attackNodeReader.Get("height to rise variance", 0.0f));
+
+        int damageBonusPerArena = attackNodeReader.Get("damage bonus per arena", 0);
+        DifficultyIncreased += () => d.damage += damageBonusPerArena;
+
+        return d;
     }
 
     private void Awake()
@@ -56,6 +64,16 @@ public class BossPool : MonoBehaviour
                     attackGroupNodeReader.Get("seconds of cooldown", 2.0f),
                     attackGroupNodeReader.Get("seconds of cooldown variance", 0.5f));
 
+                float secondsOfCooldownBonusPerArena =
+                    attackGroupNodeReader.Get("seconds of cooldown bonus per arena", 0.0f);
+                float secondsOfCooldownMin = attackGroupNodeReader.Get("seconds of cooldown min", 0.1f);
+
+                DifficultyIncreased += () => attackGroup.SetSecondsOfCooldown(
+                    UtilApproach.Float(attackGroup.GetSecondsOfCooldown(),
+                    secondsOfCooldownMin,
+                    -secondsOfCooldownBonusPerArena)
+                    );
+
                 JSONArrayReader attacksReader = attackGroupNodeReader.Get<JSONArrayReader>("attacks");
                 JSONNodeReader attackNodeReader;
                 while (attacksReader.GetNextNode(out attackNodeReader))
@@ -64,7 +82,7 @@ public class BossPool : MonoBehaviour
                     string appearance = attackNodeReader.Get("appearance", "ERROR");
                     if (identifier == "FloorSpikes")
                     {
-                        int count = attackNodeReader.Get("count", 3);
+                        float count = attackNodeReader.Get("count", 3);
 
                         RuntimeAnimatorController rac;
                         spikeAnimators.TryGetValue(appearance, out rac);
@@ -73,6 +91,11 @@ public class BossPool : MonoBehaviour
 
                         attackGroup.AddAttack(x => Boss.FloorSpikes(x,
                             attackGroup, d, rac, count));
+
+                        float countBonusPerArena = attackNodeReader.Get("count bonus per arena", 0.0f);
+                        float countMax = attackNodeReader.Get("count max", 6);
+                        DifficultyIncreased +=
+                            () => count = UtilApproach.Float(count, countMax, countBonusPerArena);
                     }
                     else if (identifier == "FloorSpikeTargetPlayer")
                     {
@@ -101,6 +124,11 @@ public class BossPool : MonoBehaviour
 
                         attackGroup.AddAttack(x => Boss.SpawnOrb(x, attackGroup,
                             d, positionName, rac));
+
+                        int damageBonusPerArena = attackNodeReader.Get("damage bonus per arena", 0);
+                        int damageMax = attackNodeReader.Get("damage max", 100);
+                        DifficultyIncreased += () => d.damage =
+                            UtilApproach.Int(d.damage, damageBonusPerArena, damageMax);
                     }
                     /*
                     else if (identifier == "HorizontalProjectile")
@@ -123,8 +151,10 @@ public class BossPool : MonoBehaviour
             Boss.Data boss = new Boss.Data(
                 bossNodeReader.Get("identifier", "ERROR"),
                 bossNodeReader.Get("base health", 1),
-                bossNodeReader.Get("health bonus per arena", 1),
                 attackGroups);
+
+            int healthBonusPerArena = bossNodeReader.Get("health bonus per arena", 0);
+            DifficultyIncreased += () => boss.baseHealth += healthBonusPerArena;
 
             pool.Add(boss);
         }
@@ -133,5 +163,14 @@ public class BossPool : MonoBehaviour
     public Boss.Data GetRandomBoss()
     {
         return UtilRandom.GetRandomElement(pool);
+    }
+
+    // Increase the difficulty by one boss room.
+    public void OnDifficultyIncreased()
+    {
+        if (DifficultyIncreased != null)
+        {
+            DifficultyIncreased();
+        }
     }
 }

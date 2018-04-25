@@ -29,6 +29,24 @@ public static class UtilApproach
         }
         return current;
     }
+    
+    // Like the approach float function, but for ints.
+    public static int Int(int current, int target, int stepSize)
+    {
+        if (Mathf.Abs(current - target) < stepSize)
+        {
+            return target;
+        }
+        if (current < target)
+        {
+            current += stepSize;
+        }
+        else
+        {
+            current -= stepSize;
+        }
+        return current;
+    }
 
     // Like the approach float function, but rotates current along the shortest path
     // to the target, like an angle moving along a circle towards a different angle.

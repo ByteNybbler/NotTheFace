@@ -24,13 +24,15 @@ public class BossSpawner : MonoBehaviour
 
     private void SpawnBoss()
     {
+        BossPool bp = room.GetBossPool();
         GameObject obj = Instantiate(prefabBoss, transform);
         obj.transform.localPosition = Vector3.zero;
         Health health = obj.GetComponent<Health>();
         health.Died += room.FinishRoom;
+        health.Died += bp.OnDifficultyIncreased;
         bossHealthMeter.SetHealth(health);
         Boss boss = obj.GetComponent<Boss>();
-        boss.SetData(room.GetBossPool().GetRandomBoss());
+        boss.SetData(bp.GetRandomBoss());
         boss.SetRefs(new Boss.Refs(room));
     }
 }

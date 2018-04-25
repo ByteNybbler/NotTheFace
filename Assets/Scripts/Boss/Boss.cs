@@ -53,6 +53,17 @@ public class Boss : MonoBehaviour
             timerCooldown.Run();
         }
 
+        public void SetSecondsOfCooldown(float seconds)
+        {
+            secondsOfCooldown = seconds;
+            timerCooldown.SetTargetTime(seconds);
+        }
+
+        public float GetSecondsOfCooldown()
+        {
+            return secondsOfCooldown;
+        }
+
         private AttackHandler GetRandomAttack()
         {
             return UtilRandom.GetRandomElement(attacks);
@@ -75,17 +86,13 @@ public class Boss : MonoBehaviour
         public string identifier;
         [Tooltip("How much health the boss would have in the first room.")]
         public int baseHealth;
-        [Tooltip("How much health the boss gains per arena.")]
-        public int healthBonusPerArena;
         [Tooltip("Collections of attacks that the boss uses.")]
         public List<AttackGroup> attackGroups;
 
-        public Data(string identifier, int baseHealth, int healthBonusPerArena,
-            List<AttackGroup> attackGroups)
+        public Data(string identifier, int baseHealth, List<AttackGroup> attackGroups)
         {
             this.identifier = identifier;
             this.baseHealth = baseHealth;
-            this.healthBonusPerArena = healthBonusPerArena;
             this.attackGroups = attackGroups;
         }
     }
@@ -146,8 +153,7 @@ public class Boss : MonoBehaviour
 
     private void Start()
     {
-        health.ForceSetBothHealths(data.baseHealth +
-            data.healthBonusPerArena * refs.room.GetLoopNumber());
+        health.ForceSetBothHealths(data.baseHealth);
 
         foreach (AttackGroup attackGroup in data.attackGroups)
         {
@@ -183,21 +189,13 @@ public class Boss : MonoBehaviour
 
     // Summon multiple floor spikes.
     public static void FloorSpikes(Boss b, AttackGroup a, FloorSpike.Data d,
-        RuntimeAnimatorController animator, int count)
+        RuntimeAnimatorController animator, float count)
     {
         Room room = b.refs.room;
-        for (int i = 0; i < count; ++i)
+        int trueCount = Mathf.FloorToInt(count);
+        for (int i = 0; i < trueCount; ++i)
         {
             FloorSpike(b, d, animator, room.GetRandomFloorXPosition());
-            /*
-            GameObject obj = Instantiate(b.prefabFloorSpike, b.transform);
-            FloorSpike fs = obj.GetComponent<FloorSpike>();
-            fs.SetData(d);
-            fs.SetAnimatorController(animator);
-            float colliderHeight = fs.GetHitboxHeight();
-            obj.transform.position = room.GetRandomFloorPosition() +
-                Vector3.down * colliderHeight * 0.5f;
-                */
         }
         a.StartCooldown();
     }
