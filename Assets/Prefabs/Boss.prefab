@@ -78,6 +78,8 @@ GameObject:
   - component: {fileID: 114428780943158700}
   - component: {fileID: 114275099708043388}
   - component: {fileID: 114169898975493564}
+  - component: {fileID: 114334904199726896}
+  - component: {fileID: 114000541490162730}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Boss
@@ -316,6 +318,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.78, y: 7.68}
   m_EdgeRadius: 0
+--- !u!114 &114000541490162730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483542930602766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c00260136ce4248ace2ae67d00783f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabRisingText: {fileID: 1766077145547276, guid: 712be55595626054eba58728fd93c6c2,
+    type: 2}
+  createWhenValueIsZero: 0
 --- !u!114 &114023937819720990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -461,6 +477,19 @@ MonoBehaviour:
       value: {fileID: 4381231276295156}
     - key: RightHand
       value: {fileID: 4022236508347438}
+--- !u!114 &114334904199726896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483542930602766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f98ba02416d31fd49b42c27eeb7728fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageEvent: {fileID: 114256416616247528}
+  creator: {fileID: 114000541490162730}
 --- !u!114 &114367915931909294
 MonoBehaviour:
   m_ObjectHideFlags: 1
