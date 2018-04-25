@@ -18,8 +18,8 @@
 							"damage" : 15,
 							"damage bonus per arena" : 5,
 							"count" : 2,
-							"count bonus per arena" : 0.5,
-							"count max" : 6,
+							"count bonus per arena" : 0.25,
+							"count max" : 5,
 							"seconds of warning" : 1.0,
 							"seconds to rise" : 0.1,
 							"seconds to idle" : 2.0,
@@ -85,7 +85,7 @@
 							"seconds to move to bottom" : 0.8,
 							"damage" : 15,
 							"damage bonus per arena" : 10,
-							"damage max" : 50,
+							"damage max" : 100,
 							"horizontal speed" : 8.0
 						}
 					]
