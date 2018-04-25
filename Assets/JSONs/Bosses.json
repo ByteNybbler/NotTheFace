@@ -8,14 +8,14 @@
 			"attack groups" :
 			[
 				{
-					"seconds of cooldown" : 2.0,
+					"seconds of cooldown" : 3.0,
 					"seconds of cooldown variance" : 0.5,
 					"attacks" :
 					[
 						{
 							"identifier" : "FloorSpikes",
 							"appearance" : "Tentacle",
-							"damage" : 20,
+							"damage" : 15,
 							"damage bonus per arena" : 5,
 							"count" : 2,
 							"count bonus per arena" : 0.5,
@@ -37,7 +37,7 @@
 						{
 							"identifier" : "FloorSpikeTargetPlayer",
 							"appearance" : "Tentacle",
-							"damage" : 20,
+							"damage" : 15,
 							"damage bonus per arena" : 5,
 							"seconds of warning" : 1.0,
 							"seconds to rise" : 0.1,
@@ -49,7 +49,7 @@
 					]
 				},
 				{
-					"seconds of cooldown" : 3.0,
+					"seconds of cooldown" : 3.5,
 					"seconds of cooldown variance" : 0.5,
 					"attacks" :
 					[
@@ -69,7 +69,7 @@
 					]
 				},
 				{
-					"seconds of cooldown" : 2.0,
+					"seconds of cooldown" : 2.5,
 					"seconds of cooldown variance" : 0.5,
 					"seconds of cooldown bonus per arena" : -0.1,
 					"seconds of cooldown min" : 0.3,
