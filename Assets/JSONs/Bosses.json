@@ -16,7 +16,10 @@
 							"identifier" : "FloorSpikes",
 							"appearance" : "Tentacle",
 							"damage" : 20,
+							"damage bonus per arena" : 5,
 							"count" : 2,
+							"count bonus per arena" : 0.5,
+							"count max" : 6,
 							"seconds of warning" : 1.0,
 							"seconds to rise" : 0.1,
 							"seconds to idle" : 2.0,
@@ -35,6 +38,7 @@
 							"identifier" : "FloorSpikeTargetPlayer",
 							"appearance" : "Tentacle",
 							"damage" : 20,
+							"damage bonus per arena" : 5,
 							"seconds of warning" : 1.0,
 							"seconds to rise" : 0.1,
 							"seconds to idle" : 2.0,
@@ -58,6 +62,8 @@
 							"seconds to move to center" : 0.2,
 							"seconds to move to bottom" : 0.8,
 							"damage" : 20,
+							"damage bonus per arena" : 15,
+							"damage max" : 130,
 							"horizontal speed" : 8.0
 						}
 					]
@@ -65,6 +71,8 @@
 				{
 					"seconds of cooldown" : 2.0,
 					"seconds of cooldown variance" : 0.5,
+					"seconds of cooldown bonus per arena" : -0.1,
+					"seconds of cooldown min" : 0.3,
 					"attacks" :
 					[
 						{
@@ -76,6 +84,8 @@
 							"seconds to move to center" : 0.2,
 							"seconds to move to bottom" : 0.8,
 							"damage" : 15,
+							"damage bonus per arena" : 10,
+							"damage max" : 50,
 							"horizontal speed" : 8.0
 						}
 					]
