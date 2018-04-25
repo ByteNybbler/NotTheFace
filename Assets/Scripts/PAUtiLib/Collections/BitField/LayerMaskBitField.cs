@@ -73,6 +73,11 @@ public class LayerMaskBitField : IBitFieldMaskable<LayerMask>,
         field.ToggleIndex(layerNumber);
     }
 
+    public bool IsIndexSet(int layerNumber)
+    {
+        return field.IsIndexSet(layerNumber);
+    }
+
     public void SetIndex(string layerName)
     {
         SetIndex(GetLayerIndex(layerName));
@@ -86,5 +91,10 @@ public class LayerMaskBitField : IBitFieldMaskable<LayerMask>,
     public void ToggleIndex(string layerName)
     {
         ToggleIndex(GetLayerIndex(layerName));
+    }
+
+    public bool IsIndexSet(string layerName)
+    {
+        return IsIndexSet(GetLayerIndex(layerName));
     }
 }

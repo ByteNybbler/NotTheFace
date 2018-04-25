@@ -13,6 +13,9 @@ public class ColorAccessorSpriteRenderer : MonoBehaviour
     [SerializeField]
     [Tooltip("The SpriteRenderer to access the color of.")]
     SpriteRenderer render;
+    [SerializeField]
+    [Tooltip("Whether to modify the alpha channel of the color.")]
+    bool leaveAlphaAlone;
 
     private void Start()
     {
@@ -21,6 +24,10 @@ public class ColorAccessorSpriteRenderer : MonoBehaviour
 
     private void SetColor(Color color)
     {
+        if (leaveAlphaAlone)
+        {
+            color.a = render.color.a;
+        }
         render.color = color;
     }
 }

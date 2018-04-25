@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class TriggerEventDamage2D : MonoBehaviour
 {
-    // Invoked when this component takes damage. The parameter is the amount of damage.
-    public delegate void DamagedHandler(int amount);
+    // Invoked when this component takes damage. The amount parameter is the amount of damage.
+    public delegate void DamagedHandler(Collider2D collision, int amount);
     public event DamagedHandler Damaged;
 
     [SerializeField]
@@ -24,15 +24,15 @@ public class TriggerEventDamage2D : MonoBehaviour
         Damage damage = collision.GetComponent<Damage>();
         if (damage != null)
         {
-            OnDamaged(damage.Get());
+            OnDamaged(collision, damage.Get());
         }
     }
 
-    private void OnDamaged(int amount)
+    private void OnDamaged(Collider2D collision, int amount)
     {
         if (Damaged != null)
         {
-            Damaged(amount);
+            Damaged(collision, amount);
         }
     }
 }

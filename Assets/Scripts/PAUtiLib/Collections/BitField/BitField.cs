@@ -27,6 +27,12 @@ public class BitField : IBitFieldMaskable<int>, IBitFieldIndexable<int>
         return field;
     }
 
+    // Forcefully sets the integer value of the bit field.
+    public void SetInt(int field)
+    {
+        this.field = field;
+    }
+
     public void SetMask(int mask)
     {
         field |= mask;
@@ -58,5 +64,11 @@ public class BitField : IBitFieldMaskable<int>, IBitFieldIndexable<int>
     public void ToggleIndex(int index)
     {
         ToggleMask(ToPowerOf2(index));
+    }
+
+    // Returns true if the given index is set.
+    public bool IsIndexSet(int index)
+    {
+        return (field & ToPowerOf2(index)) != 0;
     }
 }

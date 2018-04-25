@@ -17,6 +17,10 @@ public class Timer : ITimer
     public delegate void StoppedHandler();
     StoppedHandler Stopped;
 
+    // Invoked every time the timer ticks (but only if the timer is running).
+    public delegate void TickedHandler();
+    TickedHandler Ticked;
+
     // How many seconds it takes for the timer to run out of time.
     float secondsTarget;
     // Runner for making the timer start and stop.
@@ -33,7 +37,7 @@ public class Timer : ITimer
     // Constructor.
     public Timer(float seconds, FinishedHandler FinishedCallback = null, bool loop = true,
         bool clearOnRun = false, StartedHandler StartedCallback = null,
-        StoppedHandler StoppedCallback = null)
+        StoppedHandler StoppedCallback = null, TickedHandler TickedCallback = null)
     {
         this.secondsTarget = seconds;
         this.Finished = FinishedCallback;
@@ -41,6 +45,7 @@ public class Timer : ITimer
         this.clearOnRun = clearOnRun;
         this.Started = StartedCallback;
         this.Stopped = StoppedCallback;
+        this.Ticked = TickedCallback;
         runner = new Runner(OnStarted, OnStopped);
     }
 
@@ -54,6 +59,8 @@ public class Timer : ITimer
         }
         // Increase the time passed.
         secondsCurrent += deltaTime;
+        // Notify any subscribers that the timer has successfully ticked.
+        OnTicked();
         // Check if the timer has finished (i.e. reached its target time).
         // Timers with a very short target time may finish multiple times per
         // update step, so we need to use a while loop to account for multiple
@@ -79,13 +86,20 @@ public class Timer : ITimer
 
     // Starts or resumes the timer.
     // Returns true if the timer wasn't running when this method was called.
-    public bool Run()
+    // The secondsOverflow parameter should be used when a different timer
+    // finishing causes this timer to be run.
+    public bool Run(float secondsOverflow = 0.0f)
     {
         if (clearOnRun)
         {
             Clear();
         }
-        return runner.Run();
+        bool startedNow = runner.Run();
+        if (startedNow)
+        {
+            secondsCurrent += secondsOverflow;
+        }
+        return startedNow;
     }
 
     // Pauses the timer.
@@ -170,6 +184,14 @@ public class Timer : ITimer
         if (Stopped != null)
         {
             Stopped();
+        }
+    }
+
+    private void OnTicked()
+    {
+        if (Ticked != null)
+        {
+            Ticked();
         }
     }
 }

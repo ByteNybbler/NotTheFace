@@ -26,9 +26,6 @@ GameObject:
   - component: {fileID: 114855903042358248}
   - component: {fileID: 114955166493865354}
   - component: {fileID: 114835703708371420}
-  - component: {fileID: 114784236045426376}
-  - component: {fileID: 114009936227313002}
-  - component: {fileID: 114400129307738130}
   - component: {fileID: 95013514967226460}
   m_Layer: 0
   m_Name: EnemyProjectile
@@ -44,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1303175292761204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.34, y: 0, z: 0}
+  m_LocalPosition: {x: -26.640625, y: -10.157358, z: 0}
   m_LocalScale: {x: 128, y: 128, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,35 +109,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114009936227313002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1303175292761204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2631801e5097b25449442464a5e9032e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags:
-  - Wall
-  inverted: 0
-  triggerEnter: {fileID: 114784236045426376}
-  triggerExit: {fileID: 0}
---- !u!114 &114400129307738130
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1303175292761204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2ee3f2ee851ce4c9754786e86f0c12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerEvent: {fileID: 114784236045426376}
-  destroyThis: {fileID: 1303175292761204}
 --- !u!114 &114646157914754884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,17 +121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
---- !u!114 &114784236045426376
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1303175292761204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0bb3d0119ab6f438bfcef41a888186, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114835703708371420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,11 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d441ebbb27de9f4c9527b92c0299652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
-    velocity: {x: 0, y: 0}
-  refs:
-    timeScale: {fileID: 114835703708371420}
+  timeScale: {fileID: 0}
   mover: {fileID: 114955166493865354}
+  velocity: {x: 0, y: 0}
 --- !u!114 &114955166493865354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,7 +190,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1190578471
-  m_SortingLayer: 3
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5e2d14f4253ae2b48aa5a1d129f733be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

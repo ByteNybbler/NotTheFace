@@ -8,62 +8,32 @@ using UnityEngine;
 
 public class Velocity2D : MonoBehaviour
 {
-    [System.Serializable]
-    public class Data : IDeepCopyable<Data>
-    {
-        [Tooltip("The vector determining the direction and speed to move.")]
-        public Vector2 velocity;
-
-        public Data(Vector2 velocity)
-        {
-            this.velocity = velocity;
-        }
-
-        public Data DeepCopy()
-        {
-            return new Data(velocity);
-        }
-    }
     [SerializeField]
-    Data data;
-    [System.Serializable]
-    public class Refs
-    {
-        public TimeScale timeScale;
-
-        public Refs(TimeScale timeScale)
-        {
-            this.timeScale = timeScale;
-        }
-    }
-    [SerializeField]
-    Refs refs;
-
+    TimeScale timeScale;
     [SerializeField]
     [Tooltip("Reference to the Mover component.")]
     Mover2D mover;
-
-    public void SetData(Data val)
-    {
-        data = val;
-    }
-    public void SetRefs(Refs val)
-    {
-        refs = val;
-    }
+    [SerializeField]
+    [Tooltip("The vector determining the direction and speed to move.")]
+    Vector2 velocity;
 
     private void FixedUpdate()
     {
-        mover.OffsetPosition(data.velocity * refs.timeScale.DeltaTime());
+        mover.OffsetPosition(velocity * timeScale.DeltaTime());
     }
 
-    public void SetVelocity(Vector2 val)
+    public void SetVelocity(Vector2 velocity)
     {
-        data.velocity = val;
+        this.velocity = velocity;
+    }
+
+    public void SetTimeScale(TimeScale timeScale)
+    {
+        this.timeScale = timeScale;
     }
 
     public Vector2 GetVelocity()
     {
-        return data.velocity;
+        return velocity;
     }
 }

@@ -8,14 +8,19 @@ using UnityEngine;
 public class TriggerEventDamageToHealth2D : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("The health component to apply changes to.")]
-    Health health;
-    [SerializeField]
     [Tooltip("The trigger event to subscribe to.")]
     TriggerEventDamage2D damageEvent;
+    [SerializeField]
+    [Tooltip("The health component to apply changes to.")]
+    Health health;
 
     private void Start()
     {
-        damageEvent.Damaged += health.Damage;
+        damageEvent.Damaged += Damaged;
+    }
+
+    private void Damaged(Collider2D collision, int amount)
+    {
+        health.Damage(amount);
     }
 }

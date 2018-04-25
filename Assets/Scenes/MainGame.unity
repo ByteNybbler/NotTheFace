@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 133866836}
+  leaveAlphaAlone: 0
 --- !u!212 &133866836
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -408,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 145832714}
+  leaveAlphaAlone: 0
 --- !u!212 &145832714
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -555,6 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 181181923}
+  leaveAlphaAlone: 0
 --- !u!212 &181181923
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1515,6 +1518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 436084322}
+  leaveAlphaAlone: 0
 --- !u!114 &436084324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1718,7 +1722,7 @@ MonoBehaviour:
     width: 2400
   roomUpgrade:
     prefab: {fileID: 1697019114177188, guid: 5c6a8d2f8690f924794956188653f6e8, type: 2}
-    width: 1200
+    width: 2400
 --- !u!1 &520820638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,8 +1732,6 @@ GameObject:
   m_Component:
   - component: {fileID: 520820639}
   - component: {fileID: 520820640}
-  - component: {fileID: 520820642}
-  - component: {fileID: 520820641}
   m_Layer: 0
   m_Name: HeadWheelDefault
   m_TagString: Untagged
@@ -1767,31 +1769,6 @@ MonoBehaviour:
   directions: 0
   radius: 64
   inverted: 0
---- !u!114 &520820641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 520820638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6435f5a3f764184fb821d6567b9b7a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accessor: {fileID: 520820642}
-  target: {fileID: 520820638}
---- !u!114 &520820642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 520820638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752952168957d7e4d85ad57150cdbed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
 --- !u!1 &528562221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,6 +2087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 634798469}
+  leaveAlphaAlone: 0
 --- !u!1 &694294763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,6 +2309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 808080807}
+  leaveAlphaAlone: 0
 --- !u!212 &808080807
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2449,6 +2428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 830078117}
+  leaveAlphaAlone: 0
 --- !u!212 &830078117
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2631,6 +2611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 841513513}
+  leaveAlphaAlone: 0
 --- !u!212 &841513513
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2684,8 +2665,6 @@ GameObject:
   m_Component:
   - component: {fileID: 971240220}
   - component: {fileID: 971240221}
-  - component: {fileID: 971240223}
-  - component: {fileID: 971240222}
   m_Layer: 0
   m_Name: HeadWheelWheels
   m_TagString: Untagged
@@ -2721,31 +2700,6 @@ MonoBehaviour:
   mover: {fileID: 528562223}
   degreeChangePerSecond: 720
   offsetDegrees: 0
---- !u!114 &971240222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 971240219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6435f5a3f764184fb821d6567b9b7a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accessor: {fileID: 971240223}
-  target: {fileID: 971240219}
---- !u!114 &971240223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 971240219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752952168957d7e4d85ad57150cdbed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 0
 --- !u!1 &977067978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2965,6 +2919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 1047756470}
+  leaveAlphaAlone: 0
 --- !u!212 &1047756470
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3218,8 +3173,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1140345653}
-  - component: {fileID: 1140345657}
-  - component: {fileID: 1140345656}
   - component: {fileID: 1140345655}
   - component: {fileID: 1140345654}
   m_Layer: 0
@@ -3252,10 +3205,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1140345652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f0f7f86c58c2c34f8ac4f1e796cf282, type: 3}
+  m_Script: {fileID: 11500000, guid: de136180c552c0a479ab73ec76aeb563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 1140345655}
+  toChange: {fileID: 971240219}
+  newState: 1
 --- !u!114 &1140345655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3264,37 +3218,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1140345652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 936a6d5a3eb610a4a83355b393beb675, type: 3}
+  m_Script: {fileID: 11500000, guid: de136180c552c0a479ab73ec76aeb563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1140345656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1140345652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e1c774dd6f14240a6c259d9a643954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voidEvent: {fileID: 1140345655}
-  accessor: {fileID: 971240223}
-  value: 1
---- !u!114 &1140345657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1140345652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e1c774dd6f14240a6c259d9a643954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voidEvent: {fileID: 1140345655}
-  accessor: {fileID: 520820642}
-  value: 0
+  toChange: {fileID: 520820638}
+  newState: 0
 --- !u!1 &1193882072
 GameObject:
   m_ObjectHideFlags: 0
@@ -3369,6 +3297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 1223215175}
+  leaveAlphaAlone: 0
 --- !u!212 &1223215175
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3898,6 +3827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 1433965953}
+  leaveAlphaAlone: 0
 --- !u!212 &1433965953
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4241,6 +4171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 1542507914}
+  leaveAlphaAlone: 0
 --- !u!212 &1542507914
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4473,6 +4404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 1550606250}
+  leaveAlphaAlone: 0
 --- !u!212 &1550606250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5145,6 +5077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 1915139498}
+  leaveAlphaAlone: 0
 --- !u!212 &1915139498
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5230,7 +5163,6 @@ GameObject:
   - component: {fileID: 1985689720}
   - component: {fileID: 1985689721}
   - component: {fileID: 1985689716}
-  - component: {fileID: 1985689718}
   - component: {fileID: 1985689719}
   - component: {fileID: 1985689717}
   - component: {fileID: 1985689723}
@@ -5263,14 +5195,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1985689714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2631801e5097b25449442464a5e9032e, type: 3}
+  m_Script: {fileID: 11500000, guid: f788af1d7e2ccd54c8f52cd0657c2d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags:
-  - Hazard
-  inverted: 0
-  triggerEnter: {fileID: 1985689718}
-  triggerExit: {fileID: 0}
+  tags: {fileID: 11400000, guid: ce9c3d24623d21744af09b1802cadcc3, type: 2}
 --- !u!114 &1985689717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5282,19 +5210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e39c33b4f74cc4b89d1d0aeb8dd55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 341930203}
   damageEvent: {fileID: 1985689719}
---- !u!114 &1985689718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1985689714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0bb3d0119ab6f438bfcef41a888186, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  health: {fileID: 341930203}
 --- !u!114 &1985689719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5306,7 +5223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b3e7ae619f9c439997dc0906a3b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerEvent: {fileID: 1985689718}
+  triggerEvent: {fileID: 1985689716}
 --- !u!61 &1985689720
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5464,6 +5381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 2041835065}
+  leaveAlphaAlone: 0
 --- !u!1 &2107663046
 GameObject:
   m_ObjectHideFlags: 0
@@ -5641,3 +5559,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
   render: {fileID: 2124869447}
+  leaveAlphaAlone: 0

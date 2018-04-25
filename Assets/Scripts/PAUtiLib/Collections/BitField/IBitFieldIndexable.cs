@@ -8,4 +8,5 @@ public interface IBitFieldIndexable<TKeyIndex>
     void SetIndex(TKeyIndex index);
     void ClearIndex(TKeyIndex index);
     void ToggleIndex(TKeyIndex index);
+    bool IsIndexSet(TKeyIndex index);
 }

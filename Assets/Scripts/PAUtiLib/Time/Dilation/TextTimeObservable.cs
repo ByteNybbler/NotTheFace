@@ -1,6 +1,6 @@
 ﻿// Author(s): Paul Calande
 // Displays the observed time rate for a given TimeObservable.
-// This is distinct from TextTimeFactors, which returns the raw time rate.
+// This is distinct from TextTimeDilation, which returns the raw time rate.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -18,8 +18,8 @@ public class TextTimeObservable : MonoBehaviour
 
     private void Start()
     {
-        SetRate(1.0f);
         source.TimeRateChanged += SetRate;
+        SetRate(1.0f);
     }
 
     private void SetRate(float newRate)

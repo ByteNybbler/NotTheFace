@@ -70,16 +70,14 @@ GameObject:
   - component: {fileID: 4651965648316028}
   - component: {fileID: 114399628655805866}
   - component: {fileID: 61283800071458628}
-  - component: {fileID: 114758514228173286}
-  - component: {fileID: 114041937025011224}
   - component: {fileID: 114256416616247528}
   - component: {fileID: 114992128809465342}
-  - component: {fileID: 114831144937724102}
-  - component: {fileID: 114593598509655592}
-  - component: {fileID: 114833250543338854}
   - component: {fileID: 114998900011915766}
   - component: {fileID: 114866097970011066}
   - component: {fileID: 114885365202440482}
+  - component: {fileID: 114428780943158700}
+  - component: {fileID: 114275099708043388}
+  - component: {fileID: 114169898975493564}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Boss
@@ -343,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: {fileID: 21300000, guid: 505ec521fc2dfc44387d3eff078f726e, type: 3}
---- !u!114 &114041937025011224
+--- !u!114 &114169898975493564
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -351,9 +349,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1483542930602766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0bb3d0119ab6f438bfcef41a888186, type: 3}
+  m_Script: {fileID: 11500000, guid: 36d147bd53addaf4393f950c2e762947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tags: {fileID: 11400000, guid: 8d65e5e685655e240b22b7dbdec39a32, type: 2}
 --- !u!114 &114182210929982250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -402,7 +401,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b3e7ae619f9c439997dc0906a3b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerEvent: {fileID: 114041937025011224}
+  triggerEvent: {fileID: 114428780943158700}
+--- !u!114 &114275099708043388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483542930602766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f788af1d7e2ccd54c8f52cd0657c2d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags: {fileID: 11400000, guid: 8d65e5e685655e240b22b7dbdec39a32, type: 2}
 --- !u!114 &114285835685244466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -478,6 +489,18 @@ MonoBehaviour:
   accessor: {fileID: 114024377010901892}
   collide: {fileID: 61283800071458628}
   scale: 1
+--- !u!114 &114428780943158700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483542930602766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f788af1d7e2ccd54c8f52cd0657c2d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags: {fileID: 11400000, guid: 656a55de4a8f07642bff1c2bf5c42c07, type: 2}
 --- !u!114 &114437725782061444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -504,17 +527,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   voidEvent: {fileID: 114907786145592458}
   health: {fileID: 114023937819720990}
---- !u!114 &114593598509655592
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1483542930602766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0bb3d0119ab6f438bfcef41a888186, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114638207710250164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,52 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessor: {fileID: 114192841746015552}
   render: {fileID: 212075607109229470}
---- !u!114 &114758514228173286
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1483542930602766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2631801e5097b25449442464a5e9032e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags:
-  - Tongue
-  - Headbutt
-  - PlayerLaser
-  - PlayerExplosion
-  inverted: 0
-  triggerEnter: {fileID: 114041937025011224}
-  triggerExit: {fileID: 0}
---- !u!114 &114831144937724102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1483542930602766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2631801e5097b25449442464a5e9032e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags:
-  - ContactDamage
-  inverted: 0
-  triggerEnter: {fileID: 114593598509655592}
-  triggerExit: {fileID: 114833250543338854}
---- !u!114 &114833250543338854
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1483542930602766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0bb3d0119ab6f438bfcef41a888186, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  leaveAlphaAlone: 0
 --- !u!114 &114866097970011066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -635,8 +602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e39c33b4f74cc4b89d1d0aeb8dd55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 114023937819720990}
   damageEvent: {fileID: 114256416616247528}
+  health: {fileID: 114023937819720990}
 --- !u!114 &114996845202006752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -673,8 +640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4494a2aa3e168141906bbab5e43349f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerEnter: {fileID: 114593598509655592}
-  triggerExit: {fileID: 114833250543338854}
+  triggerEnter: {fileID: 114275099708043388}
+  triggerExit: {fileID: 114169898975493564}
   timers: {fileID: 114866097970011066}
 --- !u!212 &212075607109229470
 SpriteRenderer:

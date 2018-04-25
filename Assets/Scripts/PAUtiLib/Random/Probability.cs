@@ -62,7 +62,7 @@ public class Probability<T> : IDeepCopyable<Probability<T>>
     // Returns true if the given result is the default result.
     private bool IsDefaultResult(T result)
     {
-        return UtilGeneric.IsEqual(result, resultDefault);
+        return UtilGeneric.IsEqualTo(result, resultDefault);
     }
 
     // Gets the chance of any result but the default result occurring.

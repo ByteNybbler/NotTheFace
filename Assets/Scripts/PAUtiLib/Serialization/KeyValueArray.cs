@@ -22,7 +22,7 @@ public class KeyValueArray<TKey, TValue, TPair> where TPair : KeyValueArrayPair<
     {
         foreach (TPair pair in array)
         {
-            if (UtilGeneric.IsEqual(pair.key, key))
+            if (UtilGeneric.IsEqualTo(pair.key, key))
             {
                 value = pair.value;
                 return true;

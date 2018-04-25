@@ -4,7 +4,7 @@
 public interface ITimer
 {
     void Tick(float deltaTime);
-    bool Run();
+    bool Run(float secondsOverflow);
     bool Stop();
     void Clear();
     bool IsRunning();

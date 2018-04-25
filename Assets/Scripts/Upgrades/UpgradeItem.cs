@@ -26,7 +26,7 @@ public class UpgradeItem : MonoBehaviour
 
     private void Start()
     {
-        damageEvent.Damaged += (int damage) => OnCollected();
+        damageEvent.Damaged += delegate { OnCollected(); };
     }
 
     public void SetSprite(string spriteName)

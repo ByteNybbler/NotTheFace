@@ -13,6 +13,8 @@ public class MonoTimer : MonoBehaviour
     event Timer.StartedHandler TimerStarted;
     // Invoked when the timer is stopped.
     event Timer.StoppedHandler TimerStopped;
+    // Invoked when the timer ticks.
+    event Timer.TickedHandler TimerTicked;
 
     [SerializeField]
     [Tooltip("The time scale to use to progress the timer.")]
@@ -33,7 +35,7 @@ public class MonoTimer : MonoBehaviour
     private void Awake()
     {
         timer = new Timer(seconds, OnTimerFinished, loop, clearOnRun, OnTimerStarted,
-            OnTimerStopped);
+            OnTimerStopped, OnTimerTicked);
     }
 
     // Other components can use these methods to subscribe to timer events.
@@ -48,6 +50,10 @@ public class MonoTimer : MonoBehaviour
     public void SubscribeToStopped(Timer.StoppedHandler Callback)
     {
         TimerStopped += Callback;
+    }
+    public void SubscribeToTicked(Timer.TickedHandler Callback)
+    {
+        TimerTicked += Callback;
     }
 
     private void FixedUpdate()
@@ -79,6 +85,14 @@ public class MonoTimer : MonoBehaviour
         }
     }
 
+    private void OnTimerTicked()
+    {
+        if (TimerTicked != null)
+        {
+            TimerTicked();
+        }
+    }
+
     public void SetTargetTime(float seconds)
     {
         this.seconds = seconds;
@@ -103,9 +117,9 @@ public class MonoTimer : MonoBehaviour
         return timer.GetPercentFinished();
     }
 
-    public bool Run()
+    public bool Run(float secondsOverflow = 0.0f)
     {
-        return timer.Run();
+        return timer.Run(secondsOverflow);
     }
 
     public void Stop()
