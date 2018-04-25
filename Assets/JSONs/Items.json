@@ -4,7 +4,7 @@
 	[
 		{
 			"identifier" : "SpikedHelmet",
-			"headbutt damage bonus" : 20
+			"headbutt damage bonus" : 30
 		},
 		{
 			"identifier" : "HotSauce",
@@ -25,7 +25,7 @@
 		{
 			"identifier" : "BicycleHelmet",
 			"health bonus" : 50,
-			"headbutt damage bonus" : 10
+			"headbutt damage bonus" : 15
 		},
 		{
 			"identifier" : "TopHat",
@@ -79,7 +79,7 @@
 		},
 		{
 			"identifier" : "Detonator",
-			"headbutt explosion damage bonus" : 15
+			"headbutt explosion damage bonus" : 20
 		}
 	]
 }
