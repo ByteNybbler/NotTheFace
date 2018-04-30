@@ -396,6 +396,7 @@ GameObject:
   - component: {fileID: 222231945943285284}
   - component: {fileID: 114194103198267512}
   - component: {fileID: 114316212449450634}
+  - component: {fileID: 114160241842876188}
   m_Layer: 5
   m_Name: TextBoss
   m_TagString: Untagged
@@ -685,6 +686,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meterFront: {fileID: 224204596540492276}
+--- !u!114 &114160241842876188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1888197224705516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8898f91fd5aa2a4f8de7ebdf70d25bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 114194103198267512}
+  foodStrings: {fileID: 11400000, guid: 15153d262b455694a8e73c62e66d45f9, type: 2}
 --- !u!114 &114168901201994342
 MonoBehaviour:
   m_ObjectHideFlags: 1

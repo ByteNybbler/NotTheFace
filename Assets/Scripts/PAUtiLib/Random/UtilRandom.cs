@@ -106,4 +106,36 @@ public static class UtilRandom
     {
         return UtilMath.Sign(Bool(chanceOfPositive));
     }
+
+    // Returns one random character from a string.
+    public static char CharacterFromString(string str)
+    {
+        return str[Random.Range(0, str.Length)];
+    }
+
+    // Returns several random characters from a string. Repeats allowed.
+    public static string CharactersFromString(string str, int count)
+    {
+        string result = "";
+        for (int i = 0; i < count; ++i)
+        {
+            result += CharacterFromString(str);
+        }
+        return result;
+    }
+
+    // Spams the given number of characters from the alphabet.
+    public static string Spam(int count, bool lowercase = true, bool uppercase = true)
+    {
+        string str = "";
+        if (lowercase)
+        {
+            str += "abcdefghijklmnopqrstuvwxyz";
+        }
+        if (uppercase)
+        {
+            str += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+        return CharactersFromString(str, count);
+    }
 }
