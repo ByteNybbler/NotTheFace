@@ -48,6 +48,16 @@ public abstract class SingleAccessorInterpolateFromCurrent<TValue, TAccessor>
         interpolator.SetInterpolateFunction(fn);
     }
 
+    public bool HasTarget()
+    {
+        return interpolator.HasTarget();
+    }
+
+    public bool TimerIsRunning()
+    {
+        return interpolator.TimerIsRunning();
+    }
+
     // Override this method in derived classes and call SetInterpolateFunction.
     protected abstract void OverrideThis();
 }

@@ -49,6 +49,16 @@ public class InterpolateFromCurrent<TValue>
         this.InterpolateFunction = InterpolateFunction;
     }
 
+    public bool HasTarget()
+    {
+        return hasTarget;
+    }
+
+    public bool TimerIsRunning()
+    {
+        return timer.IsRunning();
+    }
+
     private void TimerTicked()
     {
         if (hasTarget)

@@ -6,17 +6,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public struct CameraDataOrtho2D
 {
-    [SerializeField]
-    [Tooltip("The position of the camera in space.")]
-    Vector2 position;
-    [SerializeField]
-    [Tooltip("The orthographic size is half the camera's height in world units.")]
+    // The position of the camera in space.
+    Vector3 position;
+    // The orthographic size is half the camera's height in world units.
     float orthographicSize;
-    [SerializeField]
-    [Tooltip("The aspect ratio (width divided by height).")]
+    // The aspect ratio (width divided by height).
     float aspect;
 
     // Construct the camera data based on the state of an existing camera.
@@ -39,7 +35,7 @@ public struct CameraDataOrtho2D
     public static CameraDataOrtho2D Lerp(CameraDataOrtho2D a, CameraDataOrtho2D b, float t)
     {
         CameraDataOrtho2D result = new CameraDataOrtho2D();
-        result.position = Vector2.Lerp(a.position, b.position, t);
+        result.position = Vector3.Lerp(a.position, b.position, t);
         result.orthographicSize = Mathf.Lerp(a.orthographicSize, b.orthographicSize, t);
         result.aspect = Mathf.Lerp(a.aspect, b.aspect, t);
         return result;
@@ -98,11 +94,45 @@ public struct CameraDataOrtho2D
         return orthographicSize;
     }
 
+    // Returns the x coordinate of the right edge.
+    public float GetCoordinateRightEdge()
+    {
+        return position.x + GetHalfWidth();
+    }
+
+    // Returns the x coordinate of the left edge.
+    public float GetCoordinateLeftEdge()
+    {
+        return position.x - GetHalfWidth();
+    }
+
+    // Returns the y coordinate of the top edge.
+    public float GetCoordinateTopEdge()
+    {
+        return position.y + GetHalfHeight();
+    }
+
+    // Returns the y coordinate of the bottom edge.
+    public float GetCoordinateBottomEdge()
+    {
+        return position.y - GetHalfHeight();
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        this.position = position;
+    }
+
+    public void OffsetPosition(Vector3 offset)
+    {
+        position += offset;
+    }
+
     // Positions and resizes the camera so that the camera is placed between
     // two given points and has edges that contain those points.
-    public void AnchorBetween(Vector2 first, Vector2 second)
+    public void AnchorBetween(Vector3 first, Vector3 second)
     {
-        position = Vector2.Lerp(first, second, 0.5f);
+        position = Vector3.Lerp(first, second, 0.5f);
         float differenceX = second.x - first.x;
         float differenceY = second.y - first.y;
         int signX = UtilMath.SignWithZero(differenceX);
@@ -135,7 +165,7 @@ public struct CameraDataOrtho2D
     // of the camera. The vertices should be defined in a clockwise order.
     // If the given edge is diagonal, nothing happens.
     // (TODO: Perhaps diagonal edges should rotate the camera to match the edge?)
-    public void AnchorClockwiseEdge(Vector2 vertexFirst, Vector2 vertexSecond)
+    public void AnchorClockwiseEdge(Vector3 vertexFirst, Vector3 vertexSecond)
     {
         float differenceX = vertexSecond.x - vertexFirst.x;
         float differenceY = vertexSecond.y - vertexFirst.y;
@@ -144,13 +174,13 @@ public struct CameraDataOrtho2D
         if (signX == 0)
         {
             FitHeight(Mathf.Abs(differenceY));
-            position = new Vector2(vertexFirst.x + GetHalfWidth() * signY,
+            position = new Vector3(vertexFirst.x + GetHalfWidth() * signY,
                 vertexFirst.y + GetHalfHeight() * signY);
         }
         else if (signY == 0)
         {
             FitWidth(Mathf.Abs(differenceX));
-            position = new Vector2(vertexFirst.x + GetHalfWidth() * signX,
+            position = new Vector3(vertexFirst.x + GetHalfWidth() * signX,
                 vertexFirst.y - GetHalfHeight() * signX);
         }
         else

@@ -18,7 +18,7 @@ public abstract class SingleAccessorConnection<TValue, TAccessor, TConnected> : 
     [Tooltip("Whether to use the connected component's data as the initial accessor value.")]
     bool useAsInitialValue;
 
-    private void Start()
+    private void Awake()
     {
         if (useAsInitialValue)
         {
