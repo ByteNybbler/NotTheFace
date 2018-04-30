@@ -27,11 +27,6 @@ public class Velocity2D : MonoBehaviour
         this.velocity = velocity;
     }
 
-    public void SetTimeScale(TimeScale timeScale)
-    {
-        this.timeScale = timeScale;
-    }
-
     public Vector2 GetVelocity()
     {
         return velocity;

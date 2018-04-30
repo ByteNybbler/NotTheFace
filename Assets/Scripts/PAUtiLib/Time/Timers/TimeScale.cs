@@ -7,85 +7,58 @@ using UnityEngine;
 
 public class TimeScale : MonoBehaviour
 {
-    // The multiplier for time.
-    float timeScale = 1.0f;
-    // Whether the time scale is paused.
-    // Pausing the time scale effectively sets delta time to zero.
-    bool paused = false;
-    // Stores the scaled fixed delta time based on the time scale settings.
-    // Helps avoid unnecessary repeated calculations.
-    float cachedDeltaTime;
+    // The data encapsulated by this TimeScale.
+    TimeScaleData data;
 
-    private void Start()
+    private void Awake()
     {
-        CacheDeltaTime();
+        data = new TimeScaleData();
     }
 
-    // Returns a new delta time that is modified by the time scale settings.
-    private float ConvertDeltaTime(float deltaTime)
+    // Makes the data reference refer to a different data instance.
+    public void SetData(TimeScaleData val)
     {
-        if (paused)
-        {
-            return 0.0f;
-        }
-        else
-        {
-            return deltaTime * timeScale;
-        }
+        data = val;
     }
 
-    // Update the cached delta time value based on the time scale settings.
-    private void CacheDeltaTime()
+    // Set the data reference to the data from a different TimeScale.
+    public void SetData(TimeScale timeScale)
     {
-        cachedDeltaTime = ConvertDeltaTime(Time.fixedDeltaTime);
+        SetData(timeScale.data);
     }
 
-    // Returns the fixed delta time, taking the time scale into account.
-    // Returns zero if the time scale is paused.
-    // To be used for FixedUpdate's time step.
     public float DeltaTime()
     {
-        return cachedDeltaTime;
+        return data.DeltaTime();
     }
 
-    // Like the DeltaTime method, but it returns the non-fixed delta time.
-    // For use in Update rather than FixedUpdate.
     public float DeltaTimeNotFixed()
     {
-        return ConvertDeltaTime(Time.deltaTime);
+        return data.DeltaTimeNotFixed();
     }
 
     public void SetTimeScale(float val)
     {
-        timeScale = val;
-        CacheDeltaTime();
+        data.SetTimeScale(val);
     }
 
     public float GetTimeScale()
     {
-        return timeScale;
+        return data.GetTimeScale();
     }
 
-    // Toggles whether the time scale is paused, effectively setting the time scale to zero.
-    // This method is intended to be called by pause menus.
-    // Do not use this for "time stop" gameplay effects, as it does.
     public void TogglePause()
     {
-        paused = !paused;
-        CacheDeltaTime();
+        data.TogglePause();
     }
 
-    // Returns true if the time scale is paused.
     public bool IsPaused()
     {
-        return paused;
+        return data.IsPaused();
     }
 
-    // Returns true if time is frozen for this time scale.
-    // To be used to check whether time has been stopped during gameplay.
-    // Will not necessarily return true if the paused variable is true.
     public bool IsFrozen()
     {
-        return timeScale == 0.0f;
+        return data.IsFrozen();
     }
 }

@@ -13,7 +13,7 @@ public class CameraEdgeColliders : MonoBehaviour
     [Tooltip("The thickness of the colliders.")]
     float thickness = 4f;
     [SerializeField]
-    [Tooltip("The z position of the camera edge.")]
+    [Tooltip("The z position at which to generate the colliders.")]
     float zPosition = 0f;
 
     void Start()

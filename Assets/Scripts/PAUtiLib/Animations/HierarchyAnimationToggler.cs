@@ -1,6 +1,7 @@
 ﻿// Author(s): Paul Calande
 // Toggles all Animator components in a GameObject's hierarchy.
-// Only toggles Animator components that are currently enabled.
+// Only toggles Animator components that are enabled at odd-numbered Toggle calls
+// (1st call, 3rd call, etc).
 
 using System.Collections;
 using System.Collections.Generic;

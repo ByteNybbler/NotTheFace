@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114153525637063826}
   - component: {fileID: 114536047038466610}
   - component: {fileID: 50485187683953636}
+  - component: {fileID: 114079953636067180}
   m_Layer: 0
   m_Name: EnemyExplosion
   m_TagString: Untagged
@@ -81,6 +82,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114079953636067180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395971513036336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec8061c1df7c42468518ae649839847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114153525637063826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,9 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d441ebbb27de9f4c9527b92c0299652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
-    velocity: {x: 0, y: 0}
+  timeScale: {fileID: 114079953636067180}
   mover: {fileID: 114536047038466610}
+  velocity: {x: 0, y: 0}
 --- !u!114 &114536047038466610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,7 +151,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 257153995
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d0e8ad5b7a1172f45990f752a61b5840, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

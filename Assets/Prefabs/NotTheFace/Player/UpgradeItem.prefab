@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114358464762685268}
   - component: {fileID: 114287447117414870}
   - component: {fileID: 114789456054807510}
+  - component: {fileID: 114277326880990906}
   m_Layer: 0
   m_Name: UpgradeItem
   m_TagString: Untagged
@@ -262,6 +263,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+--- !u!114 &114277326880990906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555074881566852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec8061c1df7c42468518ae649839847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114287447117414870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -404,14 +416,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    refs:
-      ts: {fileID: 114831339779706674}
     xMagnitude: 0
     xSpeed: 0
     xStartingHalfTurns: 0
     yMagnitude: 0.1
     ySpeed: 6
     yStartingHalfTurns: 0
+  timeScale: {fileID: 114277326880990906}
   mover: {fileID: 114192715778913030}
 --- !u!212 &212049308358425312
 SpriteRenderer:

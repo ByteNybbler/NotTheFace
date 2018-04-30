@@ -13,13 +13,11 @@ public class EnemyProjectile : MonoBehaviour
         [System.Serializable]
         public class Refs
         {
-            public TimeScale ts;
             [Tooltip("Reference to the Score instance.")]
             public RPScore score;
 
-            public Refs(TimeScale ts, RPScore score)
+            public Refs(RPScore score)
             {
-                this.ts = ts;
                 this.score = score;
             }
         }
@@ -74,8 +72,6 @@ public class EnemyProjectile : MonoBehaviour
     {
         velocity.SetVelocity(
             UtilHeading2D.HeadingVectorFromDegrees(data.angle) * data.speed);
-        velocity.SetTimeScale(data.refs.ts);
-        //SetAngleSpeed(data.angle, data.speed);
         SetColor(data.color);
     }
 

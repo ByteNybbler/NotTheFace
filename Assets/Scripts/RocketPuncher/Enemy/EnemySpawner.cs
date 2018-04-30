@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("The enemy spawn locations.")]
     GameObject[] spawns;
     [SerializeField]
-    TimeScale ts;
+    TimeScale timeScale;
 
     // The current maximum challenge value for the spawn groups.
     float challengeMax;
@@ -137,7 +137,7 @@ public class EnemySpawner : MonoBehaviour
                 Debug.Log(enemyName + ": Could not parse HTML color for volley!");
             }
             EnemyProjectile.Data projectile = new EnemyProjectile.Data(
-                new EnemyProjectile.Data.Refs(ts, score),
+                new EnemyProjectile.Data.Refs(score),
                 volleyNode.Get("projectile punchable", true),
                 volleyNode.Get("projectile damage", 20),
                 pointsPerProjectilePunched,
@@ -151,13 +151,12 @@ public class EnemySpawner : MonoBehaviour
                 volleyNode.Get("aims at player", false));
 
             OscillatePosition2D.Data oscData = new OscillatePosition2D.Data(
-                new OscillatePosition2D.Data.Refs(ts),
                 0.0f, 0.0f,
                 enemyNode.Get("y oscillation magnitude", 0.0f),
                 enemyNode.Get("y oscillation speed", 0.0f));
 
             EnemyAttack.Data attack = new EnemyAttack.Data(
-                new EnemyAttack.Data.Refs(ts, playerPowerup.gameObject),
+                new EnemyAttack.Data.Refs(playerPowerup.gameObject),
                 volley,
                 enemyNode.Get("seconds between volleys", 1.0f),
                 enemyNode.Get("volley direction delta per shot", 0.0f),
@@ -175,7 +174,7 @@ public class EnemySpawner : MonoBehaviour
                 healthPerHealthKit,
                 pointsPerFullHealthHealthKit);
             EnemyHealth.Data enemyHealthData = new EnemyHealth.Data(
-                new EnemyHealth.Data.Refs(ts, score, playerPowerup),
+                new EnemyHealth.Data.Refs(score, playerPowerup),
                 healthKitData,
                 pointsPerEnemyKilled,
                 probItem);
@@ -217,16 +216,16 @@ public class EnemySpawner : MonoBehaviour
         {
             if (spawnGroupActive)
             {
-                timerSpawn.Tick(ts.DeltaTime());
+                timerSpawn.Tick(timeScale.DeltaTime());
             }
             else
             {
-                timerSpawnGroup.Tick(ts.DeltaTime());
+                timerSpawnGroup.Tick(timeScale.DeltaTime());
             }
         }
         else
         {
-            timerDeadTime.Tick(ts.DeltaTime());
+            timerDeadTime.Tick(timeScale.DeltaTime());
         }
     }
 
@@ -244,6 +243,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject newEnemy = Instantiate(prefabEnemy, spawnPos, Quaternion.identity);
         Enemy en = newEnemy.GetComponent<Enemy>();
         en.SetData(enemy.DeepCopy());
+        newEnemy.GetComponent<TimeScale>().SetData(timeScale);
 
         // Check if there are any viable enemies left.
         // If not, it's time to move on to the next spawn group.

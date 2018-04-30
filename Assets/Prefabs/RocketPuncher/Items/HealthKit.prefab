@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114760952147550814}
   - component: {fileID: 50020780025810472}
   - component: {fileID: 114611794552609836}
+  - component: {fileID: 114964105566298792}
   m_Layer: 0
   m_Name: HealthKit
   m_TagString: Item
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906263251835348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3297791, y: -0.21627843, z: 0}
+  m_LocalPosition: {x: 10.412771, y: -1.4377689, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4228013298528994}
@@ -146,9 +147,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d441ebbb27de9f4c9527b92c0299652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
-    velocity: {x: 0, y: 0}
+  timeScale: {fileID: 114964105566298792}
   mover: {fileID: 114983438281088156}
+  velocity: {x: 0, y: 0}
+--- !u!114 &114964105566298792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906263251835348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec8061c1df7c42468518ae649839847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114983438281088156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,8 +204,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1588226163
-  m_SortingLayer: -3
+  m_SortingLayerID: -1223740493
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b4219c93b1d565f47893dd48406b06a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

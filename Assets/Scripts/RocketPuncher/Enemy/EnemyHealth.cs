@@ -13,13 +13,11 @@ public class EnemyHealth : MonoBehaviour
         [System.Serializable]
         public class Refs
         {
-            public TimeScale ts;
             public RPScore score;
             public RPPlayerPowerup playerPowerup;
 
-            public Refs(TimeScale ts, RPScore score, RPPlayerPowerup playerPowerup)
+            public Refs(RPScore score, RPPlayerPowerup playerPowerup)
             {
-                this.ts = ts;
                 this.score = score;
                 this.playerPowerup = playerPowerup;
             }
@@ -50,6 +48,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     Data data;
 
+    [SerializeField]
+    TimeScale timeScale;
     [SerializeField]
     [Tooltip("Reference to the enemy's left movement component.")]
     Velocity2D leftMovement;
@@ -91,7 +91,7 @@ public class EnemyHealth : MonoBehaviour
         GameObject de = Instantiate(deathExplosion, transform.position, Quaternion.identity);
         Velocity2D lm = de.GetComponent<Velocity2D>();
         lm.SetVelocity(leftMovement.GetVelocity());
-        lm.SetTimeScale(data.refs.ts);
+        de.GetComponent<TimeScale>().SetData(timeScale);
 
         Destroy(gameObject);
     }
@@ -112,7 +112,7 @@ public class EnemyHealth : MonoBehaviour
 
             Velocity2D lm = pup.GetComponent<Velocity2D>();
             lm.SetVelocity(leftMovement.GetVelocity());
-            lm.SetTimeScale(data.refs.ts);
+            pup.GetComponent<TimeScale>().SetData(timeScale);
         }
         else
         {
@@ -134,7 +134,7 @@ public class EnemyHealth : MonoBehaviour
 
                 Velocity2D lm = powerup.GetComponent<Velocity2D>();
                 lm.SetVelocity(leftMovement.GetVelocity());
-                lm.SetTimeScale(data.refs.ts);
+                powerup.GetComponent<TimeScale>().SetData(timeScale);
             }
         }
     }

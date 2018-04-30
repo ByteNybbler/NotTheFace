@@ -13,13 +13,11 @@ public class EnemyAttack : MonoBehaviour
         [System.Serializable]
         public class Refs
         {
-            public TimeScale ts;
             [Tooltip("Reference to the player.")]
             public GameObject player;
 
-            public Refs(TimeScale ts, GameObject player)
+            public Refs(GameObject player)
             {
-                this.ts = ts;
                 this.player = player;
             }
         }
@@ -59,6 +57,8 @@ public class EnemyAttack : MonoBehaviour
     Data data;
 
     [SerializeField]
+    TimeScale timeScale;
+    [SerializeField]
     [Tooltip("Prefab to use for the projectile.")]
     GameObject prefabProjectile;
 
@@ -72,7 +72,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Start()
     {
-        timerVolley = new Timer(data.secondsBetweenVolleys);
+        timerVolley = new Timer(data.secondsBetweenVolleys, TimerVolleyFinished);
         timerVolley.Run();
     }
 
@@ -101,13 +101,13 @@ public class EnemyAttack : MonoBehaviour
             proj.SetData(projData);
             Velocity2D leftMovement = projectile.GetComponent<Velocity2D>();
             leftMovement.SetVelocity(new Vector2(-data.projectileLeftSpeed, 0.0f));
-            leftMovement.SetTimeScale(data.refs.ts);
+            projectile.GetComponent<TimeScale>().SetData(timeScale);
         }
         data.volley.projectile.angle += data.volleyDirectionDeltaPerShot;
     }
 
     private void FixedUpdate()
     {
-        timerVolley.Tick(data.refs.ts.DeltaTime());
+        timerVolley.Tick(timeScale.DeltaTime());
     }
 }

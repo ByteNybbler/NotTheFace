@@ -10,7 +10,7 @@ public class RPSummaryScreen : MonoBehaviour
 {
     SceneTracker st;
 
-    private void Awake()
+    private void Start()
     {
         st = ServiceLocator.GetSceneTracker();
     }
@@ -22,6 +22,6 @@ public class RPSummaryScreen : MonoBehaviour
 
     public void MainMenu()
     {
-        st.SwitchScene("RPMainMenu");
+        st.SwitchScene("MenuGameChoose");
     }
 }
