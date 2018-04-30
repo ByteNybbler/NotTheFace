@@ -40,6 +40,11 @@ public class AudioSourceFader
         return source.volume;
     }
 
+    public AudioClip GetClip()
+    {
+        return source.clip;
+    }
+
     public void Fade(float secondsToFade, float targetVolume)
     {
         timerFade.Stop();

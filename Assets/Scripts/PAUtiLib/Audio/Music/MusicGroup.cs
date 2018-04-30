@@ -7,19 +7,6 @@ using UnityEngine;
 
 public class MusicGroup
 {
-    /*
-    AudioSourceFader[] faders;
-
-    public MusicGroup(params AudioSource[] sources)
-    {
-        faders = new AudioSourceFader[sources.Length];
-        for (int i = 0; i < sources.Length; ++i)
-        {
-            faders[i] = new AudioSourceFader(sources[i]);
-        }
-    }
-    */
-
     List<AudioSourceFader> channels = new List<AudioSourceFader>();
 
     public void AddChannel(AudioSource source, AudioClip clip)
@@ -56,11 +43,26 @@ public class MusicGroup
         channels.Clear();
     }
 
+    // Progresses the fading on every channel.
     public void Tick(float deltaTime)
     {
         for (int i = 0; i < channels.Count; ++i)
         {
             channels[i].Tick(deltaTime);
         }
+    }
+
+    // Returns the channel ID based on the given AudioClip.
+    public int GetChannelIndexFromClip(AudioClip clip)
+    {
+        for (int i = 0; i < channels.Count; ++i)
+        {
+            if (channels[i].GetClip() == clip)
+            {
+                return i;
+            }
+        }
+        // Channel was not found.
+        return -1;
     }
 }

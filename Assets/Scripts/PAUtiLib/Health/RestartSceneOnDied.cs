@@ -20,13 +20,18 @@ public class RestartSceneOnDied : MonoBehaviour
 
     private void Start()
     {
-        timerRestart = new Timer(secondsToWait, x => UtilScene.ResetScene(), false);
+        timerRestart = new Timer(secondsToWait, TimerFinished, false);
         health.Died += Health_Died;
     }
 
     private void Health_Died()
     {
         timerRestart.Run();
+    }
+
+    private void TimerFinished(float secondsOverflow)
+    {
+        ServiceLocator.GetSceneTracker().RestartScene();
     }
 
     private void FixedUpdate()

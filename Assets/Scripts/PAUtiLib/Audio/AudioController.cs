@@ -68,15 +68,28 @@ public class AudioController : MonoBehaviour
         float secondsToWaitBeforeFadeIn = 0.0f,
         float secondsToFadeIn = 0.0f)
     {
-        // Don't play the same music group that's currently playing.
+        MusicGroup currentMusicGroup = GetCurrentMusicGroup();
+        int channelCount = musicGroup.GetLength();
+
+        // Don't move to a new music group if the current one is playing
+        // the same music group as the one passed to this method.
         if (musicGroup == latestMusicGroupData)
         {
+            // Instead, fade the channels to the corresponding volumes.
+            for (int i = 0; i < channelCount; ++i)
+            {
+                AudioClip clip = musicGroup.GetClip(i);
+                float targetVolume = musicGroup.GetVolume(i);
+                int channelNumber = currentMusicGroup.GetChannelIndexFromClip(clip);
+                SetMusicChannelVolume(channelNumber, targetVolume, secondsToFadeIn);
+            }
+            // That's all we need to do.
             return;
         }
+
         latestMusicGroupData = musicGroup;
 
         // Fade out the old music group.
-        MusicGroup currentMusicGroup = GetCurrentMusicGroup();
         currentMusicGroup.Fade(0.0f, secondsToFadeOut);
 
         // Increment the current music group index.
@@ -88,7 +101,6 @@ public class AudioController : MonoBehaviour
         currentMusicGroup.Annihilate();
 
         // Populate the music group's channels.
-        int channelCount = musicGroup.GetLength();
         for (int i = 0; i < channelCount; ++i)
         {
             AudioClip clip = musicGroup.GetClip(i);

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8eda34a392b84429d2e21a5456b35c, type: 3}
+  m_Name: SpriteFlameParticles
+  m_EditorClassIdentifier: 
+  array:
+  - {fileID: 21300000, guid: 401c838a227cbce4d8cfbfcf5ed0da76, type: 3}
+  - {fileID: 21300000, guid: 9177f41dd470a304ca759741a1b2d65b, type: 3}
+  - {fileID: 21300000, guid: f49a48733c2fe8d448b60bab97f90a6d, type: 3}
+  - {fileID: 21300000, guid: f34f538576bb614488ea93f9cc289b7c, type: 3}

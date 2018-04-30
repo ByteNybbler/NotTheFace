@@ -9,10 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 273ed0d10d4767d47b8bad3a97966ca9, type: 3}
-  m_Name: MusicMain
+  m_Name: MusicHusbands
   m_EditorClassIdentifier: 
   array:
-  - clip: {fileID: 8300000, guid: a27e6b4737a96f549b5a19f15ed728ff, type: 3}
-    volume: 0
-  - clip: {fileID: 8300000, guid: 029b6fec09779524eb536308eee56d43, type: 3}
+  - clip: {fileID: 8300000, guid: 8b007ec71a5095b41a748a28e14fb01d, type: 3}
     volume: 1
