@@ -1,30 +1,26 @@
 ﻿// Author(s): Paul Calande
 // FloatAccessor support for Outline component color alpha.
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FloatAccessorOutlineAlpha : MonoBehaviour
+public class FloatAccessorOutlineAlpha : SingleAccessorConnection
+    <float, FloatAccessor, Outline>
 {
-    [SerializeField]
-    [Tooltip("The accessor to connect to.")]
-    FloatAccessor accessor;
-    [SerializeField]
-    [Tooltip("The outline to access the alpha of.")]
-    Outline outline;
     [SerializeField]
     [Tooltip("How much to scale the alpha by.")]
     float alphaScale = 1.0f;
 
-    private void Start()
+    protected override void Set(float alpha)
     {
-        accessor.Subscribe(SetAlpha);
+        connected.effectColor = UtilColor.SetAlpha(connected.effectColor, alpha * alphaScale);
     }
 
-    private void SetAlpha(float alpha)
+    protected override float Get()
     {
-        outline.effectColor = UtilColor.SetAlpha(outline.effectColor, alpha * alphaScale);
+        return connected.effectColor.a / alphaScale;
     }
 }

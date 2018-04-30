@@ -1,7 +1,7 @@
 ﻿// Author(s): Paul Calande
 // Effectively keeps the given edge of a sprite at the given coordinate.
 // Accomplished by changing this GameObject's transform position.
-// Note that this only works for sprites that have pivots at their centers.
+// Note that this only really seems to work for sprites that have pivots at their centers.
 
 using System.Collections;
 using System.Collections.Generic;

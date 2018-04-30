@@ -260,6 +260,8 @@ GameObject:
   - component: {fileID: 4559483020694946}
   - component: {fileID: 114582032542649270}
   - component: {fileID: 114313956545087464}
+  - component: {fileID: 114866234948764646}
+  - component: {fileID: 114591227141992802}
   m_Layer: 0
   m_Name: RoomBoss
   m_TagString: Untagged
@@ -1045,6 +1047,25 @@ MonoBehaviour:
   playerHealth: {fileID: 114215408281424714}
   bottomLeft: {fileID: 4308179795254280}
   bottomRight: {fileID: 4605644399147772}
+  mcvsStart: {fileID: 114866234948764646}
+  mcvsFinish: {fileID: 114591227141992802}
+--- !u!114 &114591227141992802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1706505935863868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc753763c2bdd04aa51eff4815a4079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channelsAndVolumes:
+  - channel: 0
+    volume: 0
+  - channel: 1
+    volume: 1
+  secondsToFade: 1
 --- !u!114 &114595675066494778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1175,6 +1196,23 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!114 &114866234948764646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1706505935863868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc753763c2bdd04aa51eff4815a4079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channelsAndVolumes:
+  - channel: 0
+    volume: 1
+  - channel: 1
+    volume: 0
+  secondsToFade: 1
 --- !u!114 &114874678171664226
 MonoBehaviour:
   m_ObjectHideFlags: 1

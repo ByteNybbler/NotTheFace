@@ -1,12 +1,13 @@
 ﻿// Author(s): Paul Calande
 // MonoBehaviour wrapper for a zero-argument event.
 // Useful for stringing together logic from different components.
+// To be inherited by classes that fire these zero-argument events.
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VoidEvent : MonoBehaviour
+public abstract class VoidEvent : MonoBehaviour
 {
     // Invoked when the Fire method is called.
     public delegate void FiredHandler();
@@ -17,12 +18,8 @@ public class VoidEvent : MonoBehaviour
         Fired += Callback;
     }
 
-    public void Fire()
-    {
-        OnFired();
-    }
-
-    private void OnFired()
+    // Call this method in derived classes.
+    protected void OnFired()
     {
         if (Fired != null)
         {

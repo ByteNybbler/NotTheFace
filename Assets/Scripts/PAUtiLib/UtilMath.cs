@@ -31,6 +31,16 @@ public class UtilMath
         else return -1;
     }
 
+    // Converts a boolean into either 1 or 0.
+    public static int BooleanTo01(bool boolean, bool trueIs1 = true)
+    {
+        if (boolean == trueIs1)
+        {
+            return 1;
+        }
+        else return 0;
+    }
+
     // Returns the product of several values.
     public static float Product(params float[] values)
     {

@@ -146,21 +146,27 @@ public class Timer : ITimer
     }
 
     // Change the timer's finished callback function.
-    public void SetFinishedCallback(FinishedHandler Callback)
+    public void SubscribeToFinished(FinishedHandler Callback)
     {
         Finished = Callback;
     }
 
     // Change the timer's started callback function.
-    public void SetStartedCallback(StartedHandler Callback)
+    public void SubscribeToStarted(StartedHandler Callback)
     {
         Started = Callback;
     }
 
     // Change the timer's stopped callback function.
-    public void SetStoppedCallback(StoppedHandler Callback)
+    public void SubscribeToStopped(StoppedHandler Callback)
     {
         Stopped = Callback;
+    }
+
+    // Change the timer's ticked callback function.
+    public void SubscribeToTicked(TickedHandler Callback)
+    {
+        Ticked = Callback;
     }
 
     private void OnFinished(float secondsOverflow)

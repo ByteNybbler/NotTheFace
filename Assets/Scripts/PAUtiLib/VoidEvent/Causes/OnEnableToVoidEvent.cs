@@ -7,15 +7,10 @@
 
 using UnityEngine;
 
-public class OnEnableToVoidEvent : MonoBehaviour
+public class OnEnableToVoidEvent : VoidEvent
 {
-    [SerializeField]
-    [Tooltip("The VoidEvent to fire.")]
-    VoidEvent voidEvent;
-    
     private void OnEnable()
     {
-        //Debug.Log(name + " OnEnableToVoidEvent OnEnable begin.");
-        voidEvent.Fire();
+        OnFired();
     }
 }

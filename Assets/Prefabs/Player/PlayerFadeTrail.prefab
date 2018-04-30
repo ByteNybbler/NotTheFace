@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114681888059270444}
   - component: {fileID: 114227586714590806}
   - component: {fileID: 114030324695329754}
+  - component: {fileID: 114063322602503778}
   m_Layer: 0
   m_Name: PlayerFadeTrail
   m_TagString: Untagged
@@ -57,7 +58,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 114565755906124814}
-  render: {fileID: 212884846550550098}
+  connected: {fileID: 212884846550550098}
+  useAsInitialValue: 0
   alphaScale: 1
 --- !u!114 &114042256754171808
 MonoBehaviour:
@@ -70,6 +72,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec8061c1df7c42468518ae649839847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114063322602503778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725443528767604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79544548f80570045aae88ad8fd5e5d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toDestroy: {fileID: 1725443528767604}
+  timer: {fileID: 114227586714590806}
 --- !u!114 &114227586714590806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 470961499
   m_SortingLayer: 2
-  m_SortingOrder: 4
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: d61931ae4b576b84a929ecc990e3a37e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

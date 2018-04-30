@@ -6,15 +6,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class SingleAccessor<T> : MonoBehaviour
+public class SingleAccessor<TValue> : MonoBehaviour
 {
     // Invoked when the variable is set.
-    public delegate void ValueSetHandler(T value);
+    public delegate void ValueSetHandler(TValue value);
     event ValueSetHandler ValueSet;
 
     [SerializeField]
     [Tooltip("The current value maintained in the accessor.")]
-    T value;
+    TValue value;
 
     public void Subscribe(ValueSetHandler SetCallback)
     {
@@ -28,14 +28,14 @@ public class SingleAccessor<T> : MonoBehaviour
         ValueSet -= SetCallback;
     }
 
-    public void Set(T value)
+    public void Set(TValue value)
     {
         this.value = value;
         OnValueSet();
         //Debug.Log(name + " SingleAccessor Set value: " + value);
     }
 
-    public T Get()
+    public TValue Get()
     {
         return value;
     }

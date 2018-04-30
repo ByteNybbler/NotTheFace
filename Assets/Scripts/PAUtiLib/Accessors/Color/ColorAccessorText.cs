@@ -1,34 +1,30 @@
 ﻿// Author(s): Paul Calande
 // ColorAccessor support for Text component.
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ColorAccessorText : MonoBehaviour
+public class ColorAccessorText : SingleAccessorConnection
+    <Color, ColorAccessor, Text>
 {
-    [SerializeField]
-    [Tooltip("The ColorAccessor to connect to.")]
-    ColorAccessor accessor;
-    [SerializeField]
-    [Tooltip("The text to access the color of.")]
-    Text text;
     [SerializeField]
     [Tooltip("Whether to modify the alpha channel of the color.")]
     bool leaveAlphaAlone;
-    
-    private void Start()
-    {
-        accessor.Subscribe(SetColor);
-    }
 
-    private void SetColor(Color color)
+    protected override void Set(Color color)
     {
         if (leaveAlphaAlone)
         {
-            color.a = text.color.a;
+            color.a = connected.color.a;
         }
-        text.color = color;
+        connected.color = color;
+    }
+
+    protected override Color Get()
+    {
+        return connected.color;
     }
 }

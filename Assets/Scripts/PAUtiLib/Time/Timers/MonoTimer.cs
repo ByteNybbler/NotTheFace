@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonoTimer : MonoBehaviour
+public class MonoTimer : MonoBehaviour, ITimer
 {
     // Invoked when the timer finishes.
     event Timer.FinishedHandler TimerFinished;
@@ -63,6 +63,7 @@ public class MonoTimer : MonoBehaviour
 
     private void OnTimerFinished(float secondsOverflow)
     {
+        //Debug.Log("MonoTimer OnTimerFinished");
         if (TimerFinished != null)
         {
             TimerFinished(secondsOverflow);
@@ -122,9 +123,9 @@ public class MonoTimer : MonoBehaviour
         return timer.Run(secondsOverflow);
     }
 
-    public void Stop()
+    public bool Stop()
     {
-        timer.Stop();
+        return timer.Stop();
     }
 
     public void Clear()

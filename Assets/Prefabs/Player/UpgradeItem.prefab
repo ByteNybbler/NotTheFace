@@ -248,7 +248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 114544825534947606}
-  render: {fileID: 212049308358425312}
+  connected: {fileID: 212049308358425312}
+  useAsInitialValue: 0
 --- !u!114 &114192715778913030
 MonoBehaviour:
   m_ObjectHideFlags: 1

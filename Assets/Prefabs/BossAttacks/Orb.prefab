@@ -52,7 +52,6 @@ GameObject:
   - component: {fileID: 114512490416768208}
   - component: {fileID: 114817500633374350}
   - component: {fileID: 114733208198590690}
-  - component: {fileID: 114015055780263498}
   - component: {fileID: 114154234693513552}
   - component: {fileID: 114683202677808948}
   m_Layer: 0
@@ -151,17 +150,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114015055780263498
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1888923763632584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 936a6d5a3eb610a4a83355b393beb675, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114020526319071984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8894e970c457345ac42060f2247ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 114015055780263498}
+  voidEvent: {fileID: 114733208198590690}
   toDestroy: {fileID: 1888923763632584}
 --- !u!114 &114224190783271182
 MonoBehaviour:
@@ -292,7 +280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 114514156074404206}
-  render: {fileID: 212293861561737222}
+  connected: {fileID: 212293861561737222}
+  useAsInitialValue: 0
 --- !u!114 &114568780401277846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -329,7 +318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43472753f7c74ee459a266649afb9315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 114015055780263498}
   triggerEvent: {fileID: 114683202677808948}
 --- !u!114 &114740991402130276
 MonoBehaviour:
@@ -342,11 +330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1ef3ed512d49b4eb1b2314f7f00a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
-    refs:
-      ts: {fileID: 114020526319071984}
-    angularVelocity: 360
+  timeScale: {fileID: 114020526319071984}
   mover: {fileID: 114138832611951340}
+  angularVelocity: 360
 --- !u!114 &114817500633374350
 MonoBehaviour:
   m_ObjectHideFlags: 1

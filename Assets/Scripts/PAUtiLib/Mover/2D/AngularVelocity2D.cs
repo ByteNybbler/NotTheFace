@@ -8,58 +8,32 @@ using UnityEngine;
 
 public class AngularVelocity2D : MonoBehaviour
 {
-    [System.Serializable]
-    public class Data : IDeepCopyable<Data>
-    {
-        [System.Serializable]
-        public class Refs
-        {
-            public TimeScale ts;
-
-            public Refs(TimeScale ts)
-            {
-                this.ts = ts;
-            }
-        }
-        public Refs refs;
-        [Tooltip("How quickly to rotate.")]
-        public float angularVelocity;
-
-        public Data(Refs refs, float angularVelocity)
-        {
-            this.refs = refs;
-            this.angularVelocity = angularVelocity;
-        }
-
-        public Data DeepCopy()
-        {
-            return new Data(refs, angularVelocity);
-        }
-    }
     [SerializeField]
-    Data data;
-
+    TimeScale timeScale;
     [SerializeField]
     [Tooltip("Reference to the Mover component.")]
     Mover2D mover;
-
-    public void SetData(Data val)
-    {
-        data = val;
-    }
+    [SerializeField]
+    [Tooltip("How quickly to rotate in degrees per second. Positive velocity is counterclockwise.")]
+    public float angularVelocity;
 
     private void FixedUpdate()
     {
-        mover.OffsetRotation(data.angularVelocity * data.refs.ts.DeltaTime());
+        mover.OffsetRotation(angularVelocity * timeScale.DeltaTime());
     }
 
     public void SetAngularVelocity(float val)
     {
-        data.angularVelocity = val;
+        angularVelocity = val;
     }
 
     public float GetAngularVelocity()
     {
-        return data.angularVelocity;
+        return angularVelocity;
+    }
+
+    public void SetTimeScale(TimeScale timeScale)
+    {
+        this.timeScale = timeScale;
     }
 }

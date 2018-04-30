@@ -41,6 +41,12 @@ public class Room : MonoBehaviour
     [SerializeField]
     [Tooltip("The bottom right edge of the room.")]
     Transform bottomRight;
+    [SerializeField]
+    [Tooltip("The music channel volume setter to fire when starting the room.")]
+    MusicChannelVolumeSetter mcvsStart;
+    [SerializeField]
+    [Tooltip("The music channel volume setter to fire when finishing the room.")]
+    MusicChannelVolumeSetter mcvsFinish;
 
     // How many times the RoomLoop looped through the full cycle of rooms by the time
     // this room was generated.
@@ -72,6 +78,10 @@ public class Room : MonoBehaviour
         status = Status.Active;
         LockEntrance();
         OnRoomStarted();
+        if (mcvsStart != null)
+        {
+            mcvsStart.Fire();
+        }
     }
 
     public void FinishRoom()
@@ -79,6 +89,10 @@ public class Room : MonoBehaviour
         status = Status.Finished;
         OpenExit();
         OnRoomFinished();
+        if (mcvsFinish != null)
+        {
+            mcvsFinish.Fire();
+        }
     }
 
     public void SetItemPool(ItemPool val)

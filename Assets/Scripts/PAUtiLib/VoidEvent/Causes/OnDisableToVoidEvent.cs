@@ -3,14 +3,10 @@
 
 using UnityEngine;
 
-public class OnDisableToVoidEvent : MonoBehaviour
+public class OnDisableToVoidEvent : VoidEvent
 {
-    [SerializeField]
-    [Tooltip("The VoidEvent to fire.")]
-    VoidEvent voidEvent;
-
     private void OnDisable()
     {
-        voidEvent.Fire();
+        OnFired();
     }
 }

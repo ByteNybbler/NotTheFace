@@ -90,6 +90,10 @@ public static class UtilRandom
     {
         return center + Random.Range(-radius, radius);
     }
+    public static int RangeWithCenter(int center, int radius)
+    {
+        return center + Random.Range(-radius, radius + 1);
+    }
 
     // Randomly returns either true or false based on the given chance.
     public static bool Bool(float chanceOfTrue = 0.5f)

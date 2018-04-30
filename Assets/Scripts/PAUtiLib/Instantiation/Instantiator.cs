@@ -12,7 +12,7 @@ public class Instantiator : MonoBehaviour
     public delegate void ValidationStartedHandler();
     public event ValidationStartedHandler ValidationStarted;
     // Invoked when the GameObject is successfully instantiated.
-    public delegate void InstantiatedHandler(GameObject obj);
+    public delegate void InstantiatedHandler(GameObject obj, float secondsOverflow);
     public event InstantiatedHandler Instantiated;
 
     [SerializeField]
@@ -26,7 +26,7 @@ public class Instantiator : MonoBehaviour
     bool conditionsValid;
 
     // Attempts to instantiate the GameObject.
-    public void Instantiate()
+    public void Instantiate(float secondsOverflow = 0.0f)
     {
         conditionsValid = true;
         OnValidationStarted();
@@ -34,7 +34,7 @@ public class Instantiator : MonoBehaviour
         {
             GameObject obj = Instantiate(toInstantiate, parent);
             obj.transform.position = transform.position;
-            OnInstantiated(obj);
+            OnInstantiated(obj, secondsOverflow);
         }
     }
 
@@ -52,11 +52,11 @@ public class Instantiator : MonoBehaviour
         }
     }
 
-    private void OnInstantiated(GameObject obj)
+    private void OnInstantiated(GameObject obj, float secondsOverflow)
     {
         if (Instantiated != null)
         {
-            Instantiated(obj);
+            Instantiated(obj, secondsOverflow);
         }
     }
 }

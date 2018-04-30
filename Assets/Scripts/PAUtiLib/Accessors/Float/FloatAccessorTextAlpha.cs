@@ -6,25 +6,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FloatAccessorTextAlpha : MonoBehaviour
+public class FloatAccessorTextAlpha : SingleAccessorConnection
+    <float, FloatAccessor, Text>
 {
-    [SerializeField]
-    [Tooltip("The accessor to connect to.")]
-    FloatAccessor accessor;
-    [SerializeField]
-    [Tooltip("The text to access the alpha of.")]
-    Text text;
     [SerializeField]
     [Tooltip("How much to scale the alpha by.")]
     float alphaScale = 1.0f;
 
-    private void Start()
+    protected override void Set(float alpha)
     {
-        accessor.Subscribe(SetAlpha);
+        connected.color = UtilColor.SetAlpha(connected.color, alpha * alphaScale);
     }
 
-    private void SetAlpha(float alpha)
+    protected override float Get()
     {
-        text.color = UtilColor.SetAlpha(text.color, alpha * alphaScale);
+        return connected.color.a / alphaScale;
     }
 }

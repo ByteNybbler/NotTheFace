@@ -21,12 +21,10 @@ public class VoidEventToSingleAccessorAssign<TValue, TAccessor> : MonoBehaviour
     private void Awake()
     {
         voidEvent.Subscribe(Fire);
-        //Debug.Log(name + " VoidEventToSingleAccessorAssign subscribed value: " + value);
     }
 
     private void Fire()
     {
-        //Debug.Log(name + " VoidEventToSingleAccessorAssign Fire value: " + value);
         accessor.Set(value);
     }
 }

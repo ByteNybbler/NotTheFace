@@ -18,7 +18,7 @@ public class InstantiatedSingleAccessor<TValue, TAccessor> : MonoBehaviour
         instantiator.Instantiated += Instantiated;
     }
 
-    private void Instantiated(GameObject obj)
+    private void Instantiated(GameObject obj, float secondsOverflow)
     {
         obj.GetComponent<TAccessor>().Set(accessor.Get());
     }

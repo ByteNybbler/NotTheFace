@@ -3,14 +3,10 @@
 
 using UnityEngine;
 
-public class StartToVoidEvent : MonoBehaviour
+public class StartToVoidEvent : VoidEvent
 {
-    [SerializeField]
-    [Tooltip("The VoidEvent to fire.")]
-    VoidEvent voidEvent;
-
     private void Start()
     {
-        voidEvent.Fire();
+        OnFired();
     }
 }

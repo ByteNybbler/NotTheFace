@@ -3,11 +3,8 @@
 
 using UnityEngine;
 
-public class TriggerEvent2DToVoidEvent : MonoBehaviour
+public class TriggerEvent2DToVoidEvent : VoidEvent
 {
-    [SerializeField]
-    [Tooltip("The VoidEvent to fire.")]
-    VoidEvent voidEvent;
     [SerializeField]
     [Tooltip("The trigger event that will trigger the VoidEvent.")]
     TriggerEvent2D triggerEvent;
@@ -19,6 +16,6 @@ public class TriggerEvent2DToVoidEvent : MonoBehaviour
 
     private void Fire(Collider2D collision)
     {
-        voidEvent.Fire();
+        OnFired();
     }
 }

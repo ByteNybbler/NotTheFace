@@ -301,7 +301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 114591076122464066}
-  outline: {fileID: 114035282791245022}
+  connected: {fileID: 114035282791245022}
+  useAsInitialValue: 0
   alphaScale: 0.5
 --- !u!114 &114591076122464066
 MonoBehaviour:
@@ -376,7 +377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 114591076122464066}
-  text: {fileID: 114753906051852294}
+  connected: {fileID: 114753906051852294}
+  useAsInitialValue: 0
   alphaScale: 1
 --- !u!114 &114962631381376124
 MonoBehaviour:

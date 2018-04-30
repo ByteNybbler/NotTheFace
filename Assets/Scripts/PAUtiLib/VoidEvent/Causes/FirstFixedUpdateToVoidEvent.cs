@@ -7,19 +7,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstFixedUpdateToVoidEvent : MonoBehaviour
+public class FirstFixedUpdateToVoidEvent : VoidEvent
 {
-    [SerializeField]
-    [Tooltip("The VoidEvent to fire.")]
-    VoidEvent voidEvent;
-
     bool ready = true;
 
     private void FixedUpdate()
     {
         if (ready)
         {
-            voidEvent.Fire();
+            OnFired();
             ready = false;
         }
     }

@@ -1,21 +1,21 @@
 ﻿// Author(s): Paul Calande
 // BoolAccessor support for activating and deactivating GameObjects.
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoolAccessorGameObjectActive : MonoBehaviour
+public class BoolAccessorGameObjectActive : SingleAccessorConnection
+    <bool, BoolAccessor, GameObject>
 {
-    [SerializeField]
-    [Tooltip("The accessor to connect to.")]
-    BoolAccessor accessor;
-    [SerializeField]
-    [Tooltip("The GameObject to modify the activation of.")]
-    GameObject target;
-
-    private void Awake()
+    protected override void Set(bool data)
     {
-        accessor.Subscribe(target.SetActive);
+        connected.SetActive(data);
+    }
+
+    protected override bool Get()
+    {
+        return connected.activeSelf;
     }
 }

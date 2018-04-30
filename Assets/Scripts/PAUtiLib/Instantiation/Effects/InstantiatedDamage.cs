@@ -5,32 +5,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InstantiatedDamage : MonoBehaviour
+public class InstantiatedDamage : InstantiatedProperty<int>
 {
-    [SerializeField]
-    [Tooltip("The instantiator to subscribe to.")]
-    Instantiator instantiator;
-    [SerializeField]
-    [Tooltip("The damage value to set for the instantiated object via RootDamage.")]
-    int damage = 0;
-
-    private void Awake()
-    {
-        instantiator.Instantiated += Instantiated;
-    }
-
     public int Get()
     {
-        return damage;
+        return valueCenter;
     }
 
     public void Add(int amount)
     {
-        damage += amount;
+        valueCenter += amount;
     }
 
-    private void Instantiated(GameObject obj)
+    protected override void Instantiated(GameObject obj, float secondsOverflow)
     {
-        obj.GetComponent<RootDamage>().Add(damage);
+        obj.GetComponent<RootDamage>().Add(UtilRandom.RangeWithCenter(valueCenter, valueRadius));
     }
 }

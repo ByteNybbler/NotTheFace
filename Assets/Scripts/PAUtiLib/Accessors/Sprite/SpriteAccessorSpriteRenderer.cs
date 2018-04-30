@@ -1,28 +1,21 @@
 ﻿// Author(s): Paul Calande
 // SpriteAccessor support for SpriteRenderer component.
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
-public class SpriteAccessorSpriteRenderer : MonoBehaviour
-{
-    [SerializeField]
-    [Tooltip("The accessor to connect to.")]
-    SpriteAccessor accessor;
-    [SerializeField]
-    [Tooltip("The SpriteRenderer to access the sprite of.")]
-    SpriteRenderer render;
-    
-    private void Start()
+public class SpriteAccessorSpriteRenderer : SingleAccessorConnection
+    <Sprite, SpriteAccessor, SpriteRenderer>
+{    
+    protected override void Set(Sprite sprite)
     {
-        accessor.Subscribe(SetSprite);
+        connected.sprite = sprite;
     }
 
-    private void SetSprite(Sprite sprite)
+    protected override Sprite Get()
     {
-        render.sprite = sprite;
-        //Debug.Log(name + " SpriteAccessorSpriteRenderer: Set sprite to " + sprite);
+        return connected.sprite;
     }
 }

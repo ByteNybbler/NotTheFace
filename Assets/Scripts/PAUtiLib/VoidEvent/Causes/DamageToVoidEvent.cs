@@ -5,11 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageToVoidEvent : MonoBehaviour
+public class DamageToVoidEvent : VoidEvent
 {
-    [SerializeField]
-    [Tooltip("The VoidEvent to fire.")]
-    VoidEvent voidEvent;
     [SerializeField]
     [Tooltip("The health component to watch for damage on.")]
     Health health;
@@ -21,6 +18,6 @@ public class DamageToVoidEvent : MonoBehaviour
 
     private void Fire(int damage)
     {
-        voidEvent.Fire();
+        OnFired();
     }
 }

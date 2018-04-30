@@ -1,30 +1,26 @@
 ﻿// Author(s): Paul Calande
 // FloatAccessor support for SpriteRenderer component color alpha.
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FloatAccessorSpriteRendererAlpha : MonoBehaviour
+public class FloatAccessorSpriteRendererAlpha : SingleAccessorConnection
+    <float, FloatAccessor, SpriteRenderer>
 {
-    [SerializeField]
-    [Tooltip("The accessor to connect to.")]
-    FloatAccessor accessor;
-    [SerializeField]
-    [Tooltip("The SpriteRenderer to access the alpha of.")]
-    SpriteRenderer render;
     [SerializeField]
     [Tooltip("How much to scale the alpha by.")]
     float alphaScale = 1.0f;
 
-    private void Start()
+    protected override void Set(float alpha)
     {
-        accessor.Subscribe(SetAlpha);
+        connected.color = UtilColor.SetAlpha(connected.color, alpha * alphaScale);
     }
 
-    private void SetAlpha(float alpha)
+    protected override float Get()
     {
-        render.color = UtilColor.SetAlpha(render.color, alpha * alphaScale);
+        return connected.color.a / alphaScale;
     }
 }

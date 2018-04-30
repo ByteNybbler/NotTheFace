@@ -3,11 +3,8 @@
 
 using UnityEngine;
 
-public class MonoTimerFinishedToVoidEvent : MonoBehaviour
+public class MonoTimerFinishedToVoidEvent : VoidEvent
 {
-    [SerializeField]
-    [Tooltip("The VoidEvent to fire.")]
-    VoidEvent voidEvent;
     [SerializeField]
     [Tooltip("The timer will fire the VoidEvent each time it finishes.")]
     MonoTimer timer;
@@ -19,6 +16,6 @@ public class MonoTimerFinishedToVoidEvent : MonoBehaviour
     
     private void Fire(float secondsOverflow)
     {
-        voidEvent.Fire();
+        OnFired();
     }
 }

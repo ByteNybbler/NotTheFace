@@ -464,9 +464,8 @@ GameObject:
   - component: {fileID: 133866836}
   - component: {fileID: 133866835}
   - component: {fileID: 133866834}
-  - component: {fileID: 133866839}
-  - component: {fileID: 133866837}
   - component: {fileID: 133866838}
+  - component: {fileID: 133866837}
   m_Layer: 0
   m_Name: Egg
   m_TagString: Untagged
@@ -498,7 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08075b10f1a99ec48a28ff7420015969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 133866837}
+  voidEvent: {fileID: 133866838}
   accessor: {fileID: 337620946}
   value: {fileID: 21300000, guid: a6f28430b172f124bba45a722baf0382, type: 3}
 --- !u!114 &133866835
@@ -513,7 +512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 133866836}
+  connected: {fileID: 133866836}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &133866836
 SpriteRenderer:
@@ -567,9 +567,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 133866832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 936a6d5a3eb610a4a83355b393beb675, type: 3}
+  m_Script: {fileID: 11500000, guid: de136180c552c0a479ab73ec76aeb563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toChange: {fileID: 436084320}
+  newState: 0
 --- !u!114 &133866838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,21 +583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d604e8484c913a848b7e4c67658df752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 133866837}
---- !u!114 &133866839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 133866832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e1c774dd6f14240a6c259d9a643954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voidEvent: {fileID: 133866837}
-  accessor: {fileID: 436084327}
-  value: 0
 --- !u!1 &145832711
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 145832714}
+  connected: {fileID: 145832714}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &145832714
 SpriteRenderer:
@@ -786,7 +774,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 181181923}
+  connected: {fileID: 181181923}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &181181923
 SpriteRenderer:
@@ -1169,7 +1158,6 @@ GameObject:
   - component: {fileID: 341930212}
   - component: {fileID: 341930209}
   - component: {fileID: 341930214}
-  - component: {fileID: 341930213}
   - component: {fileID: 341930210}
   - component: {fileID: 341930206}
   - component: {fileID: 341930215}
@@ -1577,12 +1565,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 341930182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80a9104e6a1ffbb4fb30f001923d11c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 80a214cf9579ca14d986b43c8f84fb57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accessor: {fileID: 1985689723}
   timer: {fileID: 341930206}
-  value: 0
+  toChange: {fileID: 1985689714}
+  newState: 0
 --- !u!114 &341930210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1594,7 +1582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6af5f574f3e934bbaf4c98a663f5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 341930213}
   health: {fileID: 341930203}
 --- !u!114 &341930211
 MonoBehaviour:
@@ -1626,17 +1613,6 @@ MonoBehaviour:
   soapShield: {fileID: 27059333}
   takeDamage: {fileID: 230371028}
   hasSoap: 0
---- !u!114 &341930213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 341930182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 936a6d5a3eb610a4a83355b393beb675, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &341930214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1648,8 +1624,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4b0c4eaf2adc944ad0e9a76ec47a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accessor: {fileID: 341930201}
   timer: {fileID: 341930206}
+  accessor: {fileID: 341930201}
   value: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &341930215
 MonoBehaviour:
@@ -1662,7 +1638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceedb1f7d2713f44a972fcff05a3c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 341930213}
+  voidEvent: {fileID: 341930210}
   timer: {fileID: 341930206}
 --- !u!1 &367729719
 GameObject:
@@ -1855,8 +1831,6 @@ GameObject:
   - component: {fileID: 436084323}
   - component: {fileID: 436084325}
   - component: {fileID: 436084324}
-  - component: {fileID: 436084327}
-  - component: {fileID: 436084326}
   m_Layer: 0
   m_Name: HeadSprite
   m_TagString: Untagged
@@ -1933,7 +1907,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 436084322}
+  connected: {fileID: 436084322}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!114 &436084324
 MonoBehaviour:
@@ -1947,7 +1922,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 436084325}
-  render: {fileID: 436084322}
+  connected: {fileID: 436084322}
+  useAsInitialValue: 0
 --- !u!114 &436084325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,31 +1936,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: {fileID: 21300000, guid: d61931ae4b576b84a929ecc990e3a37e, type: 3}
---- !u!114 &436084326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 436084320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6435f5a3f764184fb821d6567b9b7a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accessor: {fileID: 436084327}
-  target: {fileID: 436084320}
---- !u!114 &436084327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 436084320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752952168957d7e4d85ad57150cdbed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
 --- !u!1 &451468525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,7 +2503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 617643087}
-  render: {fileID: 617643088}
+  connected: {fileID: 617643088}
+  useAsInitialValue: 0
 --- !u!1 &630685118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,7 +2679,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 634798469}
+  connected: {fileID: 634798469}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!1 &694294763
 GameObject:
@@ -2949,7 +2902,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 808080807}
+  connected: {fileID: 808080807}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &808080807
 SpriteRenderer:
@@ -3068,7 +3022,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 830078117}
+  connected: {fileID: 830078117}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &830078117
 SpriteRenderer:
@@ -3114,101 +3069,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &840472151
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 840472152}
-  - component: {fileID: 840472156}
-  - component: {fileID: 840472155}
-  - component: {fileID: 840472154}
-  - component: {fileID: 840472157}
-  - component: {fileID: 840472153}
-  m_Layer: 0
-  m_Name: Active
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &840472152
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 840472151}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1706919633}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &840472153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 840472151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6870c3d6e5773e4bbe88fec4743a445, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voidEvent: {fileID: 840472156}
---- !u!114 &840472154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 840472151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6435f5a3f764184fb821d6567b9b7a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accessor: {fileID: 840472155}
-  target: {fileID: 1706919632}
---- !u!114 &840472155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 840472151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752952168957d7e4d85ad57150cdbed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
---- !u!114 &840472156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 840472151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 936a6d5a3eb610a4a83355b393beb675, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &840472157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 840472151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e1c774dd6f14240a6c259d9a643954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voidEvent: {fileID: 840472156}
-  accessor: {fileID: 840472155}
-  value: 0
 --- !u!1 &841513510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3251,7 +3111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 841513513}
+  connected: {fileID: 841513513}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &841513513
 SpriteRenderer:
@@ -3559,7 +3420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 1047756470}
+  connected: {fileID: 1047756470}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &1047756470
 SpriteRenderer:
@@ -3937,7 +3799,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 1223215175}
+  connected: {fileID: 1223215175}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &1223215175
 SpriteRenderer:
@@ -4010,7 +3873,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563321c1613a1df4ebad7846898df784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: ace7c4fdf501cde4991ad2865882807a, type: 3}
+  music: {fileID: 11400000, guid: 7bd3dbe4b5d466a4c96e9c3e5dd5415f, type: 2}
+  secondsFadeOut: 0
+  secondsFadeInDelay: 0
+  secondsFadeIn: 0
 --- !u!4 &1248573479
 Transform:
   m_ObjectHideFlags: 0
@@ -4106,9 +3972,8 @@ GameObject:
   - component: {fileID: 1308310577}
   - component: {fileID: 1308310576}
   - component: {fileID: 1308310580}
-  - component: {fileID: 1308310581}
-  - component: {fileID: 1308310579}
   - component: {fileID: 1308310578}
+  - component: {fileID: 1308310579}
   m_Layer: 0
   m_Name: EggExploder
   m_TagString: Untagged
@@ -4141,7 +4006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiator: {fileID: 1308310577}
-  damage: 0
+  valueCenter: 0
+  valueRadius: 0
 --- !u!114 &1308310577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4167,7 +4033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6af5f574f3e934bbaf4c98a663f5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 1308310581}
   health: {fileID: 341930203}
 --- !u!114 &1308310579
 MonoBehaviour:
@@ -4180,7 +4045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f41a101c296d7a46982290e9a527136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 1308310581}
+  voidEvent: {fileID: 1308310578}
   instantiator: {fileID: 1308310577}
 --- !u!114 &1308310580
 MonoBehaviour:
@@ -4195,17 +4060,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instantiator: {fileID: 1308310577}
   instantiatedDamage: {fileID: 1308310576}
---- !u!114 &1308310581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1308310574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 936a6d5a3eb610a4a83355b393beb675, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1374135437
 GameObject:
   m_ObjectHideFlags: 0
@@ -4571,7 +4425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 1433965953}
+  connected: {fileID: 1433965953}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &1433965953
 SpriteRenderer:
@@ -4817,6 +4672,8 @@ MonoBehaviour:
   groupMusic: {fileID: 243257605468147166, guid: ff98622eb62353c41a656249542fc88d,
     type: 2}
   groupSFX: {fileID: 243888803352446948, guid: ff98622eb62353c41a656249542fc88d, type: 2}
+  groupCountMusic: 3
+  channelCountMusic: 3
   channelCountSFX: 8
 --- !u!114 &1527272237
 MonoBehaviour:
@@ -4915,7 +4772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 1542507914}
+  connected: {fileID: 1542507914}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &1542507914
 SpriteRenderer:
@@ -4971,13 +4829,12 @@ GameObject:
   - component: {fileID: 1550312951}
   - component: {fileID: 1550312953}
   - component: {fileID: 1550312955}
-  - component: {fileID: 1550312956}
-  - component: {fileID: 1550312954}
-  - component: {fileID: 1550312952}
-  - component: {fileID: 1550312958}
   - component: {fileID: 1550312957}
-  - component: {fileID: 1550312960}
+  - component: {fileID: 1550312956}
+  - component: {fileID: 1550312958}
+  - component: {fileID: 1550312952}
   - component: {fileID: 1550312959}
+  - component: {fileID: 1550312954}
   m_Layer: 0
   m_Name: LaserRoot
   m_TagString: Untagged
@@ -4996,7 +4853,6 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 67299764}
-  - {fileID: 1584103667}
   m_Father: {fileID: 1193882073}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5008,12 +4864,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1550312950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e1c774dd6f14240a6c259d9a643954, type: 3}
+  m_Script: {fileID: 11500000, guid: 7136730169a7edd44a0a41103add6103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 1550312954}
-  accessor: {fileID: 840472155}
-  value: 1
+  toChange: {fileID: 1706919632}
+  newState: 1
+  voidEvent: {fileID: 1550312956}
 --- !u!114 &1550312953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5038,9 +4894,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1550312950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 936a6d5a3eb610a4a83355b393beb675, type: 3}
+  m_Script: {fileID: 11500000, guid: 7136730169a7edd44a0a41103add6103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toChange: {fileID: 1550312950}
+  newState: 0
+  voidEvent: {fileID: 1550312959}
 --- !u!114 &1550312955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5065,7 +4924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0f7f86c58c2c34f8ac4f1e796cf282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 1550312954}
 --- !u!114 &1550312957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5092,7 +4950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceedb1f7d2713f44a972fcff05a3c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidEvent: {fileID: 1550312954}
+  voidEvent: {fileID: 1550312956}
   timer: {fileID: 1550312957}
 --- !u!114 &1550312959
 MonoBehaviour:
@@ -5102,23 +4960,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1550312950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6435f5a3f764184fb821d6567b9b7a6, type: 3}
+  m_Script: {fileID: 11500000, guid: bb8f1f6ee7b7a7a49a12fcaf40a24172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accessor: {fileID: 1550312960}
-  target: {fileID: 1550312950}
---- !u!114 &1550312960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1550312950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752952168957d7e4d85ad57150cdbed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
+  timer: {fileID: 1550312957}
 --- !u!1 &1550606248
 GameObject:
   m_ObjectHideFlags: 0
@@ -5148,7 +4993,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 1550606250}
+  connected: {fileID: 1550606250}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &1550606250
 SpriteRenderer:
@@ -5207,75 +5053,6 @@ Transform:
   m_Father: {fileID: 1300711446}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1584103666
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1584103667}
-  - component: {fileID: 1584103670}
-  - component: {fileID: 1584103669}
-  - component: {fileID: 1584103668}
-  m_Layer: 0
-  m_Name: TimerFinished
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1584103667
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1584103666}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1550312951}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1584103668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1584103666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e1c774dd6f14240a6c259d9a643954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voidEvent: {fileID: 1584103669}
-  accessor: {fileID: 1550312960}
-  value: 0
---- !u!114 &1584103669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1584103666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 936a6d5a3eb610a4a83355b393beb675, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1584103670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1584103666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb8f1f6ee7b7a7a49a12fcaf40a24172, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voidEvent: {fileID: 1584103669}
-  timer: {fileID: 1550312957}
 --- !u!1 &1590544529
 GameObject:
   m_ObjectHideFlags: 0
@@ -5377,6 +5154,8 @@ GameObject:
   - component: {fileID: 1706919635}
   - component: {fileID: 1706919634}
   - component: {fileID: 1706919637}
+  - component: {fileID: 1706919639}
+  - component: {fileID: 1706919638}
   m_Layer: 0
   m_Name: LaserHitbox
   m_TagString: PlayerLaser
@@ -5393,8 +5172,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 840472152}
+  m_Children: []
   m_Father: {fileID: 67299764}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5469,6 +5247,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+--- !u!114 &1706919638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1706919632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7136730169a7edd44a0a41103add6103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toChange: {fileID: 1706919632}
+  newState: 0
+  voidEvent: {fileID: 1706919639}
+--- !u!114 &1706919639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1706919632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6870c3d6e5773e4bbe88fec4743a445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1760957799
 GameObject:
   m_ObjectHideFlags: 0
@@ -5943,7 +5746,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiator: {fileID: 1845970384}
-  damage: 0
+  valueCenter: 0
+  valueRadius: 0
 --- !u!1 &1863784305
 GameObject:
   m_ObjectHideFlags: 0
@@ -6081,7 +5885,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 1915139498}
+  connected: {fileID: 1915139498}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!212 &1915139498
 SpriteRenderer:
@@ -6208,8 +6013,6 @@ GameObject:
   - component: {fileID: 1985689716}
   - component: {fileID: 1985689719}
   - component: {fileID: 1985689717}
-  - component: {fileID: 1985689723}
-  - component: {fileID: 1985689722}
   m_Layer: 0
   m_Name: TakeDamageHitbox
   m_TagString: Untagged
@@ -6312,31 +6115,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1985689722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1985689714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6435f5a3f764184fb821d6567b9b7a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accessor: {fileID: 1985689723}
-  target: {fileID: 1985689714}
---- !u!114 &1985689723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1985689714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752952168957d7e4d85ad57150cdbed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
 --- !u!1 &2041835063
 GameObject:
   m_ObjectHideFlags: 0
@@ -6423,7 +6201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 2041835065}
+  connected: {fileID: 2041835065}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
 --- !u!1 &2059420716
 GameObject:
@@ -6669,5 +6448,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accessor: {fileID: 341930201}
-  render: {fileID: 2124869447}
+  connected: {fileID: 2124869447}
+  useAsInitialValue: 0
   leaveAlphaAlone: 0
