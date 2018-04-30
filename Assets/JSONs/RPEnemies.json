@@ -1,0 +1,70 @@
+{
+	"enemies" :
+	[
+		{
+			"name" : "EnemyBasic",
+			"sprite name" : "basic",
+			"challenge" : 1,
+			"left movement speed increase" : -0.5,
+			"y oscillation magnitude" : 1.2,
+			"y oscillation speed" : 2.0,
+			"seconds between volleys" : 1.3,
+			"volley" :
+			{
+				"speed" : 3.0,
+				"color" : "#ffdc3f"
+			}
+		},
+		{
+			"name" : "EnemyAimer",
+			"sprite name" : "tracking",
+			"challenge" : 2,
+			"volley" :
+			{
+				"aims at player" : true,
+				"direction" : 0,
+				"color" : "#f42424"
+			}
+		},
+		{
+			"name" : "EnemyPulse",
+			"sprite name" : "pulse",
+			"challenge" : 2,
+			"volley" :
+			{
+				"speed" : 3,
+				"direction" : 22.5,
+				"projectile count" : 8,
+				"spread angle" : 315,
+				"color" : "#ff61fc"
+			}
+		},
+		{
+			"name" : "EnemyForked",
+			"sprite name" : "forked",
+			"challenge" : 3,
+			"seconds between volleys" : 0.2,
+			"volley" :
+			{
+				"direction" : 180,
+				"speed" : 7,
+				"projectile count" : 2,
+				"spread angle" : 90,
+				"color" : "#02c4ff"
+			}
+		},
+		{
+			"name" : "EnemySpiral",
+			"sprite name" : "spiral",
+			"challenge" : 4,
+			"seconds between volleys" : 0.15,
+			"volley direction delta per shot" : 10,
+			"volley" :
+			{
+				"direction" : 180,
+				"speed" : 4,
+				"color" : "#70e181"
+			}
+		}
+	]
+}

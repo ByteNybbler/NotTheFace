@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: MusicHusbands
   m_EditorClassIdentifier: 
   array:
-  - clip: {fileID: 8300000, guid: 8b007ec71a5095b41a748a28e14fb01d, type: 3}
+  - clip: {fileID: 8300000, guid: c0aeebbd6b72f4f4abc4bc17716c684e, type: 3}
     volume: 1

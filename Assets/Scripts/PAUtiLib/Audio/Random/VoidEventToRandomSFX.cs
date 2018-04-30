@@ -13,6 +13,6 @@ public class VoidEventToRandomSFX : RandomSFX
 
     private void Awake()
     {
-        Fire();
+        voidEvent.Subscribe(Fire);
     }
 }

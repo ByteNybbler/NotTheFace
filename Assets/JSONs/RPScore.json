@@ -1,0 +1,6 @@
+{
+	"points per second playing" : 10,
+	"points per enemy killed" : 100,
+	"points per projectile punched" : 10,
+	"points per full health health kit" : 100
+}

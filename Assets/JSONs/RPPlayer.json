@@ -1,0 +1,10 @@
+{
+	"seconds of punching" : 0.16,
+	"seconds of punch cooldown" : 0.3,
+	"seconds of invincibility when damaged" : 1.0,
+	"max health" : 140,
+	"base punch hitbox size" : 1.4,
+	"base movement speed" : 10.0,
+	"chance of saying fuck" : 0.001,
+	"seconds to wait after dying" : 1.5
+}

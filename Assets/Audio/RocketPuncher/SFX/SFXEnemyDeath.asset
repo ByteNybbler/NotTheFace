@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310e68516dfaeff4f818179e8c2cc919, type: 3}
+  m_Name: SFXEnemyDeath
+  m_EditorClassIdentifier: 
+  array:
+  - {fileID: 8300000, guid: 6147b5d589bc78c4c950d2994739c16a, type: 3}
+  - {fileID: 8300000, guid: 26f8015744c5b3a49928b35d51a9319d, type: 3}
+  - {fileID: 8300000, guid: 98ddd271e72f01e4486444cf90795971, type: 3}
+  - {fileID: 8300000, guid: 9727ae22a4129eb48ad6f84d22e4bc40, type: 3}

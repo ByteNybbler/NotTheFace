@@ -1,0 +1,9 @@
+{
+	"initial challenge" : 1.50,
+	"challenge increase per spawn group" : 0.85,
+	"spawn groups per dead time" : 3,
+	"seconds between spawns" : 0.7,
+	"seconds between spawn groups" : 1.5,
+	"seconds per dead time" : 3.0,
+	"enemy base left movement speed" : 2.5
+}

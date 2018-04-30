@@ -18,5 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuGameChoose.unity
     guid: fb23de17893d91b43a5ab0ab95f04344
   - enabled: 1
-    path: Assets/Scenes/GameplayNotTheFace.unity
+    path: Assets/Scenes/NotTheFace/GameplayNotTheFace.unity
     guid: 5ed4aa6da031d6b40bc5d0344e136b28
+  - enabled: 1
+    path: Assets/Scenes/RocketPuncher/RPMainGame.unity
+    guid: 659ebf02c1e0fd443bcc903f6abd2da5

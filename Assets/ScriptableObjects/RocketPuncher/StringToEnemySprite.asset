@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b87e611c99cf9f40ad1544f586b75e0, type: 3}
+  m_Name: StringToEnemySprite
+  m_EditorClassIdentifier: 
+  array:
+    array:
+    - key: basic
+      value: {fileID: 21300000, guid: a9f98e054483869458fd7b808107844c, type: 3}
+    - key: forked
+      value: {fileID: 21300000, guid: 43e696a29dbe28c42ab2542fc2150643, type: 3}
+    - key: pulse
+      value: {fileID: 21300000, guid: 674039663ed04ff48ae2d2b7ff3d1adf, type: 3}
+    - key: spiral
+      value: {fileID: 21300000, guid: 387df74110aea4b4b82fc45ddac52a69, type: 3}
+    - key: tracking
+      value: {fileID: 21300000, guid: cfc2b61238e02ad4996802927bf074e2, type: 3}
