@@ -4,7 +4,7 @@
 	[
 		{
 			"identifier" : "SpikedHelmet",
-			"headbutt damage bonus" : 30
+			"headbutt damage bonus" : 20
 		},
 		{
 			"identifier" : "HotSauce",
@@ -25,11 +25,12 @@
 		{
 			"identifier" : "BicycleHelmet",
 			"health bonus" : 50,
-			"headbutt damage bonus" : 15
+			"headbutt damage bonus" : 10
 		},
 		{
 			"identifier" : "TopHat",
 			"tongue damage bonus" : 5
+			"headbutt damage bonus" : 5
 		},
 		{
 			"identifier" : "Moustache",
@@ -50,10 +51,12 @@
 		{
 			"identifier" : "PropellerHat",
 			"jump velocity bonus" : 3.0
+			"headbutt damage bonus" : 5
 		},
 		{
 			"identifier" : "JetPack",
 			"jump velocity bonus" : 3.0
+			"health bonus" : 25
 		},
 		{
 			"identifier" : "Wheels",
