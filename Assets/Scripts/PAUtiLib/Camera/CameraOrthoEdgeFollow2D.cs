@@ -19,7 +19,7 @@ public class CameraOrthoEdgeFollow2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!interpolator.TimerIsRunning())
+        if (!interpolator.TimerIsRunning() && toFollow != null)
         {
             CameraDataOrtho2D data = accessor.Get();
             if (toFollow.position.x > data.GetCoordinateRightEdge())

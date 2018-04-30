@@ -121,6 +121,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 27059334}
+  - component: {fileID: 27059338}
+  - component: {fileID: 27059337}
+  - component: {fileID: 27059336}
+  - component: {fileID: 27059335}
   m_Layer: 0
   m_Name: SoapShield
   m_TagString: Untagged
@@ -142,6 +146,56 @@ Transform:
   m_Father: {fileID: 341930184}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &27059335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 27059333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7136730169a7edd44a0a41103add6103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toChange: {fileID: 1091362400}
+  newState: 1
+  voidEvent: {fileID: 27059336}
+--- !u!114 &27059336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 27059333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e986b97cadd68a841b3572ddf474e598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &27059337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 27059333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7136730169a7edd44a0a41103add6103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toChange: {fileID: 1091362400}
+  newState: 0
+  voidEvent: {fileID: 27059338}
+--- !u!114 &27059338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 27059333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0f7f86c58c2c34f8ac4f1e796cf282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &35713187
 GameObject:
   m_ObjectHideFlags: 0
