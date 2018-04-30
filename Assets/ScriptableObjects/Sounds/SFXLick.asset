@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310e68516dfaeff4f818179e8c2cc919, type: 3}
+  m_Name: SFXLick
+  m_EditorClassIdentifier: 
+  array:
+  - {fileID: 8300000, guid: 42ec80871c84a4a49a4b2b77118cd4f9, type: 3}
+  - {fileID: 8300000, guid: 43d279bc81bdf774ea5c57f9f7f47c92, type: 3}
+  - {fileID: 8300000, guid: 60477b04a6946f140adcc07d6203d13d, type: 3}
+  - {fileID: 8300000, guid: 9e682cb02c13c8e4a8f8144e1e717c01, type: 3}
+  - {fileID: 8300000, guid: 4678cbf8a11034f4a856ecac2e53a2df, type: 3}

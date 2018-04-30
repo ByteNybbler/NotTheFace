@@ -156,6 +156,9 @@ GameObject:
   - component: {fileID: 114298320507709840}
   - component: {fileID: 114437725782061444}
   - component: {fileID: 114638207710250164}
+  - component: {fileID: 114844365307798962}
+  - component: {fileID: 114542245528211260}
+  - component: {fileID: 114249507167433594}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -484,6 +487,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 114023937819720990}
+--- !u!114 &114249507167433594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf34ce98970c554bae53645bbab99f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScale: {fileID: 114285835685244466}
+  sounds: {fileID: 11400000, guid: b933c2ffe7dad0c4986fee89493b1328, type: 2}
+  secondsBetweenSounds: 5
+  secondsBetweenSoundsVariance: 2
 --- !u!114 &114256416616247528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -633,6 +651,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 114023937819720990}
+--- !u!114 &114542245528211260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be37de7f24cf01a4eb2ffb0730a8bb77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: {fileID: 11400000, guid: 57d46f97af9638e4c9d7436fbcfa2724, type: 2}
+  health: {fileID: 114023937819720990}
 --- !u!114 &114638207710250164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -676,6 +707,19 @@ MonoBehaviour:
   toInstantiate: {fileID: 1895010247182576, guid: 6b1cae98554036a4091cc7fa7e20c1a1,
     type: 2}
   parent: {fileID: 0}
+--- !u!114 &114844365307798962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511203905807964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd9f9efc69731141b72607255f4f08c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: {fileID: 11400000, guid: edd783bacbdaa8c488291995f3ace8df, type: 2}
+  health: {fileID: 114023937819720990}
 --- !u!114 &114866097970011066
 MonoBehaviour:
   m_ObjectHideFlags: 1

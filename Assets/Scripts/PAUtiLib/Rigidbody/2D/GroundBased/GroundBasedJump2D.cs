@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class GroundBasedJump2D : MonoBehaviour
 {
+    // Invoked when a successful jump is performed.
+    public delegate void JumpedHandler(float jumpVelocity);
+    event JumpedHandler Jumped;
+
     [SerializeField]
     [Tooltip("Reference to the GroundChecker to use.")]
     GroundChecker2D groundChecker;
@@ -31,6 +35,7 @@ public class GroundBasedJump2D : MonoBehaviour
             Vector2 velocity = vius.GetVelocity();
             velocity.y += jumpVelocity;
             vius.SetVelocity(velocity);
+            OnJumped(jumpVelocity);
 
             return true;
         }
@@ -42,11 +47,24 @@ public class GroundBasedJump2D : MonoBehaviour
         jumpCooldown = 2;
     }
 
+    public void SubscribeToJumped(JumpedHandler Callback)
+    {
+        Jumped += Callback;
+    }
+    
     private void FixedUpdate()
     {
         if (jumpCooldown != 0)
         {
             --jumpCooldown;
+        }
+    }
+
+    private void OnJumped(float jumpVelocity)
+    {
+        if (Jumped != null)
+        {
+            Jumped(jumpVelocity);
         }
     }
 }

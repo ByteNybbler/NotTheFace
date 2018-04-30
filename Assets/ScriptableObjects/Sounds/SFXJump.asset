@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310e68516dfaeff4f818179e8c2cc919, type: 3}
+  m_Name: SFXJump
+  m_EditorClassIdentifier: 
+  array:
+  - {fileID: 8300000, guid: d2e4e290de863f04e8491beab5f52d56, type: 3}
+  - {fileID: 8300000, guid: e6c12f2bdaecc8548b5f5ee1e32fffea, type: 3}
+  - {fileID: 8300000, guid: dc6dadfc28b0ef94b802ba22b952f713, type: 3}

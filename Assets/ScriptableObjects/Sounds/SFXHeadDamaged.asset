@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310e68516dfaeff4f818179e8c2cc919, type: 3}
+  m_Name: SFXHeadDamaged
+  m_EditorClassIdentifier: 
+  array:
+  - {fileID: 8300000, guid: 26187d6e2a813af4da7aebfcb8a06ab2, type: 3}
+  - {fileID: 8300000, guid: 7e6f3e367733c0349ab3530e9cef70e1, type: 3}
+  - {fileID: 8300000, guid: c0bd9e0a4dff7be4981c2325e5a2711c, type: 3}

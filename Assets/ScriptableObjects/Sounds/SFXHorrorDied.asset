@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310e68516dfaeff4f818179e8c2cc919, type: 3}
+  m_Name: SFXHorrorDied
+  m_EditorClassIdentifier: 
+  array:
+  - {fileID: 8300000, guid: dc707caf0af77524ab3aa9241a12eaf9, type: 3}
+  - {fileID: 8300000, guid: d4c073693f0f6304181d0b44242677f0, type: 3}

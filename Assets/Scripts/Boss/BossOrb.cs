@@ -54,6 +54,9 @@ public class BossOrb : MonoBehaviour
     [SerializeField]
     [Tooltip("The Transform of the object that the orb targets.")]
     Transform target;
+    [SerializeField]
+    [Tooltip("The sound that plays when the orb is thrown.")]
+    AudioClip soundThrow;
 
     Timer timerIdle;
 
@@ -99,6 +102,7 @@ public class BossOrb : MonoBehaviour
     {
         lerper.BeginWithFirstNode();
         OnIdleFinished();
+        ServiceLocator.GetAudioController().PlaySFX(soundThrow);
     }
 
     private void LerpFinish()

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310e68516dfaeff4f818179e8c2cc919, type: 3}
+  m_Name: SFXHorrorIdle
+  m_EditorClassIdentifier: 
+  array:
+  - {fileID: 8300000, guid: 0f965574e1e718e4ba7145a81d90eb80, type: 3}
+  - {fileID: 8300000, guid: 343b91eb3e8c9854b838bfcc293ac2de, type: 3}
+  - {fileID: 8300000, guid: 553e5b18f48712440af6ec0dbfc81a2b, type: 3}
+  - {fileID: 8300000, guid: 844becce56c1aa840af3062d1c2e12ac, type: 3}
+  - {fileID: 8300000, guid: a82de16718d83d742b8b78c2ae475c69, type: 3}
