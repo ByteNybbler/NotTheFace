@@ -18,10 +18,10 @@ public class ValueChangeTextCreator : MonoBehaviour
     public void Create<T>(T value, Vector3 position)
         where T : struct, IComparable<T>
     {
-        GameObject obj = Instantiate(prefabRisingText, transform);
-        obj.transform.position = position;
         if (!UtilGeneric.IsZero(value) || createWhenValueIsZero)
         {
+            GameObject obj = Instantiate(prefabRisingText, transform);
+            obj.transform.position = position;
             ValueChangeText vct = obj.GetComponent<ValueChangeText>();
             vct.SetValue(value);
         }

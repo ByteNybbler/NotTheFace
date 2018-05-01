@@ -14,6 +14,9 @@ public class MonoPeriodicIntTimersToDamage : MonoBehaviour
     [SerializeField]
     [Tooltip("The periodic integer timers to retrieve damage values from.")]
     MonoPeriodicIntTimers timers;
+    [SerializeField]
+    [Tooltip("The value change text creator to use, if applicable.")]
+    ValueChangeTextCreator textCreator;
 
     private void Start()
     {
@@ -23,5 +26,9 @@ public class MonoPeriodicIntTimersToDamage : MonoBehaviour
     private void TimerFinished(float secondsOverflow, int damage)
     {
         health.Damage(damage);
+        if (textCreator != null)
+        {
+            textCreator.Create(damage, transform.position);
+        }
     }
 }

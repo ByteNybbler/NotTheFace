@@ -758,6 +758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 114023937819720990}
   timers: {fileID: 114866097970011066}
+  textCreator: {fileID: 114000541490162730}
 --- !u!114 &114992128809465342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -785,10 +786,9 @@ MonoBehaviour:
   data:
     identifier: 
     baseHealth: 0
-  refs:
-    room: {fileID: 0}
   timeScale: {fileID: 114285835685244466}
   health: {fileID: 114023937819720990}
+  room: {fileID: 0}
   transforms: {fileID: 114331513787083246}
   prefabFloorSpike: {fileID: 1270621328887568, guid: 3e6611687326a644c803c79a665b32ce,
     type: 2}
