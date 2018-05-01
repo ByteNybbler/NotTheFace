@@ -26,6 +26,8 @@ public class JSONNamedEventReader
         = new Dictionary<string, EventCallback<float>>();
     Dictionary<string, EventCallback<bool>> nameToCallbackBool
         = new Dictionary<string, EventCallback<bool>>();
+    // Node name mapped to description.
+    Dictionary<string, string> nameToDescription = new Dictionary<string, string>();
 
     // Constructor.
     public JSONNamedEventReader(string nameKey)
@@ -34,19 +36,25 @@ public class JSONNamedEventReader
     }
 
     // The callback takes one integer paremeter.
-    public void AddCallbackInt(string nodeName, EventCallback<int> callback)
+    public void AddCallbackInt(string nodeName, EventCallback<int> callback,
+        string description)
     {
         nameToCallbackInt[nodeName] = callback;
+        nameToDescription[nodeName] = description;
     }
     // The callback takes one float parameter.
-    public void AddCallbackFloat(string nodeName, EventCallback<float> callback)
+    public void AddCallbackFloat(string nodeName, EventCallback<float> callback,
+        string description)
     {
         nameToCallbackFloat[nodeName] = callback;
+        nameToDescription[nodeName] = description;
     }
     // The callback takes one boolean parameter.
-    public void AddCallbackBool(string nodeName, EventCallback<bool> callback)
+    public void AddCallbackBool(string nodeName, EventCallback<bool> callback,
+        string description)
     {
         nameToCallbackBool[nodeName] = callback;
+        nameToDescription[nodeName] = description;
     }
 
     // Reads from the given node and returns the resulting NamedEvent.
@@ -73,14 +81,16 @@ public class JSONNamedEventReader
         return currentEvent;
     }
 
-    // Tries to add a callback to the NamedEvent based on the given node name.
+    // Tries to add a single-argument callback to the NamedEvent based on
+    // the given node name.
     // The callback parameter is assigned the value associated with the node.
     private void TryAddCallback<T>(string nodeName, EventCallback<T> callback)
     {
         T value;
         if (nodeReader.TryGet(nodeName, out value))
         {
-            currentEvent.AddCallback(() => callback(value));
+            string description = string.Format(nameToDescription[nodeName], value);
+            currentEvent.AddCallback(() => callback(value), description);
         }
     }
 }

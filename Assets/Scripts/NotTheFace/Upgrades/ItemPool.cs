@@ -25,17 +25,17 @@ public class ItemPool : MonoBehaviour
         JSONNodeReader jsonReader = new JSONNodeReader(fileItems);
 
         JSONNamedEventReader itemReader = new JSONNamedEventReader("identifier");
-        itemReader.AddCallbackInt("health bonus", player.AddMaxHealth);
-        itemReader.AddCallbackInt("tongue damage bonus", player.AddTongueDamage);
-        itemReader.AddCallbackInt("headbutt damage bonus", player.AddHeadbuttDamage);
-        itemReader.AddCallbackInt("laser damage bonus", player.AddLaserDamage);
-        itemReader.AddCallbackInt("contact damage per second bonus", player.AddContactDamagePerSecond);
-        itemReader.AddCallbackInt("damaged explosion damage bonus", player.AddEggExplosionDamage);
-        itemReader.AddCallbackInt("headbutt explosion damage bonus", player.AddHeadbuttExplosionDamage);
-        itemReader.AddCallbackFloat("jump velocity bonus", player.AddJumpVelocity);
-        itemReader.AddCallbackFloat("horizontal acceleration bonus", player.AddHorizontalAcceleration);
-        itemReader.AddCallbackFloat("max horizontal speed bonus", player.AddMaxHorizontalSpeed);
-        itemReader.AddCallbackBool("press down for shield", player.SetHasSoap);
+        itemReader.AddCallbackInt("health bonus", player.AddMaxHealth, "+{0} health");
+        itemReader.AddCallbackInt("tongue damage bonus", player.AddTongueDamage, "+{0} tongue damage");
+        itemReader.AddCallbackInt("headbutt damage bonus", player.AddHeadbuttDamage, "+{0} headbutt damage");
+        itemReader.AddCallbackInt("laser damage bonus", player.AddLaserDamage, "+{0} laser damage");
+        itemReader.AddCallbackInt("contact damage per second bonus", player.AddContactDamagePerSecond, "+{0} contact damage");
+        itemReader.AddCallbackInt("damaged explosion damage bonus", player.AddEggExplosionDamage, "+{0} egg damage...?");
+        itemReader.AddCallbackInt("headbutt explosion damage bonus", player.AddHeadbuttExplosionDamage, "+{0} headbutt explosion damage");
+        itemReader.AddCallbackFloat("jump velocity bonus", player.AddJumpVelocity, "+{0} jump height");
+        itemReader.AddCallbackFloat("horizontal acceleration bonus", player.AddHorizontalAcceleration, "+{0} acceleration");
+        itemReader.AddCallbackFloat("max horizontal speed bonus", player.AddMaxHorizontalSpeed, "+{0} max speed");
+        itemReader.AddCallbackBool("press down for shield", player.SetHasSoap, "Press down for shield");
 
         JSONArrayReader itemsReader = jsonReader.Get<JSONArrayReader>("items");
         JSONNodeReader itemNodeReader;
@@ -51,6 +51,7 @@ public class ItemPool : MonoBehaviour
         }
     }
 
+    // Callback for when the player collects the item.
     private void Claim(NamedEvent item)
     {
         string identifier = item.GetName();
@@ -65,7 +66,7 @@ public class ItemPool : MonoBehaviour
     }
 
     // Returns a collection of items from the pool without removing them.
-    // The index of each item returned will be different.
+    // The index of each returned item will be different.
     public List<NamedEvent> GetRandomItemsUnique(int count)
     {
         return pool.GetRandomElementsUniqueUnclaimed(count);

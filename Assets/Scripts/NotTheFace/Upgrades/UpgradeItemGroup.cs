@@ -43,6 +43,7 @@ public class UpgradeItemGroup : MonoBehaviour
         string itemName = itemPoolItem.GetName();
         item.SetSprite(itemName);
         item.SetItemName(UtilTranslate.ItemName(itemName));
+        item.SetItemProperties(itemPoolItem.GetDescriptionList("\n"));
     }
 
     private void SpawnItems()

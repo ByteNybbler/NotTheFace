@@ -1,5 +1,5 @@
 ﻿// Author(s): Paul Calande
-// A wrapper class for an event which can have a name.
+// A wrapper class for an event which can have a name along with other information.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +13,8 @@ public class NamedEvent
 
     // The name used to identify this event.
     string name;
+    // Each description corresponds to a single callback of this event.
+    List<string> descriptions = new List<string>();
 
     public NamedEvent(string name)
     {
@@ -25,10 +27,20 @@ public class NamedEvent
         return name;
     }
 
-    // Adds a new handler to the event.
-    public void AddCallback(InvokedHandler callback)
+    // Adds a new callback to the event, along with a description of the callback.
+    public void AddCallback(InvokedHandler Callback, string description = "")
     {
-        Invoked += callback;
+        if (description != "")
+        {
+            descriptions.Add(description);
+        }
+        Invoked += Callback;
+    }
+
+    // Returns a list of all callback descriptions.
+    public string GetDescriptionList(string connector)
+    {
+        return UtilString.Connect(connector, descriptions.ToArray());
     }
 
     // Invokes the event.

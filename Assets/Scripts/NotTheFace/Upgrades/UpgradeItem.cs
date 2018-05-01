@@ -18,8 +18,11 @@ public class UpgradeItem : MonoBehaviour
     [Tooltip("Possible sprites.")]
     SOKVStringToSprite sprites;
     [SerializeField]
-    [Tooltip("Text for the item name. For testing purposes.")]
+    [Tooltip("Text for the item name.")]
     Text textItemName;
+    [SerializeField]
+    [Tooltip("Text for the item properties.")]
+    Text textItemProperties;
     [SerializeField]
     [Tooltip("Damage component that triggers the item getting picked up.")]
     TriggerEventDamage2D damageEvent;
@@ -41,6 +44,11 @@ public class UpgradeItem : MonoBehaviour
     public void SetItemName(string itemName)
     {
         textItemName.text = itemName;
+    }
+
+    public void SetItemProperties(string itemProperties)
+    {
+        textItemProperties.text = itemProperties;
     }
 
     private void OnCollected()

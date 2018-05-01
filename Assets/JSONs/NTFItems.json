@@ -29,7 +29,7 @@
 		},
 		{
 			"identifier" : "TopHat",
-			"tongue damage bonus" : 5
+			"tongue damage bonus" : 5,
 			"headbutt damage bonus" : 5
 		},
 		{
@@ -50,12 +50,12 @@
 		},
 		{
 			"identifier" : "PropellerHat",
-			"jump velocity bonus" : 3.0
+			"jump velocity bonus" : 3.0,
 			"headbutt damage bonus" : 5
 		},
 		{
 			"identifier" : "JetPack",
-			"jump velocity bonus" : 3.0
+			"jump velocity bonus" : 3.0,
 			"health bonus" : 25
 		},
 		{
