@@ -72,7 +72,8 @@ public class RPPlayerInput : MonoBehaviour, IControllable
 
         if (!tsGameplay.IsPaused())
         {
-            if (inputReader.GetKeyDown(KeyCode.Space))
+            if (inputReader.GetKeyDown(KeyCode.Space) ||
+                inputReader.GetKeyDown(KeyCode.Return))
             {
                 playerPunch.Punch();
             }

@@ -65,12 +65,7 @@
 		},
 		{
 			"identifier" : "Lipstick",
-			"BLACKLIST" : true,
-			"poison tongue" :
-			{
-				"damage per second" : 2,
-				"number of seconds" : 10.0
-			}
+			"tongue damage bonus" : 5
 		},
 		{
 			"identifier" : "Egg",

@@ -2144,9 +2144,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 848283be11201714987a0dde7829c9e5, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2312,9 +2312,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 848283be11201714987a0dde7829c9e5, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2608,10 +2608,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1903227563611624, guid: 8170a5a7f1bf35349971ac3ad370d7bf, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8170a5a7f1bf35349971ac3ad370d7bf, type: 2}

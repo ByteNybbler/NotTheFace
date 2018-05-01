@@ -2178,6 +2178,8 @@ GameObject:
   m_Component:
   - component: {fileID: 451468526}
   - component: {fileID: 451468527}
+  - component: {fileID: 451468529}
+  - component: {fileID: 451468528}
   m_Layer: 0
   m_Name: HeadTongue
   m_TagString: Untagged
@@ -2242,6 +2244,33 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &451468528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 451468525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c38e0dccb2207428bd8d3bcf1de6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accessor: {fileID: 451468529}
+  connected: {fileID: 451468527}
+  useAsInitialValue: 1
+  leaveAlphaAlone: 0
+--- !u!114 &451468529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 451468525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6895868f12827894ab342f065940ca5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &467837037
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,7 +2749,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2862,7 +2891,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3308,6 +3337,77 @@ MonoBehaviour:
   directions: 0
   radius: 64
   inverted: 0
+--- !u!1 &786717945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 786717946}
+  - component: {fileID: 786717948}
+  - component: {fileID: 786717947}
+  - component: {fileID: 786717949}
+  m_Layer: 0
+  m_Name: Lollipop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &786717946
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 786717945}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1300711446}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &786717947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 786717945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e95e092ca206d4b9ec789dfe4e2757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidEvent: {fileID: 786717948}
+  accessor: {fileID: 451468529}
+  value: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &786717948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 786717945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d604e8484c913a848b7e4c67658df752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &786717949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 786717945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6aa8bba052940f4aa09db889962ed08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidEvent: {fileID: 786717948}
+  animator: {fileID: 1826000886}
+  layerIndex: 1
+  layerWeight: 1
 --- !u!1 &788619906
 GameObject:
   m_ObjectHideFlags: 0
@@ -4660,6 +4760,7 @@ Transform:
   - {fileID: 1801273756}
   - {fileID: 1140345653}
   - {fileID: 1550606251}
+  - {fileID: 786717946}
   m_Father: {fileID: 528562222}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4702,6 +4803,8 @@ MonoBehaviour:
       value: {fileID: 193959961}
     - key: HotSauce
       value: {fileID: 1524167159}
+    - key: Lollipop
+      value: {fileID: 786717945}
 --- !u!1 &1308310574
 GameObject:
   m_ObjectHideFlags: 0
