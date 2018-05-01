@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class VoidEvent : MonoBehaviour
+public class VoidEvent : MonoBehaviour
 {
     // Invoked when the Fire method is called.
     public delegate void FiredHandler();
@@ -19,7 +19,7 @@ public abstract class VoidEvent : MonoBehaviour
     }
 
     // Call this method in derived classes.
-    protected void OnFired()
+    public void OnFired()
     {
         if (Fired != null)
         {
