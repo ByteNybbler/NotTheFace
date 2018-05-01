@@ -1,24 +1,24 @@
 ﻿// Author(s): Paul Calande
-// A script for reading and writing Rigidbody velocity
+// A script with which to read and write velocity
 // while taking the up direction into account.
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RigidbodyVelocityInUpSpace2D : MonoBehaviour
+public class VelocityInUpSpace2D : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("The Rigidbody to read velocity from.")]
-    Rigidbody2D rb;
+    [Tooltip("The component with which to read and write velocity.")]
+    Mover2D mover;
     [SerializeField]
     [Tooltip("The up direction.")]
     UpDirection2D upDirection;
 
-    // Retrieves the rigidbody's velocity relative to up space.
+    // Retrieves the GameObject's velocity relative to up space.
     public Vector2 GetVelocity()
     {
-        return upDirection.SpaceEnter(rb.velocity);
+        return upDirection.SpaceEnter(mover.GetVelocity());
     }
 
     public float GetVelocityX()
@@ -31,9 +31,9 @@ public class RigidbodyVelocityInUpSpace2D : MonoBehaviour
         return GetVelocity().y;
     }
 
-    // Sets the rigidbody's velocity relative to up space.
-    public void SetVelocity(Vector2 velocity)
+    // Sets the GameObject's velocity relative to up space.
+    public void SetVelocity(Vector2 vel)
     {
-        rb.velocity = upDirection.SpaceExit(velocity);
+        mover.SetVelocity(upDirection.SpaceExit(vel));
     }
 }

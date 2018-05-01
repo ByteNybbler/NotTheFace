@@ -16,7 +16,7 @@ public class GroundBasedJump2D : MonoBehaviour
     GroundChecker2D groundChecker;
     [SerializeField]
     [Tooltip("Component to use to apply the jump force.")]
-    RigidbodyVelocityInUpSpace2D vius;
+    VelocityInUpSpace2D vius;
 
     // Makes sure the Rigidbody can't jump repeatedly within consecutive frames.
     // This prevents the jump force from getting too large.

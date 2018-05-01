@@ -1,5 +1,5 @@
 ﻿// Author(s): Paul Calande
-// Spins an object like a wheel based on a Rigidbody's velocity.
+// Spins an object like a wheel based on velocity.
 // Useful for creating ball or ball-like objects that roll along
 // the ground in a convincing way.
 
@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RigidbodyVelocityWheel2D : MonoBehaviour
+public class VelocityWheel2D : MonoBehaviour
 {
     enum Directions
     {
@@ -20,8 +20,8 @@ public class RigidbodyVelocityWheel2D : MonoBehaviour
     [Tooltip("The mover that will perform the rotation.")]
     Mover2D mover;
     [SerializeField]
-    [Tooltip("The Rigidbody to read the velocity of.")]
-    Rigidbody2D rb;
+    [Tooltip("The mover to read the velocity from.")]
+    Mover2D velocityReader;
     [SerializeField]
     [Tooltip("The up direction to use as a directional reference.")]
     UpDirection2D upDirection;
@@ -57,7 +57,7 @@ public class RigidbodyVelocityWheel2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        velocityTransformed = upDirection.SpaceEnter(rb.velocity);
+        velocityTransformed = upDirection.SpaceEnter(velocityReader.GetVelocity());
         switch (directions)
         {
             case Directions.Horizontal:

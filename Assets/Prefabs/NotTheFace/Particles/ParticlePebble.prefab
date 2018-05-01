@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 114652959786593056}
   - component: {fileID: 114980290104041724}
   - component: {fileID: 114627353504026024}
-  - component: {fileID: 50268901973772786}
   - component: {fileID: 114594602603234354}
   - component: {fileID: 114262741538631294}
   - component: {fileID: 114884547235481684}
@@ -51,26 +50,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50268901973772786
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1430635125027006}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &114170626847664068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,7 +89,7 @@ MonoBehaviour:
   timeScale: {fileID: 114980290104041724}
   vius: {fileID: 114627353504026024}
   acceleration: 39.2
-  gravityScale: 1
+  gravityScale: 0.02
 --- !u!114 &114534593481147424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb6731230596a34ca3f8743c0b55aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 50268901973772786}
+  mover: {fileID: 114170626847664068}
   upDirection: {fileID: 114594602603234354}
 --- !u!114 &114652959786593056
 MonoBehaviour:

@@ -86,7 +86,7 @@ public class GroundChecker2D : MonoBehaviour
             }
         }
     }
-
+    
     private void OnGroundLanded()
     {
         if (GroundLanded != null)

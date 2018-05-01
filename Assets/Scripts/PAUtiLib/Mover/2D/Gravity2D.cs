@@ -12,7 +12,7 @@ public class Gravity2D : MonoBehaviour
     TimeScale timeScale;
     [SerializeField]
     [Tooltip("Gravity will be applied in the direction opposite the upwards direction.")]
-    RigidbodyVelocityInUpSpace2D vius;
+    VelocityInUpSpace2D vius;
     [SerializeField]
     [Tooltip("How much acceleration is applied via the gravity.")]
     float acceleration = 39.2f;

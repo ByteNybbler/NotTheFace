@@ -30,6 +30,8 @@ public class Mover2D : MonoBehaviour
     Vector2 differencePosition = Vector2.zero;
     // The total rotation offset accumulated over this FixedUpdate step.
     float differenceRotation = 0.0f;
+    // The velocity of the object.
+    Vector2 velocity = Vector2.zero;
 
     public void OffsetPosition(Vector2 change)
     {
@@ -89,16 +91,59 @@ public class Mover2D : MonoBehaviour
         }
     }
 
+    public void SetVelocity(Vector2 vel)
+    {
+        if (myRigidbody == null)
+        {
+            velocity = vel;
+        }
+        else
+        {
+            if (myRigidbody.isKinematic)
+            {
+                velocity = vel;
+            }
+            else
+            {
+                myRigidbody.velocity = vel;
+            }
+        }
+    }
+
+    public Vector2 GetVelocity()
+    {
+        if (myRigidbody == null)
+        {
+            return velocity;
+        }
+        else
+        {
+            if (myRigidbody.isKinematic)
+            {
+                return velocity;
+            }
+            else
+            {
+                return myRigidbody.velocity;
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
         if (myRigidbody == null)
         {
-            transform.position += new Vector3(differencePosition.x, differencePosition.y);
+            Vector2 difference = differencePosition + velocity;
+            transform.position += new Vector3(difference.x, difference.y);
             transform.rotation *= Quaternion.Euler(0.0f, 0.0f, differenceRotation);
         }
         else
         {
-            myRigidbody.MovePosition(myRigidbody.position + differencePosition);
+            // The dynamic rigidbody handles velocity itself.
+            if (myRigidbody.isKinematic)
+            {
+                myRigidbody.MovePosition(myRigidbody.position + differencePosition + velocity);
+            }
             myRigidbody.MoveRotation(myRigidbody.rotation + differenceRotation);
         }
         differencePosition = Vector2.zero;

@@ -16,7 +16,7 @@ public class InputVariableJump2D : InputDistributed
 {
     [SerializeField]
     [Tooltip("Tracks the direction along which velocity will be removed.")]
-    RigidbodyVelocityInUpSpace2D vius;
+    VelocityInUpSpace2D vius;
     [SerializeField]
     [Tooltip("Reference to the player's gravity component.")]
     Gravity2D gravity;

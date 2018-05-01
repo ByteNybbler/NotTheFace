@@ -14,8 +14,8 @@ public class NTFPlayerHeadbutt : MonoBehaviour
     [Tooltip("Used to check when the player hits the ground to stop headbutts.")]
     GroundChecker2D groundChecker;
     [SerializeField]
-    [Tooltip("Used for checking the Rigidbody's velocity.")]
-    RigidbodyVelocityInUpSpace2D vius;
+    [Tooltip("Used for checking the component's velocity.")]
+    VelocityInUpSpace2D vius;
     [SerializeField]
     [Tooltip("The GameObject to activate when headbutting.")]
     GameObject headbutt;

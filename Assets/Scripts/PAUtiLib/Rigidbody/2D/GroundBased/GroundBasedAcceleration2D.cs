@@ -14,13 +14,13 @@ public class GroundBasedAcceleration2D : MonoBehaviour
     [Tooltip("Component for detecting whether the Rigidbody is grounded or not.")]
     GroundChecker2D groundChecker;
     [SerializeField]
-    [Tooltip("Accelerates the rigidbody perpendicular to the up direction.")]
-    RigidbodyVelocityInUpSpace2D vius;
+    [Tooltip("Accelerates the object perpendicular to the up direction.")]
+    VelocityInUpSpace2D vius;
     [SerializeField]
-    [Tooltip("How quickly the Rigidbody decelerates when on the ground.")]
+    [Tooltip("How quickly the object decelerates when on the ground.")]
     float groundDeceleration;
     [SerializeField]
-    [Tooltip("The maximum speed the Rigidbody has for horizontal movement.")]
+    [Tooltip("The maximum speed the object has for horizontal movement.")]
     float maxHorizontalSpeed;
 
     // The amount of horizontal acceleration accumulated this fixed timestep.

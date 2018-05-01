@@ -5,17 +5,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RigidbodyVelocityHeading2D : MonoBehaviour
+public class VelocityHeading2D : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("The component to use to rotate the object.")]
     RotateGraduallyToAngle2D rotator;
     [SerializeField]
-    [Tooltip("The rigidbody to read the velocity of.")]
-    Rigidbody2D rb;
+    [Tooltip("The component to read the velocity of.")]
+    Mover2D mover;
 
     private void FixedUpdate()
     {
-        rotator.SetAngle(UtilHeading2D.DegreesFromHeadingVector(rb.velocity));
+        rotator.SetAngle(UtilHeading2D.DegreesFromHeadingVector(mover.GetVelocity()));
     }
 }
