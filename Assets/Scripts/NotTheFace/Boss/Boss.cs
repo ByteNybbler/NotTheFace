@@ -98,19 +98,6 @@ public class Boss : MonoBehaviour
     }
     [SerializeField]
     Data data;
-    [System.Serializable]
-    public class Refs
-    {
-        [Tooltip("The room that the boss is in.")]
-        public Room room;
-
-        public Refs(Room room)
-        {
-            this.room = room;
-        }
-    }
-    [SerializeField]
-    Refs refs;
 
     GameObject player;
 
@@ -118,6 +105,9 @@ public class Boss : MonoBehaviour
     TimeScale timeScale;
     [SerializeField]
     Health health;
+    [SerializeField]
+    [Tooltip("The room that the boss is in.")]
+    Room room;
 
     [SerializeField]
     [Tooltip("String identifiers mapped to Transforms.")]
@@ -146,9 +136,10 @@ public class Boss : MonoBehaviour
     {
         data = val;
     }
-    public void SetRefs(Refs val)
+
+    public void SetRoom(Room val)
     {
-        refs = val;
+        room = val;
     }
 
     private void Start()
@@ -177,7 +168,7 @@ public class Boss : MonoBehaviour
     public static void FloorSpike(Boss b, FloorSpike.Data d,
         RuntimeAnimatorController animator, float xPosition)
     {
-        Room room = b.refs.room;
+        Room room = b.room;
         GameObject obj = Instantiate(b.prefabFloorSpike, b.transform);
         FloorSpike fs = obj.GetComponent<FloorSpike>();
         fs.SetData(d);
@@ -191,7 +182,7 @@ public class Boss : MonoBehaviour
     public static void FloorSpikes(Boss b, AttackGroup a, FloorSpike.Data d,
         RuntimeAnimatorController animator, float count)
     {
-        Room room = b.refs.room;
+        Room room = b.room;
         int trueCount = Mathf.FloorToInt(count);
         for (int i = 0; i < trueCount; ++i)
         {

@@ -18,6 +18,8 @@ public class RoomLoop : MonoBehaviour
     }
 
     [SerializeField]
+    TimeScale timeScale;
+    [SerializeField]
     [Tooltip("The item pool for the rooms to use.")]
     ItemPool itemPool;
     [SerializeField]
@@ -108,6 +110,7 @@ public class RoomLoop : MonoBehaviour
 
         MoveForwardByHalfRoomWidth(room);
         GameObject obj = Instantiate(room.prefab, transform.position, Quaternion.identity);
+        obj.GetComponent<TimeScale>().SetData(timeScale);
         Room rm = obj.GetComponent<Room>();
         rm.RoomStarted += Iterate;
         rm.SetItemPool(itemPool);

@@ -1,6 +1,8 @@
 ﻿// Author(s): Paul Calande
 // Script for managing temporary scenes.
 // Permanent scenes are loaded by the GameStarter class.
+// Full scene paths ("Assets/.../.../Scene.unity") should be passed as arguments to
+// the methods of this class. For this, SceneField is useful.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -11,21 +13,26 @@ public class SceneTracker : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("The name of the loading screen scene.")]
-    string sceneLoading;
+    SceneField sceneLoading;
 
     // The name of the current scene.
     string sceneCurrent;
 
+    private string GetActiveScene()
+    {
+        return SceneManager.GetActiveScene().path;
+    }
+
     // Switch to a new temporary scene, unloading the old one.
-    public void SwitchScene(string newScene)
+    public void SwitchScene(string newScenePath)
     {
         string scenePrevious = sceneCurrent;
-        sceneCurrent = newScene;
+        sceneCurrent = newScenePath;
         SceneManager.LoadScene(sceneLoading, LoadSceneMode.Additive);
         if (scenePrevious == null)
         {
-            // If no previous scene exists, just use the scene that called this method.
-            scenePrevious = SceneManager.GetActiveScene().name;
+            // If no previous scene exists, just use the active scene.
+            scenePrevious = GetActiveScene();
         }
         SceneManager.UnloadSceneAsync(scenePrevious).completed += UnloadFinished;
     }
@@ -35,15 +42,15 @@ public class SceneTracker : MonoBehaviour
         LoadScene(sceneCurrent);
     }
 
-    private void LoadScene(string newScene)
+    private void LoadScene(string newScenePath)
     {
-        SceneManager.LoadSceneAsync(newScene, LoadSceneMode.Additive).completed += LoadFinished;
+        SceneManager.LoadSceneAsync(newScenePath, LoadSceneMode.Additive).completed += LoadFinished;
     }
 
     private void LoadFinished(AsyncOperation async)
     {
         SceneManager.UnloadSceneAsync(sceneLoading);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneCurrent));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByPath(sceneCurrent));
     }
     
     // Restarts the current temporary scene.
@@ -51,7 +58,7 @@ public class SceneTracker : MonoBehaviour
     {
         if (sceneCurrent == null)
         {
-            sceneCurrent = SceneManager.GetActiveScene().name;
+            sceneCurrent = GetActiveScene();
         }
         SwitchScene(sceneCurrent);
     }

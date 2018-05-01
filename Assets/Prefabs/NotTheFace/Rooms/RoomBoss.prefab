@@ -1054,6 +1054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4886a93b40c13fe4aa15ab4b66c08ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeScale: {fileID: 114313956545087464}
   doorEntry: {fileID: 0}
   doorExit: {fileID: 0}
   itemPool: {fileID: 0}
@@ -1063,6 +1064,7 @@ MonoBehaviour:
   bottomRight: {fileID: 4605644399147772}
   mcvsStart: {fileID: 114866234948764646}
   mcvsFinish: {fileID: 114591227141992802}
+  bossesKilled: {fileID: 0}
 --- !u!114 &114591227141992802
 MonoBehaviour:
   m_ObjectHideFlags: 1

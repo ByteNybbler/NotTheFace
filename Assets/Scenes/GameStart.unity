@@ -155,8 +155,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   permanentScenes:
-  - ServiceLocator
-  firstTemporaryScene: MenuGameChoose
+  - sceneAsset: {fileID: 102900000, guid: d8b6a386a717a8e49a4771fe7265054a, type: 3}
+    scenePath: Assets/Scenes/ServiceLocator.unity
+  firstTemporaryScene:
+    sceneAsset: {fileID: 102900000, guid: fb23de17893d91b43a5ab0ab95f04344, type: 3}
+    scenePath: Assets/Scenes/MenuGameChoose.unity
 --- !u!81 &1724924681
 AudioListener:
   m_ObjectHideFlags: 0

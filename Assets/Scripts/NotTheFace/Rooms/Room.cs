@@ -21,6 +21,8 @@ public class Room : MonoBehaviour
     Status status = Status.Waiting;
 
     [SerializeField]
+    TimeScale timeScale;
+    [SerializeField]
     [Tooltip("Reference to the entrance of the room.")]
     RoomDoor doorEntry;
     [SerializeField]
@@ -131,6 +133,11 @@ public class Room : MonoBehaviour
     public int GetLoopNumber()
     {
         return loopNumber;
+    }
+
+    public TimeScale GetTimeScale()
+    {
+        return timeScale;
     }
 
     public void SetLoopNumber(int val)

@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 911944382}
   - component: {fileID: 911944378}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BtnBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,8 +404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ab023a607c6c44e8a24a4358817e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newScene:
+    sceneAsset: {fileID: 102900000, guid: fb23de17893d91b43a5ab0ab95f04344, type: 3}
+    scenePath: Assets/Scenes/MenuGameChoose.unity
   voidEvent: {fileID: 911944382}
-  newScene: MenuGameChoose
 --- !u!114 &911944379
 MonoBehaviour:
   m_ObjectHideFlags: 0

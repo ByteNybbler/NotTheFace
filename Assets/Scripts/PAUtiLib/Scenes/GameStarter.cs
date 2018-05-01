@@ -11,10 +11,10 @@ public class GameStarter : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("The names of the first scenes to load.")]
-    string[] permanentScenes;
+    SceneField[] permanentScenes;
     [SerializeField]
     [Tooltip("The first temporary scene to load: essentially the game startup.")]
-    string firstTemporaryScene;
+    SceneField firstTemporaryScene;
 
     private void Awake()
     {

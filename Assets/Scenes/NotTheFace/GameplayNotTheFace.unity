@@ -991,7 +991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &335317078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2170,6 +2170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff942f2f73f9b0428c4ad4b7b0070d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeScale: {fileID: 1411044439}
   itemPool: {fileID: 248976309}
   bossPool: {fileID: 1116674228}
   prefabDoor: {fileID: 1309205331681118, guid: 57cee19d1aa68664f9146251d26aee37, type: 2}
@@ -2742,7 +2743,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 615900289}
-  - component: {fileID: 615900290}
   m_Layer: 5
   m_Name: MenuSummary
   m_TagString: Untagged
@@ -2771,17 +2771,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &615900290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 615900288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd1abbb05eac92b41bf9b1a208f1d1f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &617643086
 GameObject:
   m_ObjectHideFlags: 0
@@ -3851,7 +3840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScale: {fileID: 1411044439}
-  seconds: 3
+  seconds: 2
   loop: 0
   clearOnRun: 0
 --- !u!1 &1047756465
@@ -5933,6 +5922,7 @@ GameObject:
   - component: {fileID: 1754103353}
   - component: {fileID: 1754103352}
   - component: {fileID: 1754103351}
+  - component: {fileID: 1754103354}
   m_Layer: 5
   m_Name: BtnPlayAgain
   m_TagString: Untagged
@@ -5998,8 +5988,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 615900290}
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 1754103354}
+        m_MethodName: Fire
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6044,6 +6034,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1754103349}
+--- !u!114 &1754103354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1754103349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f921a3a84d0c874fb35bb5d0fa07e42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newScene:
+    sceneAsset: {fileID: 102900000, guid: 5ed4aa6da031d6b40bc5d0344e136b28, type: 3}
+    scenePath: Assets/Scenes/NotTheFace/GameplayNotTheFace.unity
 --- !u!1 &1760957799
 GameObject:
   m_ObjectHideFlags: 0
@@ -6417,7 +6421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1816218402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6486,6 +6490,7 @@ GameObject:
   - component: {fileID: 1816838860}
   - component: {fileID: 1816838859}
   - component: {fileID: 1816838858}
+  - component: {fileID: 1816838861}
   m_Layer: 5
   m_Name: BtnMainMenu
   m_TagString: Untagged
@@ -6551,8 +6556,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 615900290}
-        m_MethodName: MainMenu
+      - m_Target: {fileID: 1816838861}
+        m_MethodName: Fire
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6597,6 +6602,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1816838856}
+--- !u!114 &1816838861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1816838856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f921a3a84d0c874fb35bb5d0fa07e42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newScene:
+    sceneAsset: {fileID: 102900000, guid: fb23de17893d91b43a5ab0ab95f04344, type: 3}
+    scenePath: Assets/Scenes/MenuGameChoose.unity
 --- !u!1 &1826000884
 GameObject:
   m_ObjectHideFlags: 0
