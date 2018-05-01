@@ -13,7 +13,7 @@ public class RPScore : MonoBehaviour
     TextAsset scoreFile;
     [SerializeField]
     [Tooltip("Text to use for the score.")]
-    UIValueText textScore;
+    UIValueTextInt textScore;
     [SerializeField]
     TimeScale ts;
     [SerializeField]

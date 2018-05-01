@@ -30,6 +30,7 @@ public class BossSpawner : MonoBehaviour
         Health health = obj.GetComponent<Health>();
         health.Died += room.FinishRoom;
         health.Died += bp.OnDifficultyIncreased;
+        health.Died += room.IncrementBossesKilled;
         bossHealthMeter.SetHealth(health);
         Boss boss = obj.GetComponent<Boss>();
         boss.SetData(bp.GetRandomBoss());

@@ -4,6 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomLoop : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class RoomLoop : MonoBehaviour
     [SerializeField]
     [Tooltip("Reference to the player's health, for assigning to health bars.")]
     Health playerHealth;
+    [SerializeField]
+    [Tooltip("The text to use for displaying how many bosses have been killed so far.")]
+    UIValueTextInt bossesKilled;
     [SerializeField]
     [Tooltip("How many rooms can exist in the loop before old rooms start getting destroyed.")]
     int maxConcurrentRooms;
@@ -125,13 +129,14 @@ public class RoomLoop : MonoBehaviour
         CreateDoor(room, obj.transform);
         rm.SetDoorExit(latestDoor);
         rm.SetLoopNumber(loopNumber);
+        rm.SetBossesKilled(bossesKilled);
 
         rooms.Add(roomNumber, rm);
 
         ++roomNumber;
         loopNumber = roomNumber / 2;
     }
-
+    
     private void DestroyRoom(Room room)
     {
         Destroy(room.gameObject);

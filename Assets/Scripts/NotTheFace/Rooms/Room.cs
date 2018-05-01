@@ -47,6 +47,9 @@ public class Room : MonoBehaviour
     [SerializeField]
     [Tooltip("The music channel volume setter to fire when finishing the room.")]
     MusicChannelVolumeSetter mcvsFinish;
+    [SerializeField]
+    [Tooltip("Text for bosses killed.")]
+    UIValueTextInt bossesKilled;
 
     // How many times the RoomLoop looped through the full cycle of rooms by the time
     // this room was generated.
@@ -141,6 +144,16 @@ public class Room : MonoBehaviour
         {
             playerHealth.SetHealth(health);
         }
+    }
+
+    public void SetBossesKilled(UIValueTextInt val)
+    {
+        bossesKilled = val;
+    }
+
+    public void IncrementBossesKilled()
+    {
+        bossesKilled.AddValue(1);
     }
 
     public Vector3 GetRandomFloorPosition()
