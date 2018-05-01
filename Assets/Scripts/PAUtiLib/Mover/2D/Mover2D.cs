@@ -25,6 +25,9 @@ public class Mover2D : MonoBehaviour
     [Tooltip("Reference to the Rigidbody component to move. No Rigidbody means "
         + "this GameObject's transform will be used instead.")]
     Rigidbody2D myRigidbody;
+    [SerializeField]
+    [Tooltip("Whether or not this mover utilizes rigidbody velocity.")]
+    bool usesRigidbodyVelocity;
 
     // The total position offset accumulated over this FixedUpdate step.
     Vector2 differencePosition = Vector2.zero;
@@ -99,13 +102,13 @@ public class Mover2D : MonoBehaviour
         }
         else
         {
-            if (myRigidbody.isKinematic)
+            if (usesRigidbodyVelocity)
             {
-                velocity = vel;
+                myRigidbody.velocity = vel;
             }
             else
             {
-                myRigidbody.velocity = vel;
+                velocity = vel;
             }
         }
     }
@@ -118,13 +121,13 @@ public class Mover2D : MonoBehaviour
         }
         else
         {
-            if (myRigidbody.isKinematic)
+            if (usesRigidbodyVelocity)
             {
-                return velocity;
+                return myRigidbody.velocity;
             }
             else
             {
-                return myRigidbody.velocity;
+                return velocity;
             }
         }
     }
@@ -140,7 +143,7 @@ public class Mover2D : MonoBehaviour
         else
         {
             // The dynamic rigidbody handles velocity itself.
-            if (myRigidbody.isKinematic)
+            if (!usesRigidbodyVelocity)
             {
                 myRigidbody.MovePosition(myRigidbody.position + differencePosition + velocity);
             }

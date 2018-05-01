@@ -1759,6 +1759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 341930185}
+  usesRigidbodyVelocity: 1
 --- !u!1 &367729719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2035,6 +2036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+  usesRigidbodyVelocity: 0
 --- !u!114 &427366518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2689,6 +2691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+  usesRigidbodyVelocity: 0
 --- !u!1 &549114454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3320,6 +3323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+  usesRigidbodyVelocity: 0
 --- !u!114 &753268725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3451,6 +3455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+  usesRigidbodyVelocity: 0
 --- !u!114 &788619909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3601,6 +3606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+  usesRigidbodyVelocity: 0
 --- !u!114 &830078115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5072,6 +5078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+  usesRigidbodyVelocity: 0
 --- !u!114 &1380110188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6541,6 +6548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+  usesRigidbodyVelocity: 0
 --- !u!114 &1777724630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7159,6 +7167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 0}
+  usesRigidbodyVelocity: 0
 --- !u!114 &1915139496
 MonoBehaviour:
   m_ObjectHideFlags: 0
