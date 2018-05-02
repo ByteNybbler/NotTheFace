@@ -62,7 +62,7 @@
 							"seconds to move to center" : 0.2,
 							"seconds to move to bottom" : 0.8,
 							"damage" : 20,
-							"damage bonus per arena" : 15,
+							"damage bonus per arena" : 5,
 							"damage max" : 10000,
 							"horizontal speed" : 8.0
 						}
@@ -84,7 +84,7 @@
 							"seconds to move to center" : 0.2,
 							"seconds to move to bottom" : 0.8,
 							"damage" : 15,
-							"damage bonus per arena" : 10,
+							"damage bonus per arena" : 5,
 							"damage max" : 10000,
 							"horizontal speed" : 8.0
 						}
