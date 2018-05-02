@@ -13,6 +13,11 @@ public class UpgradeItemGroup : MonoBehaviour
     [SerializeField]
     [Tooltip("The prefab to use for the upgrade items.")]
     GameObject prefabUpgradeItem;
+    /*
+    [SerializeField]
+    [Tooltip("The prefab to use for the item vanish animation.")]
+    GameObject prefabItemVanish;
+    */
     [SerializeField]
     [Tooltip("An array of spawn points to use for upgrade items.")]
     GameObject[] spawnPoints;
@@ -71,6 +76,8 @@ public class UpgradeItemGroup : MonoBehaviour
         foreach (GameObject spawnPoint in spawnPoints)
         {
             Destroy(spawnPoint);
+            //GameObject obj = Instantiate(prefabItemVanish, spawnPoint.transform);
+            //obj.transform.localPosition = Vector3.zero;
         }
         room.FinishRoom();
     }
