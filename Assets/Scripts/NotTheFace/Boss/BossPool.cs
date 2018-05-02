@@ -126,9 +126,9 @@ public class BossPool : MonoBehaviour
                             d, positionName, rac));
 
                         int damageBonusPerArena = attackNodeReader.Get("damage bonus per arena", 0);
-                        int damageMax = attackNodeReader.Get("damage max", 100);
+                        int damageMax = attackNodeReader.Get("damage max", 10000);
                         DifficultyIncreased += () => d.damage =
-                            UtilApproach.Int(d.damage, damageBonusPerArena, damageMax);
+                            UtilApproach.Int(d.damage, damageMax, damageBonusPerArena);
                     }
                     /*
                     else if (identifier == "HorizontalProjectile")

@@ -202,13 +202,10 @@ public class Boss : MonoBehaviour
     }
 
     public static void SpawnOrb(Boss b, AttackGroup a, BossOrb.Data d, string positionName,
-        //string centerName, string bottomName,
         RuntimeAnimatorController animator)
     {
         Transform spawnLocation, center, bottom;
         b.transforms.TryGetValue(positionName, out spawnLocation);
-        //b.transforms.TryGetValue(centerName, out center);
-        //b.transforms.TryGetValue(bottomName, out bottom);
         b.transforms.TryGetValue("CenterTop", out center);
         b.transforms.TryGetValue("CenterBottom", out bottom);
         GameObject obj = Instantiate(b.prefabOrb, spawnLocation);
