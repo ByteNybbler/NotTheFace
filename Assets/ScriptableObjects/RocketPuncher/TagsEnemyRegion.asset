@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagGroup:
     tags:
-    - Enemy
-    - Item
     - EnemyProjectile
+    - Item
+    - Enemy
   inverted: 0
