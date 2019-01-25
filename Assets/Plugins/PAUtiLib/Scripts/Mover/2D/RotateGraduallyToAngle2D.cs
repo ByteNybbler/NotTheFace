@@ -14,22 +14,17 @@ public class RotateGraduallyToAngle2D : MonoBehaviour
     Mover2D mover;
     [SerializeField]
     [Tooltip("The speed at which the object will rotate towards the velocity heading.")]
-    //float degreeChangePerSecond = 720.0f;
     Angle angleChangePerSecond = Angle.FromDegrees(720.0f);
     [SerializeField]
     [Tooltip("The angle offset to use for rotating the sprite.")]
-    //float offsetDegrees;
     Angle angleOffset;
 
     // The degree measure of the target angle to approach.
-    //float targetDegrees = 0.0f;
     Angle angleTarget = Angle.FromDegrees(0.0f);
 
     // Sets the target angle to rotate to.
     public void SetAngle(Angle angleTarget)
-        //float degrees)
     {
-        //targetDegrees = degrees + offsetDegrees;
         this.angleTarget = angleTarget + angleOffset;
     }
 
@@ -37,10 +32,6 @@ public class RotateGraduallyToAngle2D : MonoBehaviour
     {
         mover.TeleportRotation(mover.GetRotation().Approach(
             angleTarget, angleChangePerSecond * timeScale.DeltaTime()));
-        /*
-            UtilApproach.AngleDegrees(mover.GetRotation(),
-            targetDegrees, degreeChangePerSecond * timeScale.DeltaTime()));
-            */
     }
 
     private void FixedUpdate()
