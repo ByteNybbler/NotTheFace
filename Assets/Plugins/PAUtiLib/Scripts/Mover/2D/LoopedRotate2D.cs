@@ -12,13 +12,13 @@ public class LoopedRotate2D : MonoBehaviour
     Mover2D mover;
     [SerializeField]
     [Tooltip("The minimum z value for the transform rotation.")]
-    float rotationMin;
+    Angle rotationMin;
     [SerializeField]
     [Tooltip("The maximum z value for the transform rotation.")]
-    float rotationMax;
+    Angle rotationMax;
     [SerializeField]
     [Tooltip("The speed of the rotation in units per second.")]
-    float rotationSpeed;
+    Angle rotationSpeed;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class LoopedRotate2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float rotationDelta = rotationSpeed * Time.deltaTime;
+        Angle rotationDelta = rotationSpeed * Time.deltaTime;
         mover.OffsetRotation(rotationDelta);
 
         if (mover.GetRotation() >= rotationMax)

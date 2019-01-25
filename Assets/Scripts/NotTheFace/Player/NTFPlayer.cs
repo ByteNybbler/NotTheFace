@@ -26,7 +26,7 @@ public class NTFPlayer : MonoBehaviour
     [SerializeField]
     InstantiatedDamage damageHeadbuttExplosion;
     [SerializeField]
-    MonoPeriodicInt damagePerSecondOfContact;
+    MonoTimedInt damagePerSecondOfContact;
     [SerializeField]
     GroundBasedAcceleration2D gban;
     [SerializeField]
@@ -63,7 +63,7 @@ public class NTFPlayer : MonoBehaviour
         gbj.SetJumpVelocity(jsonP.Get("jump velocity", 20.0f));
         gravity.SetAcceleration(jsonP.Get("gravity", 39.2f));
         InitializeHealth(jsonP.Get("health", 100));
-        invincibilityFrames.SetTargetTime(jsonP.Get(
+        invincibilityFrames.SetSecondsTarget(jsonP.Get(
             "seconds of invincibility when damaged", 1.0f));
         damagePerSecondOfContact.SetSeconds(1.0f);
     }

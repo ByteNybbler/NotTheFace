@@ -27,6 +27,13 @@ public static class UtilPeriodic
         return value;
     }
 
+    // Moves a value to the opposite end of a circle.
+    // This is effectively the same as rotating by 180 degrees.
+    public static float Reverse(float value, IntervalFloat interval)
+    {
+        return MoveIntoInterval(value + interval.GetRadius(), interval);
+    }
+
     // Mirrors a value across the y-axis of a circle.
     public static float MirrorHorizontal(float value, IntervalFloat interval)
     {

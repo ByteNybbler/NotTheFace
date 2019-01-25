@@ -116,7 +116,7 @@ public class RPPlayerPunch : MonoBehaviour
         {
             cooldown = data.secondsOfPunchCooldown;
         }
-        timerPunchCooldown.SetTargetTime(cooldown);
+        timerPunchCooldown.SetSecondsTarget(cooldown);
         moreArmsObject.SetActive(willUseMoreArms);
         meterPunchCooldownVisibility.SetForcedInvisible(willUseMoreArms);
     }
@@ -130,7 +130,7 @@ public class RPPlayerPunch : MonoBehaviour
     // Returns true if the player currently has the More Arms powerup.
     public bool HasMoreArms()
     {
-        return timerPunchCooldown.GetTargetTime() == data.secondsOfMoreArmsPunchCooldown;
+        return timerPunchCooldown.GetSecondsTarget() == data.secondsOfMoreArmsPunchCooldown;
     }
 
     private void AnimateArm()

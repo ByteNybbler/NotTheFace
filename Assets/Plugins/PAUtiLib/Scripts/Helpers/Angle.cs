@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Angle : IDeepCopyable<Angle>
 {
     // The common constant, 2*pi, is the full circumference of the unit circle.
@@ -61,6 +62,11 @@ public class Angle : IDeepCopyable<Angle>
     {
         return Angle.FromRadians(linearVelocity / radius);
     }
+    // Returns the signed angle that faces the end point from the start point.
+    public static Angle FromPoint(Vector2 startPoint, Vector2 endPoint)
+    {
+        return Angle.FromHeadingVector(endPoint - startPoint);
+    }
     /*
     // Returns the angle to a moving point, given the point's velocity and the
     // theoretical projectile's velocity.
@@ -85,6 +91,18 @@ public class Angle : IDeepCopyable<Angle>
     public float GetDegrees()
     {
         return degrees;
+    }
+
+    // Returns the unsigned degree measure of the angle.
+    public float GetDegreesUnsigned()
+    {
+        return UtilPeriodic.MoveIntoInterval(degrees, INTERVAL_UNSIGNED_DEGREES);
+    }
+
+    // Returns the signed degree measure of the angle.
+    public float GetDegreesSigned()
+    {
+        return UtilPeriodic.MoveIntoInterval(degrees, INTERVAL_SIGNED_DEGREES);
     }
 
     // Returns the radian measure of the angle.
@@ -125,6 +143,13 @@ public class Angle : IDeepCopyable<Angle>
     public Angle AddAngle(Angle other)
     {
         degrees += other.GetDegrees();
+        return this;
+    }
+
+    // Rotates the angle by 180 degrees, effectively reversing its direction.
+    public Angle Reverse()
+    {
+        degrees = UtilPeriodic.Reverse(degrees, INTERVAL_UNSIGNED_DEGREES);
         return this;
     }
 
@@ -204,9 +229,33 @@ public class Angle : IDeepCopyable<Angle>
             start.GetDegrees(), end.GetDegrees(), INTERVAL_UNSIGNED_DEGREES);
     }
 
-    // Returns the signed angle (-180 to 180 degrees) from the start point to the end point.
-    public static Angle SignedAngleToPoint(Vector2 startPosition, Vector2 endPosition)
+    // The multiplication operator scales the angle.
+    public static Angle operator *(Angle first, float second)
     {
-        return Angle.FromHeadingVector(endPosition - startPosition);
+        return Angle.FromDegrees(first.degrees * second);
+    }
+
+    // Add two angles together, combining their measures.
+    public static Angle operator +(Angle first, Angle second)
+    {
+        return Angle.FromDegrees(first.degrees + second.degrees);
+    }
+
+    // Angle measure comparisons.
+    public static bool operator >=(Angle first, Angle second)
+    {
+        return first.GetDegrees() >= second.GetDegrees();
+    }
+    public static bool operator <=(Angle first, Angle second)
+    {
+        return first.GetDegrees() <= second.GetDegrees();
+    }
+    public static bool operator >(Angle first, Angle second)
+    {
+        return first.GetDegrees() > second.GetDegrees();
+    }
+    public static bool operator <(Angle first, Angle second)
+    {
+        return first.GetDegrees() < second.GetDegrees();
     }
 }

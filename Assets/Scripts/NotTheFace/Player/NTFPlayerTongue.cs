@@ -73,7 +73,7 @@ public class NTFPlayerTongue : MonoBehaviour
             tongue.transform.localScale = scale;
             tongue.SetActive(true);
             animator.SetTrigger(hashLick);
-            tongueHeadRotator.SetAngle(UtilHeading2D.DegreesFromBoolean(right));
+            tongueHeadRotator.SetAngle(Angle.FromDegrees(right ? 180.0f : 0.0f));
             normalRotators.SetActive(false);
         }
     }

@@ -93,15 +93,15 @@ public class Mover2D : MonoBehaviour
     }
 
     // Returns the mover's rotation in degrees.
-    public float GetRotation()
+    public Angle GetRotation()
     {
         if (myRigidbody == null)
         {
-            return transform.rotation.eulerAngles.z;
+            return Angle.FromDegrees(transform.rotation.eulerAngles.z);
         }
         else
         {
-            return myRigidbody.rotation;
+            return Angle.FromDegrees(myRigidbody.rotation);
         }
     }
 

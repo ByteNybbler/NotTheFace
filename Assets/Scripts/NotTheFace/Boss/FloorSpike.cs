@@ -100,7 +100,7 @@ public class FloorSpike : MonoBehaviour
         GameObject warning = Instantiate(data.prefabWarning, transform);
         warning.transform.position = transform.position + Vector3.up * warningHeight;
         // Set the destroy time for the floor spike warning.
-        warning.GetComponent<MonoTimer>().SetTargetTime(data.secondsOfWarning);
+        warning.GetComponent<MonoTimer>().SetSecondsTarget(data.secondsOfWarning);
         damage.Add(data.damage);
         heightToRise = UtilRandom.RangeWithCenter(data.heightToRise, data.heightToRiseVariance);
     }

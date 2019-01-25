@@ -90,7 +90,8 @@ public class EnemyAttack : MonoBehaviour
                 if (volley.aimAtPlayer)
                 {
                     Vector3 playerPos = data.refs.player.transform.position;
-                    angle += UtilHeading2D.SignedAngleToPoint(transform.position, playerPos);
+                    angle += Angle.FromPoint(transform.position, playerPos).GetDegrees();
+                        //UtilHeading2D.SignedAngleToPoint(transform.position, playerPos);
                 }
             }
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);

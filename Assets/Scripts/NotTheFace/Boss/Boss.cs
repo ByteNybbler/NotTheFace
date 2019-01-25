@@ -48,7 +48,7 @@ public class Boss : MonoBehaviour
 
         public void StartCooldown()
         {
-            timerCooldown.SetTargetTime(UtilRandom.RangeWithCenter(secondsOfCooldown,
+            timerCooldown.SetSecondsTarget(UtilRandom.RangeWithCenter(secondsOfCooldown,
                 secondsOfCooldownVariance));
             timerCooldown.Run();
         }
@@ -56,7 +56,7 @@ public class Boss : MonoBehaviour
         public void SetSecondsOfCooldown(float seconds)
         {
             secondsOfCooldown = seconds;
-            timerCooldown.SetTargetTime(seconds);
+            timerCooldown.SetSecondsTarget(seconds);
         }
 
         public float GetSecondsOfCooldown()

@@ -71,7 +71,8 @@ public class EnemyProjectile : MonoBehaviour
     private void Start()
     {
         velocity.SetVelocity(
-            UtilHeading2D.HeadingVectorFromDegrees(data.angle) * data.speed);
+            Angle.FromDegrees(data.angle).GetHeadingVector() * data.speed);
+            //UtilHeading2D.HeadingVectorFromDegrees(data.angle) * data.speed);
         SetColor(data.color);
     }
 
@@ -79,7 +80,9 @@ public class EnemyProjectile : MonoBehaviour
     {
         data.angle = angleDegrees;
         data.speed = speed;
-        velocity.SetVelocity(UtilHeading2D.HeadingVectorFromDegrees(angleDegrees) * speed);
+        velocity.SetVelocity(
+            Angle.FromDegrees(angleDegrees).GetHeadingVector() * speed);
+            //UtilHeading2D.HeadingVectorFromDegrees(angleDegrees) * speed);
     }
 
     public void SetColor(Color val)
